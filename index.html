@@ -89,36 +89,40 @@
             border-radius: 2px;
         }
 
-        /* Scroll Gif Styles */
-        .scroll-gif-left, .scroll-gif-right {
+        /* Cute Emoji Scroll Styles */
+        .scroll-emoji-left, .scroll-emoji-right {
             position: fixed;
-            bottom: -150px;
-            width: 100px;
-            height: 100px;
+            bottom: -100px;
+            font-size: 60px;
             z-index: 999;
-            transition: bottom 0.8s ease-out;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             pointer-events: none;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
 
-        .scroll-gif-left {
-            left: 20px;
+        .scroll-emoji-left {
+            left: 30px;
         }
 
-        .scroll-gif-right {
-            right: 20px;
+        .scroll-emoji-right {
+            right: 30px;
         }
 
-        .scroll-gif-left img, .scroll-gif-right img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        /* Bounce animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        .active-emoji {
+            bottom: 30px;
+            animation: bounce 1s infinite;
         }
 
         @media (max-width: 1000px) {
             body { padding: 10px; }
             th, td { padding: 8px 4px; font-size: 14px; }
-            .scroll-gif-left, .scroll-gif-right {
+            .scroll-emoji-left, .scroll-emoji-right {
                 display: none;
             }
         }
@@ -225,34 +229,28 @@ int main() {         // main function, execution starts here
         <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
     </div>
 
-    <!-- Scroll Gif - Left Side -->
-    <div class="scroll-gif-left">
-        <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" alt="Coding cat" id="leftGif">
-    </div>
-
-    <!-- Scroll Gif - Right Side -->
-    <div class="scroll-gif-right">
-        <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" alt="Study bear" id="rightGif">
-    </div>
+    <!-- Cute Scroll Emojis -->
+    <div class="scroll-emoji-left">🚀</div>
+    <div class="scroll-emoji-right">💻</div>
 
     <script>
     window.addEventListener('scroll', function() {
         let scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-        let leftGif = document.querySelector('.scroll-gif-left');
-        let rightGif = document.querySelector('.scroll-gif-right');
+        let leftEmoji = document.querySelector('.scroll-emoji-left');
+        let rightEmoji = document.querySelector('.scroll-emoji-right');
         
-        // 20% scroll pannuna left gif mela varum
+        // 20% scroll pannuna left emoji mela varum + bounce aagum
         if (scrollPercent > 20) {
-            leftGif.style.bottom = '20px';
+            leftEmoji.classList.add('active-emoji');
         } else {
-            leftGif.style.bottom = '-150px';
+            leftEmoji.classList.remove('active-emoji');
         }
         
-        // 50% scroll pannuna right gif mela varum
+        // 50% scroll pannuna right emoji mela varum + bounce aagum
         if (scrollPercent > 50) {
-            rightGif.style.bottom = '20px';
+            rightEmoji.classList.add('active-emoji');
         } else {
-            rightGif.style.bottom = '-150px';
+            rightEmoji.classList.remove('active-emoji');
         }
     });
     </script>

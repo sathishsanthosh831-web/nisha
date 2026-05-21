@@ -29,6 +29,11 @@
             margin-top: 40px;
         }
 
+        h3 {
+            color: #1a73e8;
+            margin-top: 25px;
+        }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -280,6 +285,191 @@ int main() {         // main function, execution starts here
 
         <p><b>Note:</b> C++ and Java are "Hybrid OOP" - procedure + OOP rendu support pannum. Smalltalk is "Pure OOP" - ellame object dhan.</p>
 
+        <h2>I/O in C++ - Input and Output</h2>
+        <p>C la <code>printf</code> and <code>scanf</code> use pannom. C++ la <code>cout</code> and <code>cin</code> use panrom. Rendum <code>&lt;iostream&gt;</code> header file la iruku.</p>
+
+        <h3>1. Output - cout</h3>
+        <p><b>cout</b> = Console Output. Screen la print panna use aagum. <code>&lt;&lt;</code> idhu Insertion Operator.</p>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout << "Hello World";  // Output: Hello World
+    cout << 100;            // Output: 100
+    cout << "Age: " << 20;  // Output: Age: 20
+    cout << endl;           // New line ku pogum
+    return 0;
+}
+</pre>
+
+        <h3>2. Input - cin</h3>
+        <p><b>cin</b> = Console Input. User kitta irundhu value vaanga use aagum. <code>&gt;&gt;</code> idhu Extraction Operator.</p>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;  // User type pannura value age la save aagum
+    cout << "Your age is: " << age;
+    return 0;
+}
+</pre>
+
+        <h3>3. endl vs \n</h3>
+        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
+            <tr style="background:#1a73e8; color:white;">
+                <th style="padding:10px; border:1px solid #ddd;">endl</th>
+                <th style="padding:10px; border:1px solid #ddd;">\n</th>
+            </tr>
+            <tr>
+                <td style="padding:10px; border:1px solid #ddd;">New line + output buffer flush pannum</td>
+                <td style="padding:10px; border:1px solid #ddd;">New line mattum, flush pannadhu</td>
+            </tr>
+            <tr style="background:#f9f9f9;">
+                <td style="padding:10px; border:1px solid #ddd;">Slow, aana safe</td>
+                <td style="padding:10px; border:1px solid #ddd;">Fast</td>
+            </tr>
+        </table>
+
+        <h2>C++ Declarations - Variables & Constants</h2>
+        <p>Program la data store panna variables and constants use panrom.</p>
+
+        <h3>1. Variable Declaration</h3>
+        <p><b>Syntax:</b> <code>data_type variable_name = value;</code></p>
+        <pre>
+int age = 20;           // Integer variable
+float price = 99.5;     // Decimal variable  
+char grade = 'A';       // Single character
+string name = "Ravi";   // Text - string use panna #include &lt;string&gt; venum
+bool isPass = true;     // true or false
+</pre>
+
+        <h3>2. Data Types in C++</h3>
+        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
+            <tr style="background:#1a73e8; color:white;">
+                <th style="padding:10px; border:1px solid #ddd;">Data Type</th>
+                <th style="padding:10px; border:1px solid #ddd;">Size</th>
+                <th style="padding:10px; border:1px solid #ddd;">Example</th>
+                <th style="padding:10px; border:1px solid #ddd;">Use</th>
+            </tr>
+            <tr>
+                <td style="padding:10px; border:1px solid #ddd;"><b>int</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">4 bytes</td>
+                <td style="padding:10px; border:1px solid #ddd;">int a = 10;</td>
+                <td style="padding:10px; border:1px solid #ddd;">Whole numbers</td>
+            </tr>
+            <tr style="background:#f9f9f9;">
+                <td style="padding:10px; border:1px solid #ddd;"><b>float</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">4 bytes</td>
+                <td style="padding:10px; border:1px solid #ddd;">float b = 3.14;</td>
+                <td style="padding:10px; border:1px solid #ddd;">Decimal - 6 digits</td>
+            </tr>
+            <tr>
+                <td style="padding:10px; border:1px solid #ddd;"><b>double</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">8 bytes</td>
+                <td style="padding:10px; border:1px solid #ddd;">double c = 3.14159;</td>
+                <td style="padding:10px; border:1px solid #ddd;">Decimal - 15 digits</td>
+            </tr>
+            <tr style="background:#f9f9f9;">
+                <td style="padding:10px; border:1px solid #ddd;"><b>char</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">1 byte</td>
+                <td style="padding:10px; border:1px solid #ddd;">char d = 'X';</td>
+                <td style="padding:10px; border:1px solid #ddd;">Single character</td>
+            </tr>
+            <tr>
+                <td style="padding:10px; border:1px solid #ddd;"><b>bool</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">1 byte</td>
+                <td style="padding:10px; border:1px solid #ddd;">bool e = true;</td>
+                <td style="padding:10px; border:1px solid #ddd;">true/false</td>
+            </tr>
+        </table>
+
+        <h3>3. Constants - const keyword</h3>
+        <p><code>const</code> use panna value ah change panna mudiyadhu. Fixed value ku use aagum.</p>
+        <pre>
+const float PI = 3.14;  // PI value maatha mudiyadhu
+PI = 3.15;              // Error varum
+</pre>
+
+        <h2>Control Structures in C++</h2>
+        <p>Program flow ah control panna use aagum. 3 types: Sequential, Selection, Iteration.</p>
+
+        <h3>1. Selection Statements - if, if-else, switch</h3>
+        <p><b>if-else Example:</b></p>
+        <pre>
+int marks = 75;
+if (marks >= 50) {
+    cout << "Pass";
+} else {
+    cout << "Fail";
+}
+// Output: Pass
+</pre>
+
+        <p><b>switch Example:</b></p>
+        <pre>
+int day = 3;
+switch(day) {
+    case 1: cout << "Monday"; break;
+    case 2: cout << "Tuesday"; break;
+    case 3: cout << "Wednesday"; break;
+    default: cout << "Invalid";
+}
+// Output: Wednesday
+</pre>
+
+        <h3>2. Iteration Statements - Loops</h3>
+        <p><b>for loop:</b> How many times run aaganum nu theriyum na use pannu.</p>
+        <pre>
+// Print 1 to 5
+for(int i = 1; i <= 5; i++) {
+    cout << i << " ";
+}
+// Output: 1 2 3 4 5
+</pre>
+
+        <p><b>while loop:</b> Condition true ah irukura varaikum run aagum.</p>
+        <pre>
+int i = 1;
+while(i <= 5) {
+    cout << i << " ";
+    i++;
+}
+// Output: 1 2 3 4 5
+</pre>
+
+        <p><b>do-while loop:</b> Minimum 1 time run aagum, aprm condition check pannum.</p>
+        <pre>
+int i = 1;
+do {
+    cout << i << " ";
+    i++;
+} while(i <= 5);
+// Output: 1 2 3 4 5
+</pre>
+
+        <h3>3. Jump Statements - break, continue</h3>
+        <p><b>break:</b> Loop ah udane stop pannum.</p>
+        <pre>
+for(int i = 1; i <= 10; i++) {
+    if(i == 5) break;  // i=5 vandha loop stop
+    cout << i << " ";
+}
+// Output: 1 2 3 4
+</pre>
+
+        <p><b>continue:</b> Andha iteration ah skip pannum, next iteration ku pogum.</p>
+        <pre>
+for(int i = 1; i <= 5; i++) {
+    if(i == 3) continue;  // i=3 skip aagum
+    cout << i << " ";
+}
+// Output: 1 2 4 5
+</pre>
+
         <h2>Key Concepts of Object-Oriented Programming (OOP) - Detailed</h2>
         <p>Object-Oriented Programming is a programming style based on the concept of "objects". An object contains both data and functions that operate on that data. The 4 main pillars of OOP make C++ powerful for large software development.</p>
 
@@ -486,6 +676,8 @@ int main() {
             <li>
                 <b>3. Data Security - Protection from Outside Access</b><br>
                 <b>Explanation:</b> Using encapsulation, we can hide important data using <code>private</code> keyword. Only public functions can access it.<br>
+                <b>Real Life Example:</b> ATM machine. You cannot directly take money from machine. You must use card + PIN.<br>
+                                <b>Explanation:</b> Using encapsulation, we can hide important data using <code>private</code> keyword. Only public functions can access it.<br>
                 <b>Real Life Example:</b> ATM machine. You cannot directly take money from machine. You must use card + PIN.<br>
                 <b>Benefit:</b> Prevents accidental data changes and unauthorized access. Program becomes more safe.
             </li>

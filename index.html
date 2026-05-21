@@ -143,7 +143,8 @@
             <p id="errorMsg" style="color: red; margin-top: 15px; display: none;">❌ Wrong Username or Password!</p>
         </div>
     </div>
-    <div id="mainContent">
+
+    <div id="mainContent" style="display: none;">
     <div class="container">
         <h1>Government Services - Official Links</h1>
         <!-- C++ Live Data Start -->
@@ -152,34 +153,8 @@
 <div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
   Loading data...
 </div>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-  const firebaseConfig = {
-    databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const studentsRef = ref(db, 'students');
-
-  onValue(studentsRef, (snapshot) => {
-    const data = snapshot.val();
-    const liveDiv = document.getElementById('liveData');
-    if (data) {
-      const keys = Object.keys(data);
-      const lastKey = keys[keys.length - 1];
-      const student = data[lastKey];
-      liveDiv.innerHTML = `Name: ${student.name} | RollNo: ${student.rollno} | Mark: ${student.mark}`;
-    } else {
-      liveDiv.innerHTML = "Innum data varala da...";
-    }
-  });
-</script>
 <!-- C++ Live Data End -->
-        
+
         <div class="table-container">
             <table>
                 <tr>
@@ -216,22 +191,6 @@
   <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
   <ul id="data-ul" style="font-size: 18px;"></ul>
 </div>
-
-<script>
-  firebase.database().ref('students').on('value', (snapshot) => {
-    const data = snapshot.val();
-    const ul = document.getElementById('data-ul');
-    ul.innerHTML = '';
-    if(data){
-      for (let id in data) {
-        let s = data[id];
-        ul.innerHTML += `<li style="margin: 10px 0;"><b>Name:</b> ${s.name} | <b>RollNo:</b> ${s.rollno} | <b>Mark:</b> ${s.mark}</li>`;
-      }
-    } else {
-      ul.innerHTML = '<li style="color: red;">C++ la irundhu data innum varala... Run pannu da!</li>';
-    }
-  });
-</script>
 
         <h1>UNIT I - Introduction to C++</h1>
 
@@ -296,7 +255,7 @@ int main() {         // main function, execution starts here
 
         <h2>Popular Object-Oriented Languages</h2>
         <p>C++ mattum illa da, indha languages lam OOP support pannudhu. Exam la "List OOP Languages" nu ketta idha ezhudhu:</p>
-        
+
         <table style="width:100%; border-collapse:collapse; margin:15px 0;">
             <tr style="background:#1a73e8; color:white;">
                 <th style="padding:10px; border:1px solid #ddd;">Language</th>
@@ -602,6 +561,7 @@ for(int i = 1; i <= 3; i++) {
 /* Output:
 * * * 
 * * * 
+* * *
 */
 </pre>
 
@@ -756,7 +716,7 @@ int main() {
         <h3>Rules for Overloading</h3>
         <ol>
             <li>Function name same ah irukanum</li>
-            <li>Parameters count vera irukanum, or</li>
+                        <li>Parameters count vera irukanum, or</li>
             <li>Parameters data type vera irukanum</li>
             <li>Return type mattum vera irundha podhadhu - Error varum</li>
         </ol>
@@ -775,8 +735,8 @@ int add(int a, int b, int c) {
 }
 
 int main() {
-    cout << add(5, 3) << endl;      // Output: 8 - calls 1st function
-    cout << add(5, 3, 2) << endl;   // Output: 10 - calls 2nd function
+    cout << add(5, 3) << endl; // Output: 8 - calls 1st function
+    cout << add(5, 3, 2) << endl; // Output: 10 - calls 2nd function
     return 0;
 }
 </pre>
@@ -799,9 +759,9 @@ string add(string a, string b) {
 }
 
 int main() {
-    cout << add(5, 3) << endl;           // Output: 8
-    cout << add(5.5, 3.2) << endl;       // Output: 8.7
-    cout << add("Hello", "World");       // Output: HelloWorld
+    cout << add(5, 3) << endl; // Output: 8
+    cout << add(5.5, 3.2) << endl; // Output: 8.7
+    cout << add("Hello", "World"); // Output: HelloWorld
     return 0;
 }
 </pre>
@@ -821,7 +781,7 @@ int main() {
         <p><b>Class:</b> A class is a blueprint or template. It does not occupy memory. Example: The design plan of a house.</p>
         <p><b>Object:</b> An object is an instance of a class. It occupies memory. Example: The actual house built using the design plan.</p>
         <pre>
-class Student {        // Class - Blueprint
+class Student { // Class - Blueprint
     public:
         string name;
         int rollNo;
@@ -831,7 +791,7 @@ class Student {        // Class - Blueprint
 };
 
 int main() {
-    Student s1;        // Object - Real entity
+    Student s1; // Object - Real entity
     s1.name = "Ravi";
     s1.rollNo = 101;
     s1.display();
@@ -845,13 +805,13 @@ int main() {
         <pre>
 class BankAccount {
     private:
-        double balance;  // Data is hidden - cannot access directly
-        
+        double balance; // Data is hidden - cannot access directly
+
     public:
-        void setBalance(double b) {  // Setter function
+        void setBalance(double b) { // Setter function
             if(b >= 0) balance = b;
         }
-        double getBalance() {        // Getter function
+        double getBalance() { // Getter function
             return balance;
         }
 };
@@ -866,7 +826,7 @@ class BankAccount {
         <p><b>Real Life Example:</b> A "Car" is a type of "Vehicle". Vehicle has common properties like speed, color. Car inherits these properties and also has its own properties like number of doors, AC.</p>
         <p><b>Types of Inheritance in C++:</b> Single, Multiple, Multilevel, Hierarchical, Hybrid.</p>
         <pre>
-class Vehicle {          // Base Class
+class Vehicle { // Base Class
     public:
         int speed;
         void run() {
@@ -874,7 +834,7 @@ class Vehicle {          // Base Class
         }
 };
 
-class Car : public Vehicle {  // Derived Class - inherits Vehicle
+class Car : public Vehicle { // Derived Class - inherits Vehicle
     public:
         int doors;
         void honk() {
@@ -884,10 +844,10 @@ class Car : public Vehicle {  // Derived Class - inherits Vehicle
 
 int main() {
     Car c1;
-    c1.speed = 100;  // Inherited from Vehicle
-    c1.doors = 4;    // Own property
-    c1.run();        // Inherited function
-    c1.honk();       // Own function
+    c1.speed = 100; // Inherited from Vehicle
+    c1.doors = 4; // Own property
+    c1.run(); // Inherited function
+    c1.honk(); // Own function
 }
 </pre>
         <p><b>Main Benefits:</b><br>
@@ -938,7 +898,7 @@ class Dog : public Animal {
         <p><b>Real Life Example:</b> When you use a TV remote, you just press the power button. You don't need to know the circuit board, infrared signal, or internal wiring. That complexity is hidden from you.</p>
         <p><b>How C++ Achieves It:</b> Using Abstract Classes and Interfaces. An abstract class has at least one pure virtual function. You cannot create an object of an abstract class.</p>
         <pre>
-class Shape {  // Abstract class
+class Shape { // Abstract class
     public:
         virtual void draw() = 0; // Pure virtual function
 };
@@ -952,9 +912,9 @@ class Circle : public Shape {
 };
 
 int main() {
-    // Shape s;  // Error: Cannot create object of abstract class
+    // Shape s; // Error: Cannot create object of abstract class
     Circle c;
-    c.draw();    // User just calls draw(), complexity is hidden
+    c.draw(); // User just calls draw(), complexity is hidden
 }
 </pre>
         <p><b>Main Benefits:</b><br>
@@ -1080,7 +1040,7 @@ int main() {
         </table>
 
         <p><b>Why Companies Use OOP:</b> Google, Microsoft, Game companies all use C++/Java OOP. Because they build software used by millions of people. OOP helps them manage huge code, add new features fast, and keep data safe.</p>
-        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>        
+        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
     <div class="divider"></div>
 
 <h1>UNIT II - Classes and Objects - Complete Theory</h1>
@@ -1468,6 +1428,8 @@ int add(A objA, B objB) { // A oda object and B oda object argument ah vaangudhu
     return objA.valueA + objB.valueB; // A oda valueA + B oda valueB = 10 + 20 = 30
 }
 
+}
+
 int main() {
     A objectA; // Class A ku object
     B objectB; // Class B ku object
@@ -1479,18 +1441,18 @@ int main() {
 }
 </pre>
 
-<h2>7. Function Overloading - Complete Concept</h2>
-<p><b>Definition:</b> Function Overloading is a feature where two or more functions can have same name but different parameters. It is an example of Compile-time Polymorphism.</p>
+        <h2>7. Function Overloading - Complete Concept</h2>
+        <p><b>Definition:</b> Function Overloading is a feature where two or more functions can have same name but different parameters. It is an example of Compile-time Polymorphism.</p>
 
-<p><b>Rules for Function Overloading:</b></p>
-<ol>
-    <li>Functions must have same name.</li>
-    <li>Parameters must differ in: a) Number of parameters b) Type of parameters c) Sequence of parameters</li>
-    <li>Return type alone cannot differentiate overloaded functions.</li>
-    <li>const and volatile can differentiate.</li>
-</ol>
+        <p><b>Rules for Function Overloading:</b></p>
+        <ol>
+            <li>Functions must have same name.</li>
+            <li>Parameters must differ in: a) Number of parameters b) Type of parameters c) Sequence of parameters</li>
+            <li>Return type alone cannot differentiate overloaded functions.</li>
+            <li>const and volatile can differentiate.</li>
+        </ol>
 
-<pre>
+        <pre>
 // Function Overloading Example - Area Calculation
 #include &lt;iostream&gt;
 using namespace std;
@@ -1537,28 +1499,28 @@ int main() {
 }
 </pre>
 
-<h2>8. Bit Fields - Complete Theory</h2>
-<p><b>Definition:</b> Bit fields allow packing of data in a structure. Used to save memory when we know that value will not exceed certain limit.</p>
+        <h2>8. Bit Fields - Complete Theory</h2>
+        <p><b>Definition:</b> Bit fields allow packing of data in a structure. Used to save memory when we know that value will not exceed certain limit.</p>
 
-<p><b>Syntax:</b> <code>data_type member_name : width;</code></p>
-<p><b>Where width = number of bits to use</b></p>
+        <p><b>Syntax:</b> <code>data_type member_name : width;</code></p>
+        <p><b>Where width = number of bits to use</b></p>
 
-<p><b>Advantages:</b></p>
-<ol>
-    <li>Memory saving - Important in embedded systems</li>
-    <li>Used in device drivers and network protocols</li>
-    <li>Used for flags - ON/OFF, TRUE/FALSE</li>
-</ol>
+        <p><b>Advantages:</b></p>
+        <ol>
+            <li>Memory saving - Important in embedded systems</li>
+            <li>Used in device drivers and network protocols</li>
+            <li>Used for flags - ON/OFF, TRUE/FALSE</li>
+        </ol>
 
-<p><b>Disadvantages:</b></p>
-<ol>
-    <li>Cannot have address - & operator not allowed</li>
-    <li>Cannot create array of bit fields</li>
-    <li>Machine dependent - size may vary</li>
-    <li>Slower access than normal variables</li>
-</ol>
+        <p><b>Disadvantages:</b></p>
+        <ol>
+            <li>Cannot have address - & operator not allowed</li>
+            <li>Cannot create array of bit fields</li>
+            <li>Machine dependent - size may vary</li>
+            <li>Slower access than normal variables</li>
+        </ol>
 
-<pre>
+        <pre>
 // Bit Fields Example - Date Storage
 #include &lt;iostream&gt;
 using namespace std;
@@ -1609,1255 +1571,149 @@ int main() {
 }
 </pre>
 
-<h2>9. Constructors and Destructors - Complete Theory</h2>
-
-<h3>9.1 Constructor - Detailed</h3>
-<p><b>Definition:</b> Constructor is a special member function that is automatically invoked when an object is created. Used to initialize object.</p>
-
-<p><b>Characteristics:</b></p>
-<ol>
-    <li>Same name as class name.</li>
-    <li>No return type, not even void.</li>
-    <li>Called automatically when object is created.</li>
-    <li>Can be overloaded - Multiple constructors possible.</li>
-    <li>Can have default arguments.</li>
-    <li>Cannot be virtual.</li>
-    <li>Cannot be inherited, but derived class can call base class constructor.</li>
-</ol><li>What is destructor?</li>
-    <li>Symbol of destructor?</li>
-    <li>Keyword for friend function?</li>
-    <li>What is static member?</li>
-    <li>Can constructor be overloaded?</li>
-    <li>Can destructor be overloaded?</li>
-    <li>What is bit field?</li>
-</ol>
-
-<p><b>Part B - 5 Mark Questions:</b></p>
-<ol>
-    <li>Explain class and object with example.</li>
-    <li>Explain two ways of defining member functions.</li>
-    <li>What is static data member? Explain with example.</li>
-    <li>Explain friend function with its characteristics.</li>
-    <li>What is function overloading? Explain with example.</li>
-    <li>Explain bit fields with example. Write advantages.</li>
-</ol>
-
-<p><b>Part C - 10 Mark Questions:</b></p>
-<ol>
-    <li>Explain constructor and destructor in detail with example. Write differences.</li>
-    <li>Explain static members with example. Write properties of static function.</li>
-    <li>Explain array of objects with example program.</li>
-    <li>What is friend function? Explain with example. Write when to use friend function.</li>
-</ol>
-
-<h2>12. Quick Revision Points - Last Minute Study</h2>
-<table style="width:100%; border-collapse:collapse; margin:15px 0;">
-    <tr style="background:#34a853; color:white;">
-        <th style="padding:10px; border:1px solid #ddd;">Concept</th>
-        <th style="padding:10px; border:1px solid #ddd;">Key Points to Remember</th>
-    </tr>
-    <tr>
-        <td style="padding:10px; border:1px solid #ddd;"><b>Class</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">Blueprint, No memory, Logical entity, private/public/protected</td>
-    </tr>
-    <tr style="background:#f9f9f9;">
-        <td style="padding:10px; border:1px solid #ddd;"><b>Object</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">Instance of class, Has memory, Physical entity, State+Behavior</td>
-    </tr>
-    <tr>
-        <td style="padding:10px; border:1px solid #ddd;"><b>Constructor</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">Same name as class, No return type, Auto call, Can overload</td>
-    </tr>
-    <tr style="background:#f9f9f9;">
-        <td style="padding:10px; border:1px solid #ddd;"><b>Destructor</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">~ClassName, No parameters, Auto call, Only one, Cleanup</td>
-    </tr>
-    <tr>
-        <td style="padding:10px; border:1px solid #ddd;"><b>Static</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">One copy, Shared, Define outside, Access with class name</td>
-    </tr>
-    <tr style="background:#f9f9f9;">
-        <td style="padding:10px; border:1px solid #ddd;"><b>Friend</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">Not member, Access private, No this pointer, friend keyword</td>
-    </tr>
-    <tr>
-        <td style="padding:10px; border:1px solid #ddd;"><b>Overloading</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">Same name, Different params, Compile-time polymorphism</td>
-    </tr>
-    <tr style="background:#f9f9f9;">
-        <td style="padding:10px; border:1px solid #ddd;"><b>Bit Field</b></td>
-        <td style="padding:10px; border:1px solid #ddd;">Save memory, Syntax: int x:5, For flags, Embedded systems</td>
-    </tr>
-</table>
-
-<h2>13. Common Mistakes in Exam</h2>
-<ol>
-    <li><b>Semicolon after class:</b> Class mudichavudane ; podanum. Marandha error varum.</li>
-    <li><b>Static definition:</b> Static variable ah class ku veliya define pannanum.</li>
-    <li><b>Constructor return type:</b> Constructor ku return type kedaidhu. void kooda podakoodadhu.</li>
-    <li><b>Destructor parameters:</b> Destructor ku parameters kedaidhu. Overload panna mudiyadhu.</li>
-    <li><b>Friend function call:</b> Object use panni call panna koodadhu. Normal function maari call pannanum.</li>
-    <li><b>Scope resolution:</b> Class ku veliya function define panna ClassName:: must.</li>
-</ol>
-
-<h2>14. Program Output Questions - Practice</h2>
-<p><b>Q1: What is output?</b></p>
-<pre>
-class Test {
-    static int x;
-    public:
-        Test() { x++; }
-        static void show() { cout << x; }
-};
-int Test::x = 0;
-int main() {
-    Test t1, t2, t3;
-    Test::show();
-}
-</pre>
-<p><b>Ans:</b> Output: 3. Reason: Constructor 3 times call aachu, x = 3 aachu.</p>
-
-<p><b>Q2: What is output?</b></p>
-<pre>
-class A {
-    public:
-        A() { cout << "A"; }
-        ~A() { cout << "~A"; }
-};
-int main() {
-    A obj;
-    return 0;
-}
-</pre>
-<p><b>Ans:</b> Output: A~A. Reason: Constructor call aagum, main mudiyum bodhu destructor call aagum.</p>
-
-<p><b>Conclusion:</b> Unit II is the most important unit for TVU C++ exam. Class, Object, Constructor, Destructor, Static, Friend concepts la irundhu confirm 20 marks varum. Nalla padichi ezhudunga. All the best for exams!</p>
-<div class="divider"></div>
-
-<h1>UNIT III - OPERATOR OVERLOADING AND INHERITANCE</h1>
-
-<h2>📘 UNIT III INTRODUCTION</h2>
-<p>This unit covers <b>Operator Overloading</b> which allows us to give additional meaning to existing C++ operators, and <b>Inheritance</b> which enables code reusability by deriving new classes from existing classes.</p>
-
-<h2>1. OPERATOR OVERLOADING</h2>
-<h3>1.1 Introduction to Operator Overloading</h3>
-<p><b>Definition:</b> Operator Overloading is a compile-time polymorphism mechanism that allows programmers to redefine the way operators work for user-defined types such as objects and structures.</p>
-
-<p><b>Explanation:</b> Operator overloading na C++ la irukura +, -, *, / maari operators ah namma class objects ku use panna maathuradhu. Rendu Time objects ah `t1 + t2` nu add panna mudiyum.</p>
-
-<p><b>Rules for Operator Overloading:</b></p>
-<table>
-<tr><th>Rule</th><th>Description</th></tr>
-<tr><td>Cannot create new operators</td><td>Pudhu operator create panna mudiyadhu</td></tr>
-<tr><td>Cannot change precedence</td><td>Operator oda precedence maara koodadhu</td></tr>
-<tr><td>Cannot overload certain operators</td><td>::, ., .*, sizeof, ?: - indha 5 operators ah overload panna mudiyadhu</td></tr>
-<tr><td>Must be member or friend function</td><td>Operator function member illa friend ah irukanum</td></tr>
-</table>
-
-<p><b>Syntax:</b></p>
-<pre>
-return_type operator op (argument_list) {
-    // Body of function
-}
-</pre>
-
-<h3>1.2 Overloading Unary Operators</h3>
-<p><b>Definition:</b> Unary operators are operators that operate on a single operand. Examples include increment (++), decrement (--), unary minus (-), logical NOT (!).</p>
-
-<p><b>Explanation:</b> Unary operator na orey oru operand mela work aaguradhu. `++a` maari. Member function ku argument thevai illa, friend function na oru argument thevai.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Distance {
-    int feet, inches;
-    public:
-        Distance(int f, int i) {
-            feet = f;
-            inches = i;
-        }
-        void operator-() {
-            feet = -feet;
-            inches = -inches;
-        }
-        void display() {
-            cout &lt;&lt; "Feet: " &lt;&lt; feet &lt;&lt; " Inches: " &lt;&lt; inches &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Distance d1(5, 6);
-    cout &lt;&lt; "Before: "; d1.display();
-    -d1;
-    cout &lt;&lt; "After: "; d1.display();
-    return 0;
-}
-</pre>
-
-<h3>1.3 Overloading Binary Operators</h3>
-<p><b>Definition:</b> Binary operators are operators that operate on two operands. Examples include addition (+), subtraction (-), multiplication (*), division (/).</p>
-
-<p><b>Explanation:</b> Binary operator na rendu operands venum. `a + b` maari. Member function ah overload panna oru argument podhum - left operand `this` object aagum.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Complex {
-    float real, imag;
-    public:
-        Complex() { real = 0; imag = 0; }
-        Complex(float r, float i) {
-            real = r;
-            imag = i;
-        }
-        Complex operator+(Complex c) {
-            Complex temp;
-            temp.real = real + c.real;
-            temp.imag = imag + c.imag;
-            return temp;
-        }
-        void display() {
-            cout &lt;&lt; real &lt;&lt; " + " &lt;&lt; imag &lt;&lt; "i" &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Complex c1(3.5, 2.5), c2(1.5, 4.5), c3;
-    c3 = c1 + c2;
-    cout &lt;&lt; "Result: "; c3.display();
-    return 0;
-}
-</pre>
-
-<h3>1.4 Overloading Friend Functions</h3>
-<p><b>Definition:</b> A friend function is a non-member function that has access to the private and protected members of a class. Operators can be overloaded using friend functions when the left operand is not an object of the class.</p>
-
-<p><b>Explanation:</b> Sila neram operator overload panna member function use panna mudiyadhu. `cout << obj` nu ezhudanum na friend function use pannanum.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Time {
-    int hours, minutes;
-    public:
-        Time() { hours = 0; minutes = 0; }
-        Time(int h, int m) { hours = h; minutes = m; }
-        friend ostream& operator<<(ostream &out, Time &t);
-        friend istream& operator>>(istream &in, Time &t);
-};
-
-ostream& operator<<(ostream &out, Time &t) {
-    out &lt;&lt; t.hours &lt;&lt; " hrs " &lt;&lt; t.minutes &lt;&lt; " mins";
-    return out;
-}
-
-istream& operator>>(istream &in, Time &t) {
-    cout &lt;&lt; "Enter hours: "; in &gt;&gt; t.hours;
-    cout &lt;&lt; "Enter minutes: "; in &gt;&gt; t.minutes;
-    return in;
-}
-
-int main() {
-    Time t1;
-    cin &gt;&gt; t1;
-    cout &lt;&lt; "Time is: " &lt;&lt; t1 &lt;&lt; endl;
-    return 0;
-}
-</pre>
-
-<h2>2. TYPE CONVERSION</h2>
-<h3>2.1 Introduction to Type Conversion</h3>
-<p><b>Definition:</b> Type Conversion is the process of converting one data type to another. In C++, it can be implicit or explicit using constructors and conversion functions.</p>
-
-<p><b>Explanation:</b> Type conversion na oru type la irundhu inoru type ku maaruradhu. Namma class objects ku conversion venum na constructor illa conversion function ezhudanum.</p>
-
-<table>
-<tr><th>Type</th><th>Description</th><th>Method</th></tr>
-<tr><td>Basic to Class</td><td>int, float la irundhu class object ku</td><td>Constructor</td></tr>
-<tr><td>Class to Basic</td><td>Class object la irundhu int, float ku</td><td>Conversion function</td></tr>
-<tr><td>Class to Class</td><td>Oru class la irundhu inoru class ku</td><td>Constructor or Conversion function</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Time {
-    int hours, minutes;
-    public:
-        Time() { hours = 0; minutes = 0; }
-        Time(int t) {
-            hours = t / 60;
-            minutes = t % 60;
-        }
-        void display() {
-            cout &lt;&lt; hours &lt;&lt; " hrs " &lt;&lt; minutes &lt;&lt; " mins" &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Time t1;
-    int duration = 130;
-    t1 = duration;
-    t1.display();
-    return 0;
-}
-</pre>
-
-<h2>3. INHERITANCE</h2>
-<h3>3.1 Introduction to Inheritance</h3>
-<p><b>Definition:</b> Inheritance is a mechanism in which a new class is derived from an existing class. The new class inherits properties and methods of the existing class. It represents an IS-A relationship.</p>
-
-<p><b>Explanation:</b> Inheritance na sothu vaangura maari. Base class kitta irukura ella properties um derived class ku varum. Car is a Vehicle - Car class Vehicle class kitta irundhu inherit pannum.</p>
-
-<table>
-<tr><th>Term</th><th>Definition</th></tr>
-<tr><td>Base Class</td><td>The class whose properties are inherited. Also called Parent class</td></tr>
-<tr><td>Derived Class</td><td>The class that inherits properties. Also called Child class</td></tr>
-<tr><td>IS-A Relationship</td><td>Derived class IS-A type of Base class</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Animal {
-    public:
-        void eat() {
-            cout &lt;&lt; "Animal eats food" &lt;&lt; endl;
-        }
-};
-
-class Dog : public Animal {
-    public:
-        void bark() {
-            cout &lt;&lt; "Dog barks" &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Dog d;
-    d.eat();
-    d.bark();
-    return 0;
-}
-</pre>
-
-<h3>3.2 Types of Inheritance</h3>
-<p><b>Definition:</b> C++ supports five types of inheritance: Single, Multiple, Multilevel, Hierarchical, and Hybrid inheritance.</p>
-
-<table>
-<tr><th>Type</th><th>Description</th></tr>
-<tr><td>Single Inheritance</td><td>One base class, one derived class. A -> B</td></tr>
-<tr><td>Multiple Inheritance</td><td>One derived class from multiple base classes. A, B -> C</td></tr>
-<tr><td>Multilevel Inheritance</td><td>Derived from a derived class. A -> B -> C</td></tr>
-<tr><td>Hierarchical Inheritance</td><td>Multiple classes from one base class. A -> B, A -> C</td></tr>
-<tr><td>Hybrid Inheritance</td><td>Combination of two or more types</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Engine {
-    public:
-        void start() {
-            cout &lt;&lt; "Engine started" &lt;&lt; endl;
-        }
-};
-
-class Wheels {
-    public:
-        void rotate() {
-            cout &lt;&lt; "Wheels rotating" &lt;&lt; endl;
-        }
-};
-
-class Car : public Engine, public Wheels {
-    public:
-        void drive() {
-            cout &lt;&lt; "Car is driving" &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Car myCar;
-    myCar.start();
-    myCar.rotate();
-    myCar.drive();
-    return 0;
-}
-</pre>
-
-<h3>3.3 Virtual Base Classes</h3>
-<p><b>Definition:</b> A Virtual Base Class is used in multiple inheritance to prevent ambiguity and duplication of base class members when a class is derived from multiple classes that have a common base class.</p>
-
-<p><b>Explanation:</b> Diamond problem varum podhu `virtual` keyword use panrom. Appo base class oda copy orey oru thadava dhan varum. Ambiguity avoid aagum.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class A {
-    public:
-        int x;
-        A() { x = 10; }
-};
-
-class B : virtual public A {
-    public:
-        int y;
-        B() { y = 20; }
-};
-
-class C : virtual public A {
-    public:
-        int z;
-        C() { z = 30; }
-};
-
-class D : public B, public C {
-    public:
-        void display() {
-            cout &lt;&lt; "x = " &lt;&lt; x &lt;&lt; endl;
-            cout &lt;&lt; "y = " &lt;&lt; y &lt;&lt; ", z = " &lt;&lt; z &lt;&lt; endl;
-        }
-};
-
-int main() {
-    D obj;
-    obj.display();
-    return 0;
-}
-</pre>
-
-<h3>3.4 Abstract Classes</h3>
-<p><b>Definition:</b> An Abstract Class is a class that contains at least one pure virtual function. It cannot be instantiated and is used as a base class for other classes.</p>
-
-<p><b>Explanation:</b> Abstract class na design plan maari. Idha vechu direct ah object create panna mudiyadhu. `= 0` potu pure virtual function vachurukom na adhu abstract class.</p>
-
-<p><b>Pure Virtual Function:</b> `virtual void func() = 0;` - body kidayadhu.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Shape {
-    public:
-        virtual void area() = 0;
-        void display() {
-            cout &lt;&lt; "This is a shape" &lt;&lt; endl;
-        }
-};
-
-class Circle : public Shape {
-    int radius;
-    public:
-        Circle(int r) { radius = r; }
-        void area() {
-            cout &lt;&lt; "Circle Area: " &lt;&lt; 3.14 * radius * radius &lt;&lt; endl;
-        }
-};
-
-class Rectangle : public Shape {
-    int length, breadth;
-    public:
-        Rectangle(int l, int b) { length = l; breadth = b; }
-        void area() {
-            cout &lt;&lt; "Rectangle Area: " &lt;&lt; length * breadth &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Circle c(5);
-    Rectangle r(4, 6);
-    c.area();
-    r.area();
-    return 0;
-}
-</pre>
-
-<h2>📋 IMPORTANT QUESTIONS - UNIT III</h2>
-
-<h3>PART A - 2 Marks</h3>
-<ol>
-<li>Define Operator Overloading.</li>
-<li>List any four operators that cannot be overloaded in C++.</li>
-<li>What is a friend function?</li>
-<li>Define Inheritance with an example.</li>
-<li>What is a Virtual Base Class? Why is it needed?</li>
-<li>Define Abstract Class and Pure Virtual Function.</li>
-<li>Differentiate between Single and Multiple Inheritance.</li>
-<li>What is Type Conversion?</li>
-</ol>
-
-<h3>PART B - 5 Marks</h3>
-<ol>
-<li>Explain the rules for Operator Overloading with examples.</li>
-<li>Write a C++ program to overload unary minus operator.</li>
-<li>Explain Binary operator overloading with a program for complex number addition.</li>
-<li>Discuss Type Conversion from Basic to Class type with example.</li>
-<li>Explain different types of Inheritance with neat diagrams.</li>
-<li>Write a program to demonstrate Multiple Inheritance.</li>
-</ol>
-
-<h3>PART C - 10 Marks</h3>
-<ol>
-<li>Explain Operator Overloading in detail. Write a program to overload + operator for Time objects.</li>
-<li>What is Inheritance? Explain all types of Inheritance with suitable C++ programs.</li>
-<li>Explain Virtual Base Class and Abstract Class with examples.</li>
-<li>Discuss Type Conversion in C++. Explain all three types with programs.</li>
-</ol>
-
-<h2>⚠️ COMMON MISTAKES TO AVOID</h2>
-<table>
-<tr><th>Mistake</th><th>Correct Way</th></tr>
-<tr><td>Forgetting `operator` keyword</td><td>Must use: `return_type operator+(args)`</td></tr>
-<tr><td>Trying to overload ::, ., .*, ?:, sizeof</td><td>Indha 5 operators ah overload panna mudiyadhu</td></tr>
-<tr><td>Ambiguity in Multiple Inheritance</td><td>Use Virtual Base Class to solve diamond problem</td></tr>
-<tr><td>Creating object of Abstract Class</td><td>Abstract class ku object create panna mudiyadhu</td></tr>
-<tr><td>Forgetting to override pure virtual function</td><td>Derived class la must override pannurom</td></tr>
-</table>
-
-<p><b>Conclusion:</b> Operator Overloading provides intuitive syntax for user-defined types while Inheritance enables code reusability and hierarchical classification.</p>
-
-</div>
-    <div class="divider"></div>
-
-<h1>UNIT IV - POINTERS, ARRAYS AND POLYMORPHISM</h1>
-
-<h2>📘 UNIT IV INTRODUCTION</h2>
-<p>This unit deals with <b>Pointers</b> which provide direct memory access, <b>Arrays</b> for storing multiple elements, <b>Dynamic Memory Management</b> using new and delete, and <b>Polymorphism</b> which allows objects to behave differently based on context.</p>
-
-<h2>1. POINTERS</h2>
-<h3>1.1 Pointer Declaration</h3>
-<p><b>Definition:</b> A Pointer is a variable that stores the memory address of another variable. It provides indirect access to a variable and is declared using the asterisk (*) symbol.</p>
-
-<p><b>Explanation:</b> Pointer na oru variable oda address ah hold panra inoru variable. Veetu address maari veedu enga iruku nu solludhu. `*` symbol use panni declare panrom. `&` symbol use panni address edukurom.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    int num = 10;
-    int *ptr;
-    ptr = &num;
-    cout &lt;&lt; "Value of num: " &lt;&lt; num &lt;&lt; endl;
-    cout &lt;&lt; "Address of num: " &lt;&lt; &num &lt;&lt; endl;
-    cout &lt;&lt; "Value of ptr: " &lt;&lt; ptr &lt;&lt; endl;
-    cout &lt;&lt; "Value pointed by ptr: " &lt;&lt; *ptr &lt;&lt; endl;
-    *ptr = 20;
-    cout &lt;&lt; "New value of num: " &lt;&lt; num &lt;&lt; endl;
-    return 0;
-}
-</pre>
-
-<h3>1.2 Pointer to Class and Object</h3>
-<p><b>Definition:</b> A Pointer to Object is a pointer variable that stores the address of an object. It is used to access members of a class using the arrow operator (->) instead of the dot operator (.).</p>
-
-<p><b>Explanation:</b> Class objects ku kooda pointer use panna mudiyum. Object oda address ah pointer la store pannuvom. Apram `->` arrow operator use panni members access panrom.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
+        <h2>9. Constructors and Destructors - Complete Theory</h2>
+
+        <h3>9.1 Constructor - Detailed</h3>
+        <p><b>Definition:</b> Constructor is a special member function that is automatically invoked when an object is created. Used to initialize object.</p>
+
+        <p><b>Characteristics:</b></p>
+        <ol>
+            <li>Same name as class name.</li>
+            <li>No return type, not even void.</li>
+            <li>Called automatically when object is created.</li>
+            <li>Can be overloaded - Multiple constructors possible.</li>
+            <li>Can have default arguments.</li>
+            <li>Cannot be virtual.</li>
+            <li>Cannot be inherited, but derived class can call base class constructor.</li>
+        </ol>
+
+        <p><b>Types of Constructors:</b></p>
+        <pre>
+// 1. Default Constructor - No parameters
 class Student {
     public:
-        int rollNo;
+        Student() { // Default constructor
+            cout << "Object Created" << endl;
+        }
+};
+
+// 2. Parameterized Constructor - With parameters
+class Student {
+    private:
         string name;
-        void display() {
-            cout &lt;&lt; "Roll No: " &lt;&lt; rollNo &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Student s1;
-    Student *ptr;
-    ptr = &s1;
-    ptr-&gt;rollNo = 101;
-    ptr-&gt;name = "Nisha";
-    ptr-&gt;display();
-    return 0;
-}
-</pre>
-
-<h3>1.3 This Pointer</h3>
-<p><b>Definition:</b> The 'this' pointer is an implicit pointer that is available within all non-static member functions of a class. It points to the object for which the member function is called.</p>
-
-<p><b>Explanation:</b> `this` pointer na automatic ah kidaikura pointer. Ovoru object kum thani thani ya irukum. Function ah yaaru call panrano, andha object ah point pannum. Data member kum parameter kum same name irundha use panrom.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Employee {
-    int id;
-    string name;
+        int age;
     public:
-        void setData(int id, string name) {
-            this-&gt;id = id;
-            this-&gt;name = name;
-        }
-        Employee& compare(Employee &e) {
-            if(this-&gt;id > e.id)
-                return *this;
-            else
-                return e;
-        }
-        void display() {
-            cout &lt;&lt; "ID: " &lt;&lt; id &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
+        Student(string n, int a) { // Parameterized constructor
+            name = n; // n value ah name ku assign panrom
+            age = a; // a value ah age ku assign panrom
         }
 };
 
-int main() {
-    Employee e1, e2, e3;
-    e1.setData(101, "Sathish");
-    e2.setData(102, "Kumar");
-    e3 = e1.compare(e2);
-    e3.display();
-    return 0;
-}
-</pre>
-
-<h3>1.4 Pointers to Derived Classes and Base Classes</h3>
-<p><b>Definition:</b> A base class pointer can point to a derived class object, but a derived class pointer cannot point to a base class object. This is the foundation for runtime polymorphism.</p>
-
-<p><b>Explanation:</b> Base class pointer vechu derived class object ah point panna mudiyum. Idhu dhan runtime polymorphism ku base. Appa pointer vechu paiyan ah point pannalam, reverse panna mudiyadhu.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Base {
-    public:
-        void show() {
-            cout &lt;&lt; "Base class function" &lt;&lt; endl;
-        }
-};
-
-class Derived : public Base {
-    public:
-        void display() {
-            cout &lt;&lt; "Derived class function" &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Base *bptr;
-    Derived d;
-    bptr = &d;
-    bptr-&gt;show();
-    return 0;
-}
-</pre>
-
-<h2>2. ARRAYS</h2>
-<h3>2.1 Characteristics of Arrays</h3>
-<p><b>Definition:</b> An Array is a collection of elements of the same data type stored in contiguous memory locations. The elements are accessed using index numbers starting from zero.</p>
-
-<p><b>Explanation:</b> Array na same type oda multiple values ah store panna use aagudhu. Veetu row maari ellam pakka pakka ya irukum. Index 0 la irundhu start aagum. Size fix pannanum.</p>
-
-<table>
-<tr><th>Characteristic</th><th>Description</th></tr>
-<tr><td>Fixed Size</td><td>Array size compile time la fix aagum</td></tr>
-<tr><td>Contiguous Memory</td><td>Ella elements um memory la thodarndhu irukum</td></tr>
-<tr><td>Same Data Type</td><td>Array la irukura ella elements um same type</td></tr>
-<tr><td>Zero Based Index</td><td>Index 0 la irundhu start aagum</td></tr>
-<tr><td>Random Access</td><td>Edhuvana index ah direct ah access panna mudiyum</td></tr>
-</table>
-
-<h3>2.2 Array of Classes</h3>
-<p><b>Definition:</b> An Array of Objects is a collection of objects of the same class type. It allows us to create multiple objects and manage them using a single array name with index values.</p>
-
-<p><b>Explanation:</b> Class objects ah kooda array la store panna mudiyum. 50 students details venum na array of objects use pannalam. Loop use panni easy ah handle panna mudiyum.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
+// 3. Copy Constructor - Copy one object to another
 class Student {
-    int rollNo;
-    string name;
+    private:
+        string name;
     public:
-        void getData() {
-            cout &lt;&lt; "Enter Roll No: "; cin &gt;&gt; rollNo;
-            cout &lt;&lt; "Enter Name: "; cin &gt;&gt; name;
-        }
-        void display() {
-            cout &lt;&lt; "Roll No: " &lt;&lt; rollNo &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
+        Student(string n) { name = n; }
+
+        Student(const Student &s) { // Copy constructor
+            name = s.name; // s oda name ah idhukku copy panrom
+            cout << "Copy Constructor Called" << endl;
         }
 };
 
 int main() {
-    Student s[3];
-    cout &lt;&lt; "Enter details of 3 students:" &lt;&lt; endl;
-    for(int i = 0; i &lt; 3; i++) {
-        cout &lt;&lt; "\nStudent " &lt;&lt; i+1 &lt;&lt; ":" &lt;&lt; endl;
-        s[i].getData();
-    }
-    cout &lt;&lt; "\nStudent Details:" &lt;&lt; endl;
-    for(int i = 0; i &lt; 3; i++) {
-        s[i].display();
-    }
+    Student s1("Ravi"); // Parameterized constructor call aagum
+    Student s2 = s1; // Copy constructor call aagum
     return 0;
 }
 </pre>
 
-<h2>3. MEMORY MODELS</h2>
-<h3>3.1 New and Delete Operators</h3>
-<p><b>Definition:</b> The 'new' operator is used for dynamic memory allocation during runtime, and the 'delete' operator is used to deallocate the memory. They are used to manage heap memory efficiently.</p>
+        <h3>9.2 Destructor - Detailed</h3>
+        <p><b>Definition:</b> Destructor is a special member function that is automatically invoked when an object goes out of scope or is deleted. Used to free resources.</p>
 
-<p><b>Explanation:</b> `new` operator use panni runtime la memory kekkurom. `delete` use panni andha memory ah thirupi kuduthudrom. Memory leak avoid panna delete must podanum. Array ku `delete[]` use pannanum.</p>
+        <p><b>Characteristics:</b></p>
+        <ol>
+            <li>Same name as class but with tilde ~ symbol.</li>
+            <li>No return type, not even void.</li>
+            <li>No parameters - Cannot be overloaded.</li>
+            <li>Only one destructor per class.</li>
+            <li>Called automatically when object destroyed.</li>
+            <li>Used to release memory, close files, release locks.</li>
+        </ol>
 
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    int *ptr = new int;
-    *ptr = 100;
-    cout &lt;&lt; "Value: " &lt;&lt; *ptr &lt;&lt; endl;
-    delete ptr;
-
-    int *arr = new int[5];
-    cout &lt;&lt; "Enter 5 numbers: ";
-    for(int i = 0; i &lt; 5; i++) {
-        cin &gt;&gt; arr[i];
-    }
-    cout &lt;&lt; "Numbers: ";
-    for(int i = 0; i &lt; 5; i++) {
-        cout &lt;&lt; arr[i] &lt;&lt; " ";
-    }
-    delete[] arr;
-    return 0;
-}
-</pre>
-
-<h3>3.2 Dynamic Object Binding</h3>
-<p><b>Definition:</b> Dynamic Binding or Late Binding is the process of linking a function call to the function definition at runtime. It is achieved using virtual functions and is the basis of runtime polymorphism.</p>
-
-<p><b>Explanation:</b> Dynamic binding na function ah runtime la decide panradhu. Virtual function use panna runtime la object type paathu function call aagum. Late binding nu solluvanga.</p>
-
-<h2>4. POLYMORPHISM</h2>
-<h3>4.1 Introduction to Polymorphism</h3>
-<p><b>Definition:</b> Polymorphism means 'many forms'. It is the ability of a function, object, or operator to behave differently in different contexts. C++ supports Compile-time polymorphism and Runtime polymorphism.</p>
-
-<p><b>Explanation:</b> Polymorphism na orey vishayam pala roopam edukuradhu. Same function name vachu different work panna mudiyum. Rendu type iruku - Compile time la decide aaguradhu, Runtime la decide aaguradhu.</p>
-
-<table>
-<tr><th>Type</th><th>Mechanism</th><th>Binding Time</th></tr>
-<tr><td>Compile Time Polymorphism</td><td>Function Overloading, Operator Overloading</td><td>Compile Time</td></tr>
-<tr><td>Runtime Polymorphism</td><td>Virtual Functions, Function Overriding</td><td>Runtime</td></tr>
-</table>
-
-<h3>4.2 Virtual Functions</h3>
-<p><b>Definition:</b> A Virtual Function is a member function in the base class that is declared using the 'virtual' keyword and is redefined in the derived class. It enables runtime polymorphism.</p>
-
-<p><b>Explanation:</b> Virtual function na base class la `virtual` keyword potu declare panra function. Derived class la adha override pannalam. Base class pointer vechu call panna, object type paathu correct function runtime la call aagum.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-class Shape {
-    public:
-        virtual void draw() {
-            cout &lt;&lt; "Drawing Shape" &lt;&lt; endl;
-        }
-};
-
-class Circle : public Shape {
-    public:
-        void draw() {
-            cout &lt;&lt; "Drawing Circle" &lt;&lt; endl;
-        }
-};
-
-class Rectangle : public Shape {
-    public:
-        void draw() {
-            cout &lt;&lt; "Drawing Rectangle" &lt;&lt; endl;
-        }
-};
-
-int main() {
-    Shape *sptr;
-    Circle c;
-    Rectangle r;
-    sptr = &c;
-    sptr-&gt;draw();
-    sptr = &r;
-    sptr-&gt;draw();
-    return 0;
-}
-</pre>
-
-<h2>📋 IMPORTANT QUESTIONS - UNIT IV</h2>
-
-<h3>PART A - 2 Marks</h3>
-<ol>
-<li>Define Pointer. How is it declared?</li>
-<li>What is 'this' pointer? Give its use.</li>
-<li>List any four characteristics of arrays.</li>
-<li>Define Dynamic Memory Allocation. Name the operators used.</li>
-<li>What is Polymorphism? List its types.</li>
-<li>Define Virtual Function. Why is it used?</li>
-<li>Differentiate between Early Binding and Late Binding.</li>
-<li>What is an Array of Objects?</li>
-</ol>
-
-<h3>PART B - 5 Marks</h3>
-<ol>
-<li>Explain 'this' pointer with a suitable C++ program.</li>
-<li>Write a program to demonstrate Array of Objects.</li>
-<li>Explain new and delete operators with examples.</li>
-<li>Differentiate between Compile-time and Runtime Polymorphism.</li>
-<li>Write a program using Virtual Functions to demonstrate runtime polymorphism.</li>
-<li>Explain Pointers to Derived Classes with example.</li>
-</ol>
-
-<h3>PART C - 10 Marks</h3>
-<ol>
-<li>Explain Polymorphism in detail. Discuss its types with suitable programs.</li>
-<li>What are Pointers? Explain Pointer to Objects, this pointer, and Pointers to Derived Classes with programs.</li>
-<li>Explain Arrays and Array of Objects in C++. Write a program to create an array of 5 Student objects.</li>
-<li>Discuss Dynamic Memory Management in C++. Explain new, delete operators and Dynamic Object Binding with examples.</li>
-</ol>
-
-<h2>⚠️ COMMON MISTAKES TO AVOID</h2>
-<table>
-<tr><th>Mistake</th><th>Correct Way</th></tr>
-<tr><td>Using dot operator with pointer</td><td>Pointer ku arrow `->` use pannanum</td></tr>
-<tr><td>Forgetting delete after new</td><td>new potta delete must podanum</td></tr>
-<tr><td>Using delete for array without []</td><td>Array ku `delete[] arr;` nu podanum</td></tr>
-<tr><td>Not declaring function as virtual</td><td>Runtime polymorphism venum na virtual must</td></tr>
-<tr><td>Accessing array out of bounds</td><td>0 to n-1 varaikum dhan access pannanum</td></tr>
-</table>
-
-<p><b>Conclusion:</b> Pointers provide powerful memory manipulation capabilities, Arrays enable efficient data storage, and Polymorphism with Virtual Functions brings runtime flexibility to C++ programs.</p>
-
-<div class="divider"></div>
-
-<h1>UNIT V - FILES, TEMPLATES, EXCEPTION HANDLING AND STRINGS</h1>
-
-<h2>📘 UNIT V INTRODUCTION</h2>
-<p>This unit covers <b>File Handling</b> for persistent data storage, <b>Templates</b> for generic programming, <b>Exception Handling</b> for error management, and <b>String Class</b> for text manipulation. These are advanced C++ features essential for real-world application development.</p>
-
-<h2>1. FILES</h2>
-<h3>1.1 File Stream Classes</h3>
-<p><b>Definition:</b> File Stream Classes are used to perform input and output operations on files. C++ provides three classes: ifstream for reading, ofstream for writing, and fstream for both reading and writing.</p>
-
-<p><b>Explanation:</b> File handling na disk la irukura files ah read panna illa write panna use aagudhu. Console ku badhila file la data store panna mudiyum. Moonu class iruku - ifstream read panna, ofstream write panna, fstream rendu kkum.</p>
-
-<table>
-<tr><th>Class</th><th>Purpose</th><th>Default Mode</th></tr>
-<tr><td>ifstream</td><td>File la irundhu read panna</td><td>ios::in</td></tr>
-<tr><td>ofstream</td><td>File ku write panna</td><td>ios::out</td></tr>
-<tr><td>fstream</td><td>Read and write rendu kkum</td><td>ios::in | ios::out</td></tr>
-</table>
-
-<h3>1.2 File Modes</h3>
-<p><b>Definition:</b> File Modes specify how a file should be opened. Common modes include ios::in for input, ios::out for output, ios::app for append, ios::binary for binary files, and ios::trunc to truncate existing content.</p>
-
-<p><b>Explanation:</b> File ah epdi open pannanum nu solluradhu dhan mode. Read panna ios::in, write panna ios::out, kadasiya add panna ios::app, binary file ku ios::binary use panrom.</p>
-
-<table>
-<tr><th>Mode</th><th>Description</th></tr>
-<tr><td>ios::in</td><td>File ah read panna open panradhu</td></tr>
-<tr><td>ios::out</td><td>File ah write panna open panradhu - irukura content azhiyum</td></tr>
-<tr><td>ios::app</td><td>File kadasiya la content add panradhu</td></tr>
-<tr><td>ios::ate</td><td>Open pannum bodhu file pointer ah end ku move panradhu</td></tr>
-<tr><td>ios::trunc</td><td>File irundha full ah delete panni pudhusa open panradhu</td></tr>
-<tr><td>ios::binary</td><td>Binary mode la file open panradhu</td></tr>
-</table>
-
-<h3>1.3 Sequential Read/Write Operations</h3>
-<p><b>Definition:</b> Sequential File Operations involve reading or writing data from the beginning of the file to the end in order. The file pointer moves automatically after each operation.</p>
-
-<p><b>Explanation:</b> Sequential na varisaya read panna illa write panna. File start la irundhu end varaikum oru oru line ah pogum. Pointer automatic ah move aagum.</p>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-
-int main() {
-    ofstream outFile("student.txt");
-    outFile &lt;&lt; "Roll No: 101" &lt;&lt; endl;
-    outFile &lt;&lt; "Name: Sathish" &lt;&lt; endl;
-    outFile.close();
-
-    ifstream inFile("student.txt");
-    string line;
-    while(getline(inFile, line)) {
-        cout &lt;&lt; line &lt;&lt; endl;
-    }
-    inFile.close();
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 1-2:</b> iostream and fstream header files include panrom.<br>
-<b>Line 5:</b> main function start aagudhu.<br>
-<b>Line 6:</b> ofstream object create panni "student.txt" file ah write mode la open panrom.<br>
-<b>Line 7-8:</b> File ku rendu lines write panrom using << operator.<br>
-<b>Line 9:</b> outFile close panrom - write mudinchuduchu.<br>
-<b>Line 11:</b> ifstream object create panni same file ah read mode la open panrom.<br>
-<b>Line 12:</b> string variable line declare panrom.<br>
-<b>Line 13-15:</b> while loop use panni file la irukura ovvoru line um read panni print panrom.<br>
-<b>Line 16:</b> inFile close panrom.<br>
-<b>Line 17:</b> Program mudiyudhu.</p>
-
-<h3>1.4 Binary and ASCII Files</h3>
-<p><b>Definition:</b> ASCII Files store data in human-readable text format, while Binary Files store data in the same format as it is stored in memory. Binary files are faster and take less space.</p>
-
-<p><b>Explanation:</b> ASCII file na namma padika mudiyura text format. Notepad la open panna theriyum. Binary file na computer ku mattum puriyura format. Speed adhigam, size kammi.</p>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-#include &lt;cstring&gt;
-using namespace std;
-
+        <pre>
 class Student {
+    private:
+        int *marks; // Dynamic memory pointer
+        int size;
     public:
-        int rollNo;
-        char name[20];
+        Student(int s) { // Constructor - Memory allocate panrom
+            size = s;
+            marks = new int[size]; // Heap la array create panrom
+            cout << "Constructor: Memory Allocated" << endl;
+        }
+
+        ~Student() { // Destructor - Memory free panrom
+            delete[] marks; // Heap memory ah free panrom
+            cout << "Destructor: Memory Freed" << endl;
+        }
+
+        void setMarks() {
+            for(int i = 0; i < size; i++) {
+                marks[i] = i * 10;
+            }
+        }
 };
 
 int main() {
-    Student s;
-    s.rollNo = 101;
-    strcpy(s.name, "Kumar");
-
-    ofstream outFile("student.dat", ios::binary);
-    outFile.write((char*)&s, sizeof(s));
-    outFile.close();
-
-    Student s2;
-    ifstream inFile("student.dat", ios::binary);
-    inFile.read((char*)&s2, sizeof(s2));
-    cout &lt;&lt; "Roll No: " &lt;&lt; s2.rollNo &lt;&lt; ", Name: " &lt;&lt; s2.name;
-    inFile.close();
+    Student s1(5); // Constructor call aagum - Memory allocate aagum
+    s1.setMarks();
+    // Function mudiyum bodhu destructor automatically call aagum
+    // Memory free aagum - Memory leak varadhu
     return 0;
 }
 </pre>
 
-<p><b>Code Explanation:</b><br>
-<b>Line 5-9:</b> Student class define panrom with rollNo and name.<br>
-<b>Line 12-14:</b> s object create panni values assign panrom.<br>
-<b>Line 16:</b> ofstream use panni "student.dat" file ah binary mode la open panrom.<br>
-<b>Line 17:</b> write function use panni full object ah binary format la file ku write panrom.<br>
-<b>Line 18:</b> File close panrom.<br>
-<b>Line 20:</b> s2 nu inoru object create panrom.<br>
-<b>Line 21:</b> ifstream use panni file ah binary mode la read panna open panrom.<br>
-<b>Line 22:</b> read function use panni file la irundhu object ah s2 ku read panrom.<br>
-<b>Line 23:</b> s2 oda values print panrom.<br>
-<b>Line 24:</b> File close panrom.</p>
+        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
+    </div>
+    </div>
 
-<h3>1.5 Random Access Operation</h3>
-<p><b>Definition:</b> Random Access allows direct movement to any position in a file without reading sequentially. Functions like seekg(), seekp(), tellg(), and tellp() are used for this purpose.</p>
+<!-- LOGIN SYSTEM SCRIPT -->
+<script>
+    const USERS = {
+        "tvu": "cpp2024",
+        "admin": "1234",
+        "student1": "pass1"
+    };
 
-<p><b>Explanation:</b> Random access na file la enga venalum direct ah pogalam. Sequential maari varisaya poganum nu illa. seekg use panni read pointer ah move panna mudiyum, seekp write pointer ku.</p>
+    function checkLogin() {
+        let user = document.getElementById("username").value.trim();
+        let pass = document.getElementById("password").value.trim();
+        let errorMsg = document.getElementById("errorMsg");
 
-<table>
-<tr><th>Function</th><th>Purpose</th></tr>
-<tr><td>seekg(offset, direction)</td><td>Get pointer ah move panradhu - read ku</td></tr>
-<tr><td>seekp(offset, direction)</td><td>Put pointer ah move panradhu - write ku</td></tr>
-<tr><td>tellg()</td><td>Get pointer ipo enga iruku nu sollum</td></tr>
-<tr><td>tellp()</td><td>Put pointer ipo enga iruku nu sollum</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-
-int main() {
-    fstream file("data.txt", ios::in | ios::out);
-    file &lt;&lt; "Hello World";
-    file.seekg(6, ios::beg);
-    string word;
-    file &gt;&gt; word;
-    cout &lt;&lt; "Word from position 6: " &lt;&lt; word;
-    file.close();
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 5:</b> fstream use panni "data.txt" file ah read and write mode la open panrom.<br>
-<b>Line 6:</b> File ku "Hello World" write panrom.<br>
-<b>Line 7:</b> seekg use panni read pointer ah 6th position ku move panrom - beg la irundhu.<br>
-<b>Line 8:</b> string word declare panrom.<br>
-<b>Line 9:</b> 6th position la irundhu word read panrom - "World" varum.<br>
-<b>Line 10:</b> Read panna word ah print panrom.<br>
-<b>Line 11:</b> File close panrom.</p>
-
-<h2>2. TEMPLATES</h2>
-<h3>2.1 Introduction to Templates</h3>
-<p><b>Definition:</b> Templates are a feature of C++ that allows functions and classes to operate with generic types. This allows a function or class to work on many different data types without being rewritten for each one.</p>
-
-<p><b>Explanation:</b> Template na orey code ah different data types ku use panna mudiyum. int ku thaniya, float ku thaniya function ezhuda thevai illa. Generic programming nu solluvanga.</p>
-
-<p><b>Types of Templates:</b></p>
-<table>
-<tr><th>Type</th><th>Description</th></tr>
-<tr><td>Function Template</td><td>Generic functions that work with any data type</td></tr>
-<tr><td>Class Template</td><td>Generic classes that work with any data type</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-template &lt;class T&gt;
-T add(T a, T b) {
-    return a + b;
-}
-
-int main() {
-    cout &lt;&lt; "Int: " &lt;&lt; add(5, 10) &lt;&lt; endl;
-    cout &lt;&lt; "Float: " &lt;&lt; add(3.5f, 2.5f) &lt;&lt; endl;
-    cout &lt;&lt; "Double: " &lt;&lt; add(1.1, 2.2) &lt;&lt; endl;
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 4:</b> template keyword use panni T nu oru generic type declare panrom.<br>
-<b>Line 5-7:</b> add function define panrom - T type oda rendu parameters eduthu add panni return panrom.<br>
-<b>Line 10:</b> main function start.<br>
-<b>Line 11:</b> add function ah int values oda call panrom - T int aagum, 15 varum.<br>
-<b>Line 12:</b> add function ah float values oda call panrom - T float aagum, 6 varum.<br>
-<b>Line 13:</b> add function ah double values oda call panrom - T double aagum, 3.3 varum.<br>
-<b>Line 14:</b> Program mudiyudhu.</p>
-
-<h2>3. EXCEPTION HANDLING</h2>
-<h3>3.1 Introduction to Exception Handling</h3>
-<p><b>Definition:</b> Exception Handling is a mechanism to handle runtime errors in a program. It uses three keywords: try, throw, and catch. The try block contains code that may generate an exception.</p>
-
-<p><b>Explanation:</b> Program run aagum bodhu varra error ah handle panna use aagudhu. Divide by zero maari error vandha program crash aagama catch panni handle panna mudiyum. try, throw, catch moonu keywords use panrom.</p>
-
-<pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    int a = 10, b = 0;
-    try {
-        if(b == 0)
-            throw "Division by zero error";
-        cout &lt;&lt; "Result: " &lt;&lt; a/b;
-    }
-    catch(const char* msg) {
-        cout &lt;&lt; "Exception: " &lt;&lt; msg;
-    }
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 5:</b> a ku 10, b ku 0 assign panrom.<br>
-<b>Line 6:</b> try block start - error varakoodiya code inga podurom.<br>
-<b>Line 7-8:</b> b zero va nu check panrom, zero na throw use panni error message throw panrom.<br>
-<b>Line 9:</b> b zero illana division panni result print panrom - idhu execute aagadhu.<br>
-<b>Line 11:</b> catch block - throw panna error ah inga pidikrom.<br>
-<b>Line 12:</b> Error message print panrom - "Division by zero error" varum.<br>
-<b>Line 14:</b> Program mudiyudhu crash aagama.</p>
-
-<h2>4. STRING</h2>
-<h3>4.1 Declaring and Initializing String Objects</h3>
-<p><b>Definition:</b> The string class is part of the C++ Standard Library and is used to represent a sequence of characters. It provides many functions for string manipulation and is easier to use than C-style character arrays. String objects are dynamic and automatically manage memory.</p>
-
-<p><b>Explanation:</b> String na text ah store panna use aagura class. char array vida semma easy - size fix panna thevai illa, automatic ah memory manage pannum. #include &lt;string&gt; podanum. + operator use panni join panna mudiyum, lots of built-in functions iruku.</p>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
-
-int main() {
-    string s1 = "Hello";
-    string s2("World");
-    string s3;
-    s3 = s1 + " " + s2;
-    cout &lt;&lt; "s3: " &lt;&lt; s3;
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 2:</b> string class use panna &lt;string&gt; header include panrom.<br>
-<b>Line 6:</b> s1 nu string object create panni "Hello" assign panrom - direct initialization.<br>
-<b>Line 7:</b> s2 nu inoru string object create panni "World" assign panrom - constructor method.<br>
-<b>Line 8:</b> s3 nu empty string declare panrom.<br>
-<b>Line 9:</b> s1 + space + s2 join panni s3 ku assign panrom - "Hello World" aagum.<br>
-<b>Line 10:</b> s3 print panrom.<br>
-<b>Line 11:</b> Program mudiyudhu.</p>
-
-<h3>4.2 String Attributes</h3>
-<p><b>Definition:</b> String Attributes refer to the properties of a string object such as length, capacity, and size. Member functions like length(), size(), and capacity() are used to get these attributes.</p>
-
-<p><b>Explanation:</b> String oda properties ah find panna functions iruku. length() illa size() use panni edhana characters iruku nu paakalam. capacity() use panni edhana memory allocate aagiruku nu paakalam.</p>
-
-<table>
-<tr><th>Function</th><th>Purpose</th></tr>
-<tr><td>length() or size()</td><td>String la edhana characters iruku nu sollum</td></tr>
-<tr><td>capacity()</td><td>String ku edhana memory allocate aagiruku nu sollum</td></tr>
-<tr><td>empty()</td><td>String empty ya nu check panradhu</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
-
-int main() {
-    string str = "Programming";
-    cout &lt;&lt; "Length: " &lt;&lt; str.length() &lt;&lt; endl;
-    cout &lt;&lt; "Size: " &lt;&lt; str.size() &lt;&lt; endl;
-    cout &lt;&lt; "Capacity: " &lt;&lt; str.capacity() &lt;&lt; endl;
-    cout &lt;&lt; "Empty: " &lt;&lt; str.empty();
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 6:</b> str nu string create panni "Programming" assign panrom.<br>
-<b>Line 7:</b> length() function use panni characters count print panrom - 11 varum.<br>
-<b>Line 8:</b> size() function use panrom - length() maari dhan, 11 varum.<br>
-<b>Line 9:</b> capacity() use panni allocated memory size print panrom.<br>
-<b>Line 10:</b> empty() use panni string empty ya nu check panrom - 0 varum false nu artham.<br>
-<b>Line 11:</b> Program mudiyudhu.</p>
-
-<h3>4.3 Miscellaneous Functions</h3>
-<p><b>Definition:</b> The string class provides various functions for manipulation such as append(), insert(), erase(), replace(), substr(), find(), and compare().</p>
-
-<p><b>Explanation:</b> String ah modify panna neraya functions iruku. append() use panni kadasiya add panna, insert() use panni naduvula add panna, erase() use panni delete panna mudiyum.</p>
-
-<table>
-<tr><th>Function</th><th>Purpose</th></tr>
-<tr><td>append()</td><td>String kadasiya la inoru string add panradhu</td></tr>
-<tr><td>insert()</td><td>Specific position la string insert panradhu</td></tr>
-<tr><td>erase()</td><td>Specific position la irundhu characters delete panradhu</td></tr>
-<tr><td>replace()</td><td>Specific part ah inoru string ah replace panradhu</td></tr>
-<tr><td>substr()</td><td>String la irundhu oru part ah edukuradhu</td></tr>
-<tr><td>find()</td><td>String la oru substring edhula iruku nu find panradhu</td></tr>
-</table>
-
-<pre>
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-using namespace std;
-
-int main() {
-    string s = "Hello";
-    s.append(" World");
-    cout &lt;&lt; "After append: " &lt;&lt; s &lt;&lt; endl;
-
-    s.insert(5, " Dear");
-    cout &lt;&lt; "After insert: " &lt;&lt; s &lt;&lt; endl;
-
-    s.erase(5, 5);
-    cout &lt;&lt; "After erase: " &lt;&lt; s &lt;&lt; endl;
-
-    cout &lt;&lt; "Substring: " &lt;&lt; s.substr(0, 5) &lt;&lt; endl;
-    cout &lt;&lt; "Find World: " &lt;&lt; s.find("World");
-    return 0;
-}
-</pre>
-
-<p><b>Code Explanation:</b><br>
-<b>Line 6:</b> s nu string create panni "Hello" assign panrom.<br>
-<b>Line 7:</b> append() use panni " World" add panrom - "Hello World" aagum.<br>
-<b>Line 8:</b> Append panna result print panrom.<br>
-<b>Line 10:</b> insert() use panni 5th position la " Dear" insert panrom - "Hello Dear World" aagum.<br>
-<b>Line 11:</b> Insert panna result print panrom.<br>
-<b>Line 13:</b> erase() use panni 5th position la irundhu 5 characters delete panrom - " Dear" delete aagum.<br>
-<b>Line 14:</b> Erase panna result print panrom - "Hello World" varum.<br>
-<b>Line 16:</b> substr() use panni 0th position la irundhu 5 characters edukurom - "Hello" varum.<br>
-<b>Line 17:</b> find() use panni "World" edhula start aagudhu nu find panrom - 6 varum.</p>
-
-<h2>📋 IMPORTANT QUESTIONS - UNIT V</h2>
-
-<h3>PART A - 2 Marks</h3>
-<ol>
-<li>Name the three file stream classes in C++.</li>
-<li>List any four file modes.</li>
-<li>Differentiate between ASCII and Binary files.</li>
-<li>What is a Template? List its types.</li>
-<li>What is Exception Handling? Name the three keywords.</li>
-<li>How to declare and initialize a string object?</li>
-<li>What is the difference between length() and capacity() in strings?</li>
-<li>Name any four string manipulation functions.</li>
-</ol>
-
-<h3>PART B - 5 Marks</h3>
-<ol>
-<li>Explain File Stream Classes with their purposes.</li>
-<li>Write a program to read and write data to a text file.</li>
-<li>Explain Random Access file operations with seekg() and tellg().</li>
-<li>Write a function template to find the maximum of two numbers.</li>
-<li>Explain Exception Handling mechanism with try, throw, catch blocks.</li>
-<li>Write a program to demonstrate various string functions like append, insert, erase.</li>
-</ol>
-
-<h3>PART C - 10 Marks</h3>
-<ol>
-<li>Explain File Handling in C++ in detail. Discuss file modes, sequential and random access with programs.</li>
-<li>What are Templates? Explain Function Templates and Class Templates with suitable examples.</li>
-<li>Explain Exception Handling in C++. Write a program to handle divide by zero exception.</li>
-<li>Discuss String class in C++. Explain string declaration, attributes and manipulation functions with examples.</li>
-</ol>
-
-<h2>⚠️ COMMON MISTAKES TO AVOID</h2>
-<table>
-<tr><th>Mistake</th><th>Correct Way</th></tr>
-<tr><td>Forgetting to include &lt;fstream&gt;</td><td>File operations ku &lt;fstream&gt; must include pannanum</td></tr>
-<tr><td>Not closing files after use</td><td>close() function use panni file close pannanum</td></tr>
-<tr><td>Using wrong file mode</td><td>Read ku ios::in, write ku ios::out correct ah use pannanum</td></tr>
-<tr><td>Forgetting template keyword</td><td>template &lt;class T&gt; podama generic function ezhuda mudiyadhu</td></tr>
-<tr><td>Not handling exceptions</td><td>Error varakoodiya code ah try block la podanum</td></tr>
-<tr><td>Confusing length() and capacity()</td><td>length() na actual characters, capacity() na allocated memory</td></tr>
-</table>
-
-<p><b>Conclusion:</b> File Handling enables data persistence, Templates provide code reusability, Exception Handling ensures robust programs, and String class simplifies text manipulation. These advanced concepts complete the core C++ OOP syllabus.</p>
-
-</div>
-    <div class="scroll-emoji-left">🚀</div>
-    <div class="scroll-emoji-right">💻</div>
-
-    <script>
-    window.addEventListener('scroll', function() {
-        let scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-        let leftEmoji = document.querySelector('.scroll-emoji-left');
-        let rightEmoji = document.querySelector('.scroll-emoji-right');
-        
-        if (scrollPercent > 20) {
-            leftEmoji.classList.add('active-emoji');
+        if(USERS && USERS === pass) {
+            document.getElementById("loginOverlay").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            errorMsg.style.display = "none";
         } else {
-            leftEmoji.classList.remove('active-emoji');
+            errorMsg.style.display = "block";
         }
-        
-        if (scrollPercent > 50) {
-            rightEmoji.classList.add('active-emoji');
-        } else {
-            rightEmoji.classList.remove('active-emoji');
-        }
+    }
+
+    document.getElementById("password").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkLogin();
     });
-    </script>
-            </div> <!-- mainContent close -->
-    
-<!-- PUDHU SINGLE SESSION LOGIN CODE START -->
+
+    document.getElementById("username").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkLogin();
+    });
+</script>
+
+<!-- FIREBASE SCRIPT -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, set, onValue, remove, onDisconnect } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
   const firebaseConfig = {
     databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -2865,63 +1721,30 @@ int main() {
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
+  const studentsRef = ref(db, 'students');
 
-  // UNGA USERS LIST - INGA PODU DA
-  const USERS = {
-    "tvu": "cpp2024",
-    "admin": "1234",
-    "student1": "pass1"
-  };
+  onValue(studentsRef, (snapshot) => {
+    const data = snapshot.val();
+    const liveDiv = document.getElementById('liveData');
+    const ul = document.getElementById('data-ul');
+    ul.innerHTML = '';
 
-  // checkLogin FUNCTION
-  window.checkLogin = function() {
-    const user = document.getElementById('username').value;
-    const pass = document.getElementById('password').value;
-    const errorMsg = document.getElementById('errorMsg');
+    if (data) {
+      const keys = Object.keys(data);
+      const lastKey = keys[keys.length - 1];
+      const student = data[lastKey];
+      liveDiv.innerHTML = `Name: ${student.name} | RollNo: ${student.rollno} | Mark: ${student.mark}`;
 
-    if(USERS && USERS === pass) {
-      const userSession = ref(db, 'activeSessions/' + user);
-      
-      onValue(userSession, (snapshot) => {
-        if(snapshot.exists()) {
-          errorMsg.innerText = `"${user}" account ipo vere phone la use aagudhu da`;
-          errorMsg.style.display = 'block';
-        } else {
-          set(userSession, { loginTime: Date.now() });
-          onDisconnect(userSession).remove();
-          
-          document.getElementById('loginOverlay').style.display = 'none';
-          document.getElementById('mainContent').style.display = 'block';
-          errorMsg.style.display = 'none';
-          localStorage.setItem('currentUser', user);
-        }
-      }, { onlyOnce: true });
+      for (let id in data) {
+        let s = data[id];
+        ul.innerHTML += `<li style="margin: 10px 0;"><b>Name:</b> ${s.name} | <b>RollNo:</b> ${s.rollno} | <b>Mark:</b> ${s.mark}</li>`;
+      }
     } else {
-      errorMsg.innerText = "Username Password thappu da";
-      errorMsg.style.display = 'block';
-      document.getElementById('password').value = '';
-    }
-  }
-
-  // Enter key ku listener
-  document.getElementById('password')?.addEventListener('keypress', function(e) {
-    if(e.key === 'Enter') {
-      checkLogin();
+      liveDiv.innerHTML = "Innum data varala da...";
+      ul.innerHTML = '<li style="color: red;">C++ la irundhu data innum varala... Run pannu da!</li>';
     }
   });
-
-  // LOGOUT FUNCTION
-  window.logout = function() {
-    const user = localStorage.getItem('currentUser');
-    if(user) {
-      const userSession = ref(db, 'activeSessions/' + user);
-      remove(userSession);
-      localStorage.removeItem('currentUser');
-    }
-    document.getElementById('loginOverlay').style.display = 'flex';
-    document.getElementById('mainContent').style.display = 'none';
-  }
 </script>
+
 </body>
 </html>
-<!-- PUDHU SINGLE SESSION LOGIN CODE END -->

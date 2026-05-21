@@ -2375,8 +2375,7 @@ int main() {
 
 <p><b>Conclusion:</b> Pointers provide powerful memory manipulation capabilities, Arrays enable efficient data storage, and Polymorphism with Virtual Functions brings runtime flexibility to C++ programs.</p>
 
-</div>
-    <div class="divider"></div>
+<div class="divider"></div>
 
 <h1>UNIT V - FILES, TEMPLATES, EXCEPTION HANDLING AND STRINGS</h1>
 
@@ -2457,6 +2456,7 @@ int main() {
 <pre>
 #include &lt;iostream&gt;
 #include &lt;fstream&gt;
+#include &lt;cstring&gt;
 using namespace std;
 
 class Student {
@@ -2608,9 +2608,9 @@ int main() {
 
 <h2>4. STRING</h2>
 <h3>4.1 Declaring and Initializing String Objects</h3>
-<p><b>Definition:</b> The string class is part of the C++ Standard Library and is used to represent a sequence of characters. It provides many functions for string manipulation and is easier to use than C-style character arrays.</p>
+<p><b>Definition:</b> The string class is part of the C++ Standard Library and is used to represent a sequence of characters. It provides many functions for string manipulation and is easier to use than C-style character arrays. String objects are dynamic and automatically manage memory.</p>
 
-<p><b>Explanation:</b> String na text ah store panna use aagura class. char array vida easy. #include &lt;string&gt; podanum. Lots of functions iruku - length find panna, join panna, etc.</p>
+<p><b>Explanation:</b> String na text ah store panna use aagura class. char array vida semma easy - size fix panna thevai illa, automatic ah memory manage pannum. #include &lt;string&gt; podanum. + operator use panni join panna mudiyum, lots of built-in functions iruku.</p>
 
 <pre>
 #include &lt;iostream&gt;
@@ -2629,8 +2629,8 @@ int main() {
 
 <p><b>Code Explanation:</b><br>
 <b>Line 2:</b> string class use panna &lt;string&gt; header include panrom.<br>
-<b>Line 6:</b> s1 nu string object create panni "Hello" assign panrom.<br>
-<b>Line 7:</b> s2 nu inoru string object create panni "World" assign panrom.<br>
+<b>Line 6:</b> s1 nu string object create panni "Hello" assign panrom - direct initialization.<br>
+<b>Line 7:</b> s2 nu inoru string object create panni "World" assign panrom - constructor method.<br>
 <b>Line 8:</b> s3 nu empty string declare panrom.<br>
 <b>Line 9:</b> s1 + space + s2 join panni s3 ku assign panrom - "Hello World" aagum.<br>
 <b>Line 10:</b> s3 print panrom.<br>

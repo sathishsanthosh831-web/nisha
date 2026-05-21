@@ -143,9 +143,42 @@
             <p id="errorMsg" style="color: red; margin-top: 15px; display: none;">❌ Wrong Username or Password!</p>
         </div>
     </div>
-    <div id="mainContent" style="display: none;">
+    <div id="mainContent">
     <div class="container">
         <h1>Government Services - Official Links</h1>
+        <!-- C++ Live Data Start -->
+<h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
+
+<div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
+  Loading data...
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+  const firebaseConfig = {
+    databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const studentsRef = ref(db, 'students');
+
+  onValue(studentsRef, (snapshot) => {
+    const data = snapshot.val();
+    const liveDiv = document.getElementById('liveData');
+    if (data) {
+      const keys = Object.keys(data);
+      const lastKey = keys[keys.length - 1];
+      const student = data[lastKey];
+      liveDiv.innerHTML = `Name: ${student.name} | RollNo: ${student.rollno} | Mark: ${student.mark}`;
+    } else {
+      liveDiv.innerHTML = "Innum data varala da...";
+    }
+  });
+</script>
+<!-- C++ Live Data End -->
         
         <div class="table-container">
             <table>

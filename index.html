@@ -129,11 +129,6 @@
                 display: none;
             }
         }
-
-        /* HARD CORE HARDWARE LOCK: User validation illamal display bypass aaga koodathu */
-        #mainContent {
-            display: none !important;
-        }
     </style>
 </head>
 
@@ -144,20 +139,20 @@
             <p style="color: #666; margin-bottom: 30px;">Login to Access Notes</p>
             <input type="text" id="username" placeholder="Username" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
             <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
-            <button id="loginBtn" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">Login</button>
+            <button onclick="checkLogin()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">Login</button>
             <p id="errorMsg" style="color: red; margin-top: 15px; display: none;">❌ Wrong Username or Password!</p>
         </div>
     </div>
 
-    <div id="mainContent">
+    <div id="mainContent" style="display: none;">
     <div class="container">
         <h1>Government Services - Official Links</h1>
-        
         <h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
-        <div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
-          Loading data...
-        </div>
-        <div class="table-container">
+
+<div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
+  Loading data...
+</div>
+<div class="table-container">
             <table>
                 <tr>
                     <th>Driving Licence</th>
@@ -166,24 +161,35 @@
                     <th>Apply for PAN Card</th>
                     <th>Aadhaar Card Download</th>
                 </tr>
+
                 <tr>
-                    <td><a href="https://parivahan.gov.in/en" target="_blank" rel="noopener">Apply Licence</a></td>
-                    <td><a href="https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en" target="_blank" rel="noopener">Check Status</a></td>
-                    <td><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">Apply Voter ID</a></td>
-                    <td><a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" target="_blank" rel="noopener">Apply PAN</a></td>
-                    <td><a href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en" target="_blank" rel="noopener">Download Aadhaar</a></td>
+                    <td>
+                        <a href="https://parivahan.gov.in/en" target="_blank" rel="noopener">Apply Licence</a>
+                    </td>
+                    <td>
+                        <a href="https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en" target="_blank" rel="noopener">Check Status</a>
+                    </td>
+                    <td>
+                        <a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">Apply Voter ID</a>
+                    </td>
+                    <td>
+                        <a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" target="_blank" rel="noopener">Apply PAN</a>
+                    </td>
+                    <td>
+                        <a href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en" target="_blank" rel="noopener">Download Aadhaar</a>
+                    </td>
                 </tr>
             </table>
         </div>
 
         <div class="divider"></div>
-        
         <div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
-          <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
-          <ul id="data-ul" style="font-size: 18px;"></ul>
-        </div>
+  <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
+  <ul id="data-ul" style="font-size: 18px;"></ul>
+</div>
 
         <h1>UNIT I - Introduction to C++</h1>
+
         <p>C++ is a general-purpose programming language created by Bjarne Stroustrup in 1985 as an extension of the C language. It was designed to add object-oriented features to C while maintaining C's efficiency and flexibility.</p>
 
         <h2>Key Features of C++</h2>
@@ -704,7 +710,7 @@ int main() {
         <h3>Rules for Overloading</h3>
         <ol>
             <li>Function name same ah irukanum</li>
-            <li>Parameters count vera irukanum, or</li>
+                        <li>Parameters count vera irukanum, or</li>
             <li>Parameters data type vera irukanum</li>
             <li>Return type mattum vera irundha podhadhu - Error varum</li>
         </ol>
@@ -1029,27 +1035,26 @@ int main() {
 
         <p><b>Why Companies Use OOP:</b> Google, Microsoft, Game companies all use C++/Java OOP. Because they build software used by millions of people. OOP helps them manage huge code, add new features fast, and keep data safe.</p>
         <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
-        
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <h1>UNIT II - Classes and Objects - Complete Theory</h1>
+<h1>UNIT II - Classes and Objects - Complete Theory</h1>
 
-        <h2>1. Classes and Objects - Detailed Theory</h2>
-        <p><b>Introduction:</b> C++ is an Object-Oriented Programming language. The main concept of OOP is Class and Object. Real world problems ah easily solve panna Class and Object use panrom.</p>
+<h2>1. Classes and Objects - Detailed Theory</h2>
+<p><b>Introduction:</b> C++ is an Object-Oriented Programming language. The main concept of OOP is Class and Object. Real world problems ah easily solve panna Class and Object use panrom.</p>
 
-        <h3>1.1 Class - Complete Explanation</h3>
-        <p><b>Definition:</b> Class is a user-defined data type which is a collection of data members and member functions. It is a blueprint or template for creating objects.</p>
-        <p><b>Characteristics of Class:</b></p>
-        <ol>
-            <li><b>Logical Entity:</b> Class is just a logical concept. It does not exist physically.</li>
-            <li><b>No Memory Allocation:</b> When we define a class, no memory is allocated. Memory allocated only when object is created.</li>
-            <li><b>Data Hiding:</b> Using private, public, protected keywords we can hide data.</li>
-            <li><b>Data Binding:</b> Data and functions are bound together in a single unit.</li>
-            <li><b>Reusability:</b> Once a class is created, we can create multiple objects from it.</li>
-        </ol>
+<h3>1.1 Class - Complete Explanation</h3>
+<p><b>Definition:</b> Class is a user-defined data type which is a collection of data members and member functions. It is a blueprint or template for creating objects.</p>
+<p><b>Characteristics of Class:</b></p>
+<ol>
+    <li><b>Logical Entity:</b> Class is just a logical concept. It does not exist physically.</li>
+    <li><b>No Memory Allocation:</b> When we define a class, no memory is allocated. Memory allocated only when object is created.</li>
+    <li><b>Data Hiding:</b> Using private, public, protected keywords we can hide data.</li>
+    <li><b>Data Binding:</b> Data and functions are bound together in a single unit.</li>
+    <li><b>Reusability:</b> Once a class is created, we can create multiple objects from it.</li>
+</ol>
 
-        <p><b>Syntax of Class:</b></p>
-        <pre>
+<p><b>Syntax of Class:</b></p>
+<pre>
 class ClassName { // Class keyword use panni class define panrom
     private: // Access specifier - private section start
         data_type variable1; // Data members - veliya access panna mudiyadhu
@@ -1061,20 +1066,20 @@ class ClassName { // Class keyword use panni class define panrom
 }; // Semicolon must - marandha error varum
 </pre>
 
-        <h3>1.2 Object - Complete Explanation</h3>
-        <p><b>Definition:</b> Object is an instance of a class. When a class is defined, no memory is allocated but when object is created, memory is allocated.</p>
-        <p><b>Characteristics of Object:</b></p>
-        <ol>
-            <li><b>Physical Entity:</b> Object exists in memory.</li>
-            <li><b>Memory Allocation:</b> Each object has its own memory for data members.</li>
-            <li><b>State:</b> Object has state represented by data members.</li>
-            <li><b>Behavior:</b> Object has behavior represented by member functions.</li>
-            <li><b>Identity:</b> Each object has unique identity - object name.</li>
-        </ol>
+<h3>1.2 Object - Complete Explanation</h3>
+<p><b>Definition:</b> Object is an instance of a class. When a class is defined, no memory is allocated but when object is created, memory is allocated.</p>
+<p><b>Characteristics of Object:</b></p>
+<ol>
+    <li><b>Physical Entity:</b> Object exists in memory.</li>
+    <li><b>Memory Allocation:</b> Each object has its own memory for data members.</li>
+    <li><b>State:</b> Object has state represented by data members.</li>
+    <li><b>Behavior:</b> Object has behavior represented by member functions.</li>
+    <li><b>Identity:</b> Each object has unique identity - object name.</li>
+</ol>
 
-        <p><b>Example with Real Life:</b> Car is a class. BMW, Audi, Benz are objects. Class Car has properties like color, model, speed and behaviors like start(), stop(), accelerate().</p>
+<p><b>Example with Real Life:</b> Car is a class. BMW, Audi, Benz are objects. Class Car has properties like color, model, speed and behaviors like start(), stop(), accelerate().</p>
 
-        <pre>
+<pre>
 // Complete Example - Class and Object
 #include &lt;iostream&gt;
 using namespace std;
@@ -1121,42 +1126,42 @@ int main() {
 }
 </pre>
 
-        <h2>2. Declaring Objects - Complete Methods</h2>
-        <p><b>Theory:</b> Objects can be declared in multiple ways after class definition. Object declaration means creating variable of class type.</p>
+<h2>2. Declaring Objects - Complete Methods</h2>
+<p><b>Theory:</b> Objects can be declared in multiple ways after class definition. Object declaration means creating variable of class type.</p>
 
-        <p><b>Method 1: Separate Declaration</b></p>
-        <pre>
+<p><b>Method 1: Separate Declaration</b></p>
+<pre>
 class Employee {
     // class body
 }; // Class define pannom
 Employee e1, e2, e3; // Aprom separate ah objects declare pannom
 </pre>
 
-        <p><b>Method 2: With Class Definition</b></p>
-        <pre>
+<p><b>Method 2: With Class Definition</b></p>
+<pre>
 class Employee {
     // class body - class define pannum bodhe
 } e1, e2, e3; // Object name ah um serthu kuduthutom
 </pre>
 
-        <p><b>Method 3: Array of Objects</b></p>
-        <pre>
+<p><b>Method 3: Array of Objects</b></p>
+<pre>
 Employee e[100]; // 100 employees ku memory allocate aagum - e[0] to e[99]
 </pre>
 
-        <p><b>Method 4: Pointer to Objects</b></p>
-        <pre>
+<p><b>Method 4: Pointer to Objects</b></p>
+<pre>
 Employee *e1 = new Employee(); // Heap memory la object create aagum - new keyword
 delete e1; // Memory free pannanum - marandha memory leak aagum
 </pre>
 
-        <h2>3. Defining Member Functions - Complete Explanation</h2>
-        <p><b>Theory:</b> Member functions are functions declared inside class. They operate on data members of class. They define behavior of objects.</p>
+<h2>3. Defining Member Functions - Complete Explanation</h2>
+<p><b>Theory:</b> Member functions are functions declared inside class. They operate on data members of class. They define behavior of objects.</p>
 
-        <h3>3.1 Inside Class Definition</h3>
-        <p><b>Advantages:</b> 1. Code is concise 2. Compiler treats as inline 3. Faster execution</p>
-        <p><b>Disadvantages:</b> 1. Class becomes bulky 2. Not suitable for large functions</p>
-        <pre>
+<h3>3.1 Inside Class Definition</h3>
+<p><b>Advantages:</b> 1. Code is concise 2. Compiler treats as inline 3. Faster execution</p>
+<p><b>Disadvantages:</b> 1. Class becomes bulky 2. Not suitable for large functions</p>
+<pre>
 class Rectangle {
     private:
         int length, width; // Private data members
@@ -1177,10 +1182,10 @@ class Rectangle {
 };
 </pre>
 
-        <h3>3.2 Outside Class Definition</h3>
-        <p><b>Advantages:</b> 1. Class definition clean 2. Better for large functions 3. Separate interface and implementation</p>
-        <p><b>Important:</b> Must use scope resolution operator <code>::</code> to tell compiler that function belongs to class.</p>
-        <pre>
+<h3>3.2 Outside Class Definition</h3>
+<p><b>Advantages:</b> 1. Class definition clean 2. Better for large functions 3. Separate interface and implementation</p>
+<p><b>Important:</b> Must use scope resolution operator <code>::</code> to tell compiler that function belongs to class.</p>
+<pre>
 class Rectangle {
     private:
         int length, width;
@@ -1214,22 +1219,22 @@ int main() {
 }
 </pre>
 
-        <h2>4. Static Member Variables and Functions - Full Theory</h2>
-        <h3>4.1 Static Data Members</h3>
-        <p><b>Definition:</b> Static data members are class variables that are shared by all objects of the class. Only one copy exists regardless of number of objects.</p>
-        <p><b>Properties:</b></p>
-        <ol>
-            <li>Declared using <code>static</code> keyword inside class.</li>
-            <li>Must be defined outside class using scope resolution operator.</li>
-            <li>Initialized to zero when first object is created if not explicitly initialized.</li>
-            <li>Exists even if no objects are created.</li>
-            <li>Shared by all objects - common memory.</li>
-            <li>Can be accessed using class name or object name.</li>
-        </ol>
+<h2>4. Static Member Variables and Functions - Full Theory</h2>
+<h3>4.1 Static Data Members</h3>
+<p><b>Definition:</b> Static data members are class variables that are shared by all objects of the class. Only one copy exists regardless of number of objects.</p>
+<p><b>Properties:</b></p>
+<ol>
+    <li>Declared using <code>static</code> keyword inside class.</li>
+    <li>Must be defined outside class using scope resolution operator.</li>
+    <li>Initialized to zero when first object is created if not explicitly initialized.</li>
+    <li>Exists even if no objects are created.</li>
+    <li>Shared by all objects - common memory.</li>
+    <li>Can be accessed using class name or object name.</li>
+</ol>
 
-        <p><b>Why Static?</b> To store common information. Example: College name for all students, Count of objects created.</p>
+<p><b>Why Static?</b> To store common information. Example: College name for all students, Count of objects created.</p>
 
-        <pre>
+<pre>
 // Static Data Member Example - Object Counter
 #include &lt;iostream&gt;
 using namespace std;
@@ -1284,21 +1289,21 @@ int main() {
 }
 </pre>
 
-        <h3>4.2 Static Member Functions</h3>
-        <p><b>Definition:</b> Functions declared with static keyword. Can be called without creating object.</p>
-        <p><b>Properties:</b></p>
-        <ol>
-            <li>Can access only static data members and other static functions.</li>
-            <li>Does not have <code>this</code> pointer.</li>
-            <li>Cannot be virtual, const, or volatile.</li>
-            <li>Can be called using class name: <code>ClassName::function()</code></li>
-        </ol>
+<h3>4.2 Static Member Functions</h3>
+<p><b>Definition:</b> Functions declared with static keyword. Can be called without creating object.</p>
+<p><b>Properties:</b></p>
+<ol>
+    <li>Can access only static data members and other static functions.</li>
+    <li>Does not have <code>this</code> pointer.</li>
+    <li>Cannot be virtual, const, or volatile.</li>
+    <li>Can be called using class name: <code>ClassName::function()</code></li>
+</ol>
 
-        <h2>5. Array of Objects - Complete Concept</h2>
-        <p><b>Theory:</b> Array of objects means collection of objects of same class type. Similar to array of int, float. Used when we need to handle multiple objects.</p>
-        <p><b>Memory Allocation:</b> Contiguous memory allocated. If one object takes 20 bytes, 10 objects take 200 bytes continuously.</p>
+<h2>5. Array of Objects - Complete Concept</h2>
+<p><b>Theory:</b> Array of objects means collection of objects of same class type. Similar to array of int, float. Used when we need to handle multiple objects.</p>
+<p><b>Memory Allocation:</b> Contiguous memory allocated. If one object takes 20 bytes, 10 objects take 200 bytes continuously.</p>
 
-        <pre>
+<pre>
 // Array of Objects Example - Employee Management
 #include &lt;iostream&gt;
 using namespace std;
@@ -1362,27 +1367,27 @@ int main() {
 }
 </pre>
 
-        <h2>6. Friend Functions - Complete Theory</h2>
-        <p><b>Definition:</b> A friend function is a function that is not a member of class but has access to private and protected members of class. Declared with <code>friend</code> keyword inside class.</p>
+<h2>6. Friend Functions - Complete Theory</h2>
+<p><b>Definition:</b> A friend function is a function that is not a member of class but has access to private and protected members of class. Declared with <code>friend</code> keyword inside class.</p>
 
-        <p><b>Need for Friend Function:</b></p>
-        <ol>
-            <li>To access private data of two different classes.</li>
-            <li>Operator overloading for operators like &lt;&lt;, &gt;&gt;.</li>
-            <li>When a function needs to operate on objects of two different classes.</li>
-        </ol>
+<p><b>Need for Friend Function:</b></p>
+<ol>
+    <li>To access private data of two different classes.</li>
+    <li>Operator overloading for operators like <<, >>.</li>
+    <li>When a function needs to operate on objects of two different classes.</li>
+</ol>
 
-        <p><b>Characteristics:</b></p>
-        <ol>
-            <li>Not in scope of class - not a member.</li>
-            <li>Cannot be called using object - no dot operator.</li>
-            <li>Can be invoked like normal function.</li>
-            <li>Cannot access members directly - needs object name.</li>
-            <li>Can be declared in private or public section - no difference.</li>
-            <li>No <code>this</code> pointer.</li>
-        </ol>
+<p><b>Characteristics:</b></p>
+<ol>
+    <li>Not in scope of class - not a member.</li>
+    <li>Cannot be called using object - no dot operator.</li>
+    <li>Can be invoked like normal function.</li>
+    <li>Cannot access members directly - needs object name.</li>
+    <li>Can be declared in private or public section - no difference.</li>
+    <li>No <code>this</code> pointer.</li>
+</ol>
 
-        <pre>
+<pre>
 // Friend Function Example - Add data of two classes
 #include &lt;iostream&gt;
 using namespace std;
@@ -1666,9 +1671,40 @@ int main() {
     </div>
     </div>
 
+<script>
+    const USERS = {
+        "tvu": "cpp2024",
+        "admin": "1234",
+        "student1": "pass1"
+    };
+
+    function checkLogin() {
+        let user = document.getElementById("username").value.trim();
+        let pass = document.getElementById("password").value.trim();
+        let errorMsg = document.getElementById("errorMsg");
+
+        // FIX: Object parsing matching mechanism sari panniachu
+        if(USERS[user] !== undefined && USERS[user] === pass) {
+            document.getElementById("loginOverlay").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            errorMsg.style.display = "none";
+        } else {
+            errorMsg.style.display = "block";
+        }
+    }
+
+    document.getElementById("password").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkLogin();
+    });
+
+    document.getElementById("username").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkLogin();
+    });
+</script>
+
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
   const firebaseConfig = {
     databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -1676,98 +1712,8 @@ int main() {
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-
-  // USER MATRIX MATRIX CONFIG
-  const USERS = {
-      "tvu": "cpp2024", 
-      "admin": "1234", 
-      "student1": "pass1",
-      "student2": "pass2",
-      "student3": "pass3",
-      "student4": "pass4",
-      "student5": "pass5",
-      "student6": "pass6",
-      "student7": "pass7",
-      "student8": "pass8",
-      "student9": "pass9",
-      "student10": "pass10",
-      "student11": "pass11",
-      "student12": "pass12",
-      "student13": "pass13",
-      "student14": "pass14",
-      "student15": "pass15",
-      "student16": "pass16",
-      "student17": "pass17",
-      "student18": "pass18",
-      "student19": "pass19",
-      "student20": "pass20"
-  };
-
-  async function checkLogin() {
-      let user = document.getElementById("username").value.trim();
-      let pass = document.getElementById("password").value.trim();
-      let errorMsg = document.getElementById("errorMsg");
-
-      // FIXED SYNTAX: Array layer wrapped bracket notation completely removed!
-      if (USERS[user] !== undefined && USERS[user] === pass) {
-          let sessionToken = "token_" + Math.random().toString(36).substr(2, 9);
-          
-          localStorage.setItem("active_user", user);
-          localStorage.setItem("my_session", sessionToken);
-
-          // Realtime Database-la individual-ah dynamic path routing split aagum
-          await set(ref(db, 'sessions/' + user), { activeToken: sessionToken });
-
-          document.getElementById("loginOverlay").style.display = "none";
-          document.getElementById("mainContent").style.setProperty("display", "block", "important");
-          errorMsg.style.display = "none";
-
-          startSessionTracking(user, sessionToken);
-      } else {
-          errorMsg.style.display = "block";
-          errorMsg.innerText = "❌ Wrong Username or Password!";
-      }
-  }
-
-  document.getElementById("loginBtn").addEventListener("click", checkLogin);
-
-  // DYNAMIC TRACKING NODE: Anti collision system for parallel device management
-  function startSessionTracking(user, myToken) {
-      onValue(ref(db, 'sessions/' + user), (snapshot) => {
-          const data = snapshot.val();
-          if (data && data.activeToken !== myToken) {
-              alert("⚠️ Innoru phone-la indha account-ah login pannitanga da! So indha session auto-logout aagudhu.");
-              localStorage.clear();
-              document.getElementById("mainContent").style.setProperty("display", "none", "important");
-              document.getElementById("loginOverlay").style.display = "flex";
-          }
-      });
-  }
-
-  // AUTO RESYNC ON REFRESH CHECKER
-  window.addEventListener("load", async () => {
-      let savedUser = localStorage.getItem("active_user");
-      let savedToken = localStorage.getItem("my_session");
-
-      if (savedUser && savedToken) {
-          const snapshot = await get(ref(db, 'sessions/' + savedUser));
-          const data = snapshot.val();
-
-          if (data && data.activeToken === savedToken) {
-              document.getElementById("loginOverlay").style.display = "none";
-              document.getElementById("mainContent").style.setProperty("display", "block", "important");
-              startSessionTracking(savedUser, savedToken);
-          } else {
-              localStorage.clear();
-          }
-      }
-  });
-
-  document.getElementById("password").addEventListener("keypress", (e) => { if (e.key === "Enter") checkLogin(); });
-  document.getElementById("username").addEventListener("keypress", (e) => { if (e.key === "Enter") checkLogin(); });
-
-  // ORIGINAL STUDENTS FEED REAL-TIME SYNC LOOP
   const studentsRef = ref(db, 'students');
+
   onValue(studentsRef, (snapshot) => {
     const data = snapshot.val();
     const liveDiv = document.getElementById('liveData');
@@ -1790,5 +1736,6 @@ int main() {
     }
   });
 </script>
+
 </body>
 </html>

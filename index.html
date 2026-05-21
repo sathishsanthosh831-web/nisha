@@ -1016,7 +1016,318 @@ int main() {
 
         <p><b>Why Companies Use OOP:</b> Google, Microsoft, Game companies all use C++/Java OOP. Because they build software used by millions of people. OOP helps them manage huge code, add new features fast, and keep data safe.</p>
         <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>        
-    </div>
+    <div class="divider"></div>
+
+<h1>UNIT II - Classes and Objects</h1>
+
+<p>A class is the core concept in C++ OOP. Class is a user-defined data type that binds data and functions together. Object is an instance of a class.</p>
+
+<h2>Classes and Objects - Basic Concept</h2>
+<p><b>Class:</b> Blueprint or template. Memory occupy aagadhu. Ex: Car design.</p>
+<p><b>Object:</b> Real instance of class. Memory occupy aagum. Ex: BMW, Audi - idhellam Car class oda objects.</p>
+
+<h3>Syntax:</h3>
+<pre>
+class ClassName {
+    private:
+        // data members - hidden
+    public:
+        // member functions - accessible
+}; // semicolon must
+
+int main() {
+    ClassName obj1; // Object creation
+}
+</pre>
+
+<h2>Declaring Objects</h2>
+<p>Class define panna apram dhan object create panna mudiyum. Object create panna dhan memory allocate aagum.</p>
+
+<h3>Methods to Declare Objects:</h3>
+<pre>
+class Student {
+    public:
+        string name;
+        int rollNo;
+};
+
+// Method 1: Separate declaration
+Student s1;
+Student s2;
+
+// Method 2: Multiple objects in one line
+Student s1, s2, s3;
+
+// Method 3: Declaration with definition
+class Student {
+    // body
+} s1, s2; // s1, s2 objects
+</pre>
+
+<h2>Defining Member Functions</h2>
+<p>Class kulla irukura functions ku member functions nu peru. Idha 2 place la define pannalam.</p>
+
+<h3>1. Inside Class - Inline by default</h3>
+<pre>
+class Circle {
+    public:
+        float radius;
+        void area() { // Inside class definition
+            cout << 3.14 * radius * radius;
+        }
+};
+</pre>
+
+<h3>2. Outside Class - Using Scope Resolution Operator ::</h3>
+<pre>
+class Circle {
+    public:
+        float radius;
+        void area(); // Declaration only
+};
+
+// Definition outside
+void Circle::area() {
+    cout << 3.14 * radius * radius;
+}
+
+int main() {
+    Circle c1;
+    c1.radius = 5;
+    c1.area(); // Output: 78.5
+}
+</pre>
+
+<p><b>Note:</b> Outside define panna `return_type ClassName::function_name()` syntax use pannanum.</p>
+
+<h2>Static Member Variables and Functions</h2>
+<p><b>Static</b> keyword use panna variable/function class ku sontham aagum, object ku illa. All objects share same copy.</p>
+
+<h3>1. Static Member Variables</h3>
+<ol>
+    <li>Only one copy for entire class - objects ellam share pannum</li>
+    <li>Memory la static storage la save aagum</li>
+    <li>Class ku veliya initialize pannanum</li>
+</ol>
+<pre>
+class Student {
+    public:
+        static int count; // Declaration
+        Student() { count++; }
+};
+
+int Student::count = 0; // Definition outside - must
+
+int main() {
+    Student s1, s2, s3;
+    cout << Student::count; // Output: 3 - object name use panna thevai illa
+}
+</pre>
+
+<h3>2. Static Member Functions</h3>
+<ol>
+    <li>Static variables ah mattum access panna mudiyum</li>
+    <li>Object create pannama call pannalam - `ClassName::function()`</li>
+    <li>`this` pointer use panna mudiyadhu</li>
+</ol>
+<pre>
+class Test {
+    public:
+        static int x;
+        static void show() {
+            cout << x; // Only static members allowed
+        }
+};
+int Test::x = 10;
+
+int main() {
+    Test::show(); // Output: 10 - object thevai illa
+}
+</pre>
+
+<h2>Array of Objects</h2>
+<p>Normal array maari, objects ah kooda array la store pannalam. 50 students details store panna use aagum.</p>
+<pre>
+class Student {
+    public:
+        string name;
+        int marks;
+        void getData() {
+            cin >> name >> marks;
+        }
+        void display() {
+            cout << name << " " << marks << endl;
+        }
+};
+
+int main() {
+    Student s[3]; // Array of 3 Student objects
+
+    for(int i=0; i<3; i++) {
+        cout << "Enter details: ";
+        s[i].getData();
+    }
+
+    for(int i=0; i<3; i++) {
+        s[i].display();
+    }
+}
+</pre>
+
+<h2>Friend Functions</h2>
+<p><b>Definition:</b> Normal ah private members ah veliya irundhu access panna mudiyadhu. `friend` keyword use panna oru outside function ku special permission kudukalam.</p>
+
+<h3>Why Friend Function?</h3>
+<ol>
+    <li>Two classes oda private data ah access panna</li>
+    <li>Operator overloading ku use aagum</li>
+    <li>Encapsulation break pannama access kudukkum</li>
+</ol>
+
+<h3>Syntax & Example:</h3>
+<pre>
+class Box {
+    private:
+        int length;
+    public:
+        Box() { length = 10; }
+        friend void printLength(Box b); // Friend declaration
+};
+
+// Friend function definition - class ku veliya
+void printLength(Box b) {
+    cout << b.length; // Private member ah access panrom
+}
+
+int main() {
+    Box b1;
+    printLength(b1); // Output: 10
+}
+</pre>
+
+<p><b>Important:</b> Friend function class oda member illa, but private data ah access pannalam. `friend` keyword declaration la mattum podanum.</p>
+
+<h2>Overloading Member Functions</h2>
+<p>Same class kulla same function name, but different parameters - idhuku dhan function overloading nu peru. Unit 1 la paathom, ipo class kulla paapom.</p>
+<pre>
+class Calculate {
+    public:
+        int area(int side) { // Square
+            return side * side;
+        }
+        int area(int l, int b) { // Rectangle
+            return l * b;
+        }
+        float area(float r) { // Circle
+            return 3.14 * r * r;
+        }
+};
+
+int main() {
+    Calculate c;
+    cout << c.area(5); // Output: 25 - calls 1st
+    cout << c.area(4, 5); // Output: 20 - calls 2nd
+    cout << c.area(3.5f); // Output: 38.465 - calls 3rd
+}
+</pre>
+
+<h2>Bit Fields and Classes</h2>
+<p><b>Definition:</b> Memory save panna use aagum. Oru integer variable ku 4 bytes thevai. But namaku 1 bit or 2 bit dhan thevai na, bit field use pannalam.</p>
+
+<h3>Use Case:</h3>
+Date store panna: Day ku 5 bits podhum 0-31, Month ku 4 bits 0-12, Year ku 12 bits.
+
+<h3>Syntax:</h3>
+<pre>
+class Date {
+    public:
+        unsigned int day : 5; // 5 bits - 0 to 31
+        unsigned int month : 4; // 4 bits - 0 to 15
+        unsigned int year : 12; // 12 bits - 0 to 4095
+};
+
+int main() {
+    Date d;
+    d.day = 25;
+    d.month = 12;
+    d.year = 2026;
+    cout << d.day << "/" << d.month << "/" << d.year;
+    // Output: 25/12/2026
+
+    cout << sizeof(d); // Output: 4 bytes - normal ah 12 bytes varum
+}
+</pre>
+
+<p><b>Advantage:</b> Memory save aagum. Embedded systems la use aagum.</p>
+<p><b>Disadvantage:</b> Address of bit field eduka mudiyadhu. Array of bit fields create panna mudiyadhu.</p>
+
+<h2>Constructor and Destructor with Static Members</h2>
+<p><b>Constructor:</b> Object create aagum podhu automatic ah call aagura special function. Class name same ah irukum.</p>
+<p><b>Destructor:</b> Object destroy aagum podhu automatic ah call aagum. `~ClassName()` syntax.</p>
+
+<h3>Static Member + Constructor Example:</h3>
+<p>How many objects create aanuchu nu count panna use aagum.</p>
+<pre>
+class Demo {
+    public:
+        static int count;
+
+        Demo() { // Constructor
+            count++;
+            cout << "Object " << count << " created" << endl;
+        }
+
+        ~Demo() { // Destructor
+            cout << "Object " << count << " destroyed" << endl;
+            count--;
+        }
+};
+
+int Demo::count = 0; // Static variable initialize
+
+int main() {
+    Demo d1, d2, d3; // 3 constructors call aagum
+    cout << "Total: " << Demo::count << endl;
+    return 0; // 3 destructors call aagum
+}
+
+/* Output:
+Object 1 created
+Object 2 created
+Object 3 created
+Total: 3
+Object 3 destroyed
+Object 2 destroyed
+Object 1 destroyed
+*/
+</pre>
+
+<h3>Key Points:</h3>
+<table style="width:100%; border-collapse:collapse; margin:15px 0;">
+    <tr style="background:#1a73e8; color:white;">
+        <th style="padding:10px; border:1px solid #ddd;">Constructor</th>
+        <th style="padding:10px; border:1px solid #ddd;">Destructor</th>
+    </tr>
+    <tr>
+        <td style="padding:10px; border:1px solid #ddd;">Object create aagum podhu call aagum</td>
+        <td style="padding:10px; border:1px solid #ddd;">Object destroy aagum podhu call aagum</td>
+    </tr>
+    <tr style="background:#f9f9f9;">
+        <td style="padding:10px; border:1px solid #ddd;">Same name as class</td>
+        <td style="padding:10px; border:1px solid #ddd;">~ClassName()</td>
+    </tr>
+    <tr>
+        <td style="padding:10px; border:1px solid #ddd;">Parameters irukalam - Overloading</td>
+        <td style="padding:10px; border:1px solid #ddd;">No parameters, No overloading</td>
+    </tr>
+    <tr style="background:#f9f9f9;">
+        <td style="padding:10px; border:1px solid #ddd;">Memory allocate panna use aagum</td>
+        <td style="padding:10px; border:1px solid #ddd;">Memory free panna use aagum</td>
+    </tr>
+</table>
+
+<p><b>Conclusion:</b> Unit 2 la Classes and Objects oda full concepts cover pannom. Constructor/Destructor, Static, Friend Functions ellam TVU 10 mark questions ku mukkiyam. Objects use panni real world problems ah easy ah solve pannalam.</p>
+            </div>
 
     <div class="scroll-emoji-left">🚀</div>
     <div class="scroll-emoji-right">💻</div>

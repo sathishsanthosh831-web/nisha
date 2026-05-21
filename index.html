@@ -133,26 +133,10 @@
 </head>
 
 <body>
-    <div id="loginOverlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); z-index: 9999; display: flex; justify-content: center; align-items: center;">
-        <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); width: 90%; max-width: 400px; text-align: center;">
-            <h2 style="color: #667eea; margin-bottom: 10px;">🔐 TVU C++ Notes</h2>
-            <p style="color: #666; margin-bottom: 30px;">Login to Access Notes</p>
-            <input type="text" id="username" placeholder="Username" style="width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
-            <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box;">
-            <button onclick="checkLogin()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">Login</button>
-            <p id="errorMsg" style="color: red; margin-top: 15px; display: none;">❌ Wrong Username or Password!</p>
-        </div>
-    </div>
-
-    <div id="mainContent" style="display: none;">
     <div class="container">
         <h1>Government Services - Official Links</h1>
-        <h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
-
-<div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
-  Loading data...
-</div>
-<div class="table-container">
+        
+        <div class="table-container">
             <table>
                 <tr>
                     <th>Driving Licence</th>
@@ -183,10 +167,6 @@
         </div>
 
         <div class="divider"></div>
-        <div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
-  <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
-  <ul id="data-ul" style="font-size: 18px;"></ul>
-</div>
 
         <h1>UNIT I - Introduction to C++</h1>
 
@@ -251,7 +231,7 @@ int main() {         // main function, execution starts here
 
         <h2>Popular Object-Oriented Languages</h2>
         <p>C++ mattum illa da, indha languages lam OOP support pannudhu. Exam la "List OOP Languages" nu ketta idha ezhudhu:</p>
-
+        
         <table style="width:100%; border-collapse:collapse; margin:15px 0;">
             <tr style="background:#1a73e8; color:white;">
                 <th style="padding:10px; border:1px solid #ddd;">Language</th>
@@ -555,7 +535,8 @@ for(int i = 1; i <= 3; i++) {
     cout << endl;
 }
 /* Output:
-* * * * * * * * *
+* * * 
+* * * 
 */
 </pre>
 
@@ -710,14 +691,14 @@ int main() {
         <h3>Rules for Overloading</h3>
         <ol>
             <li>Function name same ah irukanum</li>
-                        <li>Parameters count vera irukanum, or</li>
+            <li>Parameters count vera irukanum, or</li>
             <li>Parameters data type vera irukanum</li>
             <li>Return type mattum vera irundha podhadhu - Error varum</li>
         </ol>
 
         <h3>Example 1: Different Number of Parameters</h3>
         <pre>
-#include &lt;iostream&gt;
+            #include &lt;iostream&gt;
 using namespace std;
 
 int add(int a, int b) {
@@ -729,8 +710,8 @@ int add(int a, int b, int c) {
 }
 
 int main() {
-    cout << add(5, 3) << endl; // Output: 8 - calls 1st function
-    cout << add(5, 3, 2) << endl; // Output: 10 - calls 2nd function
+    cout << add(5, 3) << endl;      // Output: 8 - calls 1st function
+    cout << add(5, 3, 2) << endl;   // Output: 10 - calls 2nd function
     return 0;
 }
 </pre>
@@ -753,9 +734,9 @@ string add(string a, string b) {
 }
 
 int main() {
-    cout << add(5, 3) << endl; // Output: 8
-    cout << add(5.5, 3.2) << endl; // Output: 8.7
-    cout << add("Hello", "World"); // Output: HelloWorld
+    cout << add(5, 3) << endl;           // Output: 8
+    cout << add(5.5, 3.2) << endl;       // Output: 8.7
+    cout << add("Hello", "World");       // Output: HelloWorld
     return 0;
 }
 </pre>
@@ -775,7 +756,7 @@ int main() {
         <p><b>Class:</b> A class is a blueprint or template. It does not occupy memory. Example: The design plan of a house.</p>
         <p><b>Object:</b> An object is an instance of a class. It occupies memory. Example: The actual house built using the design plan.</p>
         <pre>
-class Student { // Class - Blueprint
+class Student {        // Class - Blueprint
     public:
         string name;
         int rollNo;
@@ -785,7 +766,7 @@ class Student { // Class - Blueprint
 };
 
 int main() {
-    Student s1; // Object - Real entity
+    Student s1;        // Object - Real entity
     s1.name = "Ravi";
     s1.rollNo = 101;
     s1.display();
@@ -799,13 +780,13 @@ int main() {
         <pre>
 class BankAccount {
     private:
-        double balance; // Data is hidden - cannot access directly
-
+        double balance;  // Data is hidden - cannot access directly
+        
     public:
-        void setBalance(double b) { // Setter function
+        void setBalance(double b) {  // Setter function
             if(b >= 0) balance = b;
         }
-        double getBalance() { // Getter function
+        double getBalance() {        // Getter function
             return balance;
         }
 };
@@ -820,7 +801,7 @@ class BankAccount {
         <p><b>Real Life Example:</b> A "Car" is a type of "Vehicle". Vehicle has common properties like speed, color. Car inherits these properties and also has its own properties like number of doors, AC.</p>
         <p><b>Types of Inheritance in C++:</b> Single, Multiple, Multilevel, Hierarchical, Hybrid.</p>
         <pre>
-class Vehicle { // Base Class
+class Vehicle {          // Base Class
     public:
         int speed;
         void run() {
@@ -828,7 +809,7 @@ class Vehicle { // Base Class
         }
 };
 
-class Car : public Vehicle { // Derived Class - inherits Vehicle
+class Car : public Vehicle {  // Derived Class - inherits Vehicle
     public:
         int doors;
         void honk() {
@@ -838,10 +819,10 @@ class Car : public Vehicle { // Derived Class - inherits Vehicle
 
 int main() {
     Car c1;
-    c1.speed = 100; // Inherited from Vehicle
-    c1.doors = 4; // Own property
-    c1.run(); // Inherited function
-    c1.honk(); // Own function
+    c1.speed = 100;  // Inherited from Vehicle
+    c1.doors = 4;    // Own property
+    c1.run();        // Inherited function
+    c1.honk();       // Own function
 }
 </pre>
         <p><b>Main Benefits:</b><br>
@@ -892,7 +873,7 @@ class Dog : public Animal {
         <p><b>Real Life Example:</b> When you use a TV remote, you just press the power button. You don't need to know the circuit board, infrared signal, or internal wiring. That complexity is hidden from you.</p>
         <p><b>How C++ Achieves It:</b> Using Abstract Classes and Interfaces. An abstract class has at least one pure virtual function. You cannot create an object of an abstract class.</p>
         <pre>
-class Shape { // Abstract class
+class Shape {  // Abstract class
     public:
         virtual void draw() = 0; // Pure virtual function
 };
@@ -906,9 +887,9 @@ class Circle : public Shape {
 };
 
 int main() {
-    // Shape s; // Error: Cannot create object of abstract class
+    // Shape s;  // Error: Cannot create object of abstract class
     Circle c;
-    c.draw(); // User just calls draw(), complexity is hidden
+    c.draw();    // User just calls draw(), complexity is hidden
 }
 </pre>
         <p><b>Main Benefits:</b><br>
@@ -1034,708 +1015,31 @@ int main() {
         </table>
 
         <p><b>Why Companies Use OOP:</b> Google, Microsoft, Game companies all use C++/Java OOP. Because they build software used by millions of people. OOP helps them manage huge code, add new features fast, and keep data safe.</p>
-        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
-    <div class="divider"></div>
-
-<h1>UNIT II - Classes and Objects - Complete Theory</h1>
-
-<h2>1. Classes and Objects - Detailed Theory</h2>
-<p><b>Introduction:</b> C++ is an Object-Oriented Programming language. The main concept of OOP is Class and Object. Real world problems ah easily solve panna Class and Object use panrom.</p>
-
-<h3>1.1 Class - Complete Explanation</h3>
-<p><b>Definition:</b> Class is a user-defined data type which is a collection of data members and member functions. It is a blueprint or template for creating objects.</p>
-<p><b>Characteristics of Class:</b></p>
-<ol>
-    <li><b>Logical Entity:</b> Class is just a logical concept. It does not exist physically.</li>
-    <li><b>No Memory Allocation:</b> When we define a class, no memory is allocated. Memory allocated only when object is created.</li>
-    <li><b>Data Hiding:</b> Using private, public, protected keywords we can hide data.</li>
-    <li><b>Data Binding:</b> Data and functions are bound together in a single unit.</li>
-    <li><b>Reusability:</b> Once a class is created, we can create multiple objects from it.</li>
-</ol>
-
-<p><b>Syntax of Class:</b></p>
-<pre>
-class ClassName { // Class keyword use panni class define panrom
-    private: // Access specifier - private section start
-        data_type variable1; // Data members - veliya access panna mudiyadhu
-        data_type variable2;
-
-    public: // Access specifier - public section start
-        return_type function1(); // Member functions - veliya access pannalam
-        return_type function2();
-}; // Semicolon must - marandha error varum
-</pre>
-
-<h3>1.2 Object - Complete Explanation</h3>
-<p><b>Definition:</b> Object is an instance of a class. When a class is defined, no memory is allocated but when object is created, memory is allocated.</p>
-<p><b>Characteristics of Object:</b></p>
-<ol>
-    <li><b>Physical Entity:</b> Object exists in memory.</li>
-    <li><b>Memory Allocation:</b> Each object has its own memory for data members.</li>
-    <li><b>State:</b> Object has state represented by data members.</li>
-    <li><b>Behavior:</b> Object has behavior represented by member functions.</li>
-    <li><b>Identity:</b> Each object has unique identity - object name.</li>
-</ol>
-
-<p><b>Example with Real Life:</b> Car is a class. BMW, Audi, Benz are objects. Class Car has properties like color, model, speed and behaviors like start(), stop(), accelerate().</p>
-
-<pre>
-// Complete Example - Class and Object
-#include &lt;iostream&gt;
-using namespace std;
-
-class Student { // Student nu oru class create pannom
-    private: // Private section - veliya access panna mudiyadhu
-        int rollno; // Roll number store panna variable
-        string name; // Name store panna variable
-        float marks; // Marks store panna variable
-
-    public: // Public section - veliya access pannalam
-        void getData() { // Data vaanganum na idha use pannu
-            cout << "Enter Roll No: ";
-            cin >> rollno; // User kitta irundhu rollno vaangrom
-            cout << "Enter Name: ";
-            cin >> name; // Name vaangrom
-            cout << "Enter Marks: ";
-            cin >> marks; // Marks vaangrom
-        }
-
-        void displayData() { // Data display panna idha use pannu
-            cout << "\nRoll No: " << rollno << endl; // Roll no print pannudhu
-            cout << "Name: " << name << endl; // Name print pannudhu
-            cout << "Marks: " << marks << endl; // Marks print pannudhu
-        }
-}; // Class mudinjiduchu - semicolon must
-
-int main() {
-    Student s1, s2; // 2 objects create pannom - s1 and s2
-
-    cout << "Enter Details of Student 1:" << endl;
-    s1.getData(); // s1 ku data vaangrom - function call pannom
-
-    cout << "\nEnter Details of Student 2:" << endl;
-    s2.getData(); // s2 ku data vaangrom
-
-    cout << "\n--- Student 1 Details ---";
-    s1.displayData(); // s1 oda details print pannom
-
-    cout << "\n--- Student 2 Details ---";
-    s2.displayData(); // s2 oda details print pannom
-
-    return 0;
-}
-</pre>
-
-<h2>2. Declaring Objects - Complete Methods</h2>
-<p><b>Theory:</b> Objects can be declared in multiple ways after class definition. Object declaration means creating variable of class type.</p>
-
-<p><b>Method 1: Separate Declaration</b></p>
-<pre>
-class Employee {
-    // class body
-}; // Class define pannom
-Employee e1, e2, e3; // Aprom separate ah objects declare pannom
-</pre>
-
-<p><b>Method 2: With Class Definition</b></p>
-<pre>
-class Employee {
-    // class body - class define pannum bodhe
-} e1, e2, e3; // Object name ah um serthu kuduthutom
-</pre>
-
-<p><b>Method 3: Array of Objects</b></p>
-<pre>
-Employee e[100]; // 100 employees ku memory allocate aagum - e[0] to e[99]
-</pre>
-
-<p><b>Method 4: Pointer to Objects</b></p>
-<pre>
-Employee *e1 = new Employee(); // Heap memory la object create aagum - new keyword
-delete e1; // Memory free pannanum - marandha memory leak aagum
-</pre>
-
-<h2>3. Defining Member Functions - Complete Explanation</h2>
-<p><b>Theory:</b> Member functions are functions declared inside class. They operate on data members of class. They define behavior of objects.</p>
-
-<h3>3.1 Inside Class Definition</h3>
-<p><b>Advantages:</b> 1. Code is concise 2. Compiler treats as inline 3. Faster execution</p>
-<p><b>Disadvantages:</b> 1. Class becomes bulky 2. Not suitable for large functions</p>
-<pre>
-class Rectangle {
-    private:
-        int length, width; // Private data members
-
-    public:
-        void setData(int l, int w) { // Class kulla ye define pannom
-            length = l; // l value ah length ku assign pannom
-            width = w; // w value ah width ku assign pannom
-        }
-
-        int area() { // Area calculate panna function
-            return length * width; // Length * width return pannudhu
-        }
-
-        int perimeter() { // Perimeter calculate panna
-            return 2 * (length + width); // Formula: 2(l+w)
-        }
-};
-</pre>
-
-<h3>3.2 Outside Class Definition</h3>
-<p><b>Advantages:</b> 1. Class definition clean 2. Better for large functions 3. Separate interface and implementation</p>
-<p><b>Important:</b> Must use scope resolution operator <code>::</code> to tell compiler that function belongs to class.</p>
-<pre>
-class Rectangle {
-    private:
-        int length, width;
-
-    public:
-        void setData(int l, int w); // Inga declaration mattum - veliya ezhuduren
-        int area(); // Declaration mattum
-        int perimeter(); // Declaration mattum
-};
-
-// Outside definitions - ClassName::functionName syntax
-void Rectangle::setData(int l, int w) { // Rectangle class oda setData function
-    length = l; // l ah length ku assign panrom
-    width = w; // w ah width ku assign panrom
-}
-
-int Rectangle::area() { // Rectangle class oda area function
-    return length * width; // Area calculate panni return panrom
-}
-
-int Rectangle::perimeter() { // Rectangle class oda perimeter function
-    return 2 * (length + width); // Perimeter calculate panni return panrom
-}
-
-int main() {
-    Rectangle r1; // Rectangle object create pannom
-    r1.setData(10, 5); // Length=10, Width=5 nu set pannom
-    cout << "Area: " << r1.area() << endl; // Output: Area: 50
-    cout << "Perimeter: " << r1.perimeter(); // Output: Perimeter: 30
-    return 0;
-}
-</pre>
-
-<h2>4. Static Member Variables and Functions - Full Theory</h2>
-<h3>4.1 Static Data Members</h3>
-<p><b>Definition:</b> Static data members are class variables that are shared by all objects of the class. Only one copy exists regardless of number of objects.</p>
-<p><b>Properties:</b></p>
-<ol>
-    <li>Declared using <code>static</code> keyword inside class.</li>
-    <li>Must be defined outside class using scope resolution operator.</li>
-    <li>Initialized to zero when first object is created if not explicitly initialized.</li>
-    <li>Exists even if no objects are created.</li>
-    <li>Shared by all objects - common memory.</li>
-    <li>Can be accessed using class name or object name.</li>
-</ol>
-
-<p><b>Why Static?</b> To store common information. Example: College name for all students, Count of objects created.</p>
-
-<pre>
-// Static Data Member Example - Object Counter
-#include &lt;iostream&gt;
-using namespace std;
-
-class Student {
-    private:
-        string name;
-        int rollno;
-
-    public:
-        static int count; // Static variable declare pannom - class ku oru copy dhan
-
-        Student() { // Constructor - object create aagum bodhu call aagum
-            count++; // Ovoru object create aagum bodhu count ah increment pannu
-            rollno = count; // Roll no ah count value kuduthom
-        }
-
-        void getName() {
-            cout << "Enter Name: ";
-            cin >> name; // Name vaangrom
-        }
-
-        void display() {
-            cout << "Roll No: " << rollno << ", Name: " << name << endl;
-        }
-
-        static void showCount() { // Static function - static members ah mattum access pannum
-            cout << "Total Students: " << count << endl;
-        }
-};
-
-// Static member definition - class ku veliya define pannanum - compulsory
-int Student::count = 0; // Initial value 0 kuduthom
-
-int main() {
-    cout << "Initial Count: " << Student::count << endl; // Output: 0 - object create pannama access pannom
-
-    Student s1, s2, s3; // 3 objects create pannom - constructor 3 times call aagum
-    s1.getName();
-    s2.getName();
-    s3.getName();
-
-    cout << "\n--- Student Details ---" << endl;
-    s1.display();
-    s2.display();
-    s3.display();
-
-    Student::showCount(); // Output: Total Students: 3 - class name use panni call pannom
-    s1.showCount(); // Output: Total Students: 3 - object name use panniyum call pannalam
-
-    return 0;
-}
-</pre>
-
-<h3>4.2 Static Member Functions</h3>
-<p><b>Definition:</b> Functions declared with static keyword. Can be called without creating object.</p>
-<p><b>Properties:</b></p>
-<ol>
-    <li>Can access only static data members and other static functions.</li>
-    <li>Does not have <code>this</code> pointer.</li>
-    <li>Cannot be virtual, const, or volatile.</li>
-    <li>Can be called using class name: <code>ClassName::function()</code></li>
-</ol>
-
-<h2>5. Array of Objects - Complete Concept</h2>
-<p><b>Theory:</b> Array of objects means collection of objects of same class type. Similar to array of int, float. Used when we need to handle multiple objects.</p>
-<p><b>Memory Allocation:</b> Contiguous memory allocated. If one object takes 20 bytes, 10 objects take 200 bytes continuously.</p>
-
-<pre>
-// Array of Objects Example - Employee Management
-#include &lt;iostream&gt;
-using namespace std;
-
-class Employee {
-    private:
-        int empId;
-        string name;
-        float salary;
-
-    public:
-        void getData() { // Data vaanga function
-            cout << "Enter Employee ID: ";
-            cin >> empId; // ID vaangrom
-            cout << "Enter Name: ";
-            cin >> name; // Name vaangrom
-            cout << "Enter Salary: ";
-            cin >> salary; // Salary vaangrom
-        }
-
-        void displayData() { // Data display panna function
-            cout << "ID: " << empId << ", Name: " << name << ", Salary: " << salary << endl;
-        }
-
-        float getSalary() { // Salary return panna function
-            return salary; // Salary ah return panrom
-        }
-};
-
-int main() {
-    int n;
-    cout << "Enter number of employees: ";
-    cin >> n; // Ethana employees nu user kitta kekrom
-
-    Employee emp[n]; // n employees ku array create pannom - emp[0] to emp[n-1]
-
-    cout << "\n--- Enter Employee Details ---" << endl;
-    for(int i = 0; i < n; i++) { // Loop use panni ovvoru employee kum data vaangrom
-        cout << "\nEmployee " << i+1 << ":" << endl;
-        emp[i].getData(); // i-th employee ku data vaangrom
-    }
-
-    cout << "\n--- Employee Details ---" << endl;
-    for(int i = 0; i < n; i++) { // Loop use panni display panrom
-        emp[i].displayData(); // i-th employee details print panrom
-    }
-
-    // Highest salary kandupidikka
-    float maxSalary = emp[0].getSalary(); // First employee salary ah max nu vachutom
-    int maxIndex = 0; // Max salary irukura index
-    for(int i = 1; i < n; i++) { // 2nd employee la irundhu check panrom
-        if(emp[i].getSalary() > maxSalary) { // Ipo irukura salary max ah vida perusa?
-            maxSalary = emp[i].getSalary(); // Aama na adha max ah maathu
-            maxIndex = i; // Index um update pannu
-        }
-    }
-    cout << "\nHighest Salary Employee:" << endl;
-    emp[maxIndex].displayData(); // Max salary vaangura employee details print pannom
-
-    return 0;
-}
-</pre>
-
-<h2>6. Friend Functions - Complete Theory</h2>
-<p><b>Definition:</b> A friend function is a function that is not a member of class but has access to private and protected members of class. Declared with <code>friend</code> keyword inside class.</p>
-
-<p><b>Need for Friend Function:</b></p>
-<ol>
-    <li>To access private data of two different classes.</li>
-    <li>Operator overloading for operators like <<, >>.</li>
-    <li>When a function needs to operate on objects of two different classes.</li>
-</ol>
-
-<p><b>Characteristics:</b></p>
-<ol>
-    <li>Not in scope of class - not a member.</li>
-    <li>Cannot be called using object - no dot operator.</li>
-    <li>Can be invoked like normal function.</li>
-    <li>Cannot access members directly - needs object name.</li>
-    <li>Can be declared in private or public section - no difference.</li>
-    <li>No <code>this</code> pointer.</li>
-</ol>
-
-<pre>
-// Friend Function Example - Add data of two classes
-#include &lt;iostream&gt;
-using namespace std;
-
-class B; // Forward declaration - Class B ku munnadi Class A varudhu
-
-class A {
-    private:
-        int valueA; // Private data - veliya access panna mudiyadhu
-
-    public:
-        A() { valueA = 10; } // Constructor - valueA ku 10 kuduthom
-
-        // Friend function declaration - add function ku special permission
-        friend int add(A objA, B objB); // A oda friend and B oda friend
-};
-
-class B {
-    private:
-        int valueB; // Private data
-
-    public:
-        B() { valueB = 20; } // Constructor - valueB ku 20 kuduthom
-
-        // Same friend function - rendu class kum friend
-        friend int add(A objA, B objB);
-};
-
-// Friend function definition - class ku veliya normal function maari
-int add(A objA, B objB) { // A oda object and B oda object argument ah vaangudhu
-    // Rendu class oda private members ah um access panrom - friend la dhan mudiyum
-    return objA.valueA + objB.valueB; // A oda valueA + B oda valueB = 10 + 20 = 30
-}
-
-int main() {
-    A objectA; // Class A ku object
-    B objectB; // Class B ku object
-
-    cout << "Sum: " << add(objectA, objectB); // Output: Sum: 30
-    // add function ah normal function maari call panrom - object use panna thevai illa
-
-    return 0;
-}
-</pre>
-
-        <h2>7. Function Overloading - Complete Concept</h2>
-        <p><b>Definition:</b> Function Overloading is a feature where two or more functions can have same name but different parameters. It is an example of Compile-time Polymorphism.</p>
-
-        <p><b>Rules for Function Overloading:</b></p>
-        <ol>
-            <li>Functions must have same name.</li>
-            <li>Parameters must differ in: a) Number of parameters b) Type of parameters c) Sequence of parameters</li>
-            <li>Return type alone cannot differentiate overloaded functions.</li>
-            <li>const and volatile can differentiate.</li>
-        </ol>
-
-        <pre>
-// Function Overloading Example - Area Calculation
-#include &lt;iostream&gt;
-using namespace std;
-
-class Shape {
-    public:
-        // Function 1: Area of Circle - 1 float parameter
-        float area(float radius) { // radius mattum vaangudhu
-            return 3.14159 * radius * radius; // Pi * r^2 formula
-        }
-
-        // Function 2: Area of Rectangle - 2 int parameters
-        int area(int length, int breadth) { // length and breadth vaangudhu
-            return length * breadth; // l * b formula
-        }
-
-        // Function 3: Area of Triangle - 2 float parameters
-        float area(float base, float height) { // base and height vaangudhu
-            return 0.5 * base * height; // 1/2 * b * h formula
-        }
-
-        // Function 4: Area of Square - 1 int parameter
-        int area(int side) { // side mattum vaangudhu
-            return side * side; // side^2 formula
-        }
-};
-
-int main() {
-    Shape s; // Shape class ku object
-
-    cout << "Area of Circle (r=5): " << s.area(5.0f) << endl; // Float kuduthom - 1st function call aagum
-    // Output: 78.5397
-
-    cout << "Area of Rectangle (10x5): " << s.area(10, 5) << endl; // 2 int kuduthom - 2nd function
-    // Output: 50
-
-    cout << "Area of Triangle (b=6, h=4): " << s.area(6.0f, 4.0f) << endl; // 2 float - 3rd function
-    // Output: 12
-
-    cout << "Area of Square (side=7): " << s.area(7) << endl; // 1 int - 4th function
-    // Output: 49
-
-    return 0;
-}
-</pre>
-
-        <h2>8. Bit Fields - Complete Theory</h2>
-        <p><b>Definition:</b> Bit fields allow packing of data in a structure. Used to save memory when we know that value will not exceed certain limit.</p>
-
-        <p><b>Syntax:</b> <code>data_type member_name : width;</code></p>
-        <p><b>Where width = number of bits to use</b></p>
-
-        <p><b>Advantages:</b></p>
-        <ol>
-            <li>Memory saving - Important in embedded systems</li>
-            <li>Used in device drivers and network protocols</li>
-            <li>Used for flags - ON/OFF, TRUE/FALSE</li>
-        </ol>
-
-        <p><b>Disadvantages:</b></p>
-        <ol>
-            <li>Cannot have address - & operator not allowed</li>
-            <li>Cannot create array of bit fields</li>
-            <li>Machine dependent - size may vary</li>
-            <li>Slower access than normal variables</li>
-        </ol>
-
-        <pre>
-// Bit Fields Example - Date Storage
-#include &lt;iostream&gt;
-using namespace std;
-
-class Date {
-    public:
-        unsigned int day : 5; // 5 bits - 0 to 31 podhum (2^5 = 32)
-        unsigned int month : 4; // 4 bits - 0 to 15 podhum (2^4 = 16), month max 12
-        unsigned int year : 12; // 12 bits - 0 to 4095 podhum (2^12 = 4096)
-        // Total: 5+4+12 = 21 bits ≈ 3 bytes
-        // Normal ah 3 int = 12 bytes - ipo 9 bytes save aachu
-};
-
-class StatusFlags {
-    public:
-        unsigned int isActive : 1; // 1 bit - 0 or 1 (ON/OFF)
-        unsigned int isVisible : 1; // 1 bit - TRUE/FALSE
-        unsigned int hasError : 1; // 1 bit - Error iruka illaya
-        unsigned int priority : 2; // 2 bits - 0 to 3 (Low, Medium, High, Critical)
-        // Total: 5 bits - but alignment ku 1 byte aagum
-};
-
-int main() {
-    Date today; // Date object
-    today.day = 21; // Day ku 21 kuduthom - 5 bits la 31 varaikum podalam
-    today.month = 5; // May month - 4 bits la 12 varaikum podalam
-    today.year = 2026; // 2026 - 12 bits la 4095 varaikum podalam
-
-    cout << "Date: " << today.day << "/" << today.month << "/" << today.year << endl;
-    // Output: Date: 21/5/2026
-
-    cout << "Size of Date object: " << sizeof(today) << " bytes" << endl;
-    // Output: 4 bytes (3 bytes + padding)
-
-    StatusFlags flags; // Status object
-    flags.isActive = 1; // Active = true
-    flags.isVisible = 1; // Visible = true
-    flags.hasError = 0; // No error
-    flags.priority = 3; // Critical priority (11 in binary)
-
-    cout << "\nStatus:" << endl;
-    cout << "Active: " << flags.isActive << endl;
-    cout << "Visible: " << flags.isVisible << endl;
-    cout << "Has Error: " << flags.hasError << endl;
-    cout << "Priority: " << flags.priority << endl;
-
-    return 0;
-}
-</pre>
-
-        <h2>9. Constructors and Destructors - Complete Theory</h2>
-
-        <h3>9.1 Constructor - Detailed</h3>
-        <p><b>Definition:</b> Constructor is a special member function that is automatically invoked when an object is created. Used to initialize object.</p>
-
-        <p><b>Characteristics:</b></p>
-        <ol>
-            <li>Same name as class name.</li>
-            <li>No return type, not even void.</li>
-            <li>Called automatically when object is created.</li>
-            <li>Can be overloaded - Multiple constructors possible.</li>
-            <li>Can have default arguments.</li>
-            <li>Cannot be virtual.</li>
-            <li>Cannot be inherited, but derived class can call base class constructor.</li>
-        </ol>
-
-        <p><b>Types of Constructors:</b></p>
-        <pre>
-// 1. Default Constructor - No parameters
-class Student {
-    public:
-        Student() { // Default constructor
-            cout << "Object Created" << endl;
-        }
-};
-
-// 2. Parameterized Constructor - With parameters
-class Student {
-    private:
-        string name;
-        int age;
-    public:
-        Student(string n, int a) { // Parameterized constructor
-            name = n; // n value ah name ku assign panrom
-            age = a; // a value ah age ku assign panrom
-        }
-};
-
-// 3. Copy Constructor - Copy one object to another
-class Student {
-    private:
-        string name;
-    public:
-        Student(string n) { name = n; }
-
-        Student(const Student &s) { // Copy constructor
-            name = s.name; // s oda name ah idhukku copy panrom
-            cout << "Copy Constructor Called" << endl;
-        }
-};
-
-int main() {
-    Student s1("Ravi"); // Parameterized constructor call aagum
-    Student s2 = s1; // Copy constructor call aagum
-    return 0;
-}
-</pre>
-
-        <h3>9.2 Destructor - Detailed</h3>
-        <p><b>Definition:</b> Destructor is a special member function that is automatically invoked when an object goes out of scope or is deleted. Used to free resources.</p>
-
-        <p><b>Characteristics:</b></p>
-        <ol>
-            <li>Same name as class but with tilde ~ symbol.</li>
-            <li>No return type, not even void.</li>
-            <li>No parameters - Cannot be overloaded.</li>
-            <li>Only one destructor per class.</li>
-            <li>Called automatically when object destroyed.</li>
-            <li>Used to release memory, close files, release locks.</li>
-        </ol>
-
-        <pre>
-class Student {
-    private:
-        int *marks; // Dynamic memory pointer
-        int size;
-    public:
-        Student(int s) { // Constructor - Memory allocate panrom
-            size = s;
-            marks = new int[size]; // Heap la array create panrom
-            cout << "Constructor: Memory Allocated" << endl;
-        }
-
-        ~Student() { // Destructor - Memory free panrom
-            delete[] marks; // Heap memory ah free panrom
-            cout << "Destructor: Memory Freed" << endl;
-        }
-
-        void setMarks() {
-            for(int i = 0; i < size; i++) {
-                marks[i] = i * 10;
-            }
-        }
-};
-
-int main() {
-    Student s1(5); // Constructor call aagum - Memory allocate aagum
-    s1.setMarks();
-    // Function mudiyum bodhu destructor automatically call aagum
-    // Memory free aagum - Memory leak varadhu
-    return 0;
-}
-</pre>
-
-        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
-    </div>
+        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>        
     </div>
 
-<script>
-    const USERS = {
-        "tvu": "cpp2024",
-        "admin": "1234",
-        "student1": "pass1"
-    };
+    <div class="scroll-emoji-left">🚀</div>
+    <div class="scroll-emoji-right">💻</div>
 
-    function checkLogin() {
-        let user = document.getElementById("username").value.trim();
-        let pass = document.getElementById("password").value.trim();
-        let errorMsg = document.getElementById("errorMsg");
-
-        // FIX: Object parsing matching mechanism sari panniachu
-        if(USERS[user] !== undefined && USERS[user] === pass) {
-            document.getElementById("loginOverlay").style.display = "none";
-            document.getElementById("mainContent").style.display = "block";
-            errorMsg.style.display = "none";
+    <script>
+    window.addEventListener('scroll', function() {
+        let scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+        let leftEmoji = document.querySelector('.scroll-emoji-left');
+        let rightEmoji = document.querySelector('.scroll-emoji-right');
+        
+        if (scrollPercent > 20) {
+            leftEmoji.classList.add('active-emoji');
         } else {
-            errorMsg.style.display = "block";
+            leftEmoji.classList.remove('active-emoji');
         }
-    }
-
-    document.getElementById("password").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") checkLogin();
+        
+        if (scrollPercent > 50) {
+            rightEmoji.classList.add('active-emoji');
+        } else {
+            rightEmoji.classList.remove('active-emoji');
+        }
     });
-
-    document.getElementById("username").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") checkLogin();
-    });
-</script>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-  const firebaseConfig = {
-    databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const studentsRef = ref(db, 'students');
-
-  onValue(studentsRef, (snapshot) => {
-    const data = snapshot.val();
-    const liveDiv = document.getElementById('liveData');
-    const ul = document.getElementById('data-ul');
-    ul.innerHTML = '';
-
-    if (data) {
-      const keys = Object.keys(data);
-      const lastKey = keys[keys.length - 1];
-      const student = data[lastKey];
-      liveDiv.innerHTML = `Name: ${student.name} | RollNo: ${student.rollno} | Mark: ${student.mark}`;
-
-      for (let id in data) {
-        let s = data[id];
-        ul.innerHTML += `<li style="margin: 10px 0;"><b>Name:</b> ${s.name} | <b>RollNo:</b> ${s.rollno} | <b>Mark:</b> ${s.mark}</li>`;
-      }
-    } else {
-      liveDiv.innerHTML = "Innum data varala da...";
-      ul.innerHTML = '<li style="color: red;">C++ la irundhu data innum varala... Run pannu da!</li>';
-    }
-  });
-</script>
+    </script>
 
 </body>
 </html>

@@ -147,15 +147,12 @@
     <div id="mainContent" style="display: none;">
     <div class="container">
         <h1>Government Services - Official Links</h1>
-        <!-- C++ Live Data Start -->
-<h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
+        <h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
 
 <div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
   Loading data...
 </div>
-<!-- C++ Live Data End -->
-
-        <div class="table-container">
+<div class="table-container">
             <table>
                 <tr>
                     <th>Driving Licence</th>
@@ -186,8 +183,7 @@
         </div>
 
         <div class="divider"></div>
-        <!-- C++ DATA INGA VARUM -->
-<div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
+        <div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
   <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
   <ul id="data-ul" style="font-size: 18px;"></ul>
 </div>
@@ -559,9 +555,7 @@ for(int i = 1; i <= 3; i++) {
     cout << endl;
 }
 /* Output:
-* * * 
-* * * 
-* * *
+* * * * * * * * *
 */
 </pre>
 
@@ -1428,8 +1422,6 @@ int add(A objA, B objB) { // A oda object and B oda object argument ah vaangudhu
     return objA.valueA + objB.valueB; // A oda valueA + B oda valueB = 10 + 20 = 30
 }
 
-}
-
 int main() {
     A objectA; // Class A ku object
     B objectB; // Class B ku object
@@ -1679,7 +1671,6 @@ int main() {
     </div>
     </div>
 
-<!-- LOGIN SYSTEM SCRIPT -->
 <script>
     const USERS = {
         "tvu": "cpp2024",
@@ -1692,7 +1683,8 @@ int main() {
         let pass = document.getElementById("password").value.trim();
         let errorMsg = document.getElementById("errorMsg");
 
-        if(USERS && [user] === pass) {
+        // FIX: Object parsing matching mechanism sari panniachu
+        if(USERS[user] !== undefined && USERS[user] === pass) {
             document.getElementById("loginOverlay").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
             errorMsg.style.display = "none";
@@ -1710,7 +1702,6 @@ int main() {
     });
 </script>
 
-<!-- FIREBASE SCRIPT -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";

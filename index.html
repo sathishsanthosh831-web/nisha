@@ -1667,7 +1667,526 @@ int main() {
 <p><b>Ans:</b> Output: A~A. Reason: Constructor call aagum, main mudiyum bodhu destructor call aagum.</p>
 
 <p><b>Conclusion:</b> Unit II is the most important unit for TVU C++ exam. Class, Object, Constructor, Destructor, Static, Friend concepts la irundhu confirm 20 marks varum. Nalla padichi ezhudunga. All the best for exams!</p>
+<div class="divider"></div>
 
+<h1>UNIT III - OPERATOR OVERLOADING AND INHERITANCE</h1>
+
+<h2>📘 UNIT III INTRODUCTION</h2>
+<p>This unit covers <b>Operator Overloading</b> which allows us to give additional meaning to existing C++ operators, and <b>Inheritance</b> which enables code reusability by deriving new classes from existing classes. These are core concepts of Object Oriented Programming that help in writing cleaner and more maintainable code.</p>
+
+<h2>1. OPERATOR OVERLOADING</h2>
+<h3>1.1 Introduction to Operator Overloading</h3>
+<p><b>Definition:</b> Operator Overloading is a compile-time polymorphism mechanism that allows programmers to redefine the way operators work for user-defined types such as objects and structures.</p>
+
+<p><b>Explanation:</b> Operator overloading na enna nu paatha, C++ la irukura +, -, *, / maari operators ah namma class objects ku use panna maathuradhu. Example ku, rendu Time objects ah `t1 + t2` nu add panna mudiyum. Normal ah int ku mattum dhan + work aagum, aana namma Time class ku apdi oru meaning kudukalam.</p>
+
+<p><b>Rules for Operator Overloading:</b></p>
+<table>
+<tr>
+<th>Rule</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Cannot create new operators</td>
+<td>Pudhu operator create panna mudiyadhu. Irukura operator ah mattum overload pannalam</td>
+</tr>
+<tr>
+<td>Cannot change precedence</td>
+<td>Operator oda precedence, associativity maara koodadhu</td>
+</tr>
+<tr>
+<td>Cannot overload certain operators</td>
+<td>::, ., .*, sizeof, ?: - indha 5 operators ah overload panna mudiyadhu</td>
+</tr>
+<tr>
+<td>Must be member or friend function</td>
+<td>Operator function member function ah illa friend function ah irukanum</td>
+</tr>
+</table>
+
+<p><b>Syntax:</b></p>
+<pre>
+return_type operator op (argument_list) {
+    // Body of function
+}
+</pre>
+<p>Inga `op` na + - * / maari edhuvum irukalam. `operator` keyword must use pannanum.</p>
+
+<h3>1.2 Overloading Unary Operators</h3>
+<p><b>Definition:</b> Unary operators are operators that operate on a single operand. Examples include increment (++), decrement (--), unary minus (-), logical NOT (!).</p>
+
+<p><b>Explanation:</b> Unary operator na orey oru operand mela work aaguradhu. `++a` maari. Idha namma class ku overload panna, member function ku argument thevai illa, friend function na oru argument thevai.</p>
+
+<pre>
+// Unary Minus Operator Overloading
+#include &lt;iostream&gt;
+using namespace std;
+
+class Distance {
+    int feet, inches; // feet and inches nu rendu data members
+    public:
+        Distance(int f, int i) { // Constructor - values set pandradhuku
+            feet = f; 
+            inches = i;
+        }
+        
+        void operator-() { // Unary minus operator overload panrom
+            feet = -feet; // feet ah negative aakudhu
+            inches = -inches; // inches ah negative aakudhu
+        }
+        
+        void display() { // Values print panna function
+            cout &lt;&lt; "Feet: " &lt;&lt; feet &lt;&lt; " Inches: " &lt;&lt; inches &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Distance d1(5, 6); // d1 object create pannom - 5 feet 6 inches
+    cout &lt;&lt; "Before: "; d1.display(); // Overload pannura munnadi
+    -d1; // Idhu d1.operator-() nu call aagum - unary minus apply aagudhu
+    cout &lt;&lt; "After: "; d1.display(); // Negative values varum
+    return 0;
+}
+</pre>
+
+<h3>1.3 Overloading Binary Operators</h3>
+<p><b>Definition:</b> Binary operators are operators that operate on two operands. Examples include addition (+), subtraction (-), multiplication (*), division (/).</p>
+
+<p><b>Explanation:</b> Binary operator na rendu operands venum. `a + b` maari. Member function ah overload panna oru argument podhum - left operand `this` object aagum. Friend function na rendu argument venum.</p>
+
+<pre>
+// Binary + Operator Overloading for Complex Numbers
+#include &lt;iostream&gt;
+using namespace std;
+
+class Complex {
+    float real, imag; // Real and imaginary parts
+    public:
+        Complex() { real = 0; imag = 0; } // Default constructor
+        Complex(float r, float i) { // Parameterized constructor
+            real = r; 
+            imag = i;
+        }
+        
+        Complex operator+(Complex c) { // + operator overload panrom
+            Complex temp; // Temporary object result store panna
+            temp.real = real + c.real; // Idhu object oda real + argument object real
+            temp.imag = imag + c.imag; // Idhu object oda imag + argument object imag
+            return temp; // Result return panrom
+        }
+        
+        void display() {
+            cout &lt;&lt; real &lt;&lt; " + " &lt;&lt; imag &lt;&lt; "i" &lt;&lt; endl; // Complex number format la print
+        }
+};
+
+int main() {
+    Complex c1(3.5, 2.5), c2(1.5, 4.5), c3; // Moonu objects create pannom
+    c3 = c1 + c2; // Idhu c1.operator+(c2) nu call aagum
+    cout &lt;&lt; "Result: "; c3.display(); // 5 + 7i varum
+    return 0;
+}
+</pre>
+
+<h3>1.4 Overloading Friend Functions</h3>
+<p><b>Definition:</b> A friend function is a non-member function that has access to the private and protected members of a class. Operators can be overloaded using friend functions when the left operand is not an object of the class.</p>
+
+<p><b>Explanation:</b> Sila neram operator overload panna member function use panna mudiyadhu. Example ku `cout << obj` nu ezhudanum na, left side la cout iruku - adhu ostream class object. Namma class illa. Appo friend function use pannanum.</p>
+
+<pre>
+// << and >> Operator Overloading using Friend Function
+#include &lt;iostream&gt;
+using namespace std;
+
+class Time {
+    int hours, minutes; // Private data members
+    public:
+        Time() { hours = 0; minutes = 0; }
+        Time(int h, int m) { hours = h; minutes = m; }
+        
+        // Friend function declaration - class ku veliya define pannalam
+        friend ostream& operator<<(ostream &out, Time &t);
+        friend istream& operator>>(istream &in, Time &t);
+};
+
+// << operator overload - cout << t1 nu use panna
+ostream& operator<<(ostream &out, Time &t) {
+    out &lt;&lt; t.hours &lt;&lt; " hrs " &lt;&lt; t.minutes &lt;&lt; " mins"; // Time ah format la print
+    return out; // ostream return pannanum - chaining ku
+}
+
+// >> operator overload - cin >> t1 nu use panna  
+istream& operator>>(istream &in, Time &t) {
+    cout &lt;&lt; "Enter hours: "; in &gt;&gt; t.hours; // User kitta hours kekkurom
+    cout &lt;&lt; "Enter minutes: "; in &gt;&gt; t.minutes; // Minutes kekkurom
+    return in; // istream return pannanum
+}
+
+int main() {
+    Time t1; // Empty Time object
+    cin &gt;&gt; t1; // >> operator call aagum - user input edukum
+    cout &lt;&lt; "Time is: " &lt;&lt; t1 &lt;&lt; endl; // << operator call aagum - print aagum
+    return 0;
+}
+</pre>
+
+<h2>2. TYPE CONVERSION</h2>
+<h3>2.1 Introduction to Type Conversion</h3>
+<p><b>Definition:</b> Type Conversion is the process of converting one data type to another. In C++, it can be implicit performed by compiler or explicit performed by programmer using constructors and conversion functions.</p>
+
+<p><b>Explanation:</b> Type conversion na oru type la irundhu inoru type ku maaruradhu. `int a = 5.5;` potta 5 aagum - implicit conversion. Namma class objects ku conversion venum na constructor illa conversion function ezhudanum.</p>
+
+<p><b>Types of Conversion:</b></p>
+<table>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Method</th>
+</tr>
+<tr>
+<td>Basic to Class</td>
+<td>int, float la irundhu class object ku</td>
+<td>Constructor use pannurom</td>
+</tr>
+<tr>
+<td>Class to Basic</td>
+<td>Class object la irundhu int, float ku</td>
+<td>Conversion function use pannurom</td>
+</tr>
+<tr>
+<td>Class to Class</td>
+<td>Oru class la irundhu inoru class ku</td>
+<td>Constructor illa conversion function</td>
+</tr>
+</table>
+
+<pre>
+// Basic to Class Type Conversion
+#include &lt;iostream&gt;
+using namespace std;
+
+class Time {
+    int hours, minutes;
+    public:
+        Time() { hours = 0; minutes = 0; }
+        
+        Time(int t) { // int la irundhu Time ku convert panna constructor
+            hours = t / 60; // 130 minutes na 2 hours
+            minutes = t % 60; // 10 minutes
+        }
+        
+        void display() {
+            cout &lt;&lt; hours &lt;&lt; " hrs " &lt;&lt; minutes &lt;&lt; " mins" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Time t1; // Default constructor
+    int duration = 130; // 130 minutes
+    t1 = duration; // Implicit ah Time(int) constructor call aagum
+    t1.display(); // 2 hrs 10 mins varum
+    return 0;
+}
+</pre>
+
+<h2>3. INHERITANCE</h2>
+<h3>3.1 Introduction to Inheritance</h3>
+<p><b>Definition:</b> Inheritance is a mechanism in which a new class is derived from an existing class. The new class inherits properties and methods of the existing class. It represents an IS-A relationship and promotes code reusability.</p>
+
+<p><b>Explanation:</b> Inheritance na sothu vaangura maari. Base class kitta irukura ella properties um derived class ku varum. Car is a Vehicle nu sollalam - Car class Vehicle class kitta irundhu inherit pannum. Code thirumba ezhuda thevai illa.</p>
+
+<p><b>Key Terms:</b></p>
+<table>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+<tr>
+<td>Base Class</td>
+<td>The class whose properties are inherited. Also called Parent or Super class</td>
+</tr>
+<tr>
+<td>Derived Class</td>
+<td>The class that inherits properties. Also called Child or Sub class</td>
+</tr>
+<tr>
+<td>IS-A Relationship</td>
+<td>Derived class IS-A type of Base class. Example: Dog IS-A Animal</td>
+</tr>
+</table>
+
+<pre>
+// Simple Inheritance Example
+#include &lt;iostream&gt;
+using namespace std;
+
+class Animal { // Base class
+    public:
+        void eat() { // Base class function
+            cout &lt;&lt; "Animal eats food" &lt;&lt; endl;
+        }
+};
+
+class Dog : public Animal { // Dog class Animal kitta irundhu inherit panudhu
+    public:
+        void bark() { // Derived class oda own function
+            cout &lt;&lt; "Dog barks" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Dog d; // Dog object create pannom
+    d.eat(); // Base class function ah Dog use panradhu - Inheritance
+    d.bark(); // Own function call panrom
+    return 0;
+}
+</pre>
+
+<h3>3.2 Types of Inheritance</h3>
+<p><b>Definition:</b> C++ supports five types of inheritance: Single, Multiple, Multilevel, Hierarchical, and Hybrid inheritance. Each type defines how classes are related to each other.</p>
+
+<table>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Diagram</th>
+</tr>
+<tr>
+<td>Single Inheritance</td>
+<td>One base class, one derived class. A -> B</td>
+<td>A → B</td>
+</tr>
+<tr>
+<td>Multiple Inheritance</td>
+<td>One derived class from multiple base classes. A, B -> C</td>
+<td>A, B → C</td>
+</tr>
+<tr>
+<td>Multilevel Inheritance</td>
+<td>Derived from a derived class. A -> B -> C</td>
+<td>A → B → C</td>
+</tr>
+<tr>
+<td>Hierarchical Inheritance</td>
+<td>Multiple classes from one base class. A -> B, A -> C</td>
+<td>A → B, C</td>
+</tr>
+<tr>
+<td>Hybrid Inheritance</td>
+<td>Combination of two or more types of inheritance</td>
+<td>Mixed</td>
+</tr>
+</table>
+
+<pre>
+// Multiple Inheritance Example
+#include &lt;iostream&gt;
+using namespace std;
+
+class Engine { // First base class
+    public:
+        void start() {
+            cout &lt;&lt; "Engine started" &lt;&lt; endl;
+        }
+};
+
+class Wheels { // Second base class
+    public:
+        void rotate() {
+            cout &lt;&lt; "Wheels rotating" &lt;&lt; endl;
+        }
+};
+
+class Car : public Engine, public Wheels { // Car rendu class kitta irundhu inherit panudhu
+    public:
+        void drive() {
+            cout &lt;&lt; "Car is driving" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Car myCar; // Car object
+    myCar.start(); // Engine class function
+    myCar.rotate(); // Wheels class function  
+    myCar.drive(); // Own function
+    return 0;
+}
+</pre>
+
+<h3>3.3 Virtual Base Classes</h3>
+<p><b>Definition:</b> A Virtual Base Class is used in multiple inheritance to prevent ambiguity and duplication of base class members when a class is derived from multiple classes that have a common base class.</p>
+
+<p><b>Explanation:</b> Diamond problem nu onnu varum. A -> B, A -> C, B,C -> D nu irundha, D ku A oda members rendu thadava varum. Idha avoid panna `virtual` keyword use pannurom. Appo A oda copy orey oru thadava dhan varum.</p>
+
+<pre>
+// Virtual Base Class Example - Diamond Problem Solution
+#include &lt;iostream&gt;
+using namespace std;
+
+class A { // Grandparent class
+    public:
+        int x;
+        A() { x = 10; }
+};
+
+class B : virtual public A { // Virtual inheritance
+    public:
+        int y;
+        B() { y = 20; }
+};
+
+class C : virtual public A { // Virtual inheritance
+    public:
+        int z;
+        C() { z = 30; }
+};
+
+class D : public B, public C { // D class B and C kitta irundhu inherit panudhu
+    public:
+        void display() {
+            cout &lt;&lt; "x = " &lt;&lt; x &lt;&lt; endl; // Ambiguity illa - A oda x orey oru copy dhan
+            cout &lt;&lt; "y = " &lt;&lt; y &lt;&lt; ", z = " &lt;&lt; z &lt;&lt; endl;
+        }
+};
+
+int main() {
+    D obj; // D object create pannom
+    obj.display(); // x ku orey oru copy dhan varum - virtual illana error varum
+    return 0;
+}
+</pre>
+
+<h3>3.4 Abstract Classes</h3>
+<p><b>Definition:</b> An Abstract Class is a class that contains at least one pure virtual function. It cannot be instantiated and is used as a base class for other classes. It provides a common interface for derived classes.</p>
+
+<p><b>Explanation:</b> Abstract class na design plan maari. Idha vechu direct ah object create panna mudiyadhu. `= 0` potu pure virtual function vachurukom na adhu abstract class. Derived class la adha must override pannanum.</p>
+
+<p><b>Pure Virtual Function:</b> `virtual void func() = 0;` - body kidayadhu, = 0 podurom.</p>
+
+<pre>
+// Abstract Class Example
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape { // Abstract class - object create panna mudiyadhu
+    public:
+        virtual void area() = 0; // Pure virtual function - derived class la must define pannanum
+        void display() { // Normal function um irukalam
+            cout &lt;&lt; "This is a shape" &lt;&lt; endl;
+        }
+};
+
+class Circle : public Shape { // Circle class Shape ah inherit panudhu
+    int radius;
+    public:
+        Circle(int r) { radius = r; }
+        void area() { // Pure virtual function ah override panrom
+            cout &lt;&lt; "Circle Area: " &lt;&lt; 3.14 * radius * radius &lt;&lt; endl;
+        }
+};
+
+class Rectangle : public Shape { // Rectangle class um Shape ah inherit panudhu
+    int length, breadth;
+    public:
+        Rectangle(int l, int b) { length = l; breadth = b; }
+        void area() { // Must override pannurom illana Rectangle um abstract aagidum
+            cout &lt;&lt; "Rectangle Area: " &lt;&lt; length * breadth &lt;&lt; endl;
+        }
+};
+
+int main() {
+    // Shape s; // Error varum - abstract class ku object create panna mudiyadhu
+    Circle c(5); // Circle object create pannalam
+    Rectangle r(4, 6); // Rectangle object create pannalam
+    c.area(); // Circle oda area function call aagum
+    r.area(); // Rectangle oda area function call aagum
+    return 0;
+}
+</pre>
+
+<h2>📋 IMPORTANT QUESTIONS - UNIT III</h2>
+
+<h3>PART A - 2 Marks</h3>
+<ol>
+<li>Define Operator Overloading.</li>
+<li>List any four operators that cannot be overloaded in C++.</li>
+<li>What is a friend function?</li>
+<li>Define Inheritance with an example.</li>
+<li>What is a Virtual Base Class? Why is it needed?</li>
+<li>Define Abstract Class and Pure Virtual Function.</li>
+<li>Differentiate between Single and Multiple Inheritance.</li>
+<li>What is Type Conversion?</li>
+</ol>
+
+<h3>PART B - 5 Marks</h3>
+<ol>
+<li>Explain the rules for Operator Overloading with examples.</li>
+<li>Write a C++ program to overload unary minus operator.</li>
+<li>Explain Binary operator overloading with a program for complex number addition.</li>
+<li>Discuss Type Conversion from Basic to Class type with example.</li>
+<li>Explain different types of Inheritance with neat diagrams.</li>
+<li>Write a program to demonstrate Multiple Inheritance.</li>
+</ol>
+
+<h3>PART C - 10 Marks</h3>
+<ol>
+<li>Explain Operator Overloading in detail. Write a program to overload + operator for adding two Time objects and << operator for displaying Time.</li>
+<li>What is Inheritance? Explain all types of Inheritance with suitable C++ programs and diagrams.</li>
+<li>Explain Virtual Base Class and Abstract Class with examples. How do they solve the diamond problem?</li>
+<li>Discuss Type Conversion in C++. Explain all three types with programs: Basic to Class, Class to Basic, Class to Class.</li>
+</ol>
+
+<h2>⚠️ COMMON MISTAKES TO AVOID</h2>
+<table>
+<tr>
+<th>Mistake</th>
+<th>Correct Way</th>
+</tr>
+<tr>
+<td>Forgetting `operator` keyword</td>
+<td>Must use: `return_type operator+(args)`</td>
+</tr>
+<tr>
+<td>Trying to overload ::, ., .*, ?:, sizeof</td>
+<td>Indha 5 operators ah overload panna mudiyadhu</td>
+</tr>
+<tr>
+<td>Not returning *this in assignment operator</td>
+<td>`return *this;` podanum for chaining</td>
+</tr>
+<tr>
+<td>Ambiguity in Multiple Inheritance</td>
+<td>Use Virtual Base Class to solve diamond problem</td>
+</tr>
+<tr>
+<td>Creating object of Abstract Class</td>
+<td>Abstract class ku object create panna mudiyadhu - compile error</td>
+</tr>
+<tr>
+<td>Forgetting to override pure virtual function</td>
+<td>Derived class la must override pannurom, illana adhum abstract aagidum</td>
+</tr>
+</table>
+
+<h2>💡 OUTPUT PREDICTION QUESTIONS</h2>
+<pre>
+// Question 1: Find output
+class A {
+    public: int x;
+    A() { x = 5; }
+};
+class B : virtual public A {};
+class C : virtual public A {};
+class D : public B, public C {};
+int main() {
+    D obj;
+    cout &lt;&lt; obj.x; // Answer: 5 - Virtual base class na oru copy dhan
+}
+</pre>
+
+<p><b>Conclusion:</b> Operator Overloading provides intuitive syntax for user-defined types while Inheritance enables code reusability and hierarchical classification. Both are fundamental to Object Oriented Programming and essential for TVU examinations.</p>
+
+</div>
     <div class="scroll-emoji-left">🚀</div>
     <div class="scroll-emoji-right">💻</div>
 

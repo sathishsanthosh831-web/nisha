@@ -2187,6 +2187,435 @@ int main() {
 <p><b>Conclusion:</b> Operator Overloading provides intuitive syntax for user-defined types while Inheritance enables code reusability and hierarchical classification. Both are fundamental to Object Oriented Programming and essential for TVU examinations.</p>
 
 </div>
+    <div class="divider"></div>
+
+<h1>UNIT IV - POINTERS, ARRAYS AND POLYMORPHISM</h1>
+
+<h2>📘 UNIT IV INTRODUCTION</h2>
+<p>This unit deals with <b>Pointers</b> which provide direct memory access, <b>Arrays</b> for storing multiple elements, <b>Dynamic Memory Management</b> using new and delete, and <b>Polymorphism</b> which allows objects to behave differently based on context. These concepts are crucial for efficient memory utilization and runtime flexibility in C++.</p>
+
+<h2>1. POINTERS</h2>
+<h3>1.1 Pointer Declaration</h3>
+<p><b>Definition:</b> A Pointer is a variable that stores the memory address of another variable. It provides indirect access to a variable and is declared using the asterisk (*) symbol.</p>
+
+<p><b>Explanation:</b> Pointer na oru variable oda address ah hold panra inoru variable. Veetu address maari - veedu enga iruku nu solludhu. `*` symbol use panni declare panrom. `&` symbol use panni address edukurom.</p>
+
+<pre>
+// Basic Pointer Example
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int num = 10; // Normal integer variable - 10 nu value iruku
+    int *ptr; // Integer pointer declare panrom - address hold panna
+
+    ptr = &num; // num oda address ah ptr ku assign panrom - & symbol address kudukum
+
+    cout &lt;&lt; "Value of num: " &lt;&lt; num &lt;&lt; endl; // 10 print aagum
+    cout &lt;&lt; "Address of num: " &lt;&lt; &num &lt;&lt; endl; // num oda memory address print aagum
+    cout &lt;&lt; "Value of ptr: " &lt;&lt; ptr &lt;&lt; endl; // ptr la irukura address print aagum - num oda address
+    cout &lt;&lt; "Value pointed by ptr: " &lt;&lt; *ptr &lt;&lt; endl; // *ptr na ptr point panra value - 10 varum
+
+    *ptr = 20; // Pointer use panni num oda value ah change panrom
+    cout &lt;&lt; "New value of num: " &lt;&lt; num &lt;&lt; endl; // 20 print aagum - indirect ah change aachu
+    return 0;
+}
+</pre>
+
+<h3>1.2 Pointer to Class and Object</h3>
+<p><b>Definition:</b> A Pointer to Object is a pointer variable that stores the address of an object. It is used to access members of a class using the arrow operator (->) instead of the dot operator (.).</p>
+
+<p><b>Explanation:</b> Class objects ku kooda pointer use panna mudiyum. Object oda address ah pointer la store pannuvom. Apram `->` arrow operator use panni members access panrom. `.` dot operator pointer ku work aagadhu.</p>
+
+<pre>
+// Pointer to Object Example
+#include &lt;iostream&gt;
+using namespace std;
+
+class Student {
+    public:
+        int rollNo;
+        string name;
+
+        void display() { // Student details print panna function
+            cout &lt;&lt; "Roll No: " &lt;&lt; rollNo &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Student s1; // Normal object create pannom
+    Student *ptr; // Student class ku pointer declare pannom
+
+    ptr = &s1; // s1 oda address ah ptr ku assign panrom
+
+    ptr-&gt;rollNo = 101; // Arrow operator use panni member access panrom
+    ptr-&gt;name = "Nisha"; // Name set panrom pointer mola
+    ptr-&gt;display(); // Function call panrom - Roll No: 101, Name: Nisha varum
+
+    // (*ptr).display(); // Idhum same dhan - dot operator use panna *ptr podanum
+    return 0;
+}
+</pre>
+
+<h3>1.3 This Pointer</h3>
+<p><b>Definition:</b> The 'this' pointer is an implicit pointer that is available within all non-static member functions of a class. It points to the object for which the member function is called and is used to refer to the current object.</p>
+
+<p><b>Explanation:</b> `this` pointer na automatic ah kidaikura pointer. Ovoru object kum thani thani ya irukum. Function ah yaaru call panrano, andha object ah point pannum. Data member kum parameter kum same name irundha use panrom.</p>
+
+<pre>
+// This Pointer Example
+#include &lt;iostream&gt;
+using namespace std;
+
+class Employee {
+    int id; // Private data member
+    string name;
+    public:
+        void setData(int id, string name) { // Parameter name um data member name um same
+            this-&gt;id = id; // this->id na object oda id, id na parameter id
+            this-&gt;name = name; // Ambiguity avoid panna this use panrom
+        }
+
+        Employee& compare(Employee &e) { // Object return panna this use panrom
+            if(this-&gt;id > e.id) // Idhu object oda id > argument object id
+                return *this; // Current object ah return panrom
+            else
+                return e; // Argument object ah return panrom
+        }
+
+        void display() {
+            cout &lt;&lt; "ID: " &lt;&lt; id &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Employee e1, e2, e3; // Moonu objects
+    e1.setData(101, "Sathish"); // e1 ku data set panrom
+    e2.setData(102, "Kumar"); // e2 ku data set panrom
+    e3 = e1.compare(e2); // Rendu object compare panni periya id irukuradhu return aagum
+    e3.display(); // ID: 102, Name: Kumar varum
+    return 0;
+}
+</pre>
+
+<h3>1.4 Pointers to Derived Classes and Base Classes</h3>
+<p><b>Definition:</b> A base class pointer can point to a derived class object, but a derived class pointer cannot point to a base class object. This is the foundation for runtime polymorphism.</p>
+
+<p><b>Explanation:</b> Base class pointer vechu derived class object ah point panna mudiyum - idhu dhan runtime polymorphism ku base. Aana reverse panna mudiyadhu. Appa pointer vechu paiyan ah point pannalam, aana paiyan pointer vechu appa va point panna mudiyadhu.</p>
+
+<pre>
+// Base Class Pointer to Derived Object
+#include &lt;iostream&gt;
+using namespace std;
+
+class Base {
+    public:
+        void show() {
+            cout &lt;&lt; "Base class function" &lt;&lt; endl;
+        }
+};
+
+class Derived : public Base { // Derived class Base kitta irundhu inherit panudhu
+    public:
+        void display() {
+            cout &lt;&lt; "Derived class function" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Base *bptr; // Base class pointer
+    Derived d; // Derived class object
+
+    bptr = &d; // Base pointer derived object ah point panudhu - Legal
+    bptr-&gt;show(); // Base class function call aagum
+
+    // bptr-&gt;display(); // Error varum - Base pointer ku Derived function theriyadhu
+
+    // Derived *dptr = new Base(); // Error - Derived pointer Base object ah point panna mudiyadhu
+    return 0;
+}
+</pre>
+
+<h2>2. ARRAYS</h2>
+<h3>2.1 Characteristics of Arrays</h3>
+<p><b>Definition:</b> An Array is a collection of elements of the same data type stored in contiguous memory locations. The elements are accessed using index numbers starting from zero.</p>
+
+<p><b>Explanation:</b> Array na same type oda multiple values ah store panna use aagudhu. Veetu row maari - ellam pakka pakka ya irukum. Index 0 la irundhu start aagum. Size fix pannanum, change panna mudiyadhu.</p>
+
+<p><b>Characteristics of Arrays:</b></p>
+<table>
+<tr>
+<th>Characteristic</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Fixed Size</td>
+<td>Array size compile time la fix aagum - runtime la maatha mudiyadhu</td>
+</tr>
+<tr>
+<td>Contiguous Memory</td>
+<td>Ella elements um memory la thodarndhu irukum</td>
+</tr>
+<tr>
+<td>Same Data Type</td>
+<td>Array la irukura ella elements um same type ah irukanum</td>
+</tr>
+<tr>
+<td>Zero Based Index</td>
+<td>Index 0 la irundhu start aagum - n elements na 0 to n-1 varaikum</td>
+</tr>
+<tr>
+<td>Random Access</td>
+<td>Edhuvana index ah direct ah access panna mudiyum</td>
+</tr>
+</table>
+
+<h3>2.2 Array of Classes</h3>
+<p><b>Definition:</b> An Array of Objects is a collection of objects of the same class type. It allows us to create multiple objects and manage them using a single array name with index values.</p>
+
+<p><b>Explanation:</b> Class objects ah kooda array la store panna mudiyum. 50 students details venum na 50 objects thaniya create panna thevai illa - array of objects use pannalam. Loop use panni easy ah handle panna mudiyum.</p>
+
+<pre>
+// Array of Objects Example
+#include &lt;iostream&gt;
+using namespace std;
+
+class Student {
+    int rollNo;
+    string name;
+    public:
+        void getData() { // Data input eduka function
+            cout &lt;&lt; "Enter Roll No: "; cin &gt;&gt; rollNo;
+            cout &lt;&lt; "Enter Name: "; cin &gt;&gt; name;
+        }
+
+        void display() { // Data print panna function
+            cout &lt;&lt; "Roll No: " &lt;&lt; rollNo &lt;&lt; ", Name: " &lt;&lt; name &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Student s[3]; // 3 Student objects ku array create pannom
+
+    cout &lt;&lt; "Enter details of 3 students:" &lt;&lt; endl;
+    for(int i = 0; i &lt; 3; i++) { // Loop use panni ovvoru object kum data edukurom
+        cout &lt;&lt; "\nStudent " &lt;&lt; i+1 &lt;&lt; ":" &lt;&lt; endl;
+        s[i].getData(); // s[0], s[1], s[2] nu access panrom
+    }
+
+    cout &lt;&lt; "\nStudent Details:" &lt;&lt; endl;
+    for(int i = 0; i &lt; 3; i++) { // Loop use panni display panrom
+        s[i].display();
+    }
+    return 0;
+}
+</pre>
+
+<h2>3. MEMORY MODELS</h2>
+<h3>3.1 New and Delete Operators</h3>
+<p><b>Definition:</b> The 'new' operator is used for dynamic memory allocation during runtime, and the 'delete' operator is used to deallocate the memory. They are used to manage heap memory efficiently.</p>
+
+<p><b>Explanation:</b> `new` operator use panni runtime la memory kekkurom - heap memory la kidaikum. `delete` use panni andha memory ah thirupi kuduthudrom. Memory leak avoid panna delete must podanum. Array ku `delete[]` use pannanum.</p>
+
+<pre>
+// New and Delete Example
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int *ptr = new int; // Runtime la oru integer ku memory allocate panrom
+    *ptr = 100; // Value assign panrom
+    cout &lt;&lt; "Value: " &lt;&lt; *ptr &lt;&lt; endl; // 100 print aagum
+    delete ptr; // Memory free panrom - must pannurom illana memory leak aagum
+
+    int *arr = new int[5]; // 5 integers ku array allocate panrom
+    cout &lt;&lt; "Enter 5 numbers: ";
+    for(int i = 0; i &lt; 5; i++) {
+        cin &gt;&gt; arr[i]; // Array ku values edukurom
+    }
+    cout &lt;&lt; "Numbers: ";
+    for(int i = 0; i &lt; 5; i++) {
+        cout &lt;&lt; arr[i] &lt;&lt; " "; // Print panrom
+    }
+    delete[] arr; // Array delete panna [] podanum - marandha problem varum
+    return 0;
+}
+</pre>
+
+<h3>3.2 Dynamic Object Binding</h3>
+<p><b>Definition:</b> Dynamic Binding or Late Binding is the process of linking a function call to the function definition at runtime. It is achieved using virtual functions and is the basis of runtime polymorphism.</p>
+
+<p><b>Explanation:</b> Dynamic binding na function ah runtime la decide panradhu. Normal ah compile time la decide aagum - early binding. Virtual function use panna runtime la object type paathu function call aagum. Late binding nu solluvanga.</p>
+
+<h2>4. POLYMORPHISM</h2>
+<h3>4.1 Introduction to Polymorphism</h3>
+<p><b>Definition:</b> Polymorphism means 'many forms'. It is the ability of a function, object, or operator to behave differently in different contexts. C++ supports Compile-time polymorphism and Runtime polymorphism.</p>
+
+<p><b>Explanation:</b> Polymorphism na orey vishayam pala roopam edukuradhu. Same function name vachu different work panna mudiyum. Rendu type iruku - Compile time la decide aaguradhu, Runtime la decide aaguradhu.</p>
+
+<p><b>Types of Polymorphism:</b></p>
+<table>
+<tr>
+<th>Type</th>
+<th>Mechanism</th>
+<th>Binding Time</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>Compile Time Polymorphism</td>
+<td>Function Overloading, Operator Overloading</td>
+<td>Compile Time - Early Binding</td>
+<td>Same function name different parameters</td>
+</tr>
+<tr>
+<td>Runtime Polymorphism</td>
+<td>Virtual Functions, Function Overriding</td>
+<td>Runtime - Late Binding</td>
+<td>Base pointer derived object function call</td>
+</tr>
+</table>
+
+<h3>4.2 Virtual Functions</h3>
+<p><b>Definition:</b> A Virtual Function is a member function in the base class that is declared using the 'virtual' keyword and is redefined in the derived class. It enables runtime polymorphism by allowing the program to decide which function to call at runtime.</p>
+
+<p><b>Explanation:</b> Virtual function na base class la `virtual` keyword potu declare panra function. Derived class la adha override pannalam. Base class pointer vechu call panna, object type paathu correct function runtime la call aagum. Idhu illa na base class function dhan call aagum.</p>
+
+<p><b>Rules for Virtual Functions:</b></p>
+<ul>
+<li>Virtual functions cannot be static</li>
+<li>Must be members of some class</li>
+<li>Accessed through pointer or reference</li>
+<li>Must be defined in base class, even if empty</li>
+<li>Constructor cannot be virtual, but destructor can be</li>
+</ul>
+
+<pre>
+// Virtual Function Example - Runtime Polymorphism
+#include &lt;iostream&gt;
+using namespace std;
+
+class Shape { // Base class
+    public:
+        virtual void draw() { // Virtual function - derived class la override pannalam
+            cout &lt;&lt; "Drawing Shape" &lt;&lt; endl;
+        }
+};
+
+class Circle : public Shape { // Derived class 1
+    public:
+        void draw() { // Base class function ah override panrom
+            cout &lt;&lt; "Drawing Circle" &lt;&lt; endl;
+        }
+};
+
+class Rectangle : public Shape { // Derived class 2
+    public:
+        void draw() { // Idhum override panrom
+            cout &lt;&lt; "Drawing Rectangle" &lt;&lt; endl;
+        }
+};
+
+int main() {
+    Shape *sptr; // Base class pointer
+    Circle c; // Circle object
+    Rectangle r; // Rectangle object
+
+    sptr = &c; // Base pointer Circle object ah point panudhu
+    sptr-&gt;draw(); // Runtime la Circle oda draw() call aagum - "Drawing Circle"
+
+    sptr = &r; // Base pointer Rectangle object ah point panudhu
+    sptr-&gt;draw(); // Runtime la Rectangle oda draw() call aagum - "Drawing Rectangle"
+
+    // Virtual illana rendu thadavayum "Drawing Shape" dhan varum
+    return 0;
+}
+</pre>
+
+<h2>📋 IMPORTANT QUESTIONS - UNIT IV</h2>
+
+<h3>PART A - 2 Marks</h3>
+<ol>
+<li>Define Pointer. How is it declared?</li>
+<li>What is 'this' pointer? Give its use.</li>
+<li>List any four characteristics of arrays.</li>
+<li>Define Dynamic Memory Allocation. Name the operators used.</li>
+<li>What is Polymorphism? List its types.</li>
+<li>Define Virtual Function. Why is it used?</li>
+<li>Differentiate between Early Binding and Late Binding.</li>
+<li>What is an Array of Objects?</li>
+</ol>
+
+<h3>PART B - 5 Marks</h3>
+<ol>
+<li>Explain 'this' pointer with a suitable C++ program.</li>
+<li>Write a program to demonstrate Array of Objects.</li>
+<li>Explain new and delete operators with examples.</li>
+<li>Differentiate between Compile-time and Runtime Polymorphism.</li>
+<li>Write a program using Virtual Functions to demonstrate runtime polymorphism.</li>
+<li>Explain Pointers to Derived Classes with example.</li>
+</ol>
+
+<h3>PART C - 10 Marks</h3>
+<ol>
+<li>Explain Polymorphism in detail. Discuss its types with suitable programs. Write a program to demonstrate runtime polymorphism using virtual functions.</li>
+<li>What are Pointers? Explain Pointer to Objects, this pointer, and Pointers to Derived Classes with programs.</li>
+<li>Explain Arrays and Array of Objects in C++. Write a program to create an array of 5 Student objects and display their details.</li>
+<li>Discuss Dynamic Memory Management in C++. Explain new, delete operators and Dynamic Object Binding with examples.</li>
+</ol>
+
+<h2>⚠️ COMMON MISTAKES TO AVOID</h2>
+<table>
+<tr>
+<th>Mistake</th>
+<th>Correct Way</th>
+</tr>
+<tr>
+<td>Using dot operator with pointer</td>
+<td>Pointer ku arrow `->` use pannanum, dot `.` illa</td>
+</tr>
+<tr>
+<td>Forgetting delete after new</td>
+<td>new potta delete must podanum - memory leak avoid panna</td>
+</tr>
+<tr>
+<td>Using delete for array without []</td>
+<td>Array ku `delete[] arr;` nu podanum</td>
+</tr>
+<tr>
+<td>Not declaring function as virtual</td>
+<td>Runtime polymorphism venum na base la virtual must podanum</td>
+</tr>
+<tr>
+<td>Accessing array out of bounds</td>
+<td>0 to n-1 varaikum dhan access pannanum - n na error varum</td>
+</tr>
+<tr>
+<td>Confusing * and & operators</td>
+<td>* na value, & na address - sariya use pannanum</td>
+</tr>
+</table>
+
+<h2>💡 OUTPUT PREDICTION QUESTIONS</h2>
+<pre>
+// Question 1: Find output
+class Base {
+    public:
+        virtual void show() { cout &lt;&lt; "Base" &lt;&lt; endl; }
+};
+class Derived : public Base {
+    public:
+        void show() { cout &lt;&lt; "Derived" &lt;&lt; endl; }
+};
+int main() {
+    Base *b = new Derived();
+    b-&gt;show(); // Answer: Derived - virtual na runtime la Derived call aagum
+    delete b;
+}
+</pre>
+
+<p><b>Conclusion:</b> Pointers provide powerful memory manipulation capabilities, Arrays enable efficient data storage, and Polymorphism with Virtual Functions brings runtime flexibility to C++ programs. Mastering these concepts is essential for advanced C++ programming and TVU examinations.</p>
+
+</div>
     <div class="scroll-emoji-left">🚀</div>
     <div class="scroll-emoji-right">💻</div>
 

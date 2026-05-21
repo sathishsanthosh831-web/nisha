@@ -178,6 +178,27 @@
         </div>
 
         <div class="divider"></div>
+        <!-- C++ DATA INGA VARUM -->
+<div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
+  <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
+  <ul id="data-ul" style="font-size: 18px;"></ul>
+</div>
+
+<script>
+  firebase.database().ref('students').on('value', (snapshot) => {
+    const data = snapshot.val();
+    const ul = document.getElementById('data-ul');
+    ul.innerHTML = '';
+    if(data){
+      for (let id in data) {
+        let s = data[id];
+        ul.innerHTML += `<li style="margin: 10px 0;"><b>Name:</b> ${s.name} | <b>RollNo:</b> ${s.rollno} | <b>Mark:</b> ${s.mark}</li>`;
+      }
+    } else {
+      ul.innerHTML = '<li style="color: red;">C++ la irundhu data innum varala... Run pannu da!</li>';
+    }
+  });
+</script>
 
         <h1>UNIT I - Introduction to C++</h1>
 

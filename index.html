@@ -2853,46 +2853,75 @@ int main() {
     });
     </script>
             </div> <!-- mainContent close -->
+    
+<!-- PUDHU SINGLE SESSION LOGIN CODE START -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, set, onValue, remove, onDisconnect } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-<script>
-    function checkLogin() {
-        var user = document.getElementById('username').value;
-        var pass = document.getElementById('password').value;
-        
-        // INGE UN USERNAME PASSWORD MAATHIKO
-        var correctUser = "tvu";
-        var correctPass = "cpp2024";
-        
-        if(user === correctUser && pass === correctPass) {
-            document.getElementById('loginOverlay').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-        } else {
-            document.getElementById('errorMsg').style.display = 'block';
-            document.getElementById('password').value = '';
-        }
-    }
-    
-    document.getElementById('password').addEventListener('keypress', function(e) {
-        if(e.key === 'Enter') {
-            checkLogin();
-        }
-    });
-</script>
-    <!-- Firebase SDK - C++ ku connect -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-<script>
   const firebaseConfig = {
-    apiKey: "AIzaSyAwML_tdXgynGDcCm4ehhruEh0PWCWJjdE",
-    authDomain: "tvp-cpp.firebaseapp.com",
-    databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "tvp-cpp",
-    storageBucket: "tvp-cpp.firebasestorage.app",
-    messagingSenderId: "928545800176",
-    appId: "1:928545800176:web:f1622b74eb498f2f326735"
+    databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
   };
-  firebase.initializeApp(firebaseConfig);
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // UNGA USERS LIST - INGA PODU DA
+  const USERS = {
+    "tvu": "cpp2024",
+    "admin": "1234",
+    "student1": "pass1"
+  };
+
+  // checkLogin FUNCTION
+  window.checkLogin = function() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    const errorMsg = document.getElementById('errorMsg');
+
+    if(USERS && USERS === pass) {
+      const userSession = ref(db, 'activeSessions/' + user);
+      
+      onValue(userSession, (snapshot) => {
+        if(snapshot.exists()) {
+          errorMsg.innerText = `"${user}" account ipo vere phone la use aagudhu da`;
+          errorMsg.style.display = 'block';
+        } else {
+          set(userSession, { loginTime: Date.now() });
+          onDisconnect(userSession).remove();
+          
+          document.getElementById('loginOverlay').style.display = 'none';
+          document.getElementById('mainContent').style.display = 'block';
+          errorMsg.style.display = 'none';
+          localStorage.setItem('currentUser', user);
+        }
+      }, { onlyOnce: true });
+    } else {
+      errorMsg.innerText = "Username Password thappu da";
+      errorMsg.style.display = 'block';
+      document.getElementById('password').value = '';
+    }
+  }
+
+  // Enter key ku listener
+  document.getElementById('password')?.addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') {
+      checkLogin();
+    }
+  });
+
+  // LOGOUT FUNCTION
+  window.logout = function() {
+    const user = localStorage.getItem('currentUser');
+    if(user) {
+      const userSession = ref(db, 'activeSessions/' + user);
+      remove(userSession);
+      localStorage.removeItem('currentUser');
+    }
+    document.getElementById('loginOverlay').style.display = 'flex';
+    document.getElementById('mainContent').style.display = 'none';
+  }
 </script>
-    
 </body>
 </html>
+<!-- PUDHU SINGLE SESSION LOGIN CODE END -->

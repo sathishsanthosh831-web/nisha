@@ -147,12 +147,15 @@
     <div id="mainContent" style="display: none;">
     <div class="container">
         <h1>Government Services - Official Links</h1>
-        <h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
+        <!-- C++ Live Data Start -->
+<h2 style="color: #00cc00; margin-top: 30px;">C++ Program la irundhu Live Data:</h2>
 
 <div id="liveData" style="font-weight:bold; font-size:18px; color:green; background:#eaffea; padding:15px; border-radius:8px; margin-top:10px;">
   Loading data...
 </div>
-<div class="table-container">
+<!-- C++ Live Data End -->
+
+        <div class="table-container">
             <table>
                 <tr>
                     <th>Driving Licence</th>
@@ -183,7 +186,8 @@
         </div>
 
         <div class="divider"></div>
-        <div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
+        <!-- C++ DATA INGA VARUM -->
+<div id="studentList" style="padding: 20px; background: #e8f5e9; margin: 20px; border: 2px solid #4caf50; border-radius: 10px;">
   <h3 style="color: #1a73e8;">🚀 C++ Program la irundhu Live Data:</h3>
   <ul id="data-ul" style="font-size: 18px;"></ul>
 </div>
@@ -555,7 +559,9 @@ for(int i = 1; i <= 3; i++) {
     cout << endl;
 }
 /* Output:
-* * * * * * * * *
+* * * 
+* * * 
+* * *
 */
 </pre>
 
@@ -710,7 +716,7 @@ int main() {
         <h3>Rules for Overloading</h3>
         <ol>
             <li>Function name same ah irukanum</li>
-            <li>Parameters count vera irukanum, or</li>
+                        <li>Parameters count vera irukanum, or</li>
             <li>Parameters data type vera irukanum</li>
             <li>Return type mattum vera irundha podhadhu - Error varum</li>
         </ol>
@@ -1373,7 +1379,7 @@ int main() {
 <p><b>Need for Friend Function:</b></p>
 <ol>
     <li>To access private data of two different classes.</li>
-    <li>Operator overloading for operators like &lt;&lt;, &gt;&gt;.</li>
+    <li>Operator overloading for operators like <<, >>.</li>
     <li>When a function needs to operate on objects of two different classes.</li>
 </ol>
 
@@ -1420,6 +1426,8 @@ class B {
 int add(A objA, B objB) { // A oda object and B oda object argument ah vaangudhu
     // Rendu class oda private members ah um access panrom - friend la dhan mudiyum
     return objA.valueA + objB.valueB; // A oda valueA + B oda valueB = 10 + 20 = 30
+}
+
 }
 
 int main() {
@@ -1671,9 +1679,41 @@ int main() {
     </div>
     </div>
 
+<!-- LOGIN SYSTEM SCRIPT -->
+<script>
+    const USERS = {
+        "tvu": "cpp2024",
+        "admin": "1234",
+        "student1": "pass1"
+    };
+
+    function checkLogin() {
+        let user = document.getElementById("username").value.trim();
+        let pass = document.getElementById("password").value.trim();
+        let errorMsg = document.getElementById("errorMsg");
+
+        if(USERS && USERS === pass) {
+            document.getElementById("loginOverlay").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            errorMsg.style.display = "none";
+        } else {
+            errorMsg.style.display = "block";
+        }
+    }
+
+    document.getElementById("password").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkLogin();
+    });
+
+    document.getElementById("username").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") checkLogin();
+    });
+</script>
+
+<!-- FIREBASE SCRIPT -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
   const firebaseConfig = {
     databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -1681,94 +1721,8 @@ int main() {
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-
-  const USERS = {
-      "tvu": "cpp2024",
-      "admin": "1234",
-      "student1": "pass1"
-  };
-
-  // 1. LOGIN FUNCTION WITH SESSION GENERATION
-  async function checkLogin() {
-      let user = document.getElementById("username").value.trim();
-      let pass = document.getElementById("password").value.trim();
-      let errorMsg = document.getElementById("errorMsg");
-
-      if (USERS[user] !== undefined && USERS[user] === pass) {
-          // Unique random token create panrom
-          let sessionToken = "token_" + Math.random().toString(36).substr(2, 9);
-          
-          // Local storage-la save panrom
-          localStorage.setItem("active_user", user);
-          localStorage.setItem("my_session", sessionToken);
-
-          // Firebase Realtime DB-la active session token update panrom
-          await set(ref(db, 'sessions/' + user), {
-              activeToken: sessionToken
-          });
-
-          // Open main content layout
-          document.getElementById("loginOverlay").style.display = "none";
-          document.getElementById("mainContent").style.display = "block";
-          errorMsg.style.display = "none";
-
-          // Realtime listener triggers activation
-          startSessionTracking(user, sessionToken);
-      } else {
-          errorMsg.style.display = "block";
-          errorMsg.innerText = "❌ Wrong Username or Password!";
-      }
-  }
-
-  // Window browser standard context binding
-  window.checkLogin = checkLogin;
-
-  // 2. REALTIME SESSION TRACKING MECHANISM
-  function startSessionTracking(user, myToken) {
-      const sessionRef = ref(db, 'sessions/' + user);
-      
-      onValue(sessionRef, (snapshot) => {
-          const data = snapshot.val();
-          if (data && data.activeToken !== myToken) {
-              alert("⚠️ Innoru phone-la indha account-ah login pannitanga da! So indha phone auto-logout aagudhu.");
-              
-              localStorage.clear();
-              document.getElementById("mainContent").style.display = "none";
-              document.getElementById("loginOverlay").style.display = "flex";
-              document.getElementById("username").value = "";
-              document.getElementById("password").value = "";
-          }
-      });
-  }
-
-  // 3. AUTO LOGIN CHECK MECHANISM
-  window.addEventListener("load", async () => {
-      let savedUser = localStorage.getItem("active_user");
-      let savedToken = localStorage.getItem("my_session");
-
-      if (savedUser && savedToken) {
-          const snapshot = await get(ref(db, 'sessions/' + savedUser));
-          const data = snapshot.val();
-
-          if (data && data.activeToken === savedToken) {
-              document.getElementById("loginOverlay").style.display = "none";
-              document.getElementById("mainContent").style.display = "block";
-              startSessionTracking(savedUser, savedToken);
-          } else {
-              localStorage.clear();
-          }
-      }
-  });
-
-  document.getElementById("password").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") checkLogin();
-  });
-  document.getElementById("username").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") checkLogin();
-  });
-
-  // 4. STUDENT LIVE DATA RENDER FROM OLD FIREBASE NODE
   const studentsRef = ref(db, 'students');
+
   onValue(studentsRef, (snapshot) => {
     const data = snapshot.val();
     const liveDiv = document.getElementById('liveData');

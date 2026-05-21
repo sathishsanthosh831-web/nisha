@@ -710,7 +710,7 @@ int main() {
         <h3>Rules for Overloading</h3>
         <ol>
             <li>Function name same ah irukanum</li>
-                        <li>Parameters count vera irukanum, or</li>
+            <li>Parameters count vera irukanum, or</li>
             <li>Parameters data type vera irukanum</li>
             <li>Return type mattum vera irundha podhadhu - Error varum</li>
         </ol>
@@ -1373,7 +1373,7 @@ int main() {
 <p><b>Need for Friend Function:</b></p>
 <ol>
     <li>To access private data of two different classes.</li>
-    <li>Operator overloading for operators like <<, >>.</li>
+    <li>Operator overloading for operators like &lt;&lt;, &gt;&gt;.</li>
     <li>When a function needs to operate on objects of two different classes.</li>
 </ol>
 
@@ -1671,40 +1671,9 @@ int main() {
     </div>
     </div>
 
-<script>
-    const USERS = {
-        "tvu": "cpp2024",
-        "admin": "1234",
-        "student1": "pass1"
-    };
-
-    function checkLogin() {
-        let user = document.getElementById("username").value.trim();
-        let pass = document.getElementById("password").value.trim();
-        let errorMsg = document.getElementById("errorMsg");
-
-        // FIX: Object parsing matching mechanism sari panniachu
-        if(USERS[user] !== undefined && USERS[user] === pass) {
-            document.getElementById("loginOverlay").style.display = "none";
-            document.getElementById("mainContent").style.display = "block";
-            errorMsg.style.display = "none";
-        } else {
-            errorMsg.style.display = "block";
-        }
-    }
-
-    document.getElementById("password").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") checkLogin();
-    });
-
-    document.getElementById("username").addEventListener("keypress", function(event) {
-        if (event.key === "Enter") checkLogin();
-    });
-</script>
-
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+  import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
   const firebaseConfig = {
     databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -1712,8 +1681,94 @@ int main() {
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const studentsRef = ref(db, 'students');
 
+  const USERS = {
+      "tvu": "cpp2024",
+      "admin": "1234",
+      "student1": "pass1"
+  };
+
+  // 1. LOGIN FUNCTION WITH SESSION GENERATION
+  async function checkLogin() {
+      let user = document.getElementById("username").value.trim();
+      let pass = document.getElementById("password").value.trim();
+      let errorMsg = document.getElementById("errorMsg");
+
+      if (USERS[user] !== undefined && USERS[user] === pass) {
+          // Unique random token create panrom
+          let sessionToken = "token_" + Math.random().toString(36).substr(2, 9);
+          
+          // Local storage-la save panrom
+          localStorage.setItem("active_user", user);
+          localStorage.setItem("my_session", sessionToken);
+
+          // Firebase Realtime DB-la active session token update panrom
+          await set(ref(db, 'sessions/' + user), {
+              activeToken: sessionToken
+          });
+
+          // Open main content layout
+          document.getElementById("loginOverlay").style.display = "none";
+          document.getElementById("mainContent").style.display = "block";
+          errorMsg.style.display = "none";
+
+          // Realtime listener triggers activation
+          startSessionTracking(user, sessionToken);
+      } else {
+          errorMsg.style.display = "block";
+          errorMsg.innerText = "❌ Wrong Username or Password!";
+      }
+  }
+
+  // Window browser standard context binding
+  window.checkLogin = checkLogin;
+
+  // 2. REALTIME SESSION TRACKING MECHANISM
+  function startSessionTracking(user, myToken) {
+      const sessionRef = ref(db, 'sessions/' + user);
+      
+      onValue(sessionRef, (snapshot) => {
+          const data = snapshot.val();
+          if (data && data.activeToken !== myToken) {
+              alert("⚠️ Innoru phone-la indha account-ah login pannitanga da! So indha phone auto-logout aagudhu.");
+              
+              localStorage.clear();
+              document.getElementById("mainContent").style.display = "none";
+              document.getElementById("loginOverlay").style.display = "flex";
+              document.getElementById("username").value = "";
+              document.getElementById("password").value = "";
+          }
+      });
+  }
+
+  // 3. AUTO LOGIN CHECK MECHANISM
+  window.addEventListener("load", async () => {
+      let savedUser = localStorage.getItem("active_user");
+      let savedToken = localStorage.getItem("my_session");
+
+      if (savedUser && savedToken) {
+          const snapshot = await get(ref(db, 'sessions/' + savedUser));
+          const data = snapshot.val();
+
+          if (data && data.activeToken === savedToken) {
+              document.getElementById("loginOverlay").style.display = "none";
+              document.getElementById("mainContent").style.display = "block";
+              startSessionTracking(savedUser, savedToken);
+          } else {
+              localStorage.clear();
+          }
+      }
+  });
+
+  document.getElementById("password").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") checkLogin();
+  });
+  document.getElementById("username").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") checkLogin();
+  });
+
+  // 4. STUDENT LIVE DATA RENDER FROM OLD FIREBASE NODE
+  const studentsRef = ref(db, 'students');
   onValue(studentsRef, (snapshot) => {
     const data = snapshot.val();
     const liveDiv = document.getElementById('liveData');

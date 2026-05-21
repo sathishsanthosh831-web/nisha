@@ -1692,7 +1692,7 @@ int main() {
         let pass = document.getElementById("password").value.trim();
         let errorMsg = document.getElementById("errorMsg");
 
-        if(USERS && USERS === pass) {
+        if(USERS && [user] === pass) {
             document.getElementById("loginOverlay").style.display = "none";
             document.getElementById("mainContent").style.display = "block";
             errorMsg.style.display = "none";

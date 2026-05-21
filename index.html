@@ -2376,6 +2376,395 @@ int main() {
 <p><b>Conclusion:</b> Pointers provide powerful memory manipulation capabilities, Arrays enable efficient data storage, and Polymorphism with Virtual Functions brings runtime flexibility to C++ programs.</p>
 
 </div>
+    <div class="divider"></div>
+
+<h1>UNIT V - FILES, TEMPLATES, EXCEPTION HANDLING AND STRINGS</h1>
+
+<h2>📘 UNIT V INTRODUCTION</h2>
+<p>This unit covers <b>File Handling</b> for persistent data storage, <b>Templates</b> for generic programming, <b>Exception Handling</b> for error management, and <b>String Class</b> for text manipulation. These are advanced C++ features essential for real-world application development.</p>
+
+<h2>1. FILES</h2>
+<h3>1.1 File Stream Classes</h3>
+<p><b>Definition:</b> File Stream Classes are used to perform input and output operations on files. C++ provides three classes: ifstream for reading, ofstream for writing, and fstream for both reading and writing.</p>
+
+<p><b>Explanation:</b> File handling na disk la irukura files ah read panna illa write panna use aagudhu. Console ku badhila file la data store panna mudiyum. Moonu class iruku - ifstream read panna, ofstream write panna, fstream rendu kkum.</p>
+
+<table>
+<tr><th>Class</th><th>Purpose</th><th>Default Mode</th></tr>
+<tr><td>ifstream</td><td>File la irundhu read panna</td><td>ios::in</td></tr>
+<tr><td>ofstream</td><td>File ku write panna</td><td>ios::out</td></tr>
+<tr><td>fstream</td><td>Read and write rendu kkum</td><td>ios::in | ios::out</td></tr>
+</table>
+
+<h3>1.2 File Modes</h3>
+<p><b>Definition:</b> File Modes specify how a file should be opened. Common modes include ios::in for input, ios::out for output, ios::app for append, ios::binary for binary files, and ios::trunc to truncate existing content.</p>
+
+<p><b>Explanation:</b> File ah epdi open pannanum nu solluradhu dhan mode. Read panna ios::in, write panna ios::out, kadasiya add panna ios::app, binary file ku ios::binary use panrom.</p>
+
+<table>
+<tr><th>Mode</th><th>Description</th></tr>
+<tr><td>ios::in</td><td>File ah read panna open panradhu</td></tr>
+<tr><td>ios::out</td><td>File ah write panna open panradhu - irukura content azhiyum</td></tr>
+<tr><td>ios::app</td><td>File kadasiya la content add panradhu</td></tr>
+<tr><td>ios::ate</td><td>Open pannum bodhu file pointer ah end ku move panradhu</td></tr>
+<tr><td>ios::trunc</td><td>File irundha full ah delete panni pudhusa open panradhu</td></tr>
+<tr><td>ios::binary</td><td>Binary mode la file open panradhu</td></tr>
+</table>
+
+<h3>1.3 Sequential Read/Write Operations</h3>
+<p><b>Definition:</b> Sequential File Operations involve reading or writing data from the beginning of the file to the end in order. The file pointer moves automatically after each operation.</p>
+
+<p><b>Explanation:</b> Sequential na varisaya read panna illa write panna. File start la irundhu end varaikum oru oru line ah pogum. Pointer automatic ah move aagum.</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    ofstream outFile("student.txt");
+    outFile &lt;&lt; "Roll No: 101" &lt;&lt; endl;
+    outFile &lt;&lt; "Name: Sathish" &lt;&lt; endl;
+    outFile.close();
+
+    ifstream inFile("student.txt");
+    string line;
+    while(getline(inFile, line)) {
+        cout &lt;&lt; line &lt;&lt; endl;
+    }
+    inFile.close();
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 1-2:</b> iostream and fstream header files include panrom.<br>
+<b>Line 5:</b> main function start aagudhu.<br>
+<b>Line 6:</b> ofstream object create panni "student.txt" file ah write mode la open panrom.<br>
+<b>Line 7-8:</b> File ku rendu lines write panrom using << operator.<br>
+<b>Line 9:</b> outFile close panrom - write mudinchuduchu.<br>
+<b>Line 11:</b> ifstream object create panni same file ah read mode la open panrom.<br>
+<b>Line 12:</b> string variable line declare panrom.<br>
+<b>Line 13-15:</b> while loop use panni file la irukura ovvoru line um read panni print panrom.<br>
+<b>Line 16:</b> inFile close panrom.<br>
+<b>Line 17:</b> Program mudiyudhu.</p>
+
+<h3>1.4 Binary and ASCII Files</h3>
+<p><b>Definition:</b> ASCII Files store data in human-readable text format, while Binary Files store data in the same format as it is stored in memory. Binary files are faster and take less space.</p>
+
+<p><b>Explanation:</b> ASCII file na namma padika mudiyura text format. Notepad la open panna theriyum. Binary file na computer ku mattum puriyura format. Speed adhigam, size kammi.</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+class Student {
+    public:
+        int rollNo;
+        char name[20];
+};
+
+int main() {
+    Student s;
+    s.rollNo = 101;
+    strcpy(s.name, "Kumar");
+
+    ofstream outFile("student.dat", ios::binary);
+    outFile.write((char*)&s, sizeof(s));
+    outFile.close();
+
+    Student s2;
+    ifstream inFile("student.dat", ios::binary);
+    inFile.read((char*)&s2, sizeof(s2));
+    cout &lt;&lt; "Roll No: " &lt;&lt; s2.rollNo &lt;&lt; ", Name: " &lt;&lt; s2.name;
+    inFile.close();
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 5-9:</b> Student class define panrom with rollNo and name.<br>
+<b>Line 12-14:</b> s object create panni values assign panrom.<br>
+<b>Line 16:</b> ofstream use panni "student.dat" file ah binary mode la open panrom.<br>
+<b>Line 17:</b> write function use panni full object ah binary format la file ku write panrom.<br>
+<b>Line 18:</b> File close panrom.<br>
+<b>Line 20:</b> s2 nu inoru object create panrom.<br>
+<b>Line 21:</b> ifstream use panni file ah binary mode la read panna open panrom.<br>
+<b>Line 22:</b> read function use panni file la irundhu object ah s2 ku read panrom.<br>
+<b>Line 23:</b> s2 oda values print panrom.<br>
+<b>Line 24:</b> File close panrom.</p>
+
+<h3>1.5 Random Access Operation</h3>
+<p><b>Definition:</b> Random Access allows direct movement to any position in a file without reading sequentially. Functions like seekg(), seekp(), tellg(), and tellp() are used for this purpose.</p>
+
+<p><b>Explanation:</b> Random access na file la enga venalum direct ah pogalam. Sequential maari varisaya poganum nu illa. seekg use panni read pointer ah move panna mudiyum, seekp write pointer ku.</p>
+
+<table>
+<tr><th>Function</th><th>Purpose</th></tr>
+<tr><td>seekg(offset, direction)</td><td>Get pointer ah move panradhu - read ku</td></tr>
+<tr><td>seekp(offset, direction)</td><td>Put pointer ah move panradhu - write ku</td></tr>
+<tr><td>tellg()</td><td>Get pointer ipo enga iruku nu sollum</td></tr>
+<tr><td>tellp()</td><td>Put pointer ipo enga iruku nu sollum</td></tr>
+</table>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    fstream file("data.txt", ios::in | ios::out);
+    file &lt;&lt; "Hello World";
+    file.seekg(6, ios::beg);
+    string word;
+    file &gt;&gt; word;
+    cout &lt;&lt; "Word from position 6: " &lt;&lt; word;
+    file.close();
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 5:</b> fstream use panni "data.txt" file ah read and write mode la open panrom.<br>
+<b>Line 6:</b> File ku "Hello World" write panrom.<br>
+<b>Line 7:</b> seekg use panni read pointer ah 6th position ku move panrom - beg la irundhu.<br>
+<b>Line 8:</b> string word declare panrom.<br>
+<b>Line 9:</b> 6th position la irundhu word read panrom - "World" varum.<br>
+<b>Line 10:</b> Read panna word ah print panrom.<br>
+<b>Line 11:</b> File close panrom.</p>
+
+<h2>2. TEMPLATES</h2>
+<h3>2.1 Introduction to Templates</h3>
+<p><b>Definition:</b> Templates are a feature of C++ that allows functions and classes to operate with generic types. This allows a function or class to work on many different data types without being rewritten for each one.</p>
+
+<p><b>Explanation:</b> Template na orey code ah different data types ku use panna mudiyum. int ku thaniya, float ku thaniya function ezhuda thevai illa. Generic programming nu solluvanga.</p>
+
+<p><b>Types of Templates:</b></p>
+<table>
+<tr><th>Type</th><th>Description</th></tr>
+<tr><td>Function Template</td><td>Generic functions that work with any data type</td></tr>
+<tr><td>Class Template</td><td>Generic classes that work with any data type</td></tr>
+</table>
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;class T&gt;
+T add(T a, T b) {
+    return a + b;
+}
+
+int main() {
+    cout &lt;&lt; "Int: " &lt;&lt; add(5, 10) &lt;&lt; endl;
+    cout &lt;&lt; "Float: " &lt;&lt; add(3.5f, 2.5f) &lt;&lt; endl;
+    cout &lt;&lt; "Double: " &lt;&lt; add(1.1, 2.2) &lt;&lt; endl;
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 4:</b> template keyword use panni T nu oru generic type declare panrom.<br>
+<b>Line 5-7:</b> add function define panrom - T type oda rendu parameters eduthu add panni return panrom.<br>
+<b>Line 10:</b> main function start.<br>
+<b>Line 11:</b> add function ah int values oda call panrom - T int aagum, 15 varum.<br>
+<b>Line 12:</b> add function ah float values oda call panrom - T float aagum, 6 varum.<br>
+<b>Line 13:</b> add function ah double values oda call panrom - T double aagum, 3.3 varum.<br>
+<b>Line 14:</b> Program mudiyudhu.</p>
+
+<h2>3. EXCEPTION HANDLING</h2>
+<h3>3.1 Introduction to Exception Handling</h3>
+<p><b>Definition:</b> Exception Handling is a mechanism to handle runtime errors in a program. It uses three keywords: try, throw, and catch. The try block contains code that may generate an exception.</p>
+
+<p><b>Explanation:</b> Program run aagum bodhu varra error ah handle panna use aagudhu. Divide by zero maari error vandha program crash aagama catch panni handle panna mudiyum. try, throw, catch moonu keywords use panrom.</p>
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int a = 10, b = 0;
+    try {
+        if(b == 0)
+            throw "Division by zero error";
+        cout &lt;&lt; "Result: " &lt;&lt; a/b;
+    }
+    catch(const char* msg) {
+        cout &lt;&lt; "Exception: " &lt;&lt; msg;
+    }
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 5:</b> a ku 10, b ku 0 assign panrom.<br>
+<b>Line 6:</b> try block start - error varakoodiya code inga podurom.<br>
+<b>Line 7-8:</b> b zero va nu check panrom, zero na throw use panni error message throw panrom.<br>
+<b>Line 9:</b> b zero illana division panni result print panrom - idhu execute aagadhu.<br>
+<b>Line 11:</b> catch block - throw panna error ah inga pidikrom.<br>
+<b>Line 12:</b> Error message print panrom - "Division by zero error" varum.<br>
+<b>Line 14:</b> Program mudiyudhu crash aagama.</p>
+
+<h2>4. STRING</h2>
+<h3>4.1 Declaring and Initializing String Objects</h3>
+<p><b>Definition:</b> The string class is part of the C++ Standard Library and is used to represent a sequence of characters. It provides many functions for string manipulation and is easier to use than C-style character arrays.</p>
+
+<p><b>Explanation:</b> String na text ah store panna use aagura class. char array vida easy. #include &lt;string&gt; podanum. Lots of functions iruku - length find panna, join panna, etc.</p>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string s1 = "Hello";
+    string s2("World");
+    string s3;
+    s3 = s1 + " " + s2;
+    cout &lt;&lt; "s3: " &lt;&lt; s3;
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 2:</b> string class use panna &lt;string&gt; header include panrom.<br>
+<b>Line 6:</b> s1 nu string object create panni "Hello" assign panrom.<br>
+<b>Line 7:</b> s2 nu inoru string object create panni "World" assign panrom.<br>
+<b>Line 8:</b> s3 nu empty string declare panrom.<br>
+<b>Line 9:</b> s1 + space + s2 join panni s3 ku assign panrom - "Hello World" aagum.<br>
+<b>Line 10:</b> s3 print panrom.<br>
+<b>Line 11:</b> Program mudiyudhu.</p>
+
+<h3>4.2 String Attributes</h3>
+<p><b>Definition:</b> String Attributes refer to the properties of a string object such as length, capacity, and size. Member functions like length(), size(), and capacity() are used to get these attributes.</p>
+
+<p><b>Explanation:</b> String oda properties ah find panna functions iruku. length() illa size() use panni edhana characters iruku nu paakalam. capacity() use panni edhana memory allocate aagiruku nu paakalam.</p>
+
+<table>
+<tr><th>Function</th><th>Purpose</th></tr>
+<tr><td>length() or size()</td><td>String la edhana characters iruku nu sollum</td></tr>
+<tr><td>capacity()</td><td>String ku edhana memory allocate aagiruku nu sollum</td></tr>
+<tr><td>empty()</td><td>String empty ya nu check panradhu</td></tr>
+</table>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string str = "Programming";
+    cout &lt;&lt; "Length: " &lt;&lt; str.length() &lt;&lt; endl;
+    cout &lt;&lt; "Size: " &lt;&lt; str.size() &lt;&lt; endl;
+    cout &lt;&lt; "Capacity: " &lt;&lt; str.capacity() &lt;&lt; endl;
+    cout &lt;&lt; "Empty: " &lt;&lt; str.empty();
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 6:</b> str nu string create panni "Programming" assign panrom.<br>
+<b>Line 7:</b> length() function use panni characters count print panrom - 11 varum.<br>
+<b>Line 8:</b> size() function use panrom - length() maari dhan, 11 varum.<br>
+<b>Line 9:</b> capacity() use panni allocated memory size print panrom.<br>
+<b>Line 10:</b> empty() use panni string empty ya nu check panrom - 0 varum false nu artham.<br>
+<b>Line 11:</b> Program mudiyudhu.</p>
+
+<h3>4.3 Miscellaneous Functions</h3>
+<p><b>Definition:</b> The string class provides various functions for manipulation such as append(), insert(), erase(), replace(), substr(), find(), and compare().</p>
+
+<p><b>Explanation:</b> String ah modify panna neraya functions iruku. append() use panni kadasiya add panna, insert() use panni naduvula add panna, erase() use panni delete panna mudiyum.</p>
+
+<table>
+<tr><th>Function</th><th>Purpose</th></tr>
+<tr><td>append()</td><td>String kadasiya la inoru string add panradhu</td></tr>
+<tr><td>insert()</td><td>Specific position la string insert panradhu</td></tr>
+<tr><td>erase()</td><td>Specific position la irundhu characters delete panradhu</td></tr>
+<tr><td>replace()</td><td>Specific part ah inoru string ah replace panradhu</td></tr>
+<tr><td>substr()</td><td>String la irundhu oru part ah edukuradhu</td></tr>
+<tr><td>find()</td><td>String la oru substring edhula iruku nu find panradhu</td></tr>
+</table>
+
+<pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string s = "Hello";
+    s.append(" World");
+    cout &lt;&lt; "After append: " &lt;&lt; s &lt;&lt; endl;
+
+    s.insert(5, " Dear");
+    cout &lt;&lt; "After insert: " &lt;&lt; s &lt;&lt; endl;
+
+    s.erase(5, 5);
+    cout &lt;&lt; "After erase: " &lt;&lt; s &lt;&lt; endl;
+
+    cout &lt;&lt; "Substring: " &lt;&lt; s.substr(0, 5) &lt;&lt; endl;
+    cout &lt;&lt; "Find World: " &lt;&lt; s.find("World");
+    return 0;
+}
+</pre>
+
+<p><b>Code Explanation:</b><br>
+<b>Line 6:</b> s nu string create panni "Hello" assign panrom.<br>
+<b>Line 7:</b> append() use panni " World" add panrom - "Hello World" aagum.<br>
+<b>Line 8:</b> Append panna result print panrom.<br>
+<b>Line 10:</b> insert() use panni 5th position la " Dear" insert panrom - "Hello Dear World" aagum.<br>
+<b>Line 11:</b> Insert panna result print panrom.<br>
+<b>Line 13:</b> erase() use panni 5th position la irundhu 5 characters delete panrom - " Dear" delete aagum.<br>
+<b>Line 14:</b> Erase panna result print panrom - "Hello World" varum.<br>
+<b>Line 16:</b> substr() use panni 0th position la irundhu 5 characters edukurom - "Hello" varum.<br>
+<b>Line 17:</b> find() use panni "World" edhula start aagudhu nu find panrom - 6 varum.</p>
+
+<h2>📋 IMPORTANT QUESTIONS - UNIT V</h2>
+
+<h3>PART A - 2 Marks</h3>
+<ol>
+<li>Name the three file stream classes in C++.</li>
+<li>List any four file modes.</li>
+<li>Differentiate between ASCII and Binary files.</li>
+<li>What is a Template? List its types.</li>
+<li>What is Exception Handling? Name the three keywords.</li>
+<li>How to declare and initialize a string object?</li>
+<li>What is the difference between length() and capacity() in strings?</li>
+<li>Name any four string manipulation functions.</li>
+</ol>
+
+<h3>PART B - 5 Marks</h3>
+<ol>
+<li>Explain File Stream Classes with their purposes.</li>
+<li>Write a program to read and write data to a text file.</li>
+<li>Explain Random Access file operations with seekg() and tellg().</li>
+<li>Write a function template to find the maximum of two numbers.</li>
+<li>Explain Exception Handling mechanism with try, throw, catch blocks.</li>
+<li>Write a program to demonstrate various string functions like append, insert, erase.</li>
+</ol>
+
+<h3>PART C - 10 Marks</h3>
+<ol>
+<li>Explain File Handling in C++ in detail. Discuss file modes, sequential and random access with programs.</li>
+<li>What are Templates? Explain Function Templates and Class Templates with suitable examples.</li>
+<li>Explain Exception Handling in C++. Write a program to handle divide by zero exception.</li>
+<li>Discuss String class in C++. Explain string declaration, attributes and manipulation functions with examples.</li>
+</ol>
+
+<h2>⚠️ COMMON MISTAKES TO AVOID</h2>
+<table>
+<tr><th>Mistake</th><th>Correct Way</th></tr>
+<tr><td>Forgetting to include &lt;fstream&gt;</td><td>File operations ku &lt;fstream&gt; must include pannanum</td></tr>
+<tr><td>Not closing files after use</td><td>close() function use panni file close pannanum</td></tr>
+<tr><td>Using wrong file mode</td><td>Read ku ios::in, write ku ios::out correct ah use pannanum</td></tr>
+<tr><td>Forgetting template keyword</td><td>template &lt;class T&gt; podama generic function ezhuda mudiyadhu</td></tr>
+<tr><td>Not handling exceptions</td><td>Error varakoodiya code ah try block la podanum</td></tr>
+<tr><td>Confusing length() and capacity()</td><td>length() na actual characters, capacity() na allocated memory</td></tr>
+</table>
+
+<p><b>Conclusion:</b> File Handling enables data persistence, Templates provide code reusability, Exception Handling ensures robust programs, and String class simplifies text manipulation. These advanced concepts complete the core C++ OOP syllabus.</p>
+
+</div>
     <div class="scroll-emoji-left">🚀</div>
     <div class="scroll-emoji-right">💻</div>
 

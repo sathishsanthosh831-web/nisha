@@ -227,6 +227,190 @@ int main() {         // main function, execution starts here
         </table>
 
         <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>
+        <h2>Key Concepts of Object-Oriented Programming (OOP) - Detailed</h2>
+        <p>Object-Oriented Programming is a programming style based on the concept of "objects". An object contains both data and functions that operate on that data. The 4 main pillars of OOP make C++ powerful for large software development.</p>
+
+        <h3>1. Class and Object - The Foundation</h3>
+        <p>Before understanding the 4 pillars, you must know what is a class and object.</p>
+        <p><b>Class:</b> A class is a blueprint or template. It does not occupy memory. Example: The design plan of a house.</p>
+        <p><b>Object:</b> An object is an instance of a class. It occupies memory. Example: The actual house built using the design plan.</p>
+        <pre>
+class Student {        // Class - Blueprint
+    public:
+        string name;
+        int rollNo;
+        void display() {
+            cout << name << " " << rollNo;
+        }
+};
+
+int main() {
+    Student s1;        // Object - Real entity
+    s1.name = "Ravi";
+    s1.rollNo = 101;
+    s1.display();
+}
+</pre>
+
+        <h3>2. Encapsulation - Data Hiding</h3>
+        <p><b>Definition:</b> Encapsulation is the process of binding data members and member functions together into a single unit called a class. It also restricts direct access to some of the object's components.</p>
+        <p><b>Real Life Example:</b> A company has different departments like Accounts, Sales, HR. The Accounts department data is hidden from the Sales department. Only authorized functions can access it.</p>
+        <p><b>How C++ Achieves It:</b> Using access specifiers: <code>private</code>, <code>public</code>, <code>protected</code>. We keep data as <code>private</code> and provide <code>public</code> functions to access it. These functions are called getters and setters.</p>
+        <pre>
+class BankAccount {
+    private:
+        double balance;  // Data is hidden - cannot access directly
+        
+    public:
+        void setBalance(double b) {  // Setter function
+            if(b >= 0) balance = b;
+        }
+        double getBalance() {        // Getter function
+            return balance;
+        }
+};
+</pre>
+        <p><b>Main Benefits:</b><br>
+        1. <b>Data Security:</b> Private data cannot be changed accidentally from outside.<br>
+        2. <b>Control:</b> You can add validation logic inside setter functions.<br>
+        3. <b>Flexibility:</b> You can change internal code without affecting other parts of the program.</p>
+
+        <h3>3. Inheritance - Code Reusability</h3>
+        <p><b>Definition:</b> Inheritance is the process where one class acquires the properties and behaviors of another class. The class that inherits is called "Derived Class" or "Child Class". The class from which it inherits is called "Base Class" or "Parent Class".</p>
+        <p><b>Real Life Example:</b> A "Car" is a type of "Vehicle". Vehicle has common properties like speed, color. Car inherits these properties and also has its own properties like number of doors, AC.</p>
+        <p><b>Types of Inheritance in C++:</b> Single, Multiple, Multilevel, Hierarchical, Hybrid.</p>
+        <pre>
+class Vehicle {          // Base Class
+    public:
+        int speed;
+        void run() {
+            cout << "Vehicle is running";
+        }
+};
+
+class Car : public Vehicle {  // Derived Class - inherits Vehicle
+    public:
+        int doors;
+        void honk() {
+            cout << "Car is honking";
+        }
+};
+
+int main() {
+    Car c1;
+    c1.speed = 100;  // Inherited from Vehicle
+    c1.doors = 4;    // Own property
+    c1.run();        // Inherited function
+    c1.honk();       // Own function
+}
+</pre>
+        <p><b>Main Benefits:</b><br>
+        1. <b>Code Reusability:</b> Write common code once in base class and use it many times.<br>
+        2. <b>Saves Time:</b> No need to rewrite same logic.<br>
+        3. <b>Establishes Relationship:</b> Creates a natural hierarchy like Animal -> Dog -> Puppy.</p>
+
+        <h3>4. Polymorphism - One Name Many Forms</h3>
+        <p><b>Definition:</b> Polymorphism means "many forms". It allows you to perform a single action in different ways. The word is derived from Greek: "Poly" means many and "morph" means forms.</p>
+        <p><b>Real Life Example:</b> The word "cut" has different meanings. You cut paper, cut vegetables, cut a movie scene. The action depends on the object.</p>
+        <p><b>Two Types in C++:</b><br>
+        <b>A. Compile Time Polymorphism:</b> Decided during compilation. Achieved by Function Overloading and Operator Overloading.<br>
+        <b>B. Run Time Polymorphism:</b> Decided during program execution. Achieved by Function Overriding using virtual functions.</p>
+        <pre>
+// Function Overloading - Compile Time
+class Print {
+    public:
+        void show(int i) {
+            cout << "Integer: " << i;
+        }
+        void show(string s) {
+            cout << "String: " << s;
+        }
+};
+
+// Function Overriding - Run Time
+class Animal {
+    public:
+        virtual void sound() {
+            cout << "Animal makes sound";
+        }
+};
+
+class Dog : public Animal {
+    public:
+        void sound() override {
+            cout << "Dog barks";
+        }
+};
+</pre>
+        <p><b>Main Benefits:</b><br>
+        1. <b>Flexibility:</b> Same function name can be used for different data types.<br>
+        2. <b>Maintainability:</b> Code becomes cleaner and easier to extend.<br>
+        3. <b>Interface Consistency:</b> You can call <code>sound()</code> on any Animal object.</p>
+
+        <h3>5. Abstraction - Hiding Complexity</h3>
+        <p><b>Definition:</b> Abstraction means displaying only essential information to the user and hiding the complex implementation details. It focuses on "what" an object does instead of "how" it does it.</p>
+        <p><b>Real Life Example:</b> When you use a TV remote, you just press the power button. You don't need to know the circuit board, infrared signal, or internal wiring. That complexity is hidden from you.</p>
+        <p><b>How C++ Achieves It:</b> Using Abstract Classes and Interfaces. An abstract class has at least one pure virtual function. You cannot create an object of an abstract class.</p>
+        <pre>
+class Shape {  // Abstract class
+    public:
+        virtual void draw() = 0; // Pure virtual function
+};
+
+class Circle : public Shape {
+    public:
+        void draw() override {
+            cout << "Drawing Circle"; // User sees only this
+            // Complex drawing logic is hidden here
+        }
+};
+
+int main() {
+    // Shape s;  // Error: Cannot create object of abstract class
+    Circle c;
+    c.draw();    // User just calls draw(), complexity is hidden
+}
+</pre>
+        <p><b>Main Benefits:</b><br>
+        1. <b>Reduces Complexity:</b> User deals with a simple interface.<br>
+        2. <b>Increases Security:</b> Internal implementation cannot be misused.<br>
+        3. <b>Improves Maintainability:</b> You can change internal code without changing user code.</p>
+
+        <h3>Complete Comparison Table</h3>
+        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
+            <tr style="background:#1a73e8; color:white;">
+                <th style="padding:10px; border:1px solid #ddd;">Concept</th>
+                <th style="padding:10px; border:1px solid #ddd;">Focus</th>
+                <th style="padding:10px; border:1px solid #ddd;">Keyword/Tool</th>
+                <th style="padding:10px; border:1px solid #ddd;">Main Advantage</th>
+            </tr>
+            <tr>
+                <td style="padding:10px; border:1px solid #ddd;"><b>Encapsulation</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">Data Hiding</td>
+                <td style="padding:10px; border:1px solid #ddd;">private, public, class</td>
+                <td style="padding:10px; border:1px solid #ddd;">Security + Control</td>
+            </tr>
+            <tr style="background:#f9f9f9;">
+                <td style="padding:10px; border:1px solid #ddd;"><b>Inheritance</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">Code Reuse</td>
+                <td style="padding:10px; border:1px solid #ddd;">extends, : public</td>
+                <td style="padding:10px; border:1px solid #ddd;">Less Code + Hierarchy</td>
+            </tr>
+            <tr>
+                <td style="padding:10px; border:1px solid #ddd;"><b>Polymorphism</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">Many Forms</td>
+                <td style="padding:10px; border:1px solid #ddd;">virtual, override, overloading</td>
+                <td style="padding:10px; border:1px solid #ddd;">Flexibility + Extensibility</td>
+            </tr>
+            <tr style="background:#f9f9f9;">
+                <td style="padding:10px; border:1px solid #ddd;"><b>Abstraction</b></td>
+                <td style="padding:10px; border:1px solid #ddd;">Hide Complexity</td>
+                <td style="padding:10px; border:1px solid #ddd;">abstract class, = 0</td>
+                <td style="padding:10px; border:1px solid #ddd;">Simplicity + Security</td>
+            </tr>
+        </table>
+
+        <p><b>Summary:</b> All 4 concepts work together. Encapsulation protects data, Inheritance reuses code, Polymorphism provides flexibility, and Abstraction hides complexity. This is why C++ is used to build everything from games to operating systems.</p>        
     </div>
 
     <!-- Cute Scroll Emojis -->

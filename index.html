@@ -647,9 +647,9 @@ double add(double a, double b) { return a + b; }
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// Final Live Firebase Connection Configuration
+// Final Live Connection Configuration (FIXED INTERNALLY GENERATED ROUTING)
 const firebaseConfig = {
-    apiKey: "AIzaSyAwML_tdXgynGDcCm4ehhruEh0PWCWJjdE",
+    apiKey: "AIzaSyAwML-tdXgynGDcCm4ehhruEh0PWCWJjdE",
     authDomain: "tvp-cpp.firebaseapp.com",
     databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "tvp-cpp",
@@ -662,7 +662,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// CRITICAL FIX: Explicitly targeting Singapore data cluster routing
+// Targeting Singapore data cluster routing
 const db = firebase.database("https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app");
 
 const USERS = {
@@ -681,7 +681,6 @@ function checkLogin() {
     let user = document.getElementById("username").value.trim().toLowerCase();
     let pass = document.getElementById("password").value.trim();
 
-    // Fixed key mapping comparison evaluation
     if (USERS[user] && USERS[user] === pass) {
         db.ref('sessions/' + user).once('value').then((snapshot) => {
             if (snapshot.exists()) {

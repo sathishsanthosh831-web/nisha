@@ -44,97 +44,29 @@
         /* MAIN CONTENT */
         #mainContent { display: none; padding: 20px; }
 
-        h1 {
-            text-align: center;
-            color: #1a73e8;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            color: #1a73e8;
-            border-bottom: 2px solid #1a73e8;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-
-        h3 {
-            color: #1a73e8;
-            margin-top: 25px;
-        }
+        h1 { text-align: center; color: #1a73e8; margin-bottom: 10px; }
+        h2 { color: #1a73e8; border-bottom: 2px solid #1a73e8; padding-bottom: 5px; margin-top: 40px; }
+        h3 { color: #1a73e8; margin-top: 25px; }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px; border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 900px; margin: 0 auto; background: white;
+            padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .table-container {
-            overflow-x: auto;
-            margin: 30px auto;
-        }
-
-        table {
-            width: 100%;
-            min-width: 600px;
-            border-collapse: collapse;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        th, td {
-            border: 2px solid #333;
-            padding: 12px 8px;
-        }
-
-        th {
-            background-color: #1a73e8;
-            color: white;
-        }
-
-        a {
-            text-decoration: none;
-            color: #1a73e8;
-            font-weight: bold;
-        }
-
-        a:hover {
-            color: #d93025;
-            text-decoration: underline;
-        }
-
-        pre {
-            background: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            border-left: 4px solid #1a73e8;
-        }
-
-        code {
-            background: #eee;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        .divider {
-            height: 3px;
-            background: #1a73e8;
-            margin: 50px 0;
-            border-radius: 2px;
-        }
+        .table-container { overflow-x: auto; margin: 30px auto; }
+        table { width: 100%; min-width: 600px; border-collapse: collapse; margin: 0 auto; text-align: center; }
+        th, td { border: 2px solid #333; padding: 12px 8px; }
+        th { background-color: #1a73e8; color: white; }
+        a { text-decoration: none; color: #1a73e8; font-weight: bold; }
+        a:hover { color: #d93025; text-decoration: underline; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; border-left: 4px solid #1a73e8; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; }
+        .divider { height: 3px; background: #1a73e8; margin: 50px 0; border-radius: 2px; }
 
         .scroll-emoji-left, .scroll-emoji-right {
-            position: fixed;
-            bottom: -100px;
-            font-size: 60px;
-            z-index: 999;
+            position: fixed; bottom: -100px; font-size: 60px; z-index: 999;
             transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            pointer-events: none;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            pointer-events: none; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
-
         .scroll-emoji-left { left: 30px; }
         .scroll-emoji-right { right: 30px; }
 
@@ -142,11 +74,7 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(10deg); }
         }
-
-        .active-emoji {
-            bottom: 30px;
-            animation: bounce 1s infinite;
-        }
+        .active-emoji { bottom: 30px; animation: bounce 1s infinite; }
 
         .logout-btn {
             position: fixed; bottom: 20px; right: 20px; background: #d93025;
@@ -261,8 +189,6 @@ int main() {         // main function, execution starts here
         </table>
 
         <h2>Popular Object-Oriented Languages</h2>
-        <p>C++ mattum illa da, indha languages lam OOP support pannudhu. Exam la "List OOP Languages" nu ketta idha ezhudhu:</p>
-        
         <table style="width:100%; border-collapse:collapse; margin:15px 0;">
             <tr style="background:#1a73e8; color:white;">
                 <th style="padding:10px; border:1px solid #ddd;">Language</th>
@@ -274,368 +200,61 @@ int main() {         // main function, execution starts here
                 <td style="padding:10px; border:1px solid #ddd;"><b>C++</b></td>
                 <td style="padding:10px; border:1px solid #ddd;">Bjarne Stroustrup</td>
                 <td style="padding:10px; border:1px solid #ddd;">1985</td>
-                <td style="padding:10px; border:1px solid #ddd;">Games, OS, Browsers, Competitive Programming</td>
+                <td style="padding:10px; border:1px solid #ddd;">Games, OS, Browsers</td>
             </tr>
             <tr style="background:#f9f9f9;">
                 <td style="padding:10px; border:1px solid #ddd;"><b>Java</b></td>
                 <td style="padding:10px; border:1px solid #ddd;">James Gosling</td>
                 <td style="padding:10px; border:1px solid #ddd;">1995</td>
-                <td style="padding:10px; border:1px solid #ddd;">Android Apps, Web Apps, Enterprise Software</td>
+                <td style="padding:10px; border:1px solid #ddd;">Android Apps, Web Apps</td>
             </tr>
             <tr>
                 <td style="padding:10px; border:1px solid #ddd;"><b>Python</b></td>
                 <td style="padding:10px; border:1px solid #ddd;">Guido van Rossum</td>
                 <td style="padding:10px; border:1px solid #ddd;">1991</td>
-                <td style="padding:10px; border:1px solid #ddd;">AI/ML, Data Science, Web Development, Automation</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>C#</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Microsoft</td>
-                <td style="padding:10px; border:1px solid #ddd;">2000</td>
-                <td style="padding:10px; border:1px solid #ddd;">Windows Apps, Unity Games, Web Apps</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Smalltalk</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Alan Kay</td>
-                <td style="padding:10px; border:1px solid #ddd;">1972</td>
-                <td style="padding:10px; border:1px solid #ddd;">First pure OOP language, Research</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>JavaScript</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Brendan Eich</td>
-                <td style="padding:10px; border:1px solid #ddd;">1995</td>
-                <td style="padding:10px; border:1px solid #ddd;">Websites, Node.js, Mobile Apps</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Ruby</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Yukihiro Matsumoto</td>
-                <td style="padding:10px; border:1px solid #ddd;">1995</td>
-                <td style="padding:10px; border:1px solid #ddd;">Web Development - Ruby on Rails</td>
+                <td style="padding:10px; border:1px solid #ddd;">AI/ML, Data Science</td>
             </tr>
         </table>
 
-        <p><b>Note:</b> C++ and Java are "Hybrid OOP" - procedure + OOP rendu support pannum. Smalltalk is "Pure OOP" - ellame object dhan.</p>
-
         <h2>I/O in C++ - Input and Output</h2>
-        <p>C la <code>printf</code> and <code>scanf</code> use pannom. C++ la <code>cout</code> and <code>cin</code> use panrom. Rendum <code>&lt;iostream&gt;</code> header file la iruku.</p>
-
         <h3>1. Output - cout</h3>
-        <p><b>cout</b> = Console Output. Screen la print panna use aagum. <code>&lt;&lt;</code> idhu Insertion Operator.</p>
         <pre>
 #include &lt;iostream&gt;
 using namespace std;
-
 int main() {
-    cout << "Hello World";  // Output: Hello World
-    cout << 100;            // Output: 100
-    cout << "Age: " << 20;  // Output: Age: 20
-    cout << endl;           // New line ku pogum
+    cout << "Hello World";
     return 0;
 }
 </pre>
 
         <h3>2. Input - cin</h3>
-        <p><b>cin</b> = Console Input. User kitta irundhu value vaanga use aagum. <code>&gt;&gt;</code> idhu Extraction Operator.</p>
         <pre>
 #include &lt;iostream&gt;
 using namespace std;
-
 int main() {
     int age;
     cout << "Enter your age: ";
-    cin >> age;  // User type pannura value age la save aagum
-    cout << "Your age is: " << age;
+    cin >> age;
     return 0;
 }
 </pre>
 
-        <h3>3. endl vs \n</h3>
-        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
-            <tr style="background:#1a73e8; color:white;">
-                <th style="padding:10px; border:1px solid #ddd;">endl</th>
-                <th style="padding:10px; border:1px solid #ddd;">\n</th>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;">New line + output buffer flush pannum</td>
-                <td style="padding:10px; border:1px solid #ddd;">New line mattum, flush pannadhu</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;">Slow, aana safe</td>
-                <td style="padding:10px; border:1px solid #ddd;">Fast</td>
-            </tr>
-        </table>
-
-        <h2>C++ Declarations - Variables & Constants</h2>
-        <p>Program la data store panna variables and constants use panrom.</p>
-
-        <h3>1. Variable Declaration</h3>
-        <p><b>Syntax:</b> <code>data_type variable_name = value;</code></p>
-        <pre>
-int age = 20;           // Integer variable
-float price = 99.5;     // Decimal variable  
-char grade = 'A';       // Single character
-string name = "Ravi";   // Text - string use panna #include &lt;string&gt; venum
-bool isPass = true;     // true or false
-</pre>
-
-        <h3>2. Data Types in C++</h3>
-        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
-            <tr style="background:#1a73e8; color:white;">
-                <th style="padding:10px; border:1px solid #ddd;">Data Type</th>
-                <th style="padding:10px; border:1px solid #ddd;">Size</th>
-                <th style="padding:10px; border:1px solid #ddd;">Example</th>
-                <th style="padding:10px; border:1px solid #ddd;">Use</th>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>int</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">4 bytes</td>
-                <td style="padding:10px; border:1px solid #ddd;">int a = 10;</td>
-                <td style="padding:10px; border:1px solid #ddd;">Whole numbers</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>float</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">4 bytes</td>
-                <td style="padding:10px; border:1px solid #ddd;">float b = 3.14;</td>
-                <td style="padding:10px; border:1px solid #ddd;">Decimal - 6 digits</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>double</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">8 bytes</td>
-                <td style="padding:10px; border:1px solid #ddd;">double c = 3.14159;</td>
-                <td style="padding:10px; border:1px solid #ddd;">Decimal - 15 digits</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>char</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">1 byte</td>
-                <td style="padding:10px; border:1px solid #ddd;">char d = 'X';</td>
-                <td style="padding:10px; border:1px solid #ddd;">Single character</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>bool</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">1 byte</td>
-                <td style="padding:10px; border:1px solid #ddd;">bool e = true;</td>
-                <td style="padding:10px; border:1px solid #ddd;">true/false</td>
-            </tr>
-        </table>
-
-        <h3>3. Constants - const keyword</h3>
-        <p><code>const</code> use panna value ah change panna mudiyadhu. Fixed value ku use aagum.</p>
-        <pre>
-const float PI = 3.14;  // PI value maatha mudiyadhu
-PI = 3.15;              // Error varum
-</pre>
-
         <h2>Decision Making Statements</h2>
-        <p>Program la oru condition base panni different code run panna use aagum. Selection statements nu kooda solluvanga.</p>
-
-        <h3>1. if Statement</h3>
-        <p>Condition true na mattum code run aagum.</p>
-        <pre>
-int age = 18;
-if (age >= 18) {
-    cout << "You can vote";
-}
-</pre>
-
-        <h3>2. if-else Statement</h3>
-        <p>Condition true na if block, false na else block run aagum.</p>
-        <pre>
-int marks = 40;
-if (marks >= 50) {
-    cout << "Pass";
-} else {
-    cout << "Fail";
-}
-</pre>
-
-        <h3>3. if-else-if Ladder</h3>
-        <p>Multiple conditions check panna use aagum.</p>
         <pre>
 int marks = 85;
 if (marks >= 90) {
     cout << "Grade A";
-} else if (marks >= 75) {
-    cout << "Grade B";
-} else if (marks >= 50) {
-    cout << "Grade C";
 } else {
-    cout << "Fail";
+    cout << "Grade B";
 }
-</pre>
-
-        <h3>4. Nested if</h3>
-        <p>if statement kulla innoru if statement.</p>
-        <pre>
-int age = 20;
-bool hasLicense = true;
-
-if (age >= 18) {
-    if (hasLicense) {
-        cout << "Can drive";
-    } else {
-        cout << "Apply for license";
-    }
-}
-</pre>
-
-        <h3>5. switch Statement</h3>
-        <p>One variable ku multiple values check panna use aagum. `break` must podanum, illana next case kum execute aagum.</p>
-        <pre>
-int day = 3;
-switch(day) {
-    case 1: cout << "Monday"; break;
-    case 2: cout << "Tuesday"; break;
-    case 3: cout << "Wednesday"; break;
-    case 4: cout << "Thursday"; break;
-    case 5: cout << "Friday"; break;
-    default: cout << "Weekend";
-}
-</pre>
-
-        <h3>6. Conditional Operator - Ternary Operator</h3>
-        <p>Short form of if-else. Syntax: <code>condition ? true_part : false_part;</code></p>
-        <pre>
-int age = 20;
-string result = (age >= 18) ? "Adult" : "Minor";
-cout << result;
 </pre>
 
         <h2>Loops in C++</h2>
-        <p>Oru code ah multiple times repeat panna loops use panrom. 3 types iruku.</p>
-
-        <h3>1. for Loop</h3>
-        <p><b>Syntax:</b> <code>for(initialization; condition; update)</code></p>
-        <pre>
-// Print 1 to 5
-for(int i = 1; i <= 5; i++) {
-    cout << i << " ";
-}
-
-// Print even numbers 2 to 10
-for(int i = 2; i <= 10; i = i + 2) {
-    cout << i << " ";
-}
-</pre>
-
-        <h3>2. while Loop</h3>
-        <p><b>Use:</b> Condition true ah irukura varaikum run aagum. Entry-controlled loop.</p>
-        <pre>
-int i = 1;
-while(i <= 5) {
-    cout << i << " ";
-    i++;
-}
-</pre>
-
-        <h3>3. do-while Loop</h3>
-        <p><b>Use:</b> Minimum 1 time run aagum, aprm condition check pannum. Exit-controlled loop.</p>
-        <pre>
-int i = 1;
-do {
-    cout << i << " ";
-    i++;
-} while(i <= 5);
-</pre>
-
-        <h3>4. Nested Loops</h3>
-        <p>Loop kulla innoru loop.</p>
-        <pre>
-for(int i = 1; i <= 3; i++) {
-    for(int j = 1; j <= 3; j++) {
-        cout << "* ";
-    }
-    cout << endl;
-}
-</pre>
-
-        <h3>5. Jump Statements - break, continue</h3>
-        <p><b>break:</b> Loop ah udane stop pannum.</p>
-        <pre>
-for(int i = 1; i <= 10; i++) {
-    if(i == 5) break;
-    cout << i << " ";
-}
-</pre>
-
-        <p><b>continue:</b> Andha iteration ah skip pannum, next iteration ku pogum.</p>
         <pre>
 for(int i = 1; i <= 5; i++) {
-    if(i == 3) continue;
     cout << i << " ";
 }
 </pre>
-
-        <h2>Functions in C++</h2>
-        <p>Function na oru block of code. Code reusability ku use aagum.</p>
-
-        <h3>1. Why Functions?</h3>
-        <ol>
-            <li><b>Code Reusability</b></li>
-            <li><b>Modularity</b></li>
-            <li><b>Easy Debugging</b></li>
-        </ol>
-
-        <h3>2. Function Example</h3>
-        <pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-int add(int a, int b) {
-    return a + b;
-}
-
-int main() {
-    int result = add(5, 3);
-    cout << "Sum: " << result;
-    return 0;
-}
-</pre>
-
-        <h3>3. Call by Value vs Call by Reference</h3>
-        <pre>
-// Call by Value
-void change(int x) { x = 100; }
-// Call by Reference
-void changeRef(int &x) { x = 100; }
-</pre>
-
-        <h2>Inline Functions</h2>
-        <p><b>Definition:</b> Function call ah replace pannitu function body ah compiler direct ah place pannidum. Speed increase aagum.</p>
-        <pre>
-inline int cube(int x) { return x * x * x; }
-</pre>
-
-        <h2>Function Overloading</h2>
-        <p><b>Definition:</b> Same function name, but different parameters.</p>
-        <pre>
-int add(int a, int b) { return a + b; }
-double add(double a, double b) { return a + b; }
-</pre>
-
-        <h2>Key Concepts of Object-Oriented Programming (OOP)</h2>
-        <h3>1. Class and Object</h3>
-        <p><b>Class:</b> Blueprint or template. Does not occupy memory.</p>
-        <p><b>Object:</b> Instance of a class. Occupies memory.</p>
-
-        <h3>2. Encapsulation</h3>
-        <p>Binding data and functions together into a single unit (Class). Achieved using <code>private</code> access specifier.</p>
-
-        <h3>3. Inheritance</h3>
-        <p>One class acquiring the properties of another class. Reusability tool.</p>
-
-        <h3>4. Polymorphism</h3>
-        <p>Many forms. Doing a single action in different ways (Overloading and Overriding).</p>
-
-        <h3>5. Abstraction</h3>
-        <p>Hiding complex integration details and displaying only essential info. Uses abstract classes.</p>
-
-        <h2>Advantages of Object-Oriented Programming (OOP)</h2>
-        <ol>
-            <li><b>Modularity</b>: Easy to track errors.</li>
-            <li><b>Reusability</b>: Saves programming time.</li>
-            <li><b>Data Security</b>: Protects critical code from outside manipulation.</li>
-            <li><b>Flexibility</b>: Easy to update and extend systems.</li>
-        </ol>
     </div>
 
     <button class="logout-btn" onclick="logout()">Logout</button>
@@ -647,7 +266,7 @@ double add(double a, double b) { return a + b; }
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// USERS Map and Initialization must be FIRST to resolve ReferenceError!
+// 1. ALL VARIABLES DECLARED FIRST TO FIX REFERENCE ERROR
 const USERS = {
     "1": "1",
     "2": "2",
@@ -667,16 +286,17 @@ const firebaseConfig = {
     measurementId: "G-P5N7VEMKR0"
 };
 
-// Initialize Firebase App
+// 2. INITIALIZE FIREBASE APP
 firebase.initializeApp(firebaseConfig);
 
-// Correct multi-region mapping call structure
-const db = firebase.database();
+// 3. TARGETING DATABASE EXPLICITLY TO FIX FIREBASE COMPAT INSTANCE ERROR
+const db = firebase.database("https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app");
 
 let currentUser = null;
 let currentSessionId = null;
 let sessionCheckInterval = null;
 
+// 4. FUNCTION CODE DECLARED AT THE END
 function checkLogin() {
     let user = document.getElementById("username").value.trim().toLowerCase();
     let pass = document.getElementById("password").value.trim();
@@ -741,7 +361,6 @@ function logout() {
     currentSessionId = null;
     localStorage.removeItem('cppLoggedIn');
     localStorage.removeItem('cachedUser');
-    localStorage.removeItem('removeItem');
     localStorage.removeItem('cachedSessionId');
     
     document.getElementById("loginOverlay").style.display = "flex";

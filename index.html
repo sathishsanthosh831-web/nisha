@@ -23,22 +23,22 @@
             background: linear-gradient(135deg, #1a73e8 0%, #673ab7 100%);
             display: flex; justify-content: center; align-items: center; z-index: 99999;
         }
-     .login-box {
+        .login-box {
             background: white; padding: 40px; border-radius: 15px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3); width: 340px; text-align: center;
         }
-     .login-box h2 { margin-bottom: 25px; color: #1a73e8; font-size: 1.8rem; }
-     .login-box input {
+        .login-box h2 { margin-bottom: 25px; color: #1a73e8; font-size: 1.8rem; }
+        .login-box input {
             width: 100%; padding: 14px; margin: 12px 0; border: 2px solid #ddd;
             border-radius: 8px; font-size: 15px; box-sizing: border-box;
         }
-     .login-box input:focus { outline: none; border-color: #1a73e8; }
-     .login-box button {
+        .login-box input:focus { outline: none; border-color: #1a73e8; }
+        .login-box button {
             width: 100%; padding: 14px; background: #1a73e8; color: white;
             border: none; border-radius: 8px; cursor: pointer; font-size: 16px;
             margin-top: 15px; font-weight: bold; transition: 0.3s;
         }
-     .login-box button:hover { background: #1557b0; transform: translateY(-2px); }
+        .login-box button:hover { background: #1557b0; transform: translateY(-2px); }
         #errorMsg { color: #d93025; margin-top: 15px; height: 20px; font-weight: bold; }
 
         /* MAIN CONTENT */
@@ -148,7 +148,7 @@
             animation: bounce 1s infinite;
         }
 
-     .logout-btn {
+        .logout-btn {
             position: fixed; bottom: 20px; right: 20px; background: #d93025;
             color: white; border: none; padding: 12px 20px; border-radius: 50px;
             cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(217,48,37,0.4);
@@ -647,9 +647,17 @@ double add(double a, double b) { return a + b; }
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// Final Live Connection Configuration (FIXED INTERNALLY GENERATED ROUTING)
+// USERS Map and Initialization must be FIRST to resolve ReferenceError!
+const USERS = {
+    "1": "1",
+    "2": "2",
+    "nisha": "cpp2024",
+    "admin": "1234",
+    "student": "pass"
+};
+
 const firebaseConfig = {
-    apiKey: "AIzaSyAwML-tdXgynGDcCm4ehhruEh0PWCWJjdE",
+    apiKey: "AIzaSyAwML_tdXgynGDcCm4ehhruEh0PWCWJjdE",
     authDomain: "tvp-cpp.firebaseapp.com",
     databaseURL: "https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "tvp-cpp",
@@ -659,19 +667,11 @@ const firebaseConfig = {
     measurementId: "G-P5N7VEMKR0"
 };
 
-// Initialize Firebase
+// Initialize Firebase App
 firebase.initializeApp(firebaseConfig);
 
-// Targeting Singapore data cluster routing
-const db = firebase.database("https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app");
-
-const USERS = {
-    "1": "1",
-    "2": "2",
-    "nisha": "cpp2024",
-    "admin": "1234",
-    "student": "pass"
-};
+// Correct multi-region mapping call structure
+const db = firebase.database();
 
 let currentUser = null;
 let currentSessionId = null;
@@ -741,6 +741,7 @@ function logout() {
     currentSessionId = null;
     localStorage.removeItem('cppLoggedIn');
     localStorage.removeItem('cachedUser');
+    localStorage.removeItem('removeItem');
     localStorage.removeItem('cachedSessionId');
     
     document.getElementById("loginOverlay").style.display = "flex";

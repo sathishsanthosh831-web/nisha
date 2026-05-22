@@ -26,9 +26,10 @@
         /* Notes Styling */
         .tamil-block { background-color: #eef9ff; border-left: 5px solid #0288d1; padding: 15px 20px; margin: 20px 0; border-radius: 4px; font-style: normal; color: #01579b; }
         .output-block { background-color: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; margin: 15px 0; font-family: monospace; font-size: 15px; color: #1b5e20; font-weight: bold; }
-        h1 { color: #1a73e8; font-size: 2.2rem; border-bottom: 3px solid #1a73e8; padding-bottom: 10px; }
+        h1 { color: #1a73e8; font-size: 2.2rem; border-bottom: 3px solid #1a73e8; padding-bottom: 10px; margin-top: 50px; }
+        h1:first-of-type { margin-top: 10px; }
         h2 { color: #202124; font-size: 1.6rem; margin-top: 35px; background: #f1f3f4; padding: 8px 15px; border-radius: 4px; }
-        h3 { color: #1a73e8; font-size: 1.2rem; }
+        h3 { color: #1a73e8; font-size: 1.2rem; margin-top: 20px; }
         ul, ol { padding-left: 25px; }
         li { margin-bottom: 8px; }
         .bold-txt { font-weight: bold; color: #111; }
@@ -105,8 +106,6 @@
         </div>
 
         <h2>4. Structural Overview of a C++ Program with Clean Code</h2>
-        <p>Every standard C++ application follows a highly precise structural compilation architecture. Below is a clean, fully-functional production-grade C++ program implementing basic structural concepts, free from internal comment noises:</p>
-
         <pre>
 #include &lt;iostream&gt;
 
@@ -139,9 +138,122 @@ int main() {
                 <li><span class="bold-txt">using namespace std; :</span> Cout, endl munnadi 'std::' nu thirumba thirumba ezhuthama direct-aa use panna intha command use aagudhu.</li>
                 <li><span class="bold-txt">int main() :</span> Main computational box. Ithaan program run aaga start aagura orey primary entry point.</li>
                 <li><span class="bold-txt">int firstNumber, secondNumber, totalSum :</span> Number value-ah safe-aa store panni vaikka computer RAM memory-la 3 slots allocate pannuthu.</li>
-                <li><span class="bold-txt">totalSum = firstNumber + secondNumber; :</span> Allocate panna variables-ah plus panni dynamic total value-ah calculate pannுது.</li>
+                <li><span class="bold-txt">totalSum = firstNumber + secondNumber; :</span> Allocate panna variables-ah plus panni dynamic total value-ah calculate pannu‌dhu.</li>
                 <li><span class="bold-txt">cout &lt;&lt; :</span> Namma screen layout terminal kulla text visual strings matrum calculation value-ah veliya display panni kaatudhụ.</li>
                 <li><span class="bold-txt">return 0; :</span> Program entha mathematical lag or crash errors-um illama successfully run aagi mudinjuruchunu operate panra system-ku solra signal.</li>
+            </ul>
+        </div>
+
+
+        <h1>UNIT I - Key Concepts of Object-Oriented Programming (OOP)</h1>
+
+        <h2>1. Paradigm Evolution & Core Philosophy</h2>
+        <p>Object-Oriented Programming (OOP) is an advanced programming paradigm that models real-world entities using software computational constructs. Historically, traditional structural or procedural programming paradigms (like C, Pascal) focused strictly on writing algorithmic procedures and data processing steps. In procedural architecture, data was treated as a secondary entity and moved freely across global functional boundaries, which exposed it to accidental mathematical corruptions and major structural vulnerabilities.</p>
+        <p>OOP fundamentally re-engineers this approach by shifting the developmental focus entirely onto <span class="bold-txt">Data Security</span> and data structure states. Instead of breaking software down into functional steps, OOP breaks systems down into individual self-sustaining components called <span class="bold-txt">Objects</span>. It binds data variables closely to their corresponding operations, completely isolating internal computational logic from outside interruptions.</p>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (OOP Philosophy):</strong> Normal procedural programming (C language madhiri) structure-la logic matrum functions-ku thaan mukkiyathuvam thandhangha, data-ku strong security illa. Aana OOP paradigm-la data security-ku thaan primary importance tharaangha. Software-ah function step-by-step-aa pirikaama, real-world components aana "Objects" ah base panni design pannuvaangha. Data-vum adhai corporate panra functions-um ore idathula lock aiyirukum.
+        </div>
+
+        <h2>2. In-Depth Technical Analysis of OOP Elements</h2>
+        <p>To analyze Object-Oriented software architectures, university curricula evaluate the following core architectural elements:</p>
+        
+        <h3>A. Objects</h3>
+        <p>An Object is the fundamental runtime entity in an object-oriented paradigm. It represents an instance of a structural class design template. Physically, an object occupies computational memory space inside the computer's RAM. It holds data properties (Attributes) and executes functional logic operations (Behaviors). For example, if 'Car' is a class template, then a specific physical vehicle with a license plate is an object possessing its own localized state values.</p>
+
+        <h3>B. Classes</h3>
+        <p>A Class is a user-defined logical data type block that functions as a structural blueprint or master template from which individual runtime objects are manufactured. A class defines the precise types of variables and functional interfaces that its objects will possess. It does not consume physical hardware memory space during compilation; it merely dictates the organizational metadata rules for memory allocations.</p>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (Objects & Classes):</strong> Class-ngradhu oru structural template illa-na user-defined blueprint madhiri. Idhu compiler computational level-la memory space-ah eduthukaadhu. Oru building-oda engineer structural plan sheet madhiri. Object-ngradhu intha class template-ah vechu RAM memory-la run aagura unmaiyana real instance entity. Concept-padi Plan sheet-ngradhu Class, adhai vechu kattradha building dhaan Object.
+        </div>
+
+        <h3>C. Encapsulation & Data Hiding</h3>
+        <p>Encapsulation is the physical process of bundling structural data variables and methods together within a single unified class box. Within this encapsulated zone, data fields are kept private (hidden) using the <code>private:</code> access specifier. This technique is formally called <span class="bold-txt">Data Hiding</span>. The data cannot be modified directly by external global code loops; it can only be safely manipulated through public access interfaces (Getters and Setters).</p>
+
+        <h3>D. Abstraction</h3>
+        <p>Abstraction is the systemic philosophy of representing only the essential operational features of a component without exposing its deep internal implementation background or complex algorithm routines. For instance, when a driver pushes a car's brake pedal, they experience the conceptual abstraction of slowing down, completely unconcerned with the complex hydraulic fluid mechanics happening inside the mechanical engine assembly.</p>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (Encapsulation & Abstraction):</strong> Data variables-ayum methods-ayum ore class kulla wrapping panni lock panra process-ku per Encapsulation. Idhula variables-ah private-aa maraikradhuku per Data Hiding. Abstraction-ngradhu complex processing-ah pinnaadi maraichutu essential features-ah mattum veliya kaatradhu. Mobile-la power button-ah amukki screen on panra abstraction therinja podhum, ulla motherboard-la IC chips eppadi electrical current anupudhunu user therinjuka devaiyilla.
+        </div>
+
+        <h3>E. Inheritance (Extensibility Architecture)</h3>
+        <p>Inheritance is the structural framework that allows a brand new class block (Derived/Child Class) to inherit, adapt, and reuse the existing methods and member fields of an older class layout (Base/Parent Class). This eliminates redundant coding efforts, supports modular software scaling, and introduces precise hierarchy tracking into complex applications.</p>
+
+        <h3>F. Polymorphism</h3>
+        <p>Polymorphism translates from Greek as "the ability to take multiple distinct operational forms". It allows the same functional interface call signature to trigger entirely different underlying execution paths based on context. In C++, compile-time polymorphism handles static function and operator overloading, while runtime polymorphism uses dynamic virtual pointers to decide function executions on the fly.</p>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (Inheritance & Polymorphism):</strong> Oru pazhaya parent class-oda code structures-ah puthu child class ezhuthama reuse panradhuku per Inheritance. Ithanala line coding time save aagum. Polymorphism-na orey name-la irukura interface routine vera vera dynamic forms-la work aagradhu. Static overloading matrum runtime virtual mechanisms-ah vechu C++ la compiler itha execute pannudhu.
+        </div>
+
+        <h2>3. Production-Grade OOP C++ Demonstration</h2>
+        <p>The following structural program demonstrates the clean operational syntax of Class construction, private encapsulation, object instantiation, and public functional manipulation, completely free from comment lines:</p>
+
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+class AcademicStudent {
+private:
+    string studentName;
+    int internalMarks;
+
+public:
+    void setupData(string name, int marks) {
+        studentName = name;
+        if (marks >= 0 && marks <= 100) {
+            internalMarks = marks;
+        } else {
+            internalMarks = 0;
+        }
+    }
+
+    void displayReport() {
+        cout &lt;&lt; "Student System Profile: " &lt;&lt; studentName &lt;&lt; endl;
+        cout &lt;&lt; "Secured Internal Assessment Marks: " &lt;&lt; internalMarks &lt;&lt; "/100" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    AcademicStudent studentObject1;
+    AcademicStudent studentObject2;
+
+    studentObject1.setupData("Nisha", 98);
+    studentObject2.setupData("Sathish", 85);
+
+    cout &lt;&lt; "--- University OOP Execution Terminal ---" &lt;&lt; endl;
+    studentObject1.displayReport();
+    cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
+    studentObject2.displayReport();
+
+    return 0;
+}
+</pre>
+
+        <h3>Program Execution Output Terminal</h3>
+        <div class="output-block">
+            --- University OOP Execution Terminal ---<br>
+            Student System Profile: Nisha<br>
+            Secured Internal Assessment Marks: 98/100<br>
+            ----------------------------------------<br>
+            Student System Profile: Sathish<br>
+            Secured Internal Assessment Marks: 85/100
+        </div>
+
+        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
+        <div class="tamil-block">
+            <ul>
+                <li><span class="bold-txt">class AcademicStudent :</span> AcademicStudent-nu oru user-defined master class template-ah create pannuthụ.</li>
+                <li><span class="bold-txt">private: :</span> Ithaan Access Specifier. Idhukulla irukura variables-ah global loop elements direct-aa thoda mudiyathu (Data Hiding).</li>
+                <li><span class="bold-txt">public: :</span> External world objects direct-aa communicate panna mudiyra open access interface zone.</li>
+                <li><span class="bold-txt">setupData(string name, int marks) :</span> Encapsulation rule-padi private data variables kulla safe-aa values-ah feed panna use aagura method.</li>
+                <li><span class="bold-txt">AcademicStudent studentObject1; :</span> Master class blueprint-ah use panni computer memory-la "studentObject1"-nu oru dynamic object entity-ah uruvakuthụ.</li>
+                <li><span class="bold-txt">studentObject1.setupData("Nisha", 98); :</span> Object moolama public setupData interface function-ah call panni local records-la register pannuthu.</li>
+                <li><span class="bold-txt">studentObject1.displayReport(); :</span> Final computed text outputs layout-ah monitor stream-la perfectly output terminal screen-ku mathi print panra utility execution block.</li>
             </ul>
         </div>
     </div>

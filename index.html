@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="EDFnYjhWxKFqEBvcSIWQ7zVO6-yIvy5rIfsskvvSp8I" />
-    <title>Government Services + TVU C++ Unit 1 Notes</title>
+    <title>Government Services + TVU C++ Comprehensive Notes</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; background: #f5f5f5; }
         #loginOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a73e8 0%, #673ab7 100%); display: flex; justify-content: center; align-items: center; z-index: 99999; }
@@ -14,14 +14,24 @@
         .login-box button { width: 100%; padding: 14px; background: #1a73e8; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 15px; font-weight: bold; }
         #errorMsg { color: #d93025; margin-top: 15px; min-height: 20px; font-weight: bold; }
         #mainContent { display: none; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .table-container { overflow-x: auto; margin: 30px auto; }
         table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: center; }
         th, td { border: 2px solid #333; padding: 12px 8px; }
         th { background-color: #1a73e8; color: white; }
         a { text-decoration: none; color: #1a73e8; font-weight: bold; }
-        pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; border-left: 4px solid #1a73e8; }
-        .logout-btn { position: fixed; bottom: 20px; right: 20px; background: #d93025; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 1000; }
+        pre { background: #111; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; border-left: 5px solid #1a73e8; font-family: 'Courier New', Courier, monospace; font-size: 15px; }
+        .logout-btn { position: fixed; bottom: 20px; right: 20px; background: #d93025; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        
+        /* Notes Styling */
+        .tamil-block { background-color: #eef9ff; border-left: 5px solid #0288d1; padding: 15px 20px; margin: 20px 0; border-radius: 4px; font-style: normal; color: #01579b; }
+        .output-block { background-color: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; margin: 15px 0; font-family: monospace; font-size: 15px; color: #1b5e20; font-weight: bold; }
+        h1 { color: #1a73e8; font-size: 2.2rem; border-bottom: 3px solid #1a73e8; padding-bottom: 10px; }
+        h2 { color: #202124; font-size: 1.6rem; margin-top: 35px; background: #f1f3f4; padding: 8px 15px; border-radius: 4px; }
+        h3 { color: #1a73e8; font-size: 1.2rem; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 8px; }
+        .bold-txt { font-weight: bold; color: #111; }
     </style>
 </head>
 <body>
@@ -59,16 +69,81 @@
         </div>
 
         <h1>UNIT I - Introduction to C++</h1>
-        <p>C++ is a general-purpose programming language created by Bjarne Stroustrup in 1985.</p>
-        <h2>Basic Structure of C++ Program</h2>
+        
+        <h2>1. Historical Background and Evolution</h2>
+        <p>C++ is a massive, multi-paradigm, general-purpose programming language that was conceptualized and developed by <span class="bold-txt">Bjarne Stroustrup</span> in the year <span class="bold-txt">1979</span> at AT&T Bell Laboratories in Murray Hill, New Jersey. Initially, the language was named <span class="bold-txt">"C with Classes"</span> because it was designed to be an extension of the highly popular C language, incorporating the object-oriented concepts from the Simula67 language without compromising the efficiency and speed of C.</p>
+        <p>In <span class="bold-txt">1983</span>, the language was officially renamed <span class="bold-txt">C++</span>. The term "++" is the increment operator in C, symbolically representing that C++ is an advanced, incremented version of C. The first commercial release of C++ occurred in 1985. It was standardized by the ISO (International Organization for Standardization) in 1998 (C++98), followed by multiple modernized versions like C++11, C++14, C++17, C++20, and C++23, making it one of the most powerful and heavily utilized languages in engineering, game development, and systems programming today.</p>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (History):</strong> C++ language-ah 1979-la 'Bjarne Stroustrup' nu solra avar thaan uruvakkunaar. Starting-la idhuku "C with Classes" nu per vachangha. Enna na, C language-oda fast execution kooda Simula67 language-oda Object-Oriented concepts-ah mix panradhukaaga idhu ready aachis. Apram 1983-la idhuku 'C++' nu per maathunangha. C language-la nammalku therinja '++' (Increment Operator) vechu, idhu C-oda adutha level periya version-nu kaatadhuku thaan intha name vachangha.
+        </div>
+
+        <h2>2. Core Architectural Features of C++</h2>
+        <p>C++ is regarded as a <span class="bold-txt">Middle-Level Language</span> because it seamlessly bridges the gap between low-level (hardware-centric) programming and high-level (abstract application-centric) programming. Below are the key characteristics that define C++:</p>
+        <ul>
+            <li><span class="bold-txt">Robust and Fast:</span> Being a compiled language, C++ translates source code directly into machine-executable binary code, leading to incredibly fast execution times, making it ideal for systems software.</li>
+            <li><span class="bold-txt">Portability:</span> C++ is platform-independent in terms of concept (ANSI standard), meaning code written on one machine can be compiled and executed on another machine with minimal modifications.</li>
+            <li><span class="bold-txt">Rich Library Support:</span> It offers an extensive Standard Template Library (STL) containing pre-built data structures like vectors, lists, maps, and rich algorithms that minimize manual coding efforts.</li>
+            <li><span class="bold-txt">Memory Management:</span> Unlike managed languages like Java, C++ gives programmers direct control over memory allocation and deallocation using the <code>new</code> and <code>delete</code> operators, allowing explicit structural optimization.</li>
+        </ul>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (Features):</strong> C++ oru 'Middle-Level Language'. Ithanala computer hardware-ah direct-aa control panna mudiyum (Low-level), adhey neram periya high-level applications-ayum ready panna mudiyum. Idhu romba fast-aa run aagum, enna na idhu oru compiled language. Idhula memory-ah direct-aa 'new' matrum 'delete' operators moolama programmer-ey manage pannikalam.
+        </div>
+
+        <h2>3. Object-Oriented Programming (OOP) Paradigms</h2>
+        <p>The core power of C++ lies in its support for Object-Oriented Programming. A 10-mark architectural analysis requires understanding its four foundational pillars:</p>
+        <ol>
+            <li><span class="bold-txt">Encapsulation:</span> The process of binding data variables and the functions that manipulate them into a single comprehensive blueprint unit called a <span class="bold-txt">Class</span>. This prevents unauthorized direct data access.</li>
+            <li><span class="bold-txt">Data Abstraction:</span> Hiding complex internal implementation complexities and showing only the essential interfaces to the outside world. This is achieved using access specifiers like <code>public</code>, <code>private</code>, and <code>protected</code>.</li>
+            <li><span class="bold-txt">Inheritance:</span> The mechanism by which a new class (Derived Class) acquires the properties, states, and behaviors of an existing class (Base Class), maximizing code reusability.</li>
+            <li><span class="bold-txt">Polymorphism:</span> The ability of data or functions to process in more than one form. It manifests as Compile-time polymorphism (Function overloading, Operator overloading) and Runtime polymorphism (Virtual functions).</li>
+        </ol>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (OOP Pillars):</strong> C++ oda main balamey intha OOP concepts thaan. Idhula motham 4 mukkiya pillars irukku: 1) Encapsulation - Data-vaiyum function-aiyum 'Class' nu solra ore safety box-kulla potu lock panradhu. 2) Abstraction - Devaiyillatha internal logic-ah maraichu, main features-ah mattum veliya kaatradhu. 3) Inheritance - Oru class-oda properties-ah innoru puthu class reuse pannikradhu. 4) Polymorphism - Oru function oru vagaiuku mela vera vera formats-la perform panradhu.
+        </div>
+
+        <h2>4. Structural Overview of a C++ Program with Clean Code</h2>
+        <p>Every standard C++ application follows a highly precise structural compilation architecture. Below is a clean, fully-functional production-grade C++ program implementing basic structural concepts, free from internal comment noises:</p>
+
         <pre>
-#include &lt;iostream&gt;  
-using namespace std; 
-int main() {         
-    cout &lt;&lt; "Hello World!"; 
-    return 0;        
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int firstNumber = 40;
+    int secondNumber = 60;
+    int totalSum;
+
+    totalSum = firstNumber + secondNumber;
+
+    cout &lt;&lt; "--- University C++ Academic Program ---" &lt;&lt; endl;
+    cout &lt;&lt; "The Calculated Sum of Numbers is: " &lt;&lt; totalSum &lt;&lt; endl;
+
+    return 0;
 }
-        </pre>
+</pre>
+
+        <h3>Program Execution Output Terminal</h3>
+        <div class="output-block">
+            --- University C++ Academic Program ---<br>
+            The Calculated Sum of Numbers is: 100
+        </div>
+
+        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
+        <div class="tamil-block">
+            <ul>
+                <li><span class="bold-txt">#include &lt;iostream&gt; :</span> Input-Output stream function (cout, cin) ah program-la access panna vaikra Header File.</li>
+                <li><span class="bold-txt">using namespace std; :</span> Cout, endl munnadi 'std::' nu thirumba thirumba ezhuthama direct-aa use panna intha command use aagudhu.</li>
+                <li><span class="bold-txt">int main() :</span> Main computational box. Ithaan program run aaga start aagura orey primary entry point.</li>
+                <li><span class="bold-txt">int firstNumber, secondNumber, totalSum :</span> Number value-ah safe-aa store panni vaikka computer RAM memory-la 3 slots allocate pannuthu.</li>
+                <li><span class="bold-txt">totalSum = firstNumber + secondNumber; :</span> Allocate panna variables-ah plus panni dynamic total value-ah calculate pannுது.</li>
+                <li><span class="bold-txt">cout &lt;&lt; :</span> Namma screen layout terminal kulla text visual strings matrum calculation value-ah veliya display panni kaatudhụ.</li>
+                <li><span class="bold-txt">return 0; :</span> Program entha mathematical lag or crash errors-um illama successfully run aagi mudinjuruchunu operate panra system-ku solra signal.</li>
+            </ul>
+        </div>
     </div>
     <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
@@ -77,9 +152,8 @@ int main() {
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// ALL 13 REGISTERED USERS LIST
+// ALL 13 REGISTERED USERS CONFIG (MAINTAINED PERFECTLY)
 const USERS = {
-    // Older Users
     "1": "1",
     "2": "2",
     "3": "3",
@@ -89,8 +163,6 @@ const USERS = {
     "dio": "231",
     "demo": "324",
     "del": "564",
-    
-    // 5 Brand New Accounts Added Here:
     "sonu": "564",
     "gio": "478",
     "sdd": "566",

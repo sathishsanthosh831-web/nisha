@@ -132,19 +132,6 @@ int main() {
             The Calculated Sum of Numbers is: 100
         </div>
 
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">#include &lt;iostream&gt; :</span> Input-Output stream function (cout, cin) ah program-la access panna vaikra Header File.</li>
-                <li><span class="bold-txt">using namespace std; :</span> Cout, endl munnadi 'std::' nu thirumba thirumba ezhuthama direct-aa use panna intha command use aagudhu.</li>
-                <li><span class="bold-txt">int main() :</span> Main computational box. Ithaan program run aaga start aagura orey primary entry point.</li>
-                <li><span class="bold-txt">int firstNumber, secondNumber, totalSum :</span> Number value-ah safe-aa store panni vaikka computer RAM memory-la 3 slots allocate pannuthu.</li>
-                <li><span class="bold-txt">totalSum = firstNumber + secondNumber; :</span> Allocate panna variables-ah plus panni dynamic total value-ah calculate pannu‌dhu.</li>
-                <li><span class="bold-txt">cout &lt;&lt; :</span> Namma screen layout terminal kulla text visual strings matrum calculation value-ah veliya display panni kaatudhụ.</li>
-                <li><span class="bold-txt">return 0; :</span> Program entha mathematical lag or crash errors-um illama successfully run aagi mudinjuruchunu operate panra system-ku solra signal.</li>
-            </ul>
-        </div>
-
 
         <h1>UNIT I - Key Concepts of Object-Oriented Programming (OOP)</h1>
 
@@ -152,94 +139,12 @@ int main() {
         <p>Object-Oriented Programming (OOP) is an advanced programming paradigm that models real-world entities using software computational constructs. Historically, traditional structural or procedural programming paradigms (like C, Pascal) focused strictly on writing algorithmic procedures and data processing steps. In procedural architecture, data was treated as a secondary entity and moved freely across global functional boundaries.</p>
         <p>OOP fundamentally re-engineers this approach by shifting the developmental focus entirely onto <span class="bold-txt">Data Security</span> and data structure states. Instead of breaking software down into functional steps, OOP breaks systems down into individual self-sustaining components called <span class="bold-txt">Objects</span>.</p>
 
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (OOP Philosophy):</strong> Normal procedural programming structure-la logic matrum functions-ku thaan mukkiyathuvam thandhangha, data-ku strong security illa. Aana OOP paradigm-la data security-ku thaan primary importance tharaangha. Software-ah function step-by-step-aa pirikaama, real-world components aana "Objects" ah base panni design pannuvaangha.
-        </div>
-
         <h2>2. In-Depth Technical Analysis of OOP Elements</h2>
         <h3>A. Objects</h3>
         <p>An Object is the fundamental runtime entity in an object-oriented paradigm. It represents an instance of a structural class design template. Physically, an object occupies computational memory space inside the computer's RAM.</p>
 
         <h3>B. Classes</h3>
         <p>A Class is a user-defined logical data type block that functions as a structural blueprint or master template from which individual runtime objects are manufactured. It does not consume physical hardware memory space during compilation.</p>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Objects & Classes):</strong> Class-ngradhu oru structural template/blueprint madhiri. Idhu compiler level-la memory space-ah eduthukaadhu. Object-ngradhu intha class template-ah vechu RAM memory-la run aagura unmaiyana real instance entity.
-        </div>
-
-        <h3>C. Encapsulation & Data Hiding</h3>
-        <p>Encapsulation is the physical process of bundling structural data variables and methods together within a single unified class box. Within this encapsulated zone, data fields are kept private (hidden) using the <code>private:</code> access specifier.</p>
-
-        <h3>D. Abstraction</h3>
-        <p>Abstraction is the systemic philosophy of representing only the essential operational features of a component without exposing its deep internal implementation background.</p>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Encapsulation & Abstraction):</strong> Data variables-ayum methods-ayum ore class kulla wrapping panni lock panra process-ku per Encapsulation. Abstraction-ngradhu complex processing-ah pinnaadi maraichutu essential features-ah mattum veliya kaatradhu.
-        </div>
-
-        <h3>E. Inheritance (Extensibility Architecture)</h3>
-        <p>Inheritance is the structural framework that allows a brand new class block (Derived/Child Class) to inherit, adapt, and reuse the existing methods and member fields of an older class layout (Base/Parent Class).</p>
-
-        <h3>F. Polymorphism</h3>
-        <p>Polymorphism translates from Greek as "the ability to take multiple distinct operational forms". It allows the same functional interface call signature to trigger entirely different underlying execution paths based on context.</p>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Inheritance & Polymorphism):</strong> Oru parent class-oda code structures-ah puthu child class reuse panradhuku per Inheritance. Polymorphism-na orey name-la irukura function vera vera forms-la execute aagradhu.
-        </div>
-
-        <h2>3. Production-Grade OOP C++ Demonstration</h2>
-        <pre>
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-
-using namespace std;
-
-class AcademicStudent {
-private:
-    string studentName;
-    int internalMarks;
-
-public:
-    void setupData(string name, int marks) {
-        studentName = name;
-        if (marks >= 0 && marks <= 100) {
-            internalMarks = marks;
-        } else {
-            internalMarks = 0;
-        }
-    }
-
-    void displayReport() {
-        cout &lt;&lt; "Student System Profile: " &lt;&lt; studentName &lt;&lt; endl;
-        cout &lt;&lt; "Secured Internal Assessment Marks: " &lt;&lt; internalMarks &lt;&lt; "/100" &lt;&lt; endl;
-    }
-};
-
-int main() {
-    AcademicStudent studentObject1;
-    AcademicStudent studentObject2;
-
-    studentObject1.setupData("Nisha", 98);
-    studentObject2.setupData("Sathish", 85);
-
-    cout &lt;&lt; "--- University OOP Execution Terminal ---" &lt;&lt; endl;
-    studentObject1.displayReport();
-    cout &lt;&lt; "----------------------------------------" &lt;&lt; endl;
-    studentObject2.displayReport();
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            --- University OOP Execution Terminal ---<br>
-            Student System Profile: Nisha<br>
-            Secured Internal Assessment Marks: 98/100<br>
-            ----------------------------------------<br>
-            Student System Profile: Sathish<br>
-            Secured Internal Assessment Marks: 85/100
-        </div>
 
 
         <h1>UNIT I - Advantages of Object-Oriented Programming (OOP)</h1>
@@ -251,466 +156,168 @@ int main() {
             <li><span class="bold-txt">Modularity and Enhanced Organization:</span> Object-oriented software architecture is divided into discrete, independent modules through class structures. Each class acts as a self-sustaining container.</li>
             <li><span class="bold-txt">Code Reusability via Inheritance:</span> Instead of repeating code blocks across different application layers, engineers can write standard properties once in a base parent layout and automatically share them across multiple derived sub-classes.</li>
             <li><span class="bold-txt">Exceptional Software Maintainability:</span> Modifications made inside an encapsulated class blueprint do not disturb external code tracks, making system diagnostics and bug tracking exceptionally clean.</li>
-            <li><span class="bold-txt">Advanced Security via Data Hiding:</span> Marking parameters as <code>private</code> ensures variables are shielded from unauthorized external logic, building robust data security directly into the memory architecture.</li>
-            <li><span class="bold-txt">Efficient Scalability and Flexibility:</span> Adding new objects or behaviors requires writing a new class extension rather than modifying core system loops, making the overall codebase infinitely extensible.</li>
         </ul>
 
 
         <h1>UNIT I - Object-Oriented Languages</h1>
 
         <h2>1. Categorization Criteria: Pure vs. Hybrid Languages</h2>
-        <p>Programming languages that implement object-oriented paradigms are broadly classified into two core engineering divisions based on how strictly they enforce OOP design patterns: <span class="bold-txt">Pure Object-Oriented Languages</span> and <span class="bold-txt">Hybrid Object-Oriented Languages</span>.</p>
+        <p>Programming languages that implement object-oriented paradigms are classified into two core engineering divisions based on how strictly they enforce OOP design patterns: Pure Object-Oriented Languages and Hybrid Object-Oriented Languages.</p>
         
         <h3>A. Pure Object-Oriented Languages</h3>
-        <p>A language is termed a pure OOP language if it treats every single computational element exclusively as an object. In these languages, primitive data types (like integers, characters, floats) do not exist independently; they are encapsulated natively inside predefined system classes. Examples include <span class="bold-txt">Smalltalk</span> and <span class="bold-txt">Ruby</span>.</p>
+        <p>A language is termed a pure OOP language if it treats every single computational element exclusively as an object. Primitive data types do not exist independently. Examples include Smalltalk and Ruby.</p>
 
         <h3>B. Hybrid Object-Oriented Languages</h3>
-        <p>Hybrid languages support both procedural (structured) programming models and object-oriented programming models simultaneously. These languages allow developers to use primitive data types directly for high-speed calculation without object overhead. <span class="bold-txt">C++</span>, <span class="bold-txt">Java</span>, and <span class="bold-txt">Python</span> are prime examples.</p>
-
-        <h2>2. Comprehensive Analysis Table of Major OOP Languages</h2>
-        <div class="table-container">
-            <table class="notes-table">
-                <tr>
-                    <th>Language Name</th>
-                    <th>Type Categorization</th>
-                    <th>Memory Management Model</th>
-                    <th>Primary Engineering Application Use Case</th>
-                </tr>
-                <tr>
-                    <td class="bold-txt">C++</td>
-                    <td>Hybrid OOP / Procedural</td>
-                    <td>Manual Allocation (new / delete)</td>
-                    <td>Game Engines, Operating Systems, High-Speed Systems</td>
-                </tr>
-                <tr>
-                    <td class="bold-txt">Java</td>
-                    <td>Hybrid (Due to Primitive Types)</td>
-                    <td>Automatic (Garbage Collector Engine)</td>
-                    <td>Enterprise Applications, Android App Development</td>
-                </tr>
-                <tr>
-                    <td class="bold-txt">Python</td>
-                    <td>Multi-Paradigm / Hybrid</td>
-                    <td>Automatic Reference Counting</td>
-                    <td>Machine Learning, Data Science, Backend Scripting</td>
-                </tr>
-                <tr>
-                    <td class="bold-txt">Smalltalk</td>
-                    <td>Pure Object-Oriented</td>
-                    <td>Automatic Garbage Collection</td>
-                    <td>Academic Research, Advanced Simulation Models</td>
-                </tr>
-            </table>
-        </div>
+        <p>Hybrid languages support both procedural (structured) programming models and object-oriented programming models simultaneously. C++, Java, and Python are prime examples.</p>
 
 
         <h1>UNIT I - Input/Output (I/O) Streams in C++</h1>
 
         <h2>1. The Concept of Streams and Hierarchical Architecture</h2>
-        <p>In C++, Input and Output operations are managed via a complex hierarchical abstraction engine called a <span class="bold-txt">Stream</span>. A stream is fundamentally an abstract representation of a sequence of bytes flowing from a source (like a keyboard or file) to a destination (like a monitor terminal display screen). C++ replaces C's traditional <code>stdio.h</code> functions (like <code>printf</code> and <code>scanf</code>) with a highly secure, type-safe, and object-oriented stream pipeline framework defined inside the <code>&lt;iostream&gt;</code> header file.</p>
-        <p>The stream library is built on an inheritance hierarchy. The base entity is the `ios` class, from which `istream` (input stream) and `ostream` (output stream) inherit their core architecture. Combined, they form the `iostream` class block. The system automatically initializes standard stream objects at runtime:</p>
-        <ul>
-            <li><span class="bold-txt">cin:</span> An object of the <code>istream</code> class, bound natively to the standard input device (keyboard). It uses the <span class="bold-txt">Extraction Operator (&gt;&gt;)</span> to pull formatted data into system variables.</li>
-            <li><span class="bold-txt">cout:</span> An object of the <code>ostream</code> class, bound to the standard output display device. It uses the <span class="bold-txt">Insertion Operator (&lt;&lt;)</span> to redirect data out onto the screen terminal.</li>
-            <li><span class="bold-txt">cerr / clog:</span> Unbuffered and buffered stream variants designed specifically for writing error logs and operational diagnostics directly to the system console.</li>
-        </ul>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Streams Concept):</strong> C++ la input matrum output sequences-ah manage panna "Streams" concept-ah use panranga. Stream-na logic-padi bytes-oda Thanni Odai (Flow of bytes) madhiri. Keyboards-la irundhu data software-kulla varadhuku 'cin' object use aagudhu, idhu execution panna '&gt;&gt;' (Extraction) operator-ah use pannum. System data-ah screen terminal display-ku anupadhuku 'cout' object use aagudhu, idhu '&lt;&lt;' (Insertion) operator-ah use pannum.
-        </div>
-
-        <h2>2. Production-Grade Deep C++ Streams Demonstration</h2>
-        <pre>
-#include &lt;iostream&gt;
-
-using namespace std;
-
-int main() {
-    int academicYear;
-    double semesterGpa;
-
-    cout &lt;&lt; "Enter Current Academic Graduation Year: ";
-    cin &gt;&gt; academicYear;
-
-    cout &lt;&lt; "Enter Last Completed Semester GPA Metric: ";
-    cin &gt;&gt; semesterGpa;
-
-    cout &lt;&lt; "--- University Streams Evaluation Report ---" &lt;&lt; endl;
-    cout &lt;&lt; "Academic Batch Target: Year " &lt;&lt; academicYear &lt;&lt; endl;
-    cout &lt;&lt; "Validated Performance Score: " &lt;&lt; semesterGpa &lt;&lt; " GPA" &lt;&lt; endl;
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            Enter Current Academic Graduation Year: 2026<br>
-            Enter Last Completed Semester GPA Metric: 9.4<br>
-            --- University Streams Evaluation Report ---<br>
-            Academic Batch Target: Year 2026<br>
-            Validated Performance Score: 9.4 GPA
-        </div>
-
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">cin &gt;&gt; academicYear; :</span> Extraction operator element-ah vechu, console keyboard layout variables value-ah input-aa pull panni memory cell variable-la store pannuthụ.</li>
-                <li><span class="bold-txt">cout &lt;&lt; "Academic Batch Target: " :</span> Insertion operator structure engine-ah trigger panni string sequences-ah sequential-aa user screen-ku push pannuthụ.</li>
-                <li><span class="bold-txt">endl :</span> Dynamic buffer flush mechanism stream-ah trigger panni cursor points-ah next new line formatting target-ku shift pannuthụ.</li>
-            </ul>
-        </div>
+        <p>In C++, Input and Output operations are managed via a complex hierarchical abstraction engine called a Stream. A stream is fundamentally an abstract representation of a sequence of bytes flowing from a source to a destination. C++ replaces C's traditional stdio.h functions with a type-safe stream pipeline framework defined inside the &lt;iostream&gt; header file.</p>
 
 
         <h1>UNIT I - C++ Declarations and Memory Allocation Architecture</h1>
 
         <h2>1. Semantic Overview: Definition vs. Declaration</h2>
-        <p>In high-performance C++ engine development, it is critically vital to differentiate between a <span class="bold-txt">Declaration</span> and a <span class="bold-txt">Definition</span>. A declaration simply introduces an identifier name (like a variable, class, or function name) and its precise data type constraints to the compiler's symbol matrix table. It does not allocate actual hardware RAM memory space. A definition, however, completely initializes the architectural specifications and prompts the machine to immediately bind physical memory storage addresses to that specific variable wrapper.</p>
-        <p>C++ is a <span class="bold-txt">Statically Typed Language</span>, meaning every variable must have an explicit data declaration structure before compilation. C++ also supports <span class="bold-txt">Dynamic Initialization</span>, allowing variables to be declared and initialized anywhere within a code block during runtime execution rather than just at the top of a function block, which was a restriction in older procedural platforms.</p>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Declarations Analysis):</strong> Declaration-na simple-aa sonna compiler software-kita poitu "Indha name-la indha primitive data type variable ezhutha porean" nu solra oru identity card register madhiri. Idhu immediate memory-ah block pannathu. Definition thaan direct address RAM-la reserve pannum. C++ la epovum dynamic initialization panlaam, yaen na variables-ah program start-la dhaan ezhuthanam-nu kattayam illa, enga use panromo anga ezhuthalaam.
-        </div>
-
-        <h2>2. Clean Production-Grade Declarations Implementation</h2>
-        <pre>
-#include &lt;iostream&gt;
-
-using namespace std;
-
-int main() {
-    int constantValue = 500;
-    int calculatedMetric = constantValue * 3;
-
-    cout &lt;&lt; "--- Declarations Architecture Analytics ---" &lt;&lt; endl;
-    cout &lt;&lt; "Static Runtime Allocation Matrix: " &lt;&lt; calculatedMetric &lt;&lt; endl;
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            --- Declarations Architecture Analytics ---<br>
-            Static Runtime Allocation Matrix: 1500
-        </div>
-
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">int calculatedMetric = constantValue * 3; :</span> Execution step running-ல இருக்கும் போதே mathematical equations parameters value-ah calculate panni variable allocation execution panra process dynamic programming declarative layout mechanism aagum.</li>
-            </ul>
-        </div>
+        <p>A declaration simply introduces an identifier name and its precise data type constraints to the compiler's symbol matrix table. It does not allocate actual hardware RAM memory space. A definition, however, completely initializes the architectural specifications and prompts the machine to immediately bind physical memory storage addresses.</p>
 
 
         <h1>UNIT I - Control Structures in C++</h1>
 
         <h2>1. Architectural Breakdown of Execution Flows</h2>
-        <p>Control Structures are logical code blocks that govern the exact sequence, trajectory, and conditional directional pathways of execution routines within a compiled C++ software ecosystem. By default, a computer executes statement paths line-by-line in a predictable <span class="bold-txt">Sequence Control Model</span>. However, complex real-world software applications demand non-linear workflows based on external variables.</p>
-        <p>To implement complex algorithmic behavior, computer science relies on three major structural divisions of control logic:</p>
-        <ol>
-            <li><span class="bold-txt">Sequence Structure:</span> The default foundational execution model where computational commands execute sequentially in chronological line order.</li>
-            <li><span class="bold-txt">Selection/Decision Structures:</span> Execution path branches off into completely distinct software tracks based on boolean truth checks (Evaluated by <code>if</code>, <code>if-else</code>, or <code>switch</code> blocks).</li>
-            <li><span class="bold-txt">Loop/Iteration Structures:</span> A designated chunk of instructions runs repeatedly in a logical cycle until a termination condition triggers a break (Managed by <code>for</code>, <code>while</code>, or <code>do-while</code> loops).</li>
-        </ol>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Control Loops Theory):</strong> Control Structures-na simple-aa sonna execution track paths-ah guide panra traffic signals madhiri. Default-aa normal code consecutive-aa line-by-line step order-la dhaan run aagum (Sequence). Aana conditions-ah check panni left illa right execution branch path-ku poga selection structures help pannum. Orey code execution loop blocks-ah thirumba thirumba running loops concepts-la run panna iterative structures help pannum.
-        </div>
-
-        <h2>2. Technical Control Structures Overview Matrix</h2>
-        <div class="table-container">
-            <table class="notes-table">
-                <tr>
-                    <th>Control Model Type</th>
-                    <th>C++ Syntax Keywords Used</th>
-                    <th>Core Memory Management Behavior</th>
-                    <th>Optimal System Execution Scenario</th>
-                </tr>
-                <tr>
-                    <td class="bold-txt">Selection Logic</td>
-                    <td>if, else if, else, switch</td>
-                    <td>Branches code paths via internal CPU flag state jumps</td>
-                    <td>Conditional system operations based on dynamic inputs</td>
-                </tr>
-                <tr>
-                    <td class="bold-txt">Iteration Logic</td>
-                    <td>for, while, do-while</td>
-                    <td>Reuses stack space until loop counters break boundaries</td>
-                    <td>Traversing array elements, polling hardware status signals</td>
-                </tr>
-            </table>
-        </div>
+        <p>Control Structures are logical code blocks that govern the exact sequence, trajectory, and conditional directional pathways of execution routines within a compiled C++ software ecosystem. By default, a computer executes statement paths line-by-line in a predictable Sequence Control Model.</p>
 
 
         <h1>UNIT I - Decision Making Statements</h1>
 
         <h2>1. Structural Breakdown of Conditional Branching Engines</h2>
-        <p>Decision-making statements allow a application to select and execute specific execution branches at runtime based on conditional statements. At the hardware execution level, the CPU evaluates conditional statements as either <span class="bold-txt">true (1)</span> or <span class="bold-txt">false (0)</span>. Depending on this outcome, execution jumps directly to a specific code block, completely skipping alternative logic blocks.</p>
-        <p>University examinations classify these branching statements into the following operational constructs:</p>
-        <ul>
-            <li><span class="bold-txt">Simple if:</span> Executes a targeted code block if and only if the underlying expression evaluates to true.</li>
-            <li><span class="bold-txt">if-else Framework:</span> Provides two clear alternative code paths. If the primary expression evaluates to true, the <code>if</code> block executes; otherwise, execution defaults to the <code>else</code> track.</li>
-            <li><span class="bold-txt">Nested if-else:</span> Places additional <code>if</code> checks within existing conditional blocks to build multi-layered filtering pipelines.</li>
-            <li><span class="bold-txt">switch Statement:</span> A clean, multi-way branch selection engine that matches an expression against several integer or character constant cases. This approach executes faster than a long <code>if-else-if</code> ladder because it uses a compiled direct jump-table lookup mechanism.</li>
-        </ul>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Decision Tracks):</strong> Decision making statements coding logic CPU level-la condition check pannum. Express logic value true-aa (1) irundha oru path pointer variable block execution panna vaikum, false-aa (0) irundha andha block-ah appadiye cross-over panni skip panna vaikum. switch case statement-ngradhu multi-way system selection-ku romba efficient, enna na idhu long if-else ladder matrix madhiri illama structural pointer jump table engine-ah code level memory running-la direct-aa create pannidum.
-        </div>
-
-        <h2>2. Clean Production-Grade Decision Implementation</h2>
-        <pre>
-#include &lt;iostream&gt;
-
-using namespace std;
-
-int main() {
-    int examinationScore = 88;
-
-    cout &lt;&lt; "--- Evaluation System Branching Module ---" &lt;&lt; endl;
-
-    if (examinationScore &gt;= 90) {
-        cout &lt;&lt; "Classification Outcome: First Grade Distinction" &lt;&lt; endl;
-    } else if (examinationScore &gt;= 80) {
-        cout &lt;&lt; "Classification Outcome: Secure First Class Rank" &lt;&lt; endl;
-    } else {
-        cout &lt;&lt; "Classification Outcome: General Academic Pass Status" &lt;&lt; endl;
-    }
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            --- Evaluation System Branching Module ---<br>
-            Classification Outcome: Secure First Class Rank
-        </div>
-
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">if (examinationScore &gt;= 90) :</span> Entry checking block logical pointer. Local logic statement criteria false-aa aaguradhala next sequence data matching module track-ku control logic direct-aa shift aagudhu.</li>
-                <li><span class="bold-txt">else if (examinationScore &gt;= 80) :</span> Intha condition check absolute pass validation value data-ah true-aa output tharudhụ, so immediate block code-ah running thread process panni clear layout screen terminal logic-ku execute pannuthụ.</li>
-            </ul>
-        </div>
+        <p>Decision-making statements allow an application to select and execute specific execution branches at runtime based on conditional statements. At the hardware execution level, the CPU evaluates conditional statements as either true (1) or false (0).</p>
 
 
         <h1>UNIT I - Iterative Frameworks (Loops in C++)</h1>
 
         <h2>1. Behavioral Taxonomy of Loop Categories</h2>
-        <p>Loops in C++ allow a program to execute a target block of code repeatedly until a specific condition evaluates to false. To pass university examinations with high honors, programmers must master the clear differences between <span class="bold-txt">Entry-Controlled Loops</span> and <span class="bold-txt">Exit-Controlled Loops</span>:</p>
+        <p>Loops in C++ allow a program to execute a target block of code repeatedly until a specific condition evaluates to false. University examinations classify these looping engines into two structural divisions:</p>
+        <ul>
+            <li><span class="bold-txt">Entry-Controlled Loops:</span> The condition is evaluated at the very entry point before the code block executes. (e.g., <code>for</code> loop, <code>while</code> loop).</li>
+            <li><span class="bold-txt">Exit-Controlled Loops:</span> The condition is checked at the exit point, guaranteeing the block runs <span class="bold-txt">at least once</span>. (e.g., <code>do-while</code> loop).</li>
+        </ul>
+
+        <h2>2. The 'for' Loop Architecture (Fixed Iterations)</h2>
+        <p>The <code>for</code> loop is a highly structured entry-controlled iterative system. It is optimal when the exact number of iterations is known beforehand. It bundles initialization, condition checking, and loop counter modification into a single line.</p>
         
-        <h3>A. Entry-Controlled Loops</h3>
-        <p>In this architecture, the logical test expression is evaluated at the very beginning of the loop cycle, before any internal instructions execute. If the condition is false on the first check, the inner code block never runs. The <code>for</code> loop (ideal for fixed iterations with explicit loop counters) and the <code>while</code> loop (ideal for dynamic conditional tracks) belong to this class.</p>
-
-        <h3>B. Exit-Controlled Loops</h3>
-        <p>In this structural design, the test expression is evaluated at the very end of the loop body. This guarantees that the loop body executes <span class="bold-txt">at least once</span>, regardless of whether the condition is true or false on the initial check. The <code>do-while</code> structure is the primary implementation of exit-controlled logic.</p>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Loops Deep Drive):</strong> Loop structure processing parameters types rendu category-la classification panyirukangha: 1) Entry-Controlled Loops (for, while) - Loop condition code block starting lines-leye check aagum. Condition basic check faile-aa pona, loop processing zone-kulla controller oru thadava kooda pogaathu. 2) Exit-Controlled Loops (do-while) - Condition looping system-oda kadaisi boundary lines-la thaan evaluate aagum, athanala initial logical check fail-aa ponaalum kooda loop structure block direct-aa kuraivunindri oru thadava execute aiyidum.
-        </div>
-
-        <h2>2. Clean Production-Grade Iterative Loop Demonstration</h2>
         <pre>
 #include &lt;iostream&gt;
 
 using namespace std;
 
 int main() {
-    int sequenceCounter = 1;
+    cout &lt;&lt; "--- Testing Standard FOR Loop ---" &lt;&lt; endl;
 
-    cout &lt;&lt; "--- Iterative Cycle Loop Sequence ---" &lt;&lt; endl;
-
-    while (sequenceCounter &lt;= 4) {
-        cout &lt;&lt; "Executing Computing Cycle Iteration ID: " &lt;&lt; sequenceCounter &lt;&lt; endl;
-        sequenceCounter++;
+    for (int iterativeIndex = 1; iterativeIndex &lt;= 3; iterativeIndex++) {
+        cout &lt;&lt; "FOR Loop Current Counter Value: " &lt;&lt; iterativeIndex &lt;&lt; endl;
     }
 
     return 0;
 }
 </pre>
 
-        <h3>Program Execution Output Terminal</h3>
+        <h3>For Loop Execution Output</h3>
         <div class="output-block">
-            --- Iterative Cycle Loop Sequence ---<br>
-            Executing Computing Cycle Iteration ID: 1<br>
-            Executing Computing Cycle Iteration ID: 2<br>
-            Executing Computing Cycle Iteration ID: 3<br>
-            Executing Computing Cycle Iteration ID: 4
+            --- Testing Standard FOR Loop ---<br>
+            FOR Loop Current Counter Value: 1<br>
+            FOR Loop Current Counter Value: 2<br>
+            FOR Loop Current Counter Value: 3
         </div>
 
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
         <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">while (sequenceCounter &lt;= 4) :</span> Dynamic step condition logical gate tracker. Dynamic index counter parameter elements parameters scale true-aa state maintain panra varaikkum execution continuous-aa looping cycle run pannum.</li>
-                <li><span class="bold-txt">sequenceCounter++; :</span> Memory cell register values data-ah unit increments level values scalar metrics step count increase panni terminal loop breaks values target alignment path logic system direct-aa setup pannuthụ.</li>
-            </ul>
+            <strong>Tanglish Explanation (FOR Loop):</strong> <code>for</code> loop-la initialization (int i=1), condition check (i&lt;=3), increment (i++) ellaame ore variyil nadandhidum. Nammaku loop ethanavadhuthadava thulliyama run aaganum-nu munaadiye theriyum podhu idhu thaan best selection.
+        </div>
+
+        <h2>3. The 'while' Loop Architecture (Variable Conditions)</h2>
+        <p>The <code>while</code> loop is another entry-controlled loop framework. Unlike the <code>for</code> loop, it only contains a conditional expression. The loop repeats continuously as long as this expression remains true, making it ideal for scenarios where the exact step count is dynamic.</p>
+
+        <pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "--- Testing Standard WHILE Loop ---" &lt;&lt; endl;
+    
+    int dynamicCounter = 1;
+
+    while (dynamicCounter &lt;= 3) {
+        cout &lt;&lt; "WHILE Loop Current Counter Value: " &lt;&lt; dynamicCounter &lt;&lt; endl;
+        dynamicCounter++;
+    }
+
+    return 0;
+}
+</pre>
+
+        <h3>While Loop Execution Output</h3>
+        <div class="output-block">
+            --- Testing Standard WHILE Loop ---<br>
+            WHILE Loop Current Counter Value: 1<br>
+            WHILE Loop Current Counter Value: 2<br>
+            WHILE Loop Current Counter Value: 3
+        </div>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (WHILE Loop):</strong> <code>while</code> loop-la initialization veliya nadakkum, condition mattum dhaan bracket-kulla irukkum. Condition true-aa irukura varaiku loop cycle run aite irukkum. Step count continuous-aa maarra idathula idhai dhaan use pannuvanga.
+        </div>
+
+        <h2>4. The 'do-while' Loop Architecture (Exit-Controlled Proof)</h2>
+        <p>The <code>do-while</code> loop is a classic exit-controlled structure. The loop body executes first, and the condition is evaluated at the bottom. This architecture guarantees that the block executes <span class="bold-txt">at least once</span>, even if the evaluation condition fails on the very first try.</p>
+
+        <pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "--- Testing Exit-Controlled DO-WHILE Loop ---" &lt;&lt; endl;
+
+    int strictCounter = 10;
+
+    do {
+        cout &lt;&lt; "DO-WHILE Executing At Least Once! Value: " &lt;&lt; strictCounter &lt;&lt; endl;
+        strictCounter++;
+    } while (strictCounter &lt; 5);
+
+    return 0;
+}
+</pre>
+
+        <h3>Do-While Loop Execution Output</h3>
+        <div class="output-block">
+            --- Testing Exit-Controlled DO-WHILE Loop ---<br>
+            DO-WHILE Executing At Least Once! Value: 10
+        </div>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (DO-WHILE Loop):</strong> Inga counter value '10' nu vechirukaen, condition (i&lt;5) nu check panraen, idhu mudhale thappu (false). Aanalum <code>do-while</code> exit-controlled loop aal, condition-ah kadaisiya thaan paarkum. Adhunaala initial condition faile-aa ponaalum getha oru thadava code block-ah execute panni output thandhudum da!
         </div>
 
 
         <h1>UNIT I - Functional Abstraction Frameworks (Functions in C++)</h1>
 
         <h2>1. Modular Programming and Stack Memory Mechanics</h2>
-        <p>A Function is a self-contained, modular block of code that performs a specific, well-defined computational task. Functions introduce modularity and code reusability into structural architectures. Instead of writing matching logic blocks repeatedly across application files, the instructions are written once in a central functional entity and called dynamically as needed.</p>
-        <p>When a program calls a function, the system temporarily pauses the current execution context and pushes a new frame onto the system's <span class="bold-txt">Call Stack Memory</span>. This frame isolates local variables, processes parameter arguments, executes the internal instructions, returns a computed result, and pops off the stack to resume execution exactly where it left off.</p>
-        <p>A standard C++ functional structure consists of three key architectural parts:</p>
-        <ul>
-            <li><span class="bold-txt">Function Prototype (Declaration):</span> Registers the function name, its return type, and its parameter signature with the compiler before execution.</li>
-            <li><span class="bold-txt">Formal Parameters vs. Actual Arguments:</span> Arguments passed during a function call are <span class="bold-txt">Actual Arguments</span>, while variables defined in the function signature to catch those values are <span class="bold-txt">Formal Parameters</span>.</li>
-            <li><span class="bold-txt">Return Mechanism:</span> Terminates the function's execution context and safely returns the computed scalar value back to the calling scope.</li>
-        </ul>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Functions Architecture):</strong> Function-ngradhu oru periya software system program-ah kutty kutty modular functional blocks-aa prichu design panra technology matrix. Function call aagum podhu background computer RAM structure active Stack memory system layer-kulla oru puthu framework allocation map create pannum. Function pass panna data properties values handle panni execution processing target value calculations output state mudinja odane register memory pop frames clear mathematical control direct main loop thread path-key complete handover pannidum.
-        </div>
-
-        <h2>2. Clean Production-Grade Functions Implementation</h2>
-        <pre>
-#include &lt;iostream&gt;
-
-using namespace std;
-
-int computeProductArea(int lengthFactor, int widthFactor) {
-    return lengthFactor * widthFactor;
-}
-
-int main() {
-    int computationalResult;
-
-    computationalResult = computeProductArea(25, 4);
-
-    cout &lt;&lt; "--- Central Functional Processing Engine ---" &lt;&lt; endl;
-    cout &lt;&lt; "Computed Modular Output Core Value: " &lt;&lt; computationalResult &lt;&lt; " SqUnits" &lt;&lt; endl;
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            --- Central Functional Processing Engine ---<br>
-            Computed Modular Output Core Value: 100 SqUnits
-        </div>
-
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">int computeProductArea(int lengthFactor...) :</span> Scalar integer matrix configurations compute engine block return types criteria allocation structure template definition element module setup.</li>
-                <li><span class="bold-txt">computeProductArea(25, 4); :</span> Function target parameter calls framework activation line tracking module. Inga pass panra '25, 4' numbers actual arguments elements matrix structure calculation.</li>
-            </ul>
-        </div>
+        <p>A Function is a self-contained, modular block of code that performs a specific, well-defined computational task. Functions introduce modularity and code reusability into structural architectures.</p>
 
 
         <h1>UNIT I - Optimization Frameworks (Inline Functions)</h1>
 
         <h2>1. The Overhead of Function Calls and Inline Optimization Strategy</h2>
-        <p>In standard C++ software architectures, whenever a function call executes, the system incurs a distinct performance cost called <span class="bold-txt">Function Call Overhead</span>. This overhead includes saving current instruction register statuses, pushing argument data structures onto stack memory locations, jumping execution paths directly to the isolated function memory block, executing the code, returning the computed output, and jumping back to the initial source code track. For tiny, frequently called functions, this coordination loop consumes more CPU cycles than the actual logic itself.</p>
-        <p>To eliminate this performance bottleneck, C++ introduces the <span class="bold-txt">inline</span> optimization keyword. When a function is declared inline, the compiler tries to replace every instance of that function call with the function's actual expansion code during compilation. This eliminates execution jumps and stack operations entirely, boosting raw application throughput.</p>
-        <blockquote>
-            <span class="bold-txt">Academic Notice:</span> The <code>inline</code> keyword serves as a request to the compiler, not an absolute command. The compiler can ignore this request if the function contains complex loops, switch statements, static variables, or recursive logic paths.
-        </blockquote>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Inline Optimization):</strong> Normal functional logic call standard structural process-la computer stack memory frames processing time allocations core registers update tasks systems loop background runs matrix operations extra load computational framework trigger aagum (Overhead). Idhai thadukka tiny line processing units code variables munnadi 'inline' keyword pota, compiler level running software programming execution jump context structures block tools pannaama, direct function logical code matrix segments lines elements-ah main loop-la copy-paste expansion optimization processing model layer track automatic run pannidum.
-        </div>
-
-        <h2>2. Clean Production-Grade Inline Implementation</h2>
-        <pre>
-#include &lt;iostream&gt;
-
-using namespace std;
-
-inline int executionCubeCalc(int scalarFactor) {
-    return scalarFactor * scalarFactor * scalarFactor;
-}
-
-int main() {
-    cout &lt;&lt; "--- Optimized Inline Execution Performance ---" &lt;&lt; endl;
-    cout &lt;&lt; "Computed Inline Macro Target Matrix Value (3^3): " &lt;&lt; executionCubeCalc(3) &lt;&lt; endl;
-    cout &lt;&lt; "Computed Inline Macro Target Matrix Value (5^3): " &lt;&lt; executionCubeCalc(5) &lt;&lt; endl;
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            --- Optimized Inline Execution Performance ---<br>
-            Computed Inline Macro Target Matrix Value (3^3): 27<br>
-            Computed Inline Macro Target Matrix Value (5^3): 125
-        </div>
-
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">inline int executionCubeCalc(int scalarFactor) :</span> Compiler build code levels targets-க்கு explicit request pointer optimize matrix instruction macro parameters placement execution framework engine configuration setup.</li>
-            </ul>
-        </div>
+        <p>In standard C++ software architectures, whenever a function call executes, the system incurs a distinct performance cost called Function Call Overhead. To eliminate this performance bottleneck, C++ introduces the inline optimization keyword.</p>
 
 
         <h1>UNIT I - Function Overloading (Compile-Time Polymorphism)</h1>
 
         <h2>1. Compile-Time Polymorphism and Name Mangling Mechanics</h2>
-        <p>Function Overloading is an object-oriented feature that allows developers to define multiple functions with the exact same name within the same compilation scope. This is a direct implementation of <span class="bold-txt">Compile-Time (Static) Polymorphism</span>. It allows programmers to use a consistent, logical naming structure for operations that share a conceptual purpose but require different input data profiles.</p>
-        <p>To successfully overload functions, each variant must have a unique <span class="bold-txt">Function Signature</span>. The compiler differentiates between overloaded functions based on the following strict rules:</p>
-        <ul>
-            <li>The functions must accept a different number of parameters.</li>
-            <li>Or, the parameters must have different data types.</li>
-            <li>Or, the sequence order of parameter data types must be distinct.</li>
-        </ul>
-        <p>Note that a function's return type alone cannot differentiate overloaded variants. During compilation, the compiler applies a low-level transformation called <span class="bold-txt">Name Mangling (Name Decoration)</span>. It appends data-type suffix metadata to the function's internal link name, allowing the linker engine to route execution to the correct code block instantly.</p>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Overloading Deep Drive):</strong> Function Overloading-ngradhu Compile-time polymorphism structural strategy logic aagum. Orey functional method name identity block scope parameters-ah repeated levels metrics modules multiple locations-la write panna programming optimization patterns permission tharum. Aana matching condition parameters unique functional data signature structures data rules-la conform aiyirukanum. Suffix identification criteria level parameters datatype lists configuration settings values changes matrix lines structures setup process compiler level transformations metrics execution running background-la nadakkum, idhuku per dhaan Name Mangling.
-        </div>
-
-        <h2>2. Clean Production-Grade Overloading Demonstration</h2>
-        <pre>
-#include &lt;iostream&gt;
-
-using namespace std;
-
-void logAcademicPerformance(int metricScore) {
-    cout &lt;&lt; "System Integer Marks Metric Parameter Logging: " &lt;&lt; metricScore &lt;&lt; endl;
-}
-
-void logAcademicPerformance(double preciseScore) {
-    cout &lt;&lt; "System High Precision Floating Score Processing: " &lt;&lt; preciseScore &lt;&lt; endl;
-}
-
-void logAcademicPerformance(int numericId, char alphaGrade) {
-    cout &lt;&lt; "Index Target Key ID: " &lt;&lt; numericId &lt;&lt; " | Validated Grade Mark: " &lt;&lt; alphaGrade &lt;&lt; endl;
-}
-
-int main() {
-    cout &lt;&lt; "--- Compile-Time Polymorphism Routing Engine ---" &lt;&lt; endl;
-    
-    logAcademicPerformance(95);
-    logAcademicPerformance(9.65);
-    logAcademicPerformance(101, 'A');
-
-    return 0;
-}
-</pre>
-
-        <h3>Program Execution Output Terminal</h3>
-        <div class="output-block">
-            --- Compile-Time Polymorphism Routing Engine ---<br>
-            System Integer Marks Metric Parameter Logging: 95<br>
-            System High Precision Floating Score Processing: 9.65<br>
-            Index Target Key ID: 101 | Validated Grade Mark: A
-        </div>
-
-        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
-        <div class="tamil-block">
-            <ul>
-                <li><span class="bold-txt">void logAcademicPerformance(int metricScore) :</span> First functional definition entry block overloaded signature tracking parameter template model routing mechanism layout.</li>
-                <li><span class="bold-txt">void logAcademicPerformance(double preciseScore) :</span> Same name identifier template structure data double parameters format verification configuration element blocks routing segment tracker.</li>
-                <li><span class="bold-txt">logAcademicPerformance(9.65); :</span> Data literal input value matrix tracking components matching parameters logic base structures types context floating patterns checking dynamic engine execution call paths direct compile maps routing system.</li>
-            </ul>
-        </div>
+        <p>Function Overloading is an object-oriented feature that allows developers to define multiple functions with the exact same name within the same compilation scope. This is a direct implementation of Compile-Time (Static) Polymorphism.</p>
     </div>
     <button class="logout-btn" onclick="logout()">Logout</button>
 </div>

@@ -77,13 +77,19 @@ int main() {
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
+// ALL REGISTERED USERS LIST (INCREASED WITH YOUR NEW LIST)
 const USERS = {
     "1": "1",
     "2": "2",
+    "3": "3",
     "nisha": "cpp2024",
     "admin": "1234",
     "student": "pass",
-    "3":"3"
+    
+    // Your 3 New Accounts Added Here Perfectly:
+    "dio": "231",
+    "demo": "324",
+    "del": "564"
 };
 
 const firebaseConfig = {
@@ -109,12 +115,9 @@ function checkLogin() {
     let errMsgElement = document.getElementById("errorMsg");
 
     if (USERS[user] && USERS[user] === pass) {
-        // Generate a brand new unique key for this phone/browser session
         currentSessionId = Date.now() + "_" + Math.random();
         currentUser = user;
         
-        // This updates ONLY that specific user's bucket. It will kick out same username on other phones,
-        // but completely allows different users (like admin and nisha) to stay active together!
         db.ref('sessions/' + user).set({
             sessionId: currentSessionId,
             time: Date.now()
@@ -141,8 +144,6 @@ function showContent() {
 
 function startSessionCheck() {
     if(sessionCheckInterval) clearInterval(sessionCheckInterval);
-    
-    // Background check every 3 seconds to see if anyone else logged into this specific username
     sessionCheckInterval = setInterval(() => {
         if (!currentUser) return;
         db.ref('sessions/' + currentUser).once('value').then((snapshot) => {
@@ -152,7 +153,6 @@ function startSessionCheck() {
                     logout();
                 }
             } else {
-                // If session node was deleted manually in Firebase console
                 logout();
             }
         });
@@ -160,7 +160,6 @@ function startSessionCheck() {
 }
 
 function logout() {
-    // Only clear database node if it belongs to this phone's session to prevent accidental cross-kicking
     if (currentUser && currentSessionId) {
         db.ref('sessions/' + currentUser).once('value').then((snapshot) => {
             if (snapshot.exists() && snapshot.val().sessionId === currentSessionId) {
@@ -179,7 +178,6 @@ function logout() {
     document.getElementById("password").value = "";
 }
 
-// Check auto-login on startup
 window.onload = function() {
     let cachedUser = localStorage.getItem('cachedUser');
     let cachedSessionId = localStorage.getItem('cachedSessionId');
@@ -187,7 +185,6 @@ window.onload = function() {
         currentUser = cachedUser;
         currentSessionId = cachedSessionId;
         
-        // Verify with database if our session is still the active one
         db.ref('sessions/' + currentUser).once('value').then((snapshot) => {
             if (snapshot.exists() && snapshot.val().sessionId === currentSessionId) {
                 showContent();

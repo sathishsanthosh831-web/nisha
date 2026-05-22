@@ -16,9 +16,10 @@
         #mainContent { display: none; padding: 20px; }
         .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .table-container { overflow-x: auto; margin: 30px auto; }
-        table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: center; }
+        table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: center; margin-bottom: 20px; }
         th, td { border: 2px solid #333; padding: 12px 8px; }
         th { background-color: #1a73e8; color: white; }
+        .notes-table th { background-color: #34495e; color: white; }
         a { text-decoration: none; color: #1a73e8; font-weight: bold; }
         pre { background: #111; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; border-left: 5px solid #1a73e8; font-family: 'Courier New', Courier, monospace; font-size: 15px; }
         .logout-btn { position: fixed; bottom: 20px; right: 20px; background: #d93025; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
@@ -148,32 +149,32 @@ int main() {
         <h1>UNIT I - Key Concepts of Object-Oriented Programming (OOP)</h1>
 
         <h2>1. Paradigm Evolution & Core Philosophy</h2>
-        <p>Object-Oriented Programming (OOP) is an advanced programming paradigm that models real-world entities using software computational constructs. Historically, traditional structural or procedural programming paradigms (like C, Pascal) focused strictly on writing algorithmic procedures and data processing steps. In procedural architecture, data was treated as a secondary entity and moved freely across global functional boundaries, which exposed it to accidental mathematical corruptions and major structural vulnerabilities.</p>
-        <p>OOP fundamentally re-engineers this approach by shifting the developmental focus entirely onto <span class="bold-txt">Data Security</span> and data structure states. Instead of breaking software down into functional steps, OOP breaks systems down into individual self-sustaining components called <span class="bold-txt">Objects</span>. It binds data variables closely to their corresponding operations, completely isolating internal computational logic from outside interruptions.</p>
+        <p>Object-Oriented Programming (OOP) is an advanced programming paradigm that models real-world entities using software computational constructs. Historically, traditional structural or procedural programming paradigms (like C, Pascal) focused strictly on writing algorithmic procedures and data processing steps. In procedural architecture, data was treated as a secondary entity and moved freely across global functional boundaries.</p>
+        <p>OOP fundamentally re-engineers this approach by shifting the developmental focus entirely onto <span class="bold-txt">Data Security</span> and data structure states. Instead of breaking software down into functional steps, OOP breaks systems down into individual self-sustaining components called <span class="bold-txt">Objects</span>.</p>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (OOP Philosophy):</strong> Normal procedural programming (C language madhiri) structure-la logic matrum functions-ku thaan mukkiyathuvam thandhangha, data-ku strong security illa. Aana OOP paradigm-la data security-ku thaan primary importance tharaangha. Software-ah function step-by-step-aa pirikaama, real-world components aana "Objects" ah base panni design pannuvaangha. Data-vum adhai corporate panra functions-um ore idathula lock aiyirukum.
+            <strong>Tanglish Explanation (OOP Philosophy):</strong> Normal procedural programming structure-la logic matrum functions-ku thaan mukkiyathuvam thandhangha, data-ku strong security illa. Aana OOP paradigm-la data security-ku thaan primary importance tharaangha. Software-ah function step-by-step-aa pirikaama, real-world components aana "Objects" ah base panni design pannuvaangha.
         </div>
 
         <h2>2. In-Depth Technical Analysis of OOP Elements</h2>
         <h3>A. Objects</h3>
-        <p>An Object is the fundamental runtime entity in an object-oriented paradigm. It represents an instance of a structural class design template. Physically, an object occupies computational memory space inside the computer's RAM. It holds data properties (Attributes) and executes functional logic operations (Behaviors).</p>
+        <p>An Object is the fundamental runtime entity in an object-oriented paradigm. It represents an instance of a structural class design template. Physically, an object occupies computational memory space inside the computer's RAM.</p>
 
         <h3>B. Classes</h3>
-        <p>A Class is a user-defined logical data type block that functions as a structural blueprint or master template from which individual runtime objects are manufactured. A class defines the precise types of variables and functional interfaces that its objects will possess. It does not consume physical hardware memory space during compilation.</p>
+        <p>A Class is a user-defined logical data type block that functions as a structural blueprint or master template from which individual runtime objects are manufactured. It does not consume physical hardware memory space during compilation.</p>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (Objects & Classes):</strong> Class-ngradhu oru structural template illa-na user-defined blueprint madhiri. Idhu compiler level-la memory space-ah eduthukaadhu. Object-ngradhu intha class template-ah vechu RAM memory-la run aagura unmaiyana real instance entity. Concept-padi Plan sheet-ngradhu Class, adhai vechu kattradha building dhaan Object.
+            <strong>Tanglish Explanation (Objects & Classes):</strong> Class-ngradhu oru structural template/blueprint madhiri. Idhu compiler level-la memory space-ah eduthukaadhu. Object-ngradhu intha class template-ah vechu RAM memory-la run aagura unmaiyana real instance entity.
         </div>
 
         <h3>C. Encapsulation & Data Hiding</h3>
-        <p>Encapsulation is the physical process of bundling structural data variables and methods together within a single unified class box. Within this encapsulated zone, data fields are kept private (hidden) using the <code>private:</code> access specifier. This technique is formally called <span class="bold-txt">Data Hiding</span>.</p>
+        <p>Encapsulation is the physical process of bundling structural data variables and methods together within a single unified class box. Within this encapsulated zone, data fields are kept private (hidden) using the <code>private:</code> access specifier.</p>
 
         <h3>D. Abstraction</h3>
-        <p>Abstraction is the systemic philosophy of representing only the essential operational features of a component without exposing its deep internal implementation background or complex algorithm routines.</p>
+        <p>Abstraction is the systemic philosophy of representing only the essential operational features of a component without exposing its deep internal implementation background.</p>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (Encapsulation & Abstraction):</strong> Data variables-ayum methods-ayum ore class kulla wrapping panni lock panra process-ku per Encapsulation. Idhula variables-ah private-aa maraikradhuku per Data Hiding. Abstraction-ngradhu complex processing-ah pinnaadi maraichutu essential features-ah mattum veliya kaatradhu.
+            <strong>Tanglish Explanation (Encapsulation & Abstraction):</strong> Data variables-ayum methods-ayum ore class kulla wrapping panni lock panra process-ku per Encapsulation. Abstraction-ngradhu complex processing-ah pinnaadi maraichutu essential features-ah mattum veliya kaatradhu.
         </div>
 
         <h3>E. Inheritance (Extensibility Architecture)</h3>
@@ -183,7 +184,7 @@ int main() {
         <p>Polymorphism translates from Greek as "the ability to take multiple distinct operational forms". It allows the same functional interface call signature to trigger entirely different underlying execution paths based on context.</p>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (Inheritance & Polymorphism):</strong> Oru disposal parent class-oda code structures-ah puthu child class ezhuthama reuse panradhuku per Inheritance. Polymorphism-na orey name-la irukura interface routine vera vera dynamic forms-la work aagradhu.
+            <strong>Tanglish Explanation (Inheritance & Polymorphism):</strong> Oru parent class-oda code structures-ah puthu child class reuse panradhuku per Inheritance. Polymorphism-na orey name-la irukura function vera vera forms-la execute aagradhu.
         </div>
 
         <h2>3. Production-Grade OOP C++ Demonstration</h2>
@@ -257,23 +258,21 @@ int main() {
         <h1>UNIT I - Advantages of Object-Oriented Programming (OOP)</h1>
 
         <h2>1. Comprehensive Architectural Advantages</h2>
-        <p>Object-Oriented Programming (OOP) provides a superior software architectural strategy compared to traditional procedural designs. In enterprise application development, systems require scaling, regular maintenance, and rigorous data protection mechanics. OOP satisfies these computational needs directly through structural design patterns built into classes and objects. Below is a detailed, university-standard analysis of the prominent advantages of adopting the OOP paradigm:</p>
+        <p>Object-Oriented Programming (OOP) provides a superior software architectural strategy compared to traditional procedural designs. Below is a detailed, university-standard analysis of the prominent advantages of adopting the OOP paradigm:</p>
 
         <ul>
-            <li><span class="bold-txt">Modularity and Enhanced Organization:</span> Object-oriented software architecture is divided into discrete, independent modules through class structures. Each class acts as a self-sustaining container. This clear separation enables massive engineering teams to develop distinct modules concurrently without internal codebase conflicts, drastically accelerating deployment pipelines.</li>
-            <li><span class="bold-txt">Code Reusability via Inheritance:</span> Instead of repeating code blocks across different application layers, engineers can write standard properties once in a base parent layout and automatically share them across multiple derived sub-classes. This eliminates redundancy (DRY - Don't Repeat Yourself principle), drastically minimizes testing overhead, and reduces compilation sizes.</li>
-            <li><span class="bold-txt">Exceptional Software Maintainability:</span> In a procedural codebase, changing a central global data field requires scanning and modifying thousands of independent functional loops. In OOP, updates are safe and isolated. Modifications made inside an encapsulated class blueprint do not disturb external code tracks, making system diagnostics and bug tracking exceptionally clean.</li>
-            <li><span class="bold-txt">Advanced Security via Data Hiding:</span> Global scope exposures are the primary cause of system crashes and runtime memory overwrites. OOP enforces strict access controls. Marking parameters as <code>private</code> ensures variables are shielded from unauthorized external logic, building robust data security directly into the memory architecture.</li>
-            <li><span class="bold-txt">Effendient Scalability and Flexibility:</span> Through the application of polymorphic behaviors and dynamic bindings, systems adapt smoothly to changing functional definitions. Adding new objects or behaviors requires writing a new class extension rather than modifying core system loops, making the overall codebase infinitely extensible.</li>
+            <li><span class="bold-txt">Modularity and Enhanced Organization:</span> Object-oriented software architecture is divided into discrete, independent modules through class structures. Each class acts as a self-sustaining container.</li>
+            <li><span class="bold-txt">Code Reusability via Inheritance:</span> Instead of repeating code blocks across different application layers, engineers can write standard properties once in a base parent layout and automatically share them across multiple derived sub-classes.</li>
+            <li><span class="bold-txt">Exceptional Software Maintainability:</span> Modifications made inside an encapsulated class blueprint do not disturb external code tracks, making system diagnostics and bug tracking exceptionally clean.</li>
+            <li><span class="bold-txt">Advanced Security via Data Hiding:</span> Marking parameters as <code>private</code> ensures variables are shielded from unauthorized external logic, building robust data security directly into the memory architecture.</li>
+            <li><span class="bold-txt">Efficient Scalability and Flexibility:</span> Adding new objects or behaviors requires writing a new class extension rather than modifying core system loops, making the overall codebase infinitely extensible.</li>
         </ul>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (Advantages Breakdown):</strong> OOP paradigms-la software-ah independent blocks-aa (Classes) pirkka mudiyறதால (Modularity), periya team programming work-ah conflict illama seiyalam. Inheritance moolama oru thadava ezhuthuna parent code-ah thirumba thirumba software-la reuse pannikalam (Reusability). Software-la yedhavadhu bug vandha, operations isolated-aa irukuradhala maintain panradhu romba easy (Maintainability). Data parameter-ah private specifier potu hide panradhala global software level vulnerabilities system-kulla varaathu (Security). New features vacha code-ah appadiye extend panna polymorphism use aagum (Scalability).
+            <strong>Tanglish Explanation (Advantages Breakdown):</strong> OOP-la independent classes irukuradhala modularity kedaikidhu. Inheritance moolama code-ah re-use pannikalam. Encapsulation isolations-la maintainability romba easy. Data hidden private zones-la irukuradhala security adhigham, polymorphism moolama system scaling easy-aa mudiyum.
         </div>
 
         <h2>2. Clean Production-Grade C++ Advantages Implementation</h2>
-        <p>The program below demonstrates real-world software reusability and clean architectural scaling through Inheritance, completely free from comment lines:</p>
-
         <pre>
 #include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -333,7 +332,119 @@ int main() {
                 <li><span class="bold-txt">class CoreInventory : public DatabaseEngine :</span> Inheritance architecture syntax. DatabaseEngine class-oda code-ah CoreInventory-kulla reuse panna vazhi seiyudhu.</li>
                 <li><span class="bold-txt">productObject.setBaseType("Electronics Component"); :</span> Child class object moolama parent class-oda routine-ah direct-aa access panni Reusability advantage-ah realize pannuthu.</li>
                 <li><span class="bold-txt">productObject.displayInventory(); :</span> Local derived parameter variables matrum inherited parameters-ah console display output-ku anuputhụ.</li>
-                <li><span class="bold-txt">return 0; :</span> Core operating metrics endha internal computational flaws-um illama clean-aa process aiyiruchunu report pannuthụ.</li>
+            </ul>
+        </div>
+
+
+        <h1>UNIT I - Object-Oriented Languages</h1>
+
+        <h2>1. Categorization Criteria: Pure vs. Hybrid Languages</h2>
+        <p>Programming languages that implement object-oriented paradigms are broadly classified into two core engineering divisions based on how strictly they enforce OOP design patterns: <span class="bold-txt">Pure Object-Oriented Languages</span> and <span class="bold-txt">Hybrid Object-Oriented Languages</span>.</p>
+        
+        <h3>A. Pure Object-Oriented Languages</h3>
+        <p>A language is termed a pure OOP language if it treats every single computational element exclusively as an object. In these languages, primitive data types (like integers, characters, floats) do not exist independently; they are encapsulated natively inside predefined system classes. Furthermore, any execution path requires message passing between objects, and procedural execution outside class boundaries is structurally impossible. Examples include <span class="bold-txt">Smalltalk</span> and <span class="bold-txt">Ruby</span>.</p>
+
+        <h3>B. Hybrid Object-Oriented Languages</h3>
+        <p>Hybrid languages support both procedural (structured) programming models and object-oriented programming models simultaneously. These languages allow developers to use primitive data types directly for high-speed calculation without object overhead. They also let programmers write standalone global functions outside of class constructs. <span class="bold-txt">C++</span>, <span class="bold-txt">Java</span>, and <span class="bold-txt">Python</span> are prime examples of hybrid architectures.</p>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (Pure vs Hybrid):</strong> OOP programming languages-ah rendu vagaiya pirikalam: 1) Pure OOP Languages - Idhula variable counters, string letters-nu ellame compulsory Object-aa thaan irukanum, class-ku veliya code ezhutha mudiyathu (Eg: Smalltalk). 2) Hybrid OOP Languages - Idhula standard class programming-um pannikalam, adhey samayam normal C language madhiri class இல்லாமலும் global functions ezhudhalaam, primitive types (int, float) use pannikalam (Eg: C++, Python).
+        </div>
+
+        <h2>2. Comprehensive Analysis Table of Major OOP Languages</h2>
+        <p>The matrix below provides an evaluation of the most heavily adopted languages in computer science engineering:</p>
+
+        <div class="table-container">
+            <table class="notes-table">
+                <tr>
+                    <th>Language Name</th>
+                    <th>Type Categorization</th>
+                    <th>Memory Management Model</th>
+                    <th>Primary Engineering Application Use Case</th>
+                </tr>
+                <tr>
+                    <td class="bold-txt">C++</td>
+                    <td>Hybrid OOP / Procedural</td>
+                    <td>Manual Allocation (new / delete)</td>
+                    <td>Game Engines, Operating Systems, High-Speed Systems</td>
+                </tr>
+                <tr>
+                    <td class="bold-txt">Java</td>
+                    <td>Hybrid (Due to Primitive Types)</td>
+                    <td>Automatic (Garbage Collector Engine)</td>
+                    <td>Enterprise Applications, Android App Development</td>
+                </tr>
+                <tr>
+                    <td class="bold-txt">Python</td>
+                    <td>Multi-Paradigm / Hybrid</td>
+                    <td>Automatic Reference Counting</td>
+                    <td>Machine Learning, Data Science, Backend Scripting</td>
+                </tr>
+                <tr>
+                    <td class="bold-txt">Smalltalk</td>
+                    <td>Pure Object-Oriented</td>
+                    <td>Automatic Garbage Collection</td>
+                    <td>Academic Research, Advanced Simulation Models</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (Table Summary):</strong> C++ language high-speed processing systems standard-ku use aagum, idhula programmer-ey memory-ah manual-aa delete pannanum. Java-vum Python-um background automatic memory cleaners (Garbage Collectors) vechu run aagum. Python high-level AI algorithms-la use aagudhu, Java Android applications structures-la use aagudhu.
+        </div>
+
+        <h2>3. Clean Structural C++ Paradigm Demonstration</h2>
+        <p>The program below demonstrates a hybrid execution style, combining an independent global function with object structures within the same compilation scope, free from inline comment lines:</p>
+
+        <pre>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+void triggerGlobalSignal() {
+    cout &lt;&lt; "--- System Global Scope Signal Executed ---" &lt;&lt; endl;
+}
+
+class LanguagePlatform {
+private:
+    string languageName;
+
+public:
+    void setupName(string name) {
+        languageName = name;
+    }
+
+    void displayDetails() {
+        cout &lt;&lt; "Language Environment Profile: " &lt;&lt; languageName &lt;&lt; endl;
+    }
+};
+
+int main() {
+    triggerGlobalSignal();
+
+    LanguagePlatform systemObject;
+    systemObject.setupName("C++ (Multi-Paradigm Hybrid)");
+    systemObject.displayDetails();
+
+    return 0;
+}
+</pre>
+
+        <h3>Program Execution Output Terminal</h3>
+        <div class="output-block">
+            --- System Global Scope Signal Executed ---<br>
+            Language Environment Profile: C++ (Multi-Paradigm Hybrid)
+        </div>
+
+        <h3>Line-by-Line Code Component Explanation (Short Tanglish Mode)</h3>
+        <div class="tamil-block">
+            <ul>
+                <li><span class="bold-txt">void triggerGlobalSignal() :</span> Endha class blueprint-க்குள்ளும் இல்லாம தனித்து இயங்கும் ஒரு Global Functional Block (Hybrid Proof).</li>
+                <li><span class="bold-txt">class LanguagePlatform :</span> OOP concept structural architecture template definition code block.</li>
+                <li><span class="bold-txt">triggerGlobalSignal(); :</span> Object instantiation-க்கு முன்னாடியே direct-aa global logic functional loop-ah run pannuthu.</li>
+                <li><span class="bold-txt">LanguagePlatform systemObject; :</span> Standard hybrid system configuration template layout-ku active entity variable initialization.</li>
+                <li><span class="bold-txt">systemObject.displayDetails(); :</span> Local context output streams properties window monitors-ku send panra logic routine.</li>
             </ul>
         </div>
     </div>

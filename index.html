@@ -66,8 +66,7 @@
             max-width: 900px;
             margin: 0 auto;
             background: white;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 30px; border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
@@ -136,13 +135,8 @@
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
 
-        .scroll-emoji-left {
-            left: 30px;
-        }
-
-        .scroll-emoji-right {
-            right: 30px;
-        }
+        .scroll-emoji-left { left: 30px; }
+        .scroll-emoji-right { right: 30px; }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -165,13 +159,10 @@
             #mainContent { padding: 10px; }
             .container { padding: 15px; }
             th, td { padding: 8px 4px; font-size: 14px; }
-            .scroll-emoji-left, .scroll-emoji-right {
-                display: none;
-            }
+            .scroll-emoji-left, .scroll-emoji-right { display: none; }
         }
     </style>
 </head>
-
 <body>
 
 <div id="loginOverlay">
@@ -197,23 +188,12 @@
                     <th>Apply for PAN Card</th>
                     <th>Aadhaar Card Download</th>
                 </tr>
-
                 <tr>
-                    <td>
-                        <a href="https://parivahan.gov.in/en" target="_blank" rel="noopener">Apply Licence</a>
-                    </td>
-                    <td>
-                        <a href="https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en" target="_blank" rel="noopener">Check Status</a>
-                    </td>
-                    <td>
-                        <a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">Apply Voter ID</a>
-                    </td>
-                    <td>
-                        <a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" target="_blank" rel="noopener">Apply PAN</a>
-                    </td>
-                    <td>
-                        <a href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en" target="_blank" rel="noopener">Download Aadhaar</a>
-                    </td>
+                    <td><a href="https://parivahan.gov.in/en" target="_blank" rel="noopener">Apply Licence</a></td>
+                    <td><a href="https://myaadhaar.uidai.gov.in/CheckAadhaarStatus/en" target="_blank" rel="noopener">Check Status</a></td>
+                    <td><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener">Apply Voter ID</a></td>
+                    <td><a href="https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" target="_blank" rel="noopener">Apply PAN</a></td>
+                    <td><a href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en" target="_blank" rel="noopener">Download Aadhaar</a></td>
                 </tr>
             </table>
         </div>
@@ -221,7 +201,6 @@
         <div class="divider"></div>
 
         <h1>UNIT I - Introduction to C++</h1>
-
         <p>C++ is a general-purpose programming language created by Bjarne Stroustrup in 1985 as an extension of the C language. It was designed to add object-oriented features to C while maintaining C's efficiency and flexibility.</p>
 
         <h2>Key Features of C++</h2>
@@ -456,7 +435,6 @@ int age = 18;
 if (age >= 18) {
     cout << "You can vote";
 }
-// Output: You can vote
 </pre>
 
         <h3>2. if-else Statement</h3>
@@ -468,7 +446,6 @@ if (marks >= 50) {
 } else {
     cout << "Fail";
 }
-// Output: Fail
 </pre>
 
         <h3>3. if-else-if Ladder</h3>
@@ -484,7 +461,6 @@ if (marks >= 90) {
 } else {
     cout << "Fail";
 }
-// Output: Grade B
 </pre>
 
         <h3>4. Nested if</h3>
@@ -500,7 +476,6 @@ if (age >= 18) {
         cout << "Apply for license";
     }
 }
-// Output: Can drive
 </pre>
 
         <h3>5. switch Statement</h3>
@@ -515,7 +490,6 @@ switch(day) {
     case 5: cout << "Friday"; break;
     default: cout << "Weekend";
 }
-// Output: Wednesday
 </pre>
 
         <h3>6. Conditional Operator - Ternary Operator</h3>
@@ -524,27 +498,23 @@ switch(day) {
 int age = 20;
 string result = (age >= 18) ? "Adult" : "Minor";
 cout << result;
-// Output: Adult
 </pre>
 
         <h2>Loops in C++</h2>
         <p>Oru code ah multiple times repeat panna loops use panrom. 3 types iruku.</p>
 
         <h3>1. for Loop</h3>
-        <p><b>Use:</b> How many times run aaganum nu munadiye theriyum na use pannu.</p>
         <p><b>Syntax:</b> <code>for(initialization; condition; update)</code></p>
         <pre>
 // Print 1 to 5
 for(int i = 1; i <= 5; i++) {
     cout << i << " ";
 }
-// Output: 1 2 3 4 5
 
 // Print even numbers 2 to 10
 for(int i = 2; i <= 10; i = i + 2) {
     cout << i << " ";
 }
-// Output: 2 4 6 8 10
 </pre>
 
         <h3>2. while Loop</h3>
@@ -555,7 +525,6 @@ while(i <= 5) {
     cout << i << " ";
     i++;
 }
-// Output: 1 2 3 4 5
 </pre>
 
         <h3>3. do-while Loop</h3>
@@ -566,509 +535,110 @@ do {
     cout << i << " ";
     i++;
 } while(i <= 5);
-// Output: 1 2 3 4 5
-
-// i = 10 nu irundhalum 1 time run aagum
-int j = 10;
-do {
-    cout << j;
-} while(j < 5);
-// Output: 10
 </pre>
 
         <h3>4. Nested Loops</h3>
         <p>Loop kulla innoru loop.</p>
         <pre>
-// Print pattern
 for(int i = 1; i <= 3; i++) {
     for(int j = 1; j <= 3; j++) {
         cout << "* ";
     }
     cout << endl;
 }
-/* Output:
-* * * * * * */
 </pre>
 
         <h3>5. Jump Statements - break, continue</h3>
         <p><b>break:</b> Loop ah udane stop pannum.</p>
         <pre>
 for(int i = 1; i <= 10; i++) {
-    if(i == 5) break;  // i=5 vandha loop stop
+    if(i == 5) break;
     cout << i << " ";
 }
-// Output: 1 2 3 4
 </pre>
 
         <p><b>continue:</b> Andha iteration ah skip pannum, next iteration ku pogum.</p>
         <pre>
 for(int i = 1; i <= 5; i++) {
-    if(i == 3) continue;  // i=3 skip aagum
+    if(i == 3) continue;
     cout << i << " ";
 }
-// Output: 1 2 4 5
 </pre>
 
         <h2>Functions in C++</h2>
-        <p>Function na oru block of code. Oru task ah separate ah ezhudi, theva padrappa call pannikalam. Code reusability ku use aagum.</p>
+        <p>Function na oru block of code. Code reusability ku use aagum.</p>
 
         <h3>1. Why Functions?</h3>
         <ol>
-            <li><b>Code Reusability:</b> Same code thirumba thirumba ezhudha thevai illa</li>
-            <li><b>Modularity:</b> Large program ah small parts ah divide pannalam</li>
-            <li><b>Easy Debugging:</b> Edhula error iruku nu seekram kandupidikkalam</li>
+            <li><b>Code Reusability</b></li>
+            <li><b>Modularity</b></li>
+            <li><b>Easy Debugging</b></li>
         </ol>
 
-        <h3>2. Function Syntax</h3>
-        <pre>
-return_type function_name(parameter1, parameter2) {
-    // code
-    return value;  // optional
-}
-</pre>
-
-        <h3>3. Types of Functions</h3>
-        <p><b>A. Library Functions:</b> C++ la ready ah irukuradhu. Ex: <code>sqrt()</code>, <code>pow()</code>, <code>cout</code></p>
-        <p><b>B. User-Defined Functions:</b> Namma namakke ezhuduradhu.</p>
-
-        <h3>4. Function Example</h3>
+        <h3>2. Function Example</h3>
         <pre>
 #include &lt;iostream&gt;
 using namespace std;
 
-// Function Declaration
 int add(int a, int b) {
-    int sum = a + b;
-    return sum;  // value return pannudhu
+    return a + b;
 }
 
 int main() {
-    int result = add(5, 3);  // Function Call
+    int result = add(5, 3);
     cout << "Sum: " << result;
     return 0;
 }
-// Output: Sum: 8
 </pre>
 
-        <h3>5. Function Categories</h3>
-        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
-            <tr style="background:#1a73e8; color:white;">
-                <th style="padding:10px; border:1px solid #ddd;">Type</th>
-                <th style="padding:10px; border:1px solid #ddd;">Example</th>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;">No Arguments, No Return</td>
-                <td style="padding:10px; border:1px solid #ddd;"><code>void display() { cout << "Hi"; }</code></td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;">With Arguments, No Return</td>
-                <td style="padding:10px; border:1px solid #ddd;"><code>void display(int x) { cout << x; }</code></td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;">No Arguments, With Return</td>
-                <td style="padding:10px; border:1px solid #ddd;"><code>int getNumber() { return 5; }</code></td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;">With Arguments, With Return</td>
-                <td style="padding:10px; border:1px solid #ddd;"><code>int add(int a, int b) { return a+b; }</code></td>
-            </tr>
-        </table>
-
-        <h3>6. Call by Value vs Call by Reference</h3>
+        <h3>3. Call by Value vs Call by Reference</h3>
         <pre>
-// Call by Value - Original value change aagadhu
-void change(int x) {
-    x = 100;
-}
-int main() {
-    int a = 10;
-    change(a);
-    cout << a;  // Output: 10 - change aagala
-}
-
-// Call by Reference - Original value change aagum
-void change(int &x) {
-    x = 100;
-}
-int main() {
-    int a = 10;
-    change(a);
-    cout << a;  // Output: 100 - change aagiduchu
-}
+// Call by Value
+void change(int x) { x = 100; }
+// Call by Reference
+void changeRef(int &x) { x = 100; }
 </pre>
 
         <h2>Inline Functions</h2>
-        <p><b>Definition:</b> Normal function call panna time waste aagum. Inline function na compiler function call ah replace pannitu function body ah direct ah place pannidum. Speed increase aagum.</p>
-
-        <h3>When to Use Inline?</h3>
-        <ol>
-            <li>Function chinnadha irukanum - 2-3 lines</li>
-            <li>Frequently call aagura function ah irukanum</li>
-            <li>Loop/recursion illadha function</li>
-        </ol>
-
-        <h3>Syntax & Example</h3>
+        <p><b>Definition:</b> Function call ah replace pannitu function body ah compiler direct ah place pannidum. Speed increase aagum.</p>
         <pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-inline int cube(int x) {
-    return x * x * x;  // Small function
-}
-
-int main() {
-    cout << cube(3);  // Compiler: cout << 3*3*3; nu replace pannidum
-    return 0;
-}
-// Output: 27
+inline int cube(int x) { return x * x * x; }
 </pre>
 
-        <h3>Advantages</h3>
-        <ol>
-            <li><b>Fast Execution:</b> Function call overhead illa</li>
-            <li><b>No Stack Operations:</b> Memory save aagum</li>
-        </ol>
-
-        <h3>Disadvantages</h3>
-        <ol>
-            <li>Large function ah inline potta code size increase aagum</li>
-            <li>Compiler inline request ah reject pannalam</li>
-        </ol>
-                <h2>Function Overloading</h2>
-        <p><b>Definition:</b> Same function name, but different parameters. Polymorphism type dhan idhu. Compile time la decide aagum.</p>
-
-        <h3>Rules for Overloading</h3>
-        <ol>
-            <li>Function name same ah irukanum</li>
-            <li>Parameters count vera irukanum, or</li>
-            <li>Parameters data type vera irukanum</li>
-            <li>Return type mattum vera irundha podhadhu - Error varum</li>
-        </ol>
-
-        <h3>Example 1: Different Number of Parameters</h3>
+        <h2>Function Overloading</h2>
+        <p><b>Definition:</b> Same function name, but different parameters.</p>
         <pre>
-#include &lt;iostream&gt;
-using namespace std;
-
-int add(int a, int b) {
-    return a + b;
-}
-
-int add(int a, int b, int c) {
-    return a + b + c;
-}
-
-int main() {
-    cout << add(5, 3) << endl;      // Output: 8 - calls 1st function
-    cout << add(5, 3, 2) << endl;   // Output: 10 - calls 2nd function
-    return 0;
-}
+int add(int a, int b) { return a + b; }
+double add(double a, double b) { return a + b; }
 </pre>
 
-        <h3>Example 2: Different Data Types</h3>
-        <pre>
-#include &lt;iostream&gt;
-using namespace std;
+        <h2>Key Concepts of Object-Oriented Programming (OOP)</h2>
+        <h3>1. Class and Object</h3>
+        <p><b>Class:</b> Blueprint or template. Does not occupy memory.</p>
+        <p><b>Object:</b> Instance of a class. Occupies memory.</p>
 
-int add(int a, int b) {
-    return a + b;
-}
+        <h3>2. Encapsulation</h3>
+        <p>Binding data and functions together into a single unit (Class). Achieved using <code>private</code> access specifier.</p>
 
-double add(double a, double b) {
-    return a + b;
-}
+        <h3>3. Inheritance</h3>
+        <p>One class acquiring the properties of another class. Reusability tool.</p>
 
-string add(string a, string b) {
-    return a + b;
-}
+        <h3>4. Polymorphism</h3>
+        <p>Many forms. Doing a single action in different ways (Overloading and Overriding).</p>
 
-int main() {
-    cout << add(5, 3) << endl;           // Output: 8
-    cout << add(5.5, 3.2) << endl;       // Output: 8.7
-    cout << add("Hello", "World");       // Output: HelloWorld
-    return 0;
-}
-</pre>
-
-        <h3>Advantages of Function Overloading</h3>
-        <ol>
-            <li><b>Code Readability:</b> Same operation ku same name use pannalam</li>
-            <li><b>Flexibility:</b> Different data types ku work aagum</li>
-            <li><b>Reduces Complexity:</b> Remember panna easy</li>
-        </ol>
-
-        <h2>Key Concepts of Object-Oriented Programming (OOP) - Detailed</h2>
-        <p>Object-Oriented Programming is a programming style based on the concept of "objects". An object contains both data and functions that operate on that data. The 4 main pillars of OOP make C++ powerful for large software development.</p>
-
-        <h3>1. Class and Object - The Foundation</h3>
-        <p>Before understanding the 4 pillars, you must know what is a class and object.</p>
-        <p><b>Class:</b> A class is a blueprint or template. It does not occupy memory. Example: The design plan of a house.</p>
-        <p><b>Object:</b> An object is an instance of a class. It occupies memory. Example: The actual house built using the design plan.</p>
-        <pre>
-class Student {        // Class - Blueprint
-    public:
-        string name;
-        int rollNo;
-        void display() {
-            cout << name << " " << rollNo;
-        }
-};
-
-int main() {
-    Student s1;        // Object - Real entity
-    s1.name = "Ravi";
-    s1.rollNo = 101;
-    s1.display();
-}
-</pre>
-
-        <h3>2. Encapsulation - Data Hiding</h3>
-        <p><b>Definition:</b> Encapsulation is the process of binding data members and member functions together into a single unit called a class. It also restricts direct access to some of the object's components.</p>
-        <p><b>Real Life Example:</b> A company has different departments like Accounts, Sales, HR. The Accounts department data is hidden from the Sales department. Only authorized functions can access it.</p>
-        <p><b>How C++ Achieves It:</b> Using access specifiers: <code>private</code>, <code>public</code>, <code>protected</code>. We keep data as <code>private</code> and provide <code>public</code> functions to access it. These functions are called getters and setters.</p>
-        <pre>
-class BankAccount {
-    private:
-        double balance;  // Data is hidden - cannot access directly
-        
-    public:
-        void setBalance(double b) {  // Setter function
-            if(b >= 0) balance = b;
-        }
-        double getBalance() {        // Getter function
-            return balance;
-        }
-};
-</pre>
-        <p><b>Main Benefits:</b><br>
-        1. <b>Data Security:</b> Private data cannot be changed accidentally from outside.<br>
-        2. <b>Control:</b> You can add validation logic inside setter functions.<br>
-        3. <b>Flexibility:</b> You can change internal code without affecting other parts of the program.</p>
-
-        <h3>3. Inheritance - Code Reusability</h3>
-        <p><b>Definition:</b> Inheritance is the process where one class acquires the properties and behaviors of another class. The class that inherits is called "Derived Class" or "Child Class". The class from which it inherits is called "Base Class" or "Parent Class".</p>
-        <p><b>Real Life Example:</b> A "Car" is a type of "Vehicle". Vehicle has common properties like speed, color. Car inherits these properties and also has its own properties like number of doors, AC.</p>
-        <p><b>Types of Inheritance in C++:</b> Single, Multiple, Multilevel, Hierarchical, Hybrid.</p>
-        <pre>
-class Vehicle {          // Base Class
-    public:
-        int speed;
-        void run() {
-            cout << "Vehicle is running";
-        }
-};
-
-class Car : public Vehicle {  // Derived Class - inherits Vehicle
-    public:
-        int doors;
-        void honk() {
-            cout << "Car is honking";
-        }
-};
-
-int main() {
-    Car c1;
-    c1.speed = 100;  // Inherited from Vehicle
-    c1.doors = 4;    // Own property
-    c1.run();        // Inherited function
-    c1.honk();       // Own function
-}
-</pre>
-        <p><b>Main Benefits:</b><br>
-        1. <b>Code Reusability:</b> Write common code once in base class and use it many times.<br>
-        2. <b>Saves Time:</b> No need to rewrite same logic.<br>
-        3. <b>Establishes Relationship:</b> Creates a natural hierarchy like Animal -> Dog -> Puppy.</p>
-
-        <h3>4. Polymorphism - One Name Many Forms</h3>
-        <p><b>Definition:</b> Polymorphism means "many forms". It allows you to perform a single action in different ways. The word is derived from Greek: "Poly" means many and "morph" means forms.</p>
-        <p><b>Real Life Example:</b> The word "cut" has different meanings. You cut paper, cut vegetables, cut a movie scene. The action depends on the object.</p>
-        <p><b>Two Types in C++:</b><br>
-        <b>A. Compile Time Polymorphism:</b> Decided during compilation. Achieved by Function Overloading and Operator Overloading.<br>
-        <b>B. Run Time Polymorphism:</b> Decided during program execution. Achieved by Function Overriding using virtual functions.</p>
-        <pre>
-// Function Overloading - Compile Time
-class Print {
-    public:
-        void show(int i) {
-            cout << "Integer: " << i;
-        }
-        void show(string s) {
-            cout << "String: " << s;
-        }
-};
-
-// Function Overriding - Run Time
-class Animal {
-    public:
-        virtual void sound() {
-            cout << "Animal makes sound";
-        }
-};
-
-class Dog : public Animal {
-    public:
-        void sound() override {
-            cout << "Dog barks";
-        }
-};
-</pre>
-        <p><b>Main Benefits:</b><br>
-        1. <b>Flexibility:</b> Same function name can be used for different data types.<br>
-        2. <b>Maintainability:</b> Code becomes cleaner and easier to extend.<br>
-        3. <b>Interface Consistency:</b> You can call <code>sound()</code> on any Animal object.</p>
-
-        <h3>5. Abstraction - Hiding Complexity</h3>
-        <p><b>Definition:</b> Abstraction means displaying only essential information to the user and hiding the complex implementation details. It focuses on "what" an object does instead of "how" it does it.</p>
-        <p><b>Real Life Example:</b> When you use a TV remote, you just press the power button. You don't need to know the circuit board, infrared signal, or internal wiring. That complexity is hidden from you.</p>
-        <p><b>How C++ Achieves It:</b> Using Abstract Classes and Interfaces. An abstract class has at least one pure virtual function. You cannot create an object of an abstract class.</p>
-        <pre>
-class Shape {  // Abstract class
-    public:
-        virtual void draw() = 0; // Pure virtual function
-};
-
-class Circle : public Shape {
-    public:
-        void draw() override {
-            cout << "Drawing Circle"; // User sees only this
-            // Complex drawing logic is hidden here
-        }
-};
-
-int main() {
-    // Shape s;  // Error: Cannot create object of abstract class
-    Circle c;
-    c.draw();    // User just calls draw(), complexity is hidden
-}
-</pre>
-        <p><b>Main Benefits:</b><br>
-        1. <b>Reduces Complexity:</b> User deals with a simple interface.<br>
-        2. <b>Increases Security:</b> Internal implementation cannot be misused.<br>
-        3. <b>Improves Maintainability:</b> You can change internal code without changing user code.</p>
-
-        <h3>Complete Comparison Table</h3>
-        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
-            <tr style="background:#1a73e8; color:white;">
-                <th style="padding:10px; border:1px solid #ddd;">Concept</th>
-                <th style="padding:10px; border:1px solid #ddd;">Focus</th>
-                <th style="padding:10px; border:1px solid #ddd;">Keyword/Tool</th>
-                <th style="padding:10px; border:1px solid #ddd;">Main Advantage</th>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Encapsulation</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Data Hiding</td>
-                <td style="padding:10px; border:1px solid #ddd;">private, public, class</td>
-                <td style="padding:10px; border:1px solid #ddd;">Security + Control</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>Inheritance</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Code Reuse</td>
-                <td style="padding:10px; border:1px solid #ddd;">extends, : public</td>
-                <td style="padding:10px; border:1px solid #ddd;">Less Code + Hierarchy</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Polymorphism</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Many Forms</td>
-                <td style="padding:10px; border:1px solid #ddd;">virtual, override, overloading</td>
-                <td style="padding:10px; border:1px solid #ddd;">Flexibility + Extensibility</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>Abstraction</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Hide Complexity</td>
-                <td style="padding:10px; border:1px solid #ddd;">abstract class, = 0</td>
-                <td style="padding:10px; border:1px solid #ddd;">Simplicity + Security</td>
-            </tr>
-        </table>
-
-        <p><b>Summary:</b> All 4 concepts work together. Encapsulation protects data, Inheritance reuses code, Polymorphism provides flexibility, and Abstraction hides complexity. This is why C++ is used to build everything from games to operating systems.</p>
+        <h3>5. Abstraction</h3>
+        <p>Hiding complex integration details and displaying only essential info. Uses abstract classes.</p>
 
         <h2>Advantages of Object-Oriented Programming (OOP)</h2>
-        <p>OOP is widely used in modern software development because of these major benefits:</p>
-
         <ol>
-            <li>
-                <b>1. Modularity - Easy to Manage</b><br>
-                <b>Explanation:</b> In OOP, a large program is divided into small objects or classes. Each object handles its own task.<br>
-                <b>Real Life Example:</b> Building a house. Electrician, plumber, painter - everyone does separate work. Easy to manage.<br>
-                <b>Benefit:</b> If one part has an error, you can fix only that class. Whole program will not crash.
-            </li>
-            <br>
-            <li>
-                <b>2. Reusability - Write Once, Use Many Times</b><br>
-                <b>Explanation:</b> Using inheritance, we can reuse code from existing classes. No need to write same code again.<br>
-                <b>Real Life Example:</b> You bought a car. You don't build a new engine. You reuse the company engine.<br>
-                <b>Benefit:</b> Saves development time and reduces code size. One base class can be used by 100 derived classes.
-            </li>
-            <br>
-            <li>
-                <b>3. Data Security - Protection from Outside Access</b><br>
-                <b>Explanation:</b> Using encapsulation, we can hide important data using <code>private</code> keyword. Only public functions can access it.<br>
-                <b>Real Life Example:</b> ATM machine. You cannot directly take money from machine. You must use card + PIN.<br>
-                <b>Benefit:</b> Prevents accidental data changes and unauthorized access. Program becomes more safe.
-            </li>
-            <br>
-            <li>
-                <b>4. Flexibility - Easy to Update and Extend</b><br>
-                <b>Explanation:</b> Using polymorphism, we can add new features without changing existing code. Just add new classes.<br>
-                <b>Real Life Example:</b> Mobile phone. You can install new apps without changing the phone OS.<br>
-                <b>Benefit:</b> Software maintenance is easy. You can upgrade the system without breaking old features.
-            </li>
-            <br>
-            <li>
-                <b>5. Simplicity - Hides Complexity</b><br>
-                <b>Explanation:</b> Using abstraction, the complex code is hidden. User only sees simple functions.<br>
-                <b>Real Life Example:</b> TV Remote. You just press buttons. You don't know the circuit inside.<br>
-                <b>Benefit:</b> Code becomes easy to understand and use, even for new programmers.
-            </li>
-            <br>
-            <li>
-                <b>6. Better Problem Solving - Real World Modeling</b><br>
-                <b>Explanation:</b> OOP allows us to model real-world entities as objects. Like Student, Car, BankAccount.<br>
-                <b>Real Life Example:</b> In college management system, we create Student object, Teacher object, Course object.<br>
-                <b>Benefit:</b> Program structure matches real world. Easy to design and understand large systems.
-            </li>
+            <li><b>Modularity</b>: Easy to track errors.</li>
+            <li><b>Reusability</b>: Saves programming time.</li>
+            <li><b>Data Security</b>: Protects critical code from outside manipulation.</li>
+            <li><b>Flexibility</b>: Easy to update and extend systems.</li>
         </ol>
-
-        <h3>Advantages Summary Table</h3>
-        <table style="width:100%; border-collapse:collapse; margin:15px 0;">
-            <tr style="background:#1a73e8; color:white;">
-                <th style="padding:10px; border:1px solid #ddd;">Advantage</th>
-                <th style="padding:10px; border:1px solid #ddd;">Because of Which Concept</th>
-                <th style="padding:10px; border:1px solid #ddd;">Main Use</th>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Modularity</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Classes & Objects</td>
-                <td style="padding:10px; border:1px solid #ddd;">Easy debugging</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>Reusability</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Inheritance</td>
-                <td style="padding:10px; border:1px solid #ddd;">Saves time & code</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Data Security</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Encapsulation</td>
-                <td style="padding:10px; border:1px solid #ddd;">Prevents misuse</td>
-            </tr>
-            <tr style="background:#f9f9f9;">
-                <td style="padding:10px; border:1px solid #ddd;"><b>Flexibility</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Polymorphism</td>
-                <td style="padding:10px; border:1px solid #ddd;">Easy to extend</td>
-            </tr>
-            <tr>
-                <td style="padding:10px; border:1px solid #ddd;"><b>Simplicity</b></td>
-                <td style="padding:10px; border:1px solid #ddd;">Abstraction</td>
-                <td style="padding:10px; border:1px solid #ddd;">Hides complexity</td>
-            </tr>
-        </table>
-
-        <p><b>Why Companies Use OOP:</b> Google, Microsoft, Game companies all use C++/Java OOP. Because they build software used by millions of people. OOP helps them manage huge code, add new features fast, and keep data safe.</p>
-        <p><b>Conclusion:</b> C++ is widely used in game development, operating systems, browsers, embedded systems, and competitive programming because of its speed and control over system resources.</p>        
     </div>
 
     <button class="logout-btn" onclick="logout()">Logout</button>
-
     <div class="scroll-emoji-left">🚀</div>
     <div class="scroll-emoji-right">💻</div>
 </div>
@@ -1077,7 +647,7 @@ int main() {
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-// UNODA SCREENSHOT DETAILS VECHU LIVE-AA INTEGRATE PANNIYA FIREBASE CONFIG OBJECT
+// Final Live Firebase Connection Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAwML_tdXgynGDcCm4ehhruEh0PWCWJjdE",
     authDomain: "tvp-cpp.firebaseapp.com",
@@ -1089,9 +659,11 @@ const firebaseConfig = {
     measurementId: "G-P5N7VEMKR0"
 };
 
-// Firebase initialize
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+
+// CRITICAL FIX: Explicitly targeting Singapore data cluster routing
+const db = firebase.database("https://tvp-cpp-default-rtdb.asia-southeast1.firebasedatabase.app");
 
 const USERS = {
     "1": "1",
@@ -1109,7 +681,7 @@ function checkLogin() {
     let user = document.getElementById("username").value.trim().toLowerCase();
     let pass = document.getElementById("password").value.trim();
 
-    // FIXED: Syntax logic clean-aa check panni exact-aa user map-ah call pannidum da!
+    // Fixed key mapping comparison evaluation
     if (USERS[user] && USERS[user] === pass) {
         db.ref('sessions/' + user).once('value').then((snapshot) => {
             if (snapshot.exists()) {
@@ -1128,10 +700,13 @@ function checkLogin() {
                     showContent();
                     startSessionCheck();
                 }).catch(err => {
-                    document.getElementById("errorMsg").textContent = "Database Blocked! Check rules inside Firebase.";
+                    document.getElementById("errorMsg").textContent = "Database Permission Denied!";
                     console.error(err);
                 });
             }
+        }).catch(err => {
+            document.getElementById("errorMsg").textContent = "Connection Error!";
+            console.error(err);
         });
     } else {
         document.getElementById("errorMsg").textContent = "Wrong username or password!";
@@ -1151,7 +726,7 @@ function startSessionCheck() {
         if (!currentUser) return;
         db.ref('sessions/' + currentUser).once('value').then((snapshot) => {
             if (!snapshot.exists() || snapshot.val().sessionId !== currentSessionId) {
-                alert("Logged out - Another device logged in with this username!");
+                alert("Logged out - Another device logged in!");
                 logout();
             }
         });
@@ -1199,19 +774,12 @@ window.addEventListener('scroll', function() {
     let leftEmoji = document.querySelector('.scroll-emoji-left');
     let rightEmoji = document.querySelector('.scroll-emoji-right');
     
-    if (scrollPercent > 20) {
-        leftEmoji.classList.add('active-emoji');
-    } else {
-        leftEmoji.classList.remove('active-emoji');
-    }
+    if (scrollPercent > 20) leftEmoji.classList.add('active-emoji');
+    else leftEmoji.classList.remove('active-emoji');
     
-    if (scrollPercent > 50) {
-        rightEmoji.classList.add('active-emoji');
-    } else {
-        rightEmoji.classList.remove('active-emoji');
-    }
+    if (scrollPercent > 50) rightEmoji.classList.add('active-emoji');
+    else rightEmoji.classList.remove('active-emoji');
 });
 </script>
-
 </body>
 </html>

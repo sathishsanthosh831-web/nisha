@@ -14,26 +14,28 @@
         .login-box button { width: 100%; padding: 14px; background: #1a73e8; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 15px; font-weight: bold; }
         #errorMsg { color: #d93025; margin-top: 15px; min-height: 20px; font-weight: bold; }
         #mainContent { display: none; padding: 20px; }
-        .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .table-container { overflow-x: auto; margin: 30px auto; }
-        table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: center; margin-bottom: 20px; }
-        th, td { border: 2px solid #333; padding: 12px 8px; }
-        th { background-color: #1a73e8; color: white; }
+        table { width: 100%; min-width: 700px; border-collapse: collapse; text-align: left; margin-bottom: 20px; font-size: 15px; }
+        th, td { border: 2px solid #333; padding: 14px 12px; }
+        th { background-color: #1a73e8; color: white; text-align: center; }
         .notes-table th { background-color: #34495e; color: white; }
         a { text-decoration: none; color: #1a73e8; font-weight: bold; }
-        pre { background: #111; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; border-left: 5px solid #1a73e8; font-family: 'Courier New', Courier, monospace; font-size: 15px; }
+        pre { background: #111; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; border-left: 5px solid #1a73e8; font-family: 'Courier New', Courier, monospace; font-size: 15px; line-height: 1.4; }
         .logout-btn { position: fixed; bottom: 20px; right: 20px; background: #d93025; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         
-        /* Notes Styling */
-        .tamil-block { background-color: #eef9ff; border-left: 5px solid #0288d1; padding: 15px 20px; margin: 20px 0; border-radius: 4px; font-style: normal; color: #01579b; }
-        .output-block { background-color: #e8f5e9; border-left: 5px solid #2e7d32; padding: 15px; margin: 15px 0; font-family: monospace; font-size: 15px; color: #1b5e20; font-weight: bold; }
-        h1 { color: #1a73e8; font-size: 2.2rem; border-bottom: 3px solid #1a73e8; padding-bottom: 10px; margin-top: 50px; }
+        /* Notes Architectural Styling */
+        .tamil-block { background-color: #eef9ff; border-left: 5px solid #0288d1; padding: 18px 22px; margin: 25px 0; border-radius: 4px; font-style: normal; color: #01579b; font-size: 15px; }
+        .output-block { background-color: #e8f5e9; border-left: 5px solid #2e7d32; padding: 18px; margin: 20px 0; font-family: monospace; font-size: 15px; color: #1b5e20; font-weight: bold; white-space: pre-line; }
+        .explanation-box { background-color: #fff9db; border-left: 5px solid #f59f00; padding: 15px 20px; margin: 15px 0; border-radius: 4px; color: #664d03; }
+        h1 { color: #1a73e8; font-size: 2.4rem; border-bottom: 4px solid #1a73e8; padding-bottom: 12px; margin-top: 60px; }
         h1:first-of-type { margin-top: 10px; }
-        h2 { color: #202124; font-size: 1.6rem; margin-top: 35px; background: #f1f3f4; padding: 8px 15px; border-radius: 4px; }
-        h3 { color: #1a73e8; font-size: 1.2rem; margin-top: 20px; }
-        ul, ol { padding-left: 25px; }
-        li { margin-bottom: 8px; }
-        .bold-txt { font-weight: bold; color: #111; }
+        h2 { color: #202124; font-size: 1.75rem; margin-top: 40px; background: #f1f3f4; padding: 10px 18px; border-radius: 4px; border-left: 6px solid #5f6368; }
+        h3 { color: #1a73e8; font-size: 1.35rem; margin-top: 25px; padding-left: 5px; }
+        p { text-align: justify; font-size: 16px; margin-bottom: 18px; }
+        ul, ol { padding-left: 30px; font-size: 16px; }
+        li { margin-bottom: 10px; text-align: justify; }
+        .bold-txt { font-weight: bold; color: #000; }
     </style>
 </head>
 <body>
@@ -72,52 +74,31 @@
 
         <h1>UNIT I - Introduction to C++</h1>
         
-        <h2>1. Historical Background and Evolution</h2>
-        <p>C++ is a massive, multi-paradigm, general-purpose programming language that was conceptualized and developed by <span class="bold-txt">Bjarne Stroustrup</span> in the year <span class="bold-txt">1979</span> at AT&T Bell Laboratories in Murray Hill, New Jersey. Initially, the language was named <span class="bold-txt">"C with Classes"</span> because it was designed to be an extension of the highly popular C language, incorporating the object-oriented concepts from the Simula67 language without compromising the efficiency and speed of C.</p>
-        <p>In <span class="bold-txt">1983</span>, the language was officially renamed <span class="bold-txt">C++</span>. The term "++" is the increment operator in C, symbolically representing that C++ is an advanced, incremented version of C. The first commercial release of C++ occurred in 1985. It was standardized by the ISO (International Organization for Standardization) in 1998 (C++98), followed by multiple modernized versions like C++11, C++14, C++17, C++20, and C++23, making it one of the most powerful and heavily utilized languages in engineering, game development, and systems programming today.</p>
+        <h2>1. Historical Background and Detailed Evolution</h2>
+        <p>C++ is a multi-paradigm, statically typed, compiled, general-purpose programming language conceptualized and developed by the Danish computer scientist <span class="bold-txt">Bjarne Stroustrup</span> in the year <span class="bold-txt">1979</span> at AT&T Bell Laboratories located in Murray Hill, New Jersey. Initially, the project was started to address severe software development limitations in massive network simulations. Stroustrup combined the execution speed and low-level control of the C language with the high-level data abstraction capabilities found in Simula67.</p>
+        <p>The language was originally titled <span class="bold-txt">"C with Classes"</span>. However, by <span class="bold-txt">1983</span>, as more capabilities like operator overloading, references, and virtual functions were integrated, the language was permanently renamed <span class="bold-txt">C++</span>. The symbol "++" represents the C increment operator, explicitly indicating that the language is an advanced extension of C. It achieved official ISO standardization in 1998 (C++98) and has undergone modern transformations through updates like C++11, C++14, C++17, C++20, and C++23.</p>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (History):</strong> C++ language-ah 1979-la 'Bjarne Stroustrup' nu solra avar thaan uruvakkunaar. Starting-la idhuku "C with Classes" nu per vachangha. Enna na, C language-oda fast execution kooda Simula67 language-oda Object-Oriented concepts-ah mix panradhukaaga idhu ready aachis. Apram 1983-la idhuku 'C++' nu per maathunangha. C language-la nammalku therinja '++' (Increment Operator) vechu, idhu C-oda adutha level periya version-nu kaatadhuku thaan intha name vachangha.
+            <strong>Tanglish Explanation (History):</strong> C++ language-ah 1979-la Bjarne Stroustrup appasengra scientist Bell Labs-la develop pannaar. Mudhalla idhuku "C with Classes" nu dhaan per vachanga, yenna C language oda ultra speed kooda Simula67 language oda object oriented structures-ah serka dhaan ipdi pannaanga. Apram 1983-la C language-la nammaku therinja '++' (increment operator) identity-ah vachu 'C++' nu maathunaanga, yaenna idhu C oda adutha periya progressive level expansion.
         </div>
 
         <h2>2. Core Architectural Features of C++</h2>
-        <p>C++ is regarded as a <span class="bold-txt">Middle-Level Language</span> because it seamlessly bridges the gap between low-level (hardware-centric) programming and high-level (abstract application-centric) programming. Below are the key characteristics that define C++:</p>
         <ul>
-            <li><span class="bold-txt">Robust and Fast:</span> Being a compiled language, C++ translates source code directly into machine-executable binary code, leading to incredibly fast execution times, making it ideal for systems software.</li>
-            <li><span class="bold-txt">Portability:</span> C++ is platform-independent in terms of concept (ANSI standard), meaning code written on one machine can be compiled and executed on another machine with minimal modifications.</li>
-            <li><span class="bold-txt">Rich Library Support:</span> It offers an extensive Standard Template Library (STL) containing pre-built data structures like vectors, lists, maps, and rich algorithms that minimize manual coding efforts.</li>
-            <li><span class="bold-txt">Memory Management:</span> Unlike managed languages like Java, C++ gives programmers direct control over memory allocation and deallocation using the <code>new</code> and <code>delete</code> operators, allowing explicit structural optimization.</li>
+            <li><span class="bold-txt">Middle-Level Language Design:</span> C++ bridges low-level architectural control (direct memory mapping, system pointers) and high-level abstract logic (classes, interfaces), providing optimal flexibility.</li>
+            <li><span class="bold-txt">Compiled and Fast Execution:</span> Code is directly compiled into hardware-specific native machine instructions bypassing any virtual runtime interpreter layers, making it significantly faster than Java or Python.</li>
+            <li><span class="bold-txt">Explicit Memory Management Control:</span> Programmers are given total authority to allocate and deallocate heap memory memory slots at runtime using the <code>new</code> and <code>delete</code> keywords, optimizing resource management.</li>
+            <li><span class="bold-txt">Rich Standard Template Library (STL):</span> It includes a massive collection of predefined data structures and complex algorithms like vectors, lists, queues, maps, sorting, and searching operations out of the box.</li>
         </ul>
 
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (Features):</strong> C++ oru 'Middle-Level Language'. Ithanala computer hardware-ah direct-aa control panna mudiyum (Low-level), adhey neram periya high-level applications-ayum ready panna mudiyum. Idhu romba fast-aa run aagum, enna na idhu oru compiled language. Idhula memory-ah direct-aa 'new' matrum 'delete' operators moolama programmer-ey manage pannikalam.
-        </div>
-
-        <h2>3. Object-Oriented Programming (OOP) Paradigms</h2>
-        <p>The core power of C++ lies in its support for Object-Oriented Programming. A 10-mark architectural analysis requires understanding its four foundational pillars:</p>
-        <ol>
-            <li><span class="bold-txt">Encapsulation:</span> The process of binding data variables and the functions that manipulate them into a single comprehensive blueprint unit called a <span class="bold-txt">Class</span>. This prevents unauthorized direct data access.</li>
-            <li><span class="bold-txt">Data Abstraction:</span> Hiding complex internal implementation complexities and showing only the essential interfaces to the outside world. This is achieved using access specifiers like <code>public</code>, <code>private</code>, and <code>protected</code>.</li>
-            <li><span class="bold-txt">Inheritance:</span> The mechanism by which a new class (Derived Class) acquires the properties, states, and behaviors of an existing class (Base Class), maximizing code reusability.</li>
-            <li><span class="bold-txt">Polymorphism:</span> The ability of data or functions to process in more than one form. It manifests as Compile-time polymorphism (Function overloading, Operator overloading) and Runtime polymorphism (Virtual functions).</li>
-        </ol>
-
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (OOP Pillars):</strong> C++ oda main balamey intha OOP concepts thaan. Idhula motham 4 mukkiya pillars irukku: 1) Encapsulation - Data-vaiyum function-aiyum 'Class' nu solra ore safety box-kulla potu lock panradhu. 2) Abstraction - Devaiyillatha internal logic-ah maraichu, main features-ah mattum veliya kaatradhu. 3) Inheritance - Oru class-oda properties-ah innoru puthu class reuse pannikradhu. 4) Polymorphism - Oru function oru vagaiuku mela vera vera formats-la perform panradhu.
-        </div>
-
-        <h2>4. Structural Overview of a C++ Program with Clean Code</h2>
+        <h2>3. Structural Analysis of a Clean C++ Program</h2>
         <pre>
 #include &lt;iostream&gt;
-
 using namespace std;
 
 int main() {
     int firstNumber = 40;
     int secondNumber = 60;
-    int totalSum;
-
-    totalSum = firstNumber + secondNumber;
+    int totalSum = firstNumber + secondNumber;
 
     cout &lt;&lt; "--- University C++ Academic Program ---" &lt;&lt; endl;
     cout &lt;&lt; "The Calculated Sum of Numbers is: " &lt;&lt; totalSum &lt;&lt; endl;
@@ -128,196 +109,494 @@ int main() {
 
         <h3>Program Execution Output Terminal</h3>
         <div class="output-block">
-            --- University C++ Academic Program ---<br>
+            --- University C++ Academic Program ---
             The Calculated Sum of Numbers is: 100
+        </div>
+
+        <div class="explanation-box">
+            <strong>Line-by-Line Code Breakdown:</strong><br>
+            1. <code>#include &lt;iostream&gt;</code>: Preprocessor directive that imports standard input-output stream definition tracks.<br>
+            2. <code>using namespace std;</code>: Simplifies access to the standard scope, allowing code to use <code>cout</code> directly without typing <code>std::cout</code>.<br>
+            3. <code>int main()</code>: The mandatory primary entryway where the CPU begins execution.<br>
+            4. <code>cout &lt;&lt;</code>: Sends string data arrays through insertion streams to the terminal.
         </div>
 
 
         <h1>UNIT I - Key Concepts of Object-Oriented Programming (OOP)</h1>
 
-        <h2>1. Paradigm Evolution & Core Philosophy</h2>
-        <p>Object-Oriented Programming (OOP) is an advanced programming paradigm that models real-world entities using software computational constructs. Historically, traditional structural or procedural programming paradigms (like C, Pascal) focused strictly on writing algorithmic procedures and data processing steps. In procedural architecture, data was treated as a secondary entity and moved freely across global functional boundaries.</p>
-        <p>OOP fundamentally re-engineers this approach by shifting the developmental focus entirely onto <span class="bold-txt">Data Security</span> and data structure states. Instead of breaking software down into functional steps, OOP breaks systems down into individual self-sustaining components called <span class="bold-txt">Objects</span>.</p>
+        <h2>1. Paradigm Shift & Foundational Philosophy</h2>
+        <p>Traditional structural programming models focus entirely on algorithmic procedures, treating data as an secondary component that moves freely throughout global environments. Object-Oriented Programming (OOP) reverses this architecture by shifting primary focus onto <span class="bold-txt">Data Security</span>. It structures software systems around modular, self-contained components called <span class="bold-txt">Objects</span>, which combine data and related operations into a single package.</p>
 
-        <h2>2. In-Depth Technical Analysis of OOP Elements</h2>
-        <h3>A. Objects</h3>
-        <p>An Object is the fundamental runtime entity in an object-oriented paradigm. It represents an instance of a structural class design template. Physically, an object occupies computational memory space inside the computer's RAM.</p>
+        <h2>2. Technical Architecture of the Four Essential OOP Pillars</h2>
+        <ol>
+            <li><span class="bold-txt">Encapsulation (Data Binding):</span> The process of binding data members and data processing methods into a single structural block called a Class. This prevents external routines from accessing internal attributes directly.</li>
+            <li><span class="bold-txt">Data Abstraction (Interface Hiding):</span> Displays only the essential operational features to the outside user while hiding complex structural backend logic. This is implemented using access specifiers like <code>public</code>, <code>private</code>, and <code>protected</code>.</li>
+            <li><span class="bold-txt">Inheritance (Code Reuse):</span> The mechanism that allows a new class (derived subclass) to inherit data parameters and functional methodologies from an existing class (base parent class), reducing code duplication.</li>
+            <li><span class="bold-txt">Polymorphism (Multi-Form Processing):</span> Allows a single interface name or operator identifier to execute different tasks depending on context. It is split into compile-time (overloading) and runtime (virtual functions) stages.</li>
+        </ol>
 
-        <h3>B. Classes</h3>
-        <p>A Class is a user-defined logical data type block that functions as a structural blueprint or master template from which individual runtime objects are manufactured. It does not consume physical hardware memory space during compilation.</p>
+        <div class="tamil-block">
+            <strong>Tanglish Explanation (OOP Pillars):</strong> OOP concepts-la 4 main pillars thaan base: 1) Encapsulation: Data-vaiyum function-aiyum 'Class' engira ore box-kulla potu lock panradhu. 2) Abstraction: Internal complex logic-ah maraichu out-world ku public access mattum tharadhhu. 3) Inheritance: Oru class-oda sothu (code) matrum properties-ah innoru puthu class reuse panradhu. 4) Polymorphism: Ore peru ulla function context-ku yetha madhiri different roles play panradhu.
+        </div>
 
 
         <h1>UNIT I - Advantages of Object-Oriented Programming (OOP)</h1>
 
-        <h2>1. Comprehensive Architectural Advantages</h2>
-        <p>Object-Oriented Programming (OOP) provides a superior software architectural strategy compared to traditional procedural designs. Below is a detailed, university-standard analysis of the prominent advantages of adopting the OOP paradigm:</p>
-
+        <h2>1. Exhaustive Software Engineering Advantages</h2>
+        <p>Adopting an Object-Oriented architectural design patterns offers key long-term benefits for modern software engineering teams:</p>
         <ul>
-            <li><span class="bold-txt">Modularity and Enhanced Organization:</span> Object-oriented software architecture is divided into discrete, independent modules through class structures. Each class acts as a self-sustaining container.</li>
-            <li><span class="bold-txt">Code Reusability via Inheritance:</span> Instead of repeating code blocks across different application layers, engineers can write standard properties once in a base parent layout and automatically share them across multiple derived sub-classes.</li>
-            <li><span class="bold-txt">Exceptional Software Maintainability:</span> Modifications made inside an encapsulated class blueprint do not disturb external code tracks, making system diagnostics and bug tracking exceptionally clean.</li>
+            <li><span class="bold-txt">Enhanced System Modularity:</span> Because every class operates as an independent module with its own scope, updates or changes can be made inside a class without affecting other parts of the application.</li>
+            <li><span class="bold-txt">Effective Code Reusability:</span> Inheritance allows developers to reuse tested, proven source code from base classes, which accelerates development and reduces testing overhead.</li>
+            <li><span class="bold-txt">Streamlined Maintenance and Debugging:</span> Isolating data errors to localized object instances makes debugging faster, as engineers can isolate and fix issues without reading through the entire codebase.</li>
+            <li><span class="bold-txt">Robust Security Models:</span> Data hiding via private encapsulation safeguards critical internal application variables from accidental overwrites or malicious external access.</li>
         </ul>
 
 
         <h1>UNIT I - Object-Oriented Languages</h1>
 
-        <h2>1. Categorization Criteria: Pure vs. Hybrid Languages</h2>
-        <p>Programming languages that implement object-oriented paradigms are classified into two core engineering divisions based on how strictly they enforce OOP design patterns: Pure Object-Oriented Languages and Hybrid Object-Oriented Languages.</p>
-        
-        <h3>A. Pure Object-Oriented Languages</h3>
-        <p>A language is termed a pure OOP language if it treats every single computational element exclusively as an object. Primitive data types do not exist independently. Examples include Smalltalk and Ruby.</p>
+        <h2>1. Typology and Classification: Pure vs. Hybrid Engines</h2>
+        <p>Object-oriented languages are classified into two groups based on how strictly they enforce OOP design rules: <span class="bold-txt">Pure Object-Oriented Languages</span> and <span class="bold-txt">Hybrid Object-Oriented Languages</span>.</p>
+        <p>In a pure OOP language (e.g., Smalltalk, Ruby), every variable and data element must be represented as an object. Primitive types (like native integers or characters) cannot exist outside an object context. Hybrid languages (e.g., C++, Java, Python) allow both structured procedural workflows and object-oriented programming to be used within the same application.</p>
 
-        <h3>B. Hybrid Object-Oriented Languages</h3>
-        <p>Hybrid languages support both procedural (structured) programming models and object-oriented programming models simultaneously. C++, Java, and Python are prime examples.</p>
+        <h2>2. Comprehensive Languages Comparison Matrix</h2>
+        <div class="table-container">
+            <table class="notes-table">
+                <thead>
+                    <tr>
+                        <th>Language Metric</th>
+                        <th>C++ Language Model</th>
+                        <th>Java Language Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="bold-txt">Classification Type</td>
+                        <td>Hybrid Object-Oriented Programming Language</td>
+                        <td>Hybrid OOP (Supports primitive data types)</td>
+                    </tr>
+                    <tr>
+                        <td class="bold-txt">Memory Allocations</td>
+                        <td>Manual control allocation via <code>new</code> / <code>delete</code> operators</td>
+                        <td>Automatic memory tracking via Managed Garbage Collection</td>
+                    </tr>
+                    <tr>
+                        <td class="bold-txt">Pointer Architecture</td>
+                        <td>Supports direct physical hardware memory pointers</td>
+                        <td>Restricts raw hardware pointers for security</td>
+                    </tr>
+                    <tr>
+                        <td class="bold-txt">Platform Dependency</td>
+                        <td>Platform Dependent (Compiles directly to machine code)</td>
+                        <td>Platform Independent (Compiles to Bytecode for the JVM)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
 
         <h1>UNIT I - Input/Output (I/O) Streams in C++</h1>
 
-        <h2>1. The Concept of Streams and Hierarchical Architecture</h2>
-        <p>In C++, Input and Output operations are managed via a complex hierarchical abstraction engine called a Stream. A stream is fundamentally an abstract representation of a sequence of bytes flowing from a source to a destination. C++ replaces C's traditional stdio.h functions with a type-safe stream pipeline framework defined inside the &lt;iostream&gt; header file.</p>
+        <h2>1. The Architecture of Type-Safe Data Streams</h2>
+        <p>In C++, Input and Output operations are handled using an abstract sequence of bytes called a <span class="bold-txt">Stream</span>. Data flows from an input source (such as a keyboard) into the program, or from the program to an output destination (such as a terminal monitor display). C++ replaces C's traditional <code>stdio.h</code> functions with a type-safe stream framework defined in the <code>&lt;iostream&gt;</code> library.</p>
+        <ul>
+            <li><span class="bold-txt">cin:</span> An object of the <code>istream</code> class that captures data from the standard keyboard using the Extraction Operator (<code>&gt;&gt;</code>).</li>
+            <li><span class="bold-txt">cout:</span> An object of the <code>ostream</code> class that prints data to the monitor using the Insertion Operator (<code>&lt;&lt;</code>).</li>
+        </ul>
+
+        <h2>2. Full Production-Grade Streams Execution Code</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int inputRegistrationNumber;
+    double studentCurrentGpa;
+
+    cout &lt;&lt; "Enter University Registration Integer Number: ";
+    cin &gt;&gt; inputRegistrationNumber;
+
+    cout &lt;&lt; "Enter Current Academic GPA Decimal Value: ";
+    cin &gt;&gt; studentCurrentGpa;
+
+    cout &lt;&lt; "\n--- Verification Stream Summary Results ---" &lt;&lt; endl;
+    cout &lt;&lt; "Captured ID Value: " &lt;&lt; inputRegistrationNumber &lt;&lt; endl;
+    cout &lt;&lt; "Captured GPA Value: " &lt;&lt; studentCurrentGpa &lt;&lt; endl;
+
+    return 0;
+}
+</pre>
+
+        <h3>I/O Program Execution Output</h3>
+        <div class="output-block">
+            Enter University Registration Integer Number: 9845
+            Enter Current Academic GPA Decimal Value: 8.75
+
+            --- Verification Stream Summary Results ---
+            Captured ID Value: 9845
+            Captured GPA Value: 8.75
+        </div>
+
+        <div class="explanation-box">
+            <strong>Operational Analysis:</strong> 
+            The <code>cin</code> object monitors the user input buffer. When the extraction operator <code>&gt;&gt;</code> is processed, it automatically determines the target variable's data type, preventing type mismatch crashes common in C's <code>scanf</code> layout.
+        </div>
 
 
         <h1>UNIT I - C++ Declarations and Memory Allocation Architecture</h1>
 
-        <h2>1. Semantic Overview: Definition vs. Declaration</h2>
-        <p>A declaration simply introduces an identifier name and its precise data type constraints to the compiler's symbol matrix table. It does not allocate actual hardware RAM memory space. A definition, however, completely initializes the architectural specifications and prompts the machine to immediately bind physical memory storage addresses.</p>
+        <h2>1. Explicit Definitions vs. Data Declarations</h2>
+        <p>A <span class="bold-txt">Declaration</span> introduces a variable or function's identifier name and its associated data type constraints to the compiler's symbol table. It does not allocate memory. A <span class="bold-txt">Definition</span> instructs the compiler to allocate physical space in memory (RAM) and bind it to that variable name, preparing it to hold data values.</p>
+
+        <h2>2. Variable Declarations Demonstration Code</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    // Declarations with simultaneous initialization definitions
+    int softwareBuildVersion = 402;
+    double operationsLatencyMs = 12.45;
+    char primaryServerClusterCode = 'X';
+
+    cout &lt;&lt; "--- Variable System Registry Dump ---" &lt;&lt; endl;
+    cout &lt;&lt; "Build Version Configuration: " &lt;&lt; softwareBuildVersion &lt;&lt; endl;
+    cout &lt;&lt; "Latency Tracking Metrics: " &lt;&lt; operationsLatencyMs &lt;&lt; " ms" &lt;&lt; endl;
+    cout &lt;&lt; "Cluster Identification Sequence: " &lt;&lt; primaryServerClusterCode &lt;&lt; endl;
+
+    return 0;
+}
+</pre>
+
+        <h3>Declarations Execution Output</h3>
+        <div class="output-block">
+            --- Variable System Registry Dump ---
+            Build Version Configuration: 402
+            Latency Tracking Metrics: 12.45 ms
+            Cluster Identification Sequence: X
+        </div>
 
 
         <h1>UNIT I - Control Structures in C++</h1>
 
-        <h2>1. Architectural Breakdown of Execution Flows</h2>
-        <p>Control Structures are logical code blocks that govern the exact sequence, trajectory, and conditional directional pathways of execution routines within a compiled C++ software ecosystem. By default, a computer executes statement paths line-by-line in a predictable Sequence Control Model.</p>
+        <h2>1. Theory of Logic Control Pipelines</h2>
+        <p>Control structures dictate the order in which individual statements are processed by the CPU. By default, programs execute line-by-line in a linear sequence. Control structures alter this default flow using conditional statements, loops, or branch logic, which can redirect execution based on changing runtime metrics.</p>
+
+        <h2>2. Comprehensive Architectural Code Blueprint</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int operationalControlMode = 1;
+
+    cout &lt;&lt; "Execution Step A: Commencing Main Core Tracking Router" &lt;&lt; endl;
+
+    if (operationalControlMode == 1) {
+        cout &lt;&lt; "Execution Step B (Branch Match): Sequence Pathway Active" &lt;&lt; endl;
+    }
+
+    cout &lt;&lt; "Execution Step C: Pipeline Finalizing and Clean Exit" &lt;&lt; endl;
+    return 0;
+}
+</pre>
+
+        <h3>Control Structure Execution Output</h3>
+        <div class="output-block">
+            Execution Step A: Commencing Main Core Tracking Router
+            Execution Step B (Branch Match): Sequence Pathway Active
+            Execution Step C: Pipeline Finalizing and Clean Exit
+        </div>
 
 
         <h1>UNIT I - Decision Making Statements</h1>
 
-        <h2>1. Structural Breakdown of Conditional Branching Engines</h2>
-        <p>Decision-making statements allow an application to select and execute specific execution branches at runtime based on conditional statements. At the hardware execution level, the CPU evaluates conditional statements as either true (1) or false (0).</p>
+        <h2>1. Conditional Branching Mechanics</h2>
+        <p>Decision-making structures evaluate expressions to true (1) or false (0). Based on the evaluation, the program branches to specific code execution blocks and skips others. C++ handles this conditional logic using several constructs: <code>if</code> blocks, <code>if-else</code> structures, <code>nested if</code> chains, and <code>switch</code> selection ladders.</p>
+
+        <h2>2. Exhaustive Multi-Branch Demonstration Code</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int securityClearanceLevel = 2;
+
+    cout &lt;&lt; "--- Executing Multi-Branch Security Verification ---" &lt;&lt; endl;
+
+    switch (securityClearanceLevel) {
+        case 1:
+            cout &lt;&lt; "Status Confirmed: Access level set to standard level." &lt;&lt; endl;
+            break;
+        case 2:
+            cout &lt;&lt; "Status Confirmed: Administrative access granted." &lt;&lt; endl;
+            break;
+        case 3:
+            cout &lt;&lt; "Status Confirmed: Executive Root clearance granted." &lt;&lt; endl;
+            break;
+        default:
+            cout &lt;&lt; "Warning Alert: Security clearance level invalid." &lt;&lt; endl;
+    }
+    return 0;
+}
+</pre>
+
+        <h3>Decision Making Execution Output</h3>
+        <div class="output-block">
+            --- Executing Multi-Branch Security Verification ---
+            Status Confirmed: Administrative access granted.
+        </div>
 
 
         <h1>UNIT I - Iterative Frameworks (Loops in C++)</h1>
 
-        <h2>1. Behavioral Taxonomy of Loop Categories</h2>
-        <p>Loops in C++ allow a program to execute a target block of code repeatedly until a specific condition evaluates to false. University examinations classify these looping engines into two structural divisions:</p>
+        <h2>1. In-Depth Operational Taxonomy of Loop Categories</h2>
+        <p>Loops run a target block of code repeatedly as long as a specified conditional expression remains true. When the condition evaluates to false, loop execution terminates, and control returns to the main program flow. C++ categorizes loops into two functional divisions based on where the condition is evaluated:</p>
         <ul>
-            <li><span class="bold-txt">Entry-Controlled Loops:</span> The condition is evaluated at the very entry point before the code block executes. (e.g., <code>for</code> loop, <code>while</code> loop).</li>
-            <li><span class="bold-txt">Exit-Controlled Loops:</span> The condition is checked at the exit point, guaranteeing the block runs <span class="bold-txt">at least once</span>. (e.g., <code>do-while</code> loop).</li>
+            <li><span class="bold-txt">Entry-Controlled Loops:</span> The condition expression is evaluated at the start of the loop cycle, before any internal statements execute. If the condition is false on the first check, the loop body is skipped entirely. Examples include the <code>for</code> loop and the <code>while</code> loop.</li>
+            <li><span class="bold-txt">Exit-Controlled Loops:</span> The condition expression is checked at the bottom of the loop cycle, after the body executes. This structure guarantees that the loop statements run <span class="bold-txt">at least once</span>, regardless of whether the condition is true or false. The primary example is the <code>do-while</code> loop.</li>
         </ul>
 
-        <h2>2. The 'for' Loop Architecture (Fixed Iterations)</h2>
-        <p>The <code>for</code> loop is a highly structured entry-controlled iterative system. It is optimal when the exact number of iterations is known beforehand. It bundles initialization, condition checking, and loop counter modification into a single line.</p>
+        <h2>2. The 'for' Loop Architecture (Fixed Iterations Optimization)</h2>
+        <p>The <code>for</code> loop is an entry-controlled loop structure used when the exact number of iterations is known before execution. It consolidates the counter initialization, condition evaluation, and counter increment/decrement expressions into a single control line, making the code clean and highly readable.</p>
         
+        <h3>For Loop Theoretical Code Layout</h3>
         <pre>
 #include &lt;iostream&gt;
-
 using namespace std;
 
 int main() {
-    cout &lt;&lt; "--- Testing Standard FOR Loop ---" &lt;&lt; endl;
+    cout &lt;&lt; "=============================================" &lt;&lt; endl;
+    cout &lt;&lt; "--- Initiating Production Standard FOR Loop ---" &lt;&lt; endl;
+    cout &lt;&lt; "=============================================" &lt;&lt; endl;
 
-    for (int iterativeIndex = 1; iterativeIndex &lt;= 3; iterativeIndex++) {
-        cout &lt;&lt; "FOR Loop Current Counter Value: " &lt;&lt; iterativeIndex &lt;&lt; endl;
+    for (int iterativeIndex = 1; iterativeIndex &lt;= 4; iterativeIndex++) {
+        cout &lt;&lt; "FOR Cycle Sequence Active - Counter Address Token: " &lt;&lt; iterativeIndex &lt;&lt; endl;
     }
 
+    cout &lt;&lt; "FOR Loop execution safely finalized." &lt;&lt; endl;
     return 0;
 }
 </pre>
 
-        <h3>For Loop Execution Output</h3>
+        <h3>For Loop Execution Terminal Output</h3>
         <div class="output-block">
-            --- Testing Standard FOR Loop ---<br>
-            FOR Loop Current Counter Value: 1<br>
-            FOR Loop Current Counter Value: 2<br>
-            FOR Loop Current Counter Value: 3
+            =============================================
+            --- Initiating Production Standard FOR Loop ---
+            =============================================
+            FOR Cycle Sequence Active - Counter Address Token: 1
+            FOR Cycle Sequence Active - Counter Address Token: 2
+            FOR Cycle Sequence Active - Counter Address Token: 3
+            FOR Cycle Sequence Active - Counter Address Token: 4
+            FOR Loop execution safely finalized.
         </div>
 
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (FOR Loop):</strong> <code>for</code> loop-la initialization (int i=1), condition check (i&lt;=3), increment (i++) ellaame ore variyil nadandhidum. Nammaku loop ethanavadhuthadava thulliyama run aaganum-nu munaadiye theriyum podhu idhu thaan best selection.
+        <div class="explanation-box">
+            <strong>Detailed Code Line Breakdown for 'for' Loop:</strong><br>
+            1. <code>int iterativeIndex = 1</code>: Local counter initialization variable. Happens exactly once at loop startup.<br>
+            2. <code>iterativeIndex &lt;= 4</code>: Loop termination condition check. Evaluated before every iteration.<br>
+            3. <code>iterativeIndex++</code>: Counter increment expression. Runs at the end of each iteration to advance the loop.
         </div>
 
-        <h2>3. The 'while' Loop Architecture (Variable Conditions)</h2>
-        <p>The <code>while</code> loop is another entry-controlled loop framework. Unlike the <code>for</code> loop, it only contains a conditional expression. The loop repeats continuously as long as this expression remains true, making it ideal for scenarios where the exact step count is dynamic.</p>
+        <h2>3. The 'while' Loop Architecture (Dynamic/Variable Evaluation)</h2>
+        <p>The <code>while</code> loop is an entry-controlled structure that accepts a single conditional expression. It evaluates this expression before each cycle, repeating the loop body as long as the condition remains true. It is best suited for scenarios where the total number of iterations cannot be determined beforehand, such as reading stream files or handling real-time application events.</p>
 
+        <h3>While Loop Theoretical Code Layout</h3>
         <pre>
 #include &lt;iostream&gt;
-
 using namespace std;
 
 int main() {
-    cout &lt;&lt; "--- Testing Standard WHILE Loop ---" &lt;&lt; endl;
-    
-    int dynamicCounter = 1;
+    cout &lt;&lt; "=============================================" &lt;&lt; endl;
+    cout &lt;&lt; "--- Initiating Production Standard WHILE Loop ---" &lt;&lt; endl;
+    cout &lt;&lt; "=============================================" &lt;&lt; endl;
 
-    while (dynamicCounter &lt;= 3) {
-        cout &lt;&lt; "WHILE Loop Current Counter Value: " &lt;&lt; dynamicCounter &lt;&lt; endl;
-        dynamicCounter++;
+    int processingSystemToken = 1;
+
+    while (processingSystemToken &lt;= 4) {
+        cout &lt;&lt; "WHILE State Processing Metric Active: " &lt;&lt; processingSystemToken &lt;&lt; endl;
+        processingSystemToken++; 
     }
 
+    cout &lt;&lt; "WHILE Loop operation safely completed." &lt;&lt; endl;
     return 0;
 }
 </pre>
 
-        <h3>While Loop Execution Output</h3>
+        <h3>While Loop Execution Terminal Output</h3>
         <div class="output-block">
-            --- Testing Standard WHILE Loop ---<br>
-            WHILE Loop Current Counter Value: 1<br>
-            WHILE Loop Current Counter Value: 2<br>
-            WHILE Loop Current Counter Value: 3
+            =============================================
+            --- Initiating Production Standard WHILE Loop ---
+            =============================================
+            WHILE State Processing Metric Active: 1
+            WHILE State Processing Metric Active: 2
+            WHILE State Processing Metric Active: 3
+            WHILE State Processing Metric Active: 4
+            WHILE Loop operation safely completed.
         </div>
 
-        <div class="tamil-block">
-            <strong>Tanglish Explanation (WHILE Loop):</strong> <code>while</code> loop-la initialization veliya nadakkum, condition mattum dhaan bracket-kulla irukkum. Condition true-aa irukura varaiku loop cycle run aite irukkum. Step count continuous-aa maarra idathula idhai dhaan use pannuvanga.
+        <div class="explanation-box">
+            <strong>Detailed Code Line Breakdown for 'while' Loop:</strong><br>
+            1. <code>int processingSystemToken = 1;</code>: Initialization occurs outside the loop statement.<br>
+            2. <code>while (processingSystemToken &lt;= 4)</code>: The condition is checked. If true, the execution block is triggered.<br>
+            3. <code>processingSystemToken++;</code>: The tracking counter must be manually modified inside the block to avoid an infinite loop.
         </div>
 
-        <h2>4. The 'do-while' Loop Architecture (Exit-Controlled Proof)</h2>
-        <p>The <code>do-while</code> loop is a classic exit-controlled structure. The loop body executes first, and the condition is evaluated at the bottom. This architecture guarantees that the block executes <span class="bold-txt">at least once</span>, even if the evaluation condition fails on the very first try.</p>
+        <h2>4. The 'do-while' Loop Architecture (Exit-Controlled Assertion)</h2>
+        <p>The <code>do-while</code> loop is an exit-controlled structure. It executes the statement block first, and then evaluates the conditional expression at the bottom of the cycle. This architecture guarantees the block runs <span class="bold-txt">at least once</span>, even if the evaluation condition fails on the very first try.</p>
 
+        <h3>Do-While Loop Theoretical Code Layout</h3>
         <pre>
 #include &lt;iostream&gt;
-
 using namespace std;
 
 int main() {
-    cout &lt;&lt; "--- Testing Exit-Controlled DO-WHILE Loop ---" &lt;&lt; endl;
+    cout &lt;&lt; "=============================================" &lt;&lt; endl;
+    cout &lt;&lt; "--- Initiating Production Exit DO-WHILE Loop ---" &lt;&lt; endl;
+    cout &lt;&lt; "=============================================" &lt;&lt; endl;
 
-    int strictCounter = 10;
+    // Counter initialized to 100, making the condition (counter <= 5) false from the start.
+    int testingHardcodedCounter = 100; 
 
     do {
-        cout &lt;&lt; "DO-WHILE Executing At Least Once! Value: " &lt;&lt; strictCounter &lt;&lt; endl;
-        strictCounter++;
-    } while (strictCounter &lt; 5);
+        cout &lt;&lt; "DO-WHILE Executing Block at Least Once! Value: " &lt;&lt; testingHardcodedCounter &lt;&lt; endl;
+        testingHardcodedCounter++;
+    } while (testingHardcodedCounter &lt;= 5);
 
+    cout &lt;&lt; "DO-WHILE terminal evaluation completed. System exited." &lt;&lt; endl;
     return 0;
 }
 </pre>
 
-        <h3>Do-While Loop Execution Output</h3>
+        <h3>Do-While Loop Execution Terminal Output</h3>
         <div class="output-block">
-            --- Testing Exit-Controlled DO-WHILE Loop ---<br>
-            DO-WHILE Executing At Least Once! Value: 10
+            =============================================
+            --- Initiating Production Exit DO-WHILE Loop ---
+            =============================================
+            DO-WHILE Executing Block at Least Once! Value: 100
+            DO-WHILE terminal evaluation completed. System exited.
+        </div>
+
+        <div class="explanation-box">
+            <strong>Detailed Code Line Breakdown for 'do-while' Loop:</strong><br>
+            1. The program enters the <code>do</code> block directly, bypassing initial checks, and prints the default value of 100.<br>
+            2. It increments <code>testingHardcodedCounter</code> to 101.<br>
+            3. It evaluates the condition <code>while (101 &lt;= 5)</code>, which is false, causing the loop to terminate immediately.
         </div>
 
         <div class="tamil-block">
-            <strong>Tanglish Explanation (DO-WHILE Loop):</strong> Inga counter value '10' nu vechirukaen, condition (i&lt;5) nu check panraen, idhu mudhale thappu (false). Aanalum <code>do-while</code> exit-controlled loop aal, condition-ah kadaisiya thaan paarkum. Adhunaala initial condition faile-aa ponaalum getha oru thadava code block-ah execute panni output thandhudum da!
+            <strong>Tanglish Loop Explanation Summary:</strong> 
+            Exam-la Loops keta intha 3 types-aiyume program ezhudhi dhaan kaatanum. <code>for</code> loop fixed iteration-ku use aagum. <code>while</code> loop dynamics-ku use aagum (rendume entry-controlled). Aana <code>do-while</code> exit-controlled loop, condition starting-laye thappa central-aa fail aanalum back-end getha adchiku pathu oru thadava continuous-aa code-ah run panni output thandhutu dhaan veliya pogum!
         </div>
 
 
         <h1>UNIT I - Functional Abstraction Frameworks (Functions in C++)</h1>
 
-        <h2>1. Modular Programming and Stack Memory Mechanics</h2>
-        <p>A Function is a self-contained, modular block of code that performs a specific, well-defined computational task. Functions introduce modularity and code reusability into structural architectures.</p>
+        <h2>1. Principles of Modular Programming</h2>
+        <p>A Function is a self-contained, named block of code that performs a specific, well-defined task. Functions introduce modularity and improve reuse across complex application environments. Instead of repeating identical logic blocks across different source code files, the instructions are defined once in a central functional module and called dynamically by the CPU whenever needed.</p>
+
+        <h2>2. Production-Grade Functions Code</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+// Named calculation module declaration and definition
+int computeSquareVolume(int sideMeasurement) {
+    int calculatedVolume = sideMeasurement * sideMeasurement * sideMeasurement;
+    return calculatedVolume;
+}
+
+int main() {
+    int inputMetric = 5;
+    int processingResult = computeSquareVolume(inputMetric);
+
+    cout &lt;&lt; "--- Functional Execution Processing Dump ---" &lt;&lt; endl;
+    cout &lt;&lt; "Input Metric Parameter Vector: " &lt;&lt; inputMetric &lt;&lt; endl;
+    cout &lt;&lt; "Returned Function Computation Output: " &lt;&lt; processingResult &lt;&lt; endl;
+
+    return 0;
+}
+</pre>
+
+        <h3>Functions Execution Output</h3>
+        <div class="output-block">
+            --- Functional Execution Processing Dump ---
+            Input Metric Parameter Vector: 5
+            Returned Function Computation Output: 125
+        </div>
 
 
         <h1>UNIT I - Optimization Frameworks (Inline Functions)</h1>
 
-        <h2>1. The Overhead of Function Calls and Inline Optimization Strategy</h2>
-        <p>In standard C++ software architectures, whenever a function call executes, the system incurs a distinct performance cost called Function Call Overhead. To eliminate this performance bottleneck, C++ introduces the inline optimization keyword.</p>
+        <h2>1. Function Call Overhead Optimization Strategy</h2>
+        <p>In standard execution models, executing a function call incurs a performance cost known as <span class="bold-txt">Function Call Overhead</span> (saving register states, copying arguments to stack frames, and performing jump jumps). For small, frequently called functions, this overhead can degrade performance.</p>
+        <p>C++ addresses this issue using the <code>inline</code> keyword. This instructs the compiler to replace the function call site directly with the function's raw body logic during compilation, removing the execution overhead of a standard call.</p>
+
+        <h2>2. High-Performance Inline Optimization Code</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+// Inline function definition
+inline int executeFastMultiplication(int factorAlpha, int factorBeta) {
+    return factorAlpha * factorBeta;
+}
+
+int main() {
+    int internalX = 12;
+    int internalY = 5;
+    
+    int scalarOutput = executeFastMultiplication(internalX, internalY);
+
+    cout &lt;&lt; "--- Inline Computational Performance Metrics ---" &lt;&lt; endl;
+    cout &lt;&lt; "Calculated Optimization Product Matrix Output: " &lt;&lt; scalarOutput &lt;&lt; endl;
+
+    return 0;
+}
+</pre>
+
+        <h3>Inline Function Execution Output</h3>
+        <div class="output-block">
+            --- Inline Computational Performance Metrics ---
+            Calculated Optimization Product Matrix Output: 60
+        </div>
 
 
         <h1>UNIT I - Function Overloading (Compile-Time Polymorphism)</h1>
 
-        <h2>1. Compile-Time Polymorphism and Name Mangling Mechanics</h2>
-        <p>Function Overloading is an object-oriented feature that allows developers to define multiple functions with the exact same name within the same compilation scope. This is a direct implementation of Compile-Time (Static) Polymorphism.</p>
+        <h2>1. Static Polymorphism and Name Mangling Architecture</h2>
+        <p>Function Overloading allows developers to define multiple functions with the exact same name within the same compilation scope. This is a direct implementation of <span class="bold-txt">Compile-Time Polymorphism</span>. The compiler distinguishes between overloaded functions by analyzing their signatures, which must differ in parameter types or argument counts. During compilation, the system uses a process called <span class="bold-txt">Name Mangling</span> to append unique type metadata tags to internal identifier links.</p>
+
+        <h2>2. Polymorphic Overloading Code Blueprint</h2>
+        <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+// Function signature version A: Receives integer metrics
+void printTargetReport(int integerReportId) {
+    cout &lt;&lt; "Polymorphic Routine Variant A (Integer ID Master Match): " &lt;&lt; integerReportId &lt;&lt; endl;
+}
+
+// Function signature version B: Receives floating point metrics
+void printTargetReport(double decimalLogValue) {
+    cout &lt;&lt; "Polymorphic Routine Variant B (Double Latency Precision Match): " &lt;&lt; decimalLogValue &lt;&lt; endl;
+}
+
+int main() {
+    cout &lt;&lt; "--- Commencing Polymorphic Compilation Verification ---" &lt;&lt; endl;
+    
+    printTargetReport(874);
+    printTargetReport(456.912);
+    
+    return 0;
+}
+</pre>
+
+        <h3>Function Overloading Execution Output</h3>
+        <div class="output-block">
+            --- Commencing Polymorphic Compilation Verification ---
+            Polymorphic Routine Variant A (Integer ID Master Match): 874
+            Polymorphic Routine Variant B (Double Latency Precision Match): 456.912
+        </div>
     </div>
     <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
